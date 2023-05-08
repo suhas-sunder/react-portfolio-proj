@@ -4,7 +4,8 @@ import Styles from "./NavBar.module.css";
 
 function NavBar() {
   let btnText = "resume";
-  let btnType = "download";
+  let btnType = "button";
+  let btnLogo = "download"
   let url = "https://www.freecodecamp.org/news/content/images/2021/09/react---fontawesome-icon-1.jpg";
 
   return (
@@ -31,7 +32,7 @@ function NavBar() {
           </a>
         </li>
       </ul>
-      <Button text={btnText} type={btnType} url={url} />
+      <Button text={btnText} logo={btnLogo} type={btnType} url={url} />
     </nav>
   );
 }

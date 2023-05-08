@@ -3,7 +3,7 @@ import Styles from "./Footer.module.css";
 
 function Footer() {
   return (
-    <div className={Styles.footer}>
+    <div id="footer" className={Styles.footer}>
       &copy; 2023 | Designed & coded by Suhas Sunder
     </div>
   );

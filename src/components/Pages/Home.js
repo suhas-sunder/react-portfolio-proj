@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "../Layout/NavBar";
 import Header from "../Layout/Header";
-import About from "../Layout/About";
+import Skills from "../Layout/Skills";
 import Projects from "../Layout/Projects"
 import Contact from "../Layout/Contact"
 import Footer from "../Layout/Footer"
@@ -11,7 +11,7 @@ function Home() {
     <>
       <NavBar />
       <Header />
-      <About />
+      <Skills />
       <Projects />
       <Contact />
       <Footer />

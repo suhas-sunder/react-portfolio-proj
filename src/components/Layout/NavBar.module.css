@@ -1,0 +1,31 @@
+.nav {
+    background-color: rgba(29,36,48,255);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.navList {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.navLink {
+    display: block;
+    text-decoration: none;
+    padding: 1rem 2.5rem;
+    color: white;
+}
+
+.navLink:hover {
+    color: yellow;
+}
+
+/* rgba(29,36,48,255) */

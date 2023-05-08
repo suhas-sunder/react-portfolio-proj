@@ -1,10 +1,10 @@
 import React from "react";
-import NavBar from "./components/Layout/NavBar";
-import Header from "./components/Layout/Header";
-import About from "./components/Layout/About";
-import Projects from "./components/Layout/Projects";
-import Contact from "./components/Layout/Contact";
-import Footer from "./components/Layout/Footer";
+import NavBar from "../Layout/NavBar";
+import Header from "../Layout/Header";
+import About from "../Layout/About";
+import Projects from "../Layout/Projects"
+import Contact from "../Layout/Contact"
+import Footer from "../Layout/Footer"
 
 function Home() {
   return (

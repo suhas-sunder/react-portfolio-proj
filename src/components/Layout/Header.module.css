@@ -4,6 +4,27 @@
     align-items: center;
     color: white;
     background-color: rgba(18,23,35,255);
-    width: 100%;
     min-height: 100vh;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    max-width: 775px;
+    line-height: 2rem;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+.highlight {
+    color: yellow;
 }

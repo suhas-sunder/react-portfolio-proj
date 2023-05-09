@@ -1,7 +1,7 @@
 .nav {
     background-color: rgba(29,36,48,255);
     margin: 0;
-    padding: 0;
+    padding: 0.1rem 0;
     display: flex;
     position: fixed;
     justify-content: center;
@@ -13,7 +13,7 @@
     margin: 0;
     list-style: none;
     display: flex;
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-transform: uppercase;
 }
 

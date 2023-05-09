@@ -4,7 +4,7 @@ import { faCircleDown as downloadIcon } from "@fortawesome/free-regular-svg-icon
 import { faLinkedin as linkedinIcon } from "@fortawesome/free-brands-svg-icons";
 import { faGithub as githubIcon } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope as emailIcon } from "@fortawesome/free-solid-svg-icons";
-import { faCircleInfo as infoIcon } from "@fortawesome/free-solid-svg-icons";
+import { faAward as certificateIcon } from "@fortawesome/free-solid-svg-icons";
 import Styles from "./Button.module.css";
 
 function Button({ text, logo, type, url, target }) {
@@ -14,34 +14,22 @@ function Button({ text, logo, type, url, target }) {
     linkedin: linkedinIcon,
     github: githubIcon,
     email: emailIcon,
-    info: infoIcon,
+    certificates: certificateIcon,
   };
 
-  // Text inside button or link
-  let content = (
-    <>
+  return (
+    <a
+      href={url}
+      className={Styles[type]}
+      download={type === "downloadBtn" ? true : false}
+      target={target}
+    >
       {text && <span className={Styles.text}>{text}</span>}
       {type !== "link" && (
         <FontAwesomeIcon icon={logos[logo]} className={Styles.icon} />
       )}
-    </>
-  );
-console.log(type)
-  // Button for links
-  let linkElement = (
-    <a href={url} className={Styles[type]} target={target}>
-      {content}
     </a>
   );
-
-  // Download button
-  let btnElement = (
-    <button href={url} className={Styles[type]}>
-      {content}
-    </button>
-  );
-
-  return type === "button" ? btnElement : linkElement;
 }
 
 export default Button;

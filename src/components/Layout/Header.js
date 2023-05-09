@@ -11,7 +11,7 @@ function Header() {
           Hi, I'm Suhas <span className={Styles.highlight}>|</span> Front-end
           Developer
         </h1>
-        <h2>I have a passion for learning, creating, and problem-solving.</h2>
+        <h3>I have a passion for learning, creating, and problem-solving.</h3>
         <p>
           About me. Here is some interesting information about me. Here is some interesting information about me. Here is some
           interesting information about me. Here is some interesting information

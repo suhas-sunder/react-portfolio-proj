@@ -4,7 +4,7 @@ function Contact() {
   return (
     <>
       <h2>Contact</h2>
-      <p>Let's have a chat. Feel free to fill out the form below, or email me at <a href="mailto:suhas@live.ca">suhas@live.ca</a></p>
+      <p>Let's have a chat. Feel free to fill out the form below, or email me at <a href="mailto:suhas@live.ca">suhas@live.ca</a>.</p>
       <form>
         <label>Name <span>*</span></label>
         <input/>

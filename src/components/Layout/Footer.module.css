@@ -1,6 +1,11 @@
 .footer {
   background-color: rgba(29, 36, 48, 255);
-  color: yellow;
+  color: white;
   text-align: center;
   padding: 1rem 0;
+}
+
+.highlight {
+  color: yellow;
+  text-decoration: none;
 }

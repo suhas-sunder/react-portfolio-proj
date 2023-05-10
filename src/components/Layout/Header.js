@@ -15,7 +15,7 @@ function Header() {
         <p>
           About me. Here is some interesting information about me. Here is some interesting information about me. Here is some
           interesting information about me. Here is some interesting information
-          about me. <span className={Styles.highlight}>Learn more about me...</span>
+          about me. <span className={Styles.highlight}>View bio to learn more...</span>
         </p>
         
       </div>

@@ -1,0 +1,16 @@
+.tech-stack {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 0.9rem;
+}
+
+.tech-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  border-radius: 50px;
+  padding: 0.85rem;
+  background-color: rgba(29, 36, 48, 255);
+}

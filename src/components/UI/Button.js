@@ -5,6 +5,7 @@ import { faLinkedin as linkedinIcon } from "@fortawesome/free-brands-svg-icons";
 import { faGithub as githubIcon } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope as emailIcon } from "@fortawesome/free-solid-svg-icons";
 import { faAward as certificateIcon } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight as arrowIcon } from "@fortawesome/free-solid-svg-icons";
 import Styles from "./Button.module.css";
 
 function Button({ text, logo, type, url, target }) {
@@ -15,6 +16,7 @@ function Button({ text, logo, type, url, target }) {
     github: githubIcon,
     email: emailIcon,
     certificates: certificateIcon,
+    arrow: arrowIcon,
   };
 
   return (

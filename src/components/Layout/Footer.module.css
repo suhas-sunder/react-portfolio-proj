@@ -1,8 +1,8 @@
 .footer {
-  background-color: rgba(29, 36, 48, 255);
+  background-color: rgba(18, 23, 35, 255);
   color: white;
   text-align: center;
-  padding: 1rem 0;
+  padding: 1.25rem 0;
 }
 
 .highlight {

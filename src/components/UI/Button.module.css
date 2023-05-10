@@ -1,4 +1,4 @@
-.downloadBtn, .link, .logoLink {
+.downloadBtn, .project-link, .link, .logoLink {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,17 +10,23 @@
     text-transform: uppercase;
     border: 2px solid transparent;
     cursor: pointer;
+    padding: 1rem 1.5rem;
 } 
+
+.project-link {
+    gap: 1rem;
+}
 
 .downloadBtn {
     padding: 0.35rem 0.6rem;
-    margin-left: 2.5rem;
     gap: 0.4rem;
 }
+
 
 .logoLink {
     background-color: yellow;
     padding: 0.5rem;
+    min-width: 3.5rem;
     font-size: 2rem;
 }
 

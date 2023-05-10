@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: auto;
+  padding: 1.5rem;
+}
+
+.title {
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin-bottom: 4rem;
+}
+
+.project {
+  display: flex;
+  margin: 0 auto 11rem auto;
+  gap: 5rem;
+}
+
+.project:last-child {
+  margin-bottom: 5rem;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  max-width: 50%;
+  width: 100%;
+}
+
+.project-title {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.project-description {
+  margin: 0 0 3rem 0;
+  font-size: 1.2rem;
+}
+

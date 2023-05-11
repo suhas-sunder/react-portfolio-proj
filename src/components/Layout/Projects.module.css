@@ -3,18 +3,17 @@
   flex-direction: column;
   max-width: 1200px;
   margin: auto;
-  padding: 1.5rem;
 }
 
 .title {
   font-size: 2rem;
   text-transform: uppercase;
-  margin-bottom: 4rem;
+  margin: 3.5rem 1.5rem;
 }
 
 .project {
   display: flex;
-  margin: 0 auto 11rem auto;
+  margin: 0 1.5rem 11rem 1.5rem;
   gap: 5rem;
 }
 
@@ -26,17 +25,16 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  max-width: 50%;
+  /* max-width: 50%; */
   width: 100%;
 }
 
 .project-title {
-  margin: 0;
+  margin: 0 0 1.5rem 0;
   font-size: 1.8rem;
 }
 
 .project-description {
-  margin: 0 0 3rem 0;
+  margin: 0 0 2.5rem 0;
   font-size: 1.2rem;
 }
-

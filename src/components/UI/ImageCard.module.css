@@ -3,16 +3,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
   border-radius: 15px;
   max-width: 500px;
+  overflow: hidden;
 }
 
 .img {
   display: block;
-  border-top-right-radius: 15px;
-  border-top-left-radius: 15px;
-  width: 120%;
+  width: 118%;
+  height: 100%;
 }
 
 .btn-background {

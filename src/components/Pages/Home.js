@@ -8,7 +8,7 @@ import Footer from "../Layout/Footer"
 
 function Home() {
   return (
-    <>
+    <>      
       <NavBar />
       <Header />
       <Skills />

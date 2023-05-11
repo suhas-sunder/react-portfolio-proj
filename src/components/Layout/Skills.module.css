@@ -1,8 +1,9 @@
 .container {
+  display: block;
   background-color: rgba(29, 36, 48, 255);
 }
 
-.inner-container {  
+.inner-container {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -24,30 +25,7 @@
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   top: -6.5rem;
-  /* margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  text-align: center; */
 }
-
-.title h2 {
-    margin: 0;
-    padding: 0;
-    color: red;
-}
-
-.description {
-  font-size: 1.26rem;
-  margin-bottom: 2rem;
-}
-
-/* .skills {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    column-gap: 10px;
-    row-gap: 40px;
-} */
 
 .skill {
   display: flex;

@@ -5,7 +5,8 @@
   align-items: center;
   color: white;
   background-color: rgba(18, 23, 35, 255);
-  min-height: 100vh;
+  min-height: 950px;
+  height: 100vh;
   padding-bottom: 10vh;
   gap: 5rem;
 }
@@ -16,7 +17,6 @@
   width: 300px;
   height: 300px;
   background-size: cover;
-  padding: 1rem;
   border: 5px solid yellow;
   box-shadow: 0 0 8px yellow;
   margin-bottom: 2rem;
@@ -27,18 +27,9 @@
   flex-direction: column;
 }
 
-
-p {
+.description {
   max-width: 775px;
   line-height: 2rem;
-}
-
-ul {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 2rem;
 }
 
 .highlight {
@@ -46,5 +37,41 @@ ul {
 }
 
 .links {
-  margin-top: 2.5rem;
+  display: flex;
+  list-style: none;
+  margin: 2.5rem 0 0 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+@media (max-width: 1400px) {
+  .header {
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 0;
+  }
+
+  .profile {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .sub-title {
+    font-size: 1.2rem;
+    line-height: 2.5rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
 }

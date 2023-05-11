@@ -1,7 +1,7 @@
 import React from "react";
 import Styles from "./Header.module.css";
 import Button from "../UI/Button";
-import ProfilePic from "../../assets/profile_pic.jpg";
+import ProfilePic from "../../assets/profile-pic.png";
 
 function Header() {
   return (
@@ -12,12 +12,12 @@ function Header() {
         className={Styles["profile-img"]}
       />
       <div className={Styles.profile}>
-        <h1>
+        <h1 className={Styles.title}>
           Hi, I'm Suhas <span className={Styles.highlight}>|</span> Front-end
           Developer
         </h1>
-        <h3>I have a passion for learning, creating, and problem-solving.</h3>
-        <p>
+        <h3 className={Styles["sub-title"]}>I have a passion for learning, creating, and problem-solving.</h3>
+        <p className={Styles.description}>
           About me. Here is some interesting information about me. Here is some
           interesting information about me. Here is some interesting information
           about me. Here is some interesting information about me.{" "}
@@ -46,7 +46,13 @@ function Header() {
             <Button text="" logo="email" type="logoLink" url="#footer" />
           </li>
           <li>
-            <Button text="" logo="certificates" type="logoLink" url="#footer" />
+            <Button
+              text=""
+              logo="certificates"
+              type="logoLink"
+              url="https://www.linkedin.com/in/s-sunder/details/certifications/"
+              target="_blank"
+            />
           </li>
         </ul>
       </div>

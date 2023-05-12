@@ -27,6 +27,13 @@
   top: -6.5rem;
 }
 
+.skills-list {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .skill {
   display: flex;
   flex-direction: column;
@@ -41,7 +48,6 @@
 .skill-icon {
   font-size: 3rem;
   color: white;
-  /* border: 2px solid rgba(18,23,35,255); */
   border-radius: 5px;
   padding: 0.5rem 1rem;
 }
@@ -49,7 +55,36 @@
 .skill-name {
   text-align: center;
   /* line-height: 1.7rem; */
-  /* background-color: rgba(18,23,35,255); */
+  background-color: rgba(18, 23, 35, 255);
   border-radius: 5px;
   padding: 0.5rem 1rem;
+}
+
+@media (max-width: 1200px) {
+  .title {
+    font-size: 1.7rem;
+    align-self: center;
+    top: -5.8rem;
+  }
+
+  .skills-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 3rem;
+  }
+
+  .skill-icon {
+    font-size: 2.5rem;
+  }
+
+  .skill-name {
+    font-size: 0.95rem;
+    padding: 0.5rem 0.6rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .skills-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

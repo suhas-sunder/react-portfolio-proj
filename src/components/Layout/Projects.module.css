@@ -11,21 +11,26 @@
   margin: 3.5rem 1.5rem;
 }
 
-.project {
+.project,
+.project-reverse {
   display: flex;
-  margin: 0 1.5rem 11rem 1.5rem;
+  margin: 0 1rem 11rem 1rem;
   gap: 5rem;
 }
 
-.project:last-child {
-  margin-bottom: 5rem;
+.project-reverse {
+  flex-direction: row-reverse;
+}
+
+.project-reverse:last-child {
+  margin-bottom: 8rem;
 }
 
 .details {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  /* max-width: 50%; */
+  line-height: 2rem;
   width: 100%;
 }
 
@@ -37,4 +42,30 @@
 .project-description {
   margin: 0 0 2.5rem 0;
   font-size: 1.2rem;
+}
+
+@media (max-width: 1200px) {
+  .title {
+    font-size: 1.8rem;
+    margin: 2.5rem 1rem;
+  }
+
+  .project,
+  .project-reverse {
+    flex-direction: column;
+  }
+
+  .project,
+  .project-reverse {
+    margin: 0 1rem 8rem 1rem;
+    gap: 4rem;
+  }
+
+  .project-title {
+    font-size: 1.6rem;
+  }
+
+  .project-description {
+    font-size: 1rem;
+  }
 }

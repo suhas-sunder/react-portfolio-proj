@@ -1,0 +1,55 @@
+.mobile-nav {
+  display: none;
+}
+
+.nav-list {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .mobile-nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(29, 36, 48, 255);
+  }
+  .logo,
+  .burger {
+    padding: 0.3rem;
+    font-size: 1.5rem;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    margin: 0.7rem 2.5rem;
+    background-color: yellow;
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: rgba(29, 36, 48, 255);
+  }
+
+  .nav-link {
+    display: block;
+    color: white;
+    width: 100%;
+    padding: 1.5rem 3.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .nav-link:hover {
+    background-color: yellow;
+    color: rgba(18, 23, 35, 255);
+  }
+
+  .nav-btn {
+    display: block;
+    width: 20rem;
+    margin: 2rem auto;
+  }
+}

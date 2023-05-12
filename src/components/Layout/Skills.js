@@ -15,7 +15,7 @@ function About() {
     <div className={Styles.container}>
       <div className={Styles["inner-container"]}>
         <h2 className={Styles.title}>Technical skills</h2>
-        <ul className={Styles.skills}>
+        <ul className={Styles["skills-list"]}>
           <li className={Styles.skill}>
             <FontAwesomeIcon icon={htmlIcon} className={Styles["skill-icon"]} />
             <span className={Styles["skill-name"]}>HTML5</span>

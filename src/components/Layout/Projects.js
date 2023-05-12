@@ -26,8 +26,7 @@ function Projects() {
         </div>
         <ImageCard url={ATSUrl} />
       </div>
-      <div className={Styles.project}>
-        <ImageCard url={EMEUrl} />
+      <div className={Styles["project-reverse"]}>
         <div className={Styles.details}>
           <h3 className={Styles["project-title"]}>EME Group Inc.</h3>
           <p className={Styles["project-description"]}>
@@ -40,6 +39,7 @@ function Projects() {
           </p>
           <TechStack />
         </div>
+        <ImageCard url={EMEUrl} />
       </div>
       <div className={Styles.project}>
         <div className={Styles.details}>
@@ -56,8 +56,7 @@ function Projects() {
         </div>
         <ImageCard url={PortfolioUrl} />
       </div>
-      <div className={Styles.project}>
-        <ImageCard url={CapstoneUrl} />
+      <div className={Styles["project-reverse"]}>
         <div className={Styles.details}>
           <h3 className={Styles["project-title"]}>Capstone Project</h3>
           <p className={Styles["project-description"]}>
@@ -70,6 +69,7 @@ function Projects() {
           </p>
           <TechStack />
         </div>
+        <ImageCard url={CapstoneUrl} />
       </div>
     </div>
   );

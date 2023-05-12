@@ -24,3 +24,9 @@
   background-color: rgba(29, 36, 48, 255);
   width: 100%;
 }
+
+@media (max-width: 1200px) {
+  .img-card {
+    max-width: none;
+  }
+}

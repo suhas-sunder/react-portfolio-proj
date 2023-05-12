@@ -4,10 +4,10 @@ import ContactForm from "../UI/ContactForm";
 
 function Contact() {
   return (
-    <div className={Styles.container}>
+    <div id="contact" className={Styles.container}>
       <h2 className={Styles.title}>Contact</h2>
-      <p>Let's have a chat!</p>
-      <p>
+      <p className={Styles.text}>Let's have a chat!</p>
+      <p className={Styles.text}>
         Fill out the form below, or email me at{" "}
         <a href="mailto:suhas@live.ca" className={Styles.link}>
           suhas@live.ca

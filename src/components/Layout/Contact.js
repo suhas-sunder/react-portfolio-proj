@@ -5,9 +5,12 @@ import FormInput from "../UI/FormInput";
 function Contact() {
   const [values, setValues] = useState({
     name: "",
+    nameTouched: false,
     email: "",
+    emailTouched: false,
     phone: "",
     message: "",
+    messageTouched: false,
   });
 
   const formProps = [
@@ -19,6 +22,7 @@ function Contact() {
       label: "Name",
       errorMessage: "* Please enter a name!",
       required: true,
+      touched: values.nameTouched,
     },
     {
       id: 2,
@@ -28,6 +32,7 @@ function Contact() {
       label: "Email",
       errorMessage: "* Please enter a valid email address!",
       required: true,
+      touched: values.emailTouched,
     },
     {
       id: 3,
@@ -36,6 +41,7 @@ function Contact() {
       placeholder: "111-111-1111",
       label: "Phone",
       required: false,
+      touched: false,
     },
     {
       id: 4,
@@ -45,12 +51,27 @@ function Contact() {
       label: "Message",
       errorMessage: "* Please enter a message!",
       required: true,
+      touched: values.messageTouched,
     },
   ];
 
+  // Store user input values & reset input focus
+  const handleChange = (event) => {
+    setValues({
+      ...values,
+      [event.target.name]: event.target.value,
+      [event.target.name + "Touched"]: false,
+    });
+  };
+
+  // Check if input is focused
+  const handleFocus = (event) => {
+    setValues({ ...values, [event.target.name + "Touched"]: "true" });
+  };
+
+  // Handle form submission through Formspree.io
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.target.name);
 
     console.log("Successfully submitted");
 
@@ -72,11 +93,6 @@ function Contact() {
     //   .catch((error) => {
     //     console.log("Oops! There was a problem submitting your form");
     //   });
-  };
-
-  // Store user input values
-  const handleChange = (event) => {
-    setValues({ ...values, [event.target.name]: event.target.value });
   };
 
   return (
@@ -103,6 +119,7 @@ function Contact() {
             {...props}
             value={values[props.name]}
             onChange={handleChange}
+            onBlur={handleFocus}
           />
         ))}
         <button className={Styles.button} type="submit">

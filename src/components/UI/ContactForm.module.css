@@ -17,8 +17,18 @@
   padding-left: 0.5rem;
 }
 
-.invalid-input {
+.invalid-input:invalid {
   background-color: rgb(246, 246, 196);
+}
+
+.input:invalid ~ span,
+.message:invalid ~ span {
+  display: block;
+}
+
+.input:valid ~ span,
+.message:valid ~ span {
+  display: none;
 }
 
 .error {

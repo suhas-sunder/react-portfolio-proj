@@ -12,7 +12,7 @@ import { faMobileScreen as responsiveIcon } from "@fortawesome/free-solid-svg-ic
 
 function About() {
   return (
-    <div className={Styles.container}>
+    <div id="skills" className={Styles.container}>
       <div className={Styles["inner-container"]}>
         <h2 className={Styles.title}>Technical skills</h2>
         <ul className={Styles["skills-list"]}>

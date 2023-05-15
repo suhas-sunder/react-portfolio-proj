@@ -5,6 +5,7 @@ import resumeImg from "../../assets/google_logo.jpg";
 import MobileNav from "../UI/MobileNav";
 
 function NavBar() {
+
   return (
     <nav className={Styles.nav}>
       <div className={Styles["nav-items"]}>
@@ -20,7 +21,7 @@ function NavBar() {
             </a>
           </li>
           <li>
-            <a href="#about" className={Styles["nav-link"]}>
+            <a href="#skills" className={Styles["nav-link"]}>
               Skills
             </a>
           </li>
@@ -43,7 +44,7 @@ function NavBar() {
           target="_blank"
         />
       </div>
-      <MobileNav resumeImg={resumeImg} />
+      <MobileNav id="mobile-nav" resumeImg={resumeImg} />
     </nav>
   );
 }

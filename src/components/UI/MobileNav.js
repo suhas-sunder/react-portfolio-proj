@@ -9,7 +9,8 @@ import { faX as xIcon } from "@fortawesome/free-solid-svg-icons";
 function NavBar({ resumeImg }) {
   const [toggle, setToggle] = useState(true);
 
-  const handleMobileMenu = () => {
+  // Close burger menu and toggle burger icon
+  const handleBurgerMenu = () => {
     setToggle(!toggle);
   };
 
@@ -19,45 +20,55 @@ function NavBar({ resumeImg }) {
         <FontAwesomeIcon icon={logoIcon} className={Styles.logo} />
         {toggle && (
           <FontAwesomeIcon
-            id="burger"
             icon={burgerIcon}
             className={Styles.burger}
-            onClick={handleMobileMenu}
+            onClick={handleBurgerMenu}
           />
         )}
         {!toggle && (
           <FontAwesomeIcon
-            id="burger"
             icon={xIcon}
             className={Styles.burger}
-            onClick={handleMobileMenu}
+            onClick={handleBurgerMenu}
           />
         )}
       </div>
       {!toggle && (
-        <ul className={Styles["nav-list"]}>
+        <ul id="burger-menu" className={Styles["nav-list"]}>
           <li>
-            <a href="#header" className={Styles["nav-link"]}>
+            <a
+              href="#header"
+              className={Styles["nav-link"]}
+              onClick={handleBurgerMenu}
+            >
               Home
             </a>
           </li>
           <li>
-            <a href="#about" className={Styles["nav-link"]}>
+            <a href="#about" className={Styles["nav-link"]} onClick={handleBurgerMenu}>
               About
             </a>
           </li>
           <li>
-            <a href="#about" className={Styles["nav-link"]}>
+            <a href="#about" className={Styles["nav-link"]} onClick={handleBurgerMenu}>
               Skills
             </a>
           </li>
           <li>
-            <a href="#projects" className={Styles["nav-link"]}>
+            <a
+              href="#projects"
+              className={Styles["nav-link"]}
+              onClick={handleBurgerMenu}
+            >
               Projects
             </a>
           </li>
           <li>
-            <a href="#contact" className={Styles["nav-link"]}>
+            <a
+              href="#contact"
+              className={Styles["nav-link"]}
+              onClick={handleBurgerMenu}
+            >
               Contact
             </a>
           </li>

@@ -5,7 +5,7 @@ import ProfilePic from "../../assets/profile-pic.png";
 
 function Header() {
   return (
-    <div className={Styles.header}>
+    <div id="about" className={Styles.header}>
       <img
         alt="head-shot of Suhas Sunder"
         src={ProfilePic}

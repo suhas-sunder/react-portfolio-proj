@@ -1,4 +1,4 @@
-import { React, useState, useRef } from "react";
+import { React, useState } from "react";
 import Styles from "./Contact.module.css";
 import FormInput from "../UI/FormInput";
 import FormSubmitMsg from "../Layout/FormSubmitMsg";
@@ -25,7 +25,7 @@ function Contact() {
       placeholder: "First Last",
       label: "Name",
       errorMessage: "* Please enter a name!",
-      // required: true,
+      required: true,
       touched: values.nameTouched,
     },
     {
@@ -35,7 +35,7 @@ function Contact() {
       placeholder: "firstlast@email.com",
       label: "Email",
       errorMessage: "* Please enter a valid email address!",
-      // required: true,
+      required: true,
       touched: values.emailTouched,
     },
     {
@@ -54,7 +54,7 @@ function Contact() {
       placeholder: "Hello!",
       label: "Message",
       errorMessage: "* Please enter a message!",
-      // required: true,
+      required: true,
       touched: values.messageTouched,
     },
   ];
@@ -87,7 +87,10 @@ function Contact() {
     // Set submission state to sending [loading]
     setSubmission("sending");
 
+    // Form data to be sent
     var data = new FormData(event.target);
+
+    // Form submission
     fetch(event.target.action, {
       method: form.method,
       body: data,

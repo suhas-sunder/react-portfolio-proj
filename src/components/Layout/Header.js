@@ -2,6 +2,8 @@ import React from "react";
 import Styles from "./Header.module.css";
 import Button from "../UI/Button";
 import ProfilePic from "../../assets/profile-pic.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCode as code } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
   return (
@@ -13,7 +15,7 @@ function Header() {
       />
       <div className={Styles.profile}>
         <h1 className={Styles.title}>
-          Hi, I'm Suhas <span className={Styles.highlight}>|</span> Front-end
+          Suhas Sunder <FontAwesomeIcon className={Styles.highlight} icon={code}/> Front-end
           Developer
         </h1>
         <h3 className={Styles["sub-title"]}>I have a passion for learning, creating, and problem-solving.</h3>
@@ -21,7 +23,7 @@ function Header() {
           About me. Here is some interesting information about me. Here is some
           interesting information about me. Here is some interesting information
           about me. Here is some interesting information about me.{" "}
-          <span className={Styles.highlight}>View bio to learn more...</span>
+          {/* <span className={Styles.highlight}>View bio to learn more...</span> */}
         </p>
         <ul className={Styles.links}>
           <li>

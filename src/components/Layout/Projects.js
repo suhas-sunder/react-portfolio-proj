@@ -38,10 +38,9 @@ const projData = [
       "JavaScript",
       "SASS",
       "GitHub",
-      "AWS S3",
-      "BEM Methodology",
+      "A2 Hosting",
+      "Google Maps API",
       "Responsive Design",
-      "Mobile-first Approach",
     ],
     imageURL: EMEUrl,
     projCSS: "project-reverse",
@@ -55,12 +54,11 @@ const projData = [
       "HTML5",
       "CSS3",
       "JavaScript",
-      "SASS",
+      "React",
       "GitHub",
-      "AWS S3",
-      "BEM Methodology",
+      "Fetch API",
       "Responsive Design",
-      "Mobile-first Approach",
+      "Netlify Hosting",
     ],
     imageURL: PortfolioUrl,
     projCSS: "project",
@@ -71,15 +69,12 @@ const projData = [
     description:
       "Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project.",
     techStack: [
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-      "SASS",
+      "Godot Game Engine",
+      "Mobile App Development",
       "GitHub",
-      "AWS S3",
-      "BEM Methodology",
-      "Responsive Design",
-      "Mobile-first Approach",
+      "Arduino Programming",
+      "Meeting Minutes",
+      "Waterfall Management"
     ],
     imageURL: CapstoneUrl,
     projCSS: "project-reverse",
@@ -93,7 +88,7 @@ const projects = projData.map((data) => {
       <div className={Styles.details}>
         <h3 className={Styles["project-title"]}>{data.title}</h3>
         <p className={Styles["project-description"]}>{data.description}</p>
-        <TechStack stack={data.techStack} />
+        <TechStack skillsList={data.techStack} />
       </div>
       <ImageCard url={data.imageURL} />
     </div>
@@ -104,14 +99,6 @@ function Projects() {
   return (
     <div id="projects" className={Styles.container}>
       <h2 className={Styles.title}>Projects</h2>
-      <div className={Styles.project}>
-        <div className={Styles.details}>
-          <h3 className={Styles["project-title"]}>All Track System</h3>
-          <p className={Styles["project-description"]}></p>
-          <TechStack />
-        </div>
-        <ImageCard url={ATSUrl} />
-      </div>
       {projects}
     </div>
   );

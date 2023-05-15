@@ -1,8 +1,7 @@
-form {
+.form-section {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  margin-top: 2rem;
+  row-gap: 20px;
 }
 
 .highlight {
@@ -11,10 +10,21 @@ form {
 }
 
 .input,
-.message {
+.message,
+.invalid-input {
   height: 2.5rem;
   font-size: 1rem;
   padding-left: 0.5rem;
+}
+
+.invalid-input {
+  background-color: rgb(246, 246, 196);
+}
+
+.error {
+  color: yellow;
+  margin: 0;
+  font-size: 1rem;
 }
 
 .message {
@@ -23,19 +33,4 @@ form {
   resize: vertical;
 }
 
-.button {
-  padding: 0.8rem 2rem;
-  font-size: 1.4rem;
-  text-transform: uppercase;
-  background-color: yellow;
-  color: rgba(18, 23, 35, 255);
-  border: 2px solid yellow;
-  border-radius: 5px;
-  margin: 2rem 0 1rem 0;
-}
 
-.button:hover {
-  cursor: pointer;
-  background-color: rgba(18, 23, 35, 255);
-  color: yellow;
-}

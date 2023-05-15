@@ -1,16 +1,21 @@
 .nav {
-    background-color: rgba(29,36,48,255);
     margin: 0;
-    padding: 0.1rem 0;
+    display: block;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+}
+
+.nav-items {    
+    background-color: rgba(29,36,48,255);
     display: flex;
     position: fixed;
     justify-content: center;
     align-items: center;
     width: 100%;
-    z-index: 2;
 }
 
-.navList {
+.nav-list {
     margin: 0;
     list-style: none;
     display: flex;
@@ -19,15 +24,19 @@
     margin-right: 2.5rem;
 }
 
-.navLink {
+.nav-link {
     display: block;
     text-decoration: none;
-    padding: 1rem 2.5rem;
+    padding: 1.4rem 2.5rem;
     color: white;
 }
 
-.navLink:hover {
+.nav-link:hover {
     color: yellow;
 }
 
-/* rgba(29,36,48,255) */
+@media (max-width: 1200px) {
+    .nav-items {
+        display: none;
+    }
+}

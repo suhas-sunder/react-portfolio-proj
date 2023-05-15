@@ -2,6 +2,10 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 0.9rem;
+  column-gap: 2rem;
+  margin: 0;
+  padding: 0;
+  line-height: 1.4rem;
 }
 
 .tech-name {
@@ -10,7 +14,13 @@
   align-items: center;
   text-align: center;
   color: white;
-  border-radius: 50px;
-  padding: 0.85rem;
+  border-radius: 5px;
+  padding: 0.7rem;
   background-color: rgba(29, 36, 48, 255);
+}
+
+@media (max-width: 520px) {
+  .tech-stack {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

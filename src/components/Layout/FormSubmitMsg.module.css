@@ -1,0 +1,11 @@
+.msg {
+  color: white;
+}
+
+.sent {
+  color: rgb(95, 205, 95);
+}
+
+.error {
+  color: rgb(241, 97, 97);
+}

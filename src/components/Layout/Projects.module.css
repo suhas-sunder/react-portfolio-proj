@@ -8,18 +8,19 @@
 .title {
   font-size: 2rem;
   text-transform: uppercase;
-  margin: 3.5rem 1.5rem;
+  margin: 3.5rem 1rem;
 }
 
 .project,
 .project-reverse {
   display: flex;
+  flex-direction: row-reverse;
   margin: 0 1rem 11rem 1rem;
   gap: 5rem;
 }
 
 .project-reverse {
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
 .project-reverse:last-child {
@@ -36,7 +37,7 @@
 
 .project-title {
   margin: 0 0 1.5rem 0;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 
 .project-description {

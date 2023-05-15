@@ -12,6 +12,12 @@
     justify-content: space-between;
     background-color: rgba(29, 36, 48, 255);
   }
+
+  .home-link {
+    text-decoration: none;
+    color: rgba(29, 36, 48, 255);
+  }
+
   .logo,
   .burger {
     padding: 0.3rem;
@@ -21,6 +27,8 @@
     border-radius: 5px;
     margin: 0.7rem 2.5rem;
     background-color: yellow;
+    color: rgba(29, 36, 48, 255);
+    cursor: pointer;
   }
 
   .nav-list {

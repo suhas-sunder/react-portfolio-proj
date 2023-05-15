@@ -4,73 +4,102 @@ import ImageCard from "../UI/ImageCard";
 import TechStack from "./TechStack";
 import CapstoneUrl from "../../assets/capstone-proj-screenshot.jpg";
 import EMEUrl from "../../assets/eme-website-screenshot.jpg";
-import PortfolioUrl from "../../assets/portfolio-screenshot.jpg"
-import ATSUrl from "../../assets/ats-website-screenshot.jpg"
+import PortfolioUrl from "../../assets/portfolio-screenshot.jpg";
+import ATSUrl from "../../assets/ats-website-screenshot.jpg";
+
+const projData = [
+  {
+    id: 1,
+    title: "All Track System",
+    description:
+      "Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project.",
+    techStack: [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "SASS",
+      "GitHub",
+      "AWS S3",
+      "BEM Methodology",
+      "Responsive Design",
+      "Mobile-first Approach",
+    ],
+    imageURL: ATSUrl,
+    projCSS: "project",
+  },
+  {
+    id: 2,
+    title: "EME Group Inc.",
+    description:
+      "Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project.",
+    techStack: [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "SASS",
+      "GitHub",
+      "A2 Hosting",
+      "Google Maps API",
+      "Responsive Design",
+    ],
+    imageURL: EMEUrl,
+    projCSS: "project-reverse",
+  },
+  {
+    id: 3,
+    title: "React Portfolio",
+    description:
+      "Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project.",
+    techStack: [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "React",
+      "GitHub",
+      "Fetch API",
+      "Responsive Design",
+      "Netlify Hosting",
+    ],
+    imageURL: PortfolioUrl,
+    projCSS: "project",
+  },
+  {
+    id: 4,
+    title: "Capstone Project",
+    description:
+      "Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project. Details about what I did for this project.",
+    techStack: [
+      "Godot Game Engine",
+      "Mobile App Development",
+      "GitHub",
+      "Arduino Programming",
+      "Meeting Minutes",
+      "Waterfall Management"
+    ],
+    imageURL: CapstoneUrl,
+    projCSS: "project-reverse",
+  },
+];
+
+// Store project details to be displayed
+const projects = projData.map((data) => {
+  return (
+    <div key={data.id} className={Styles[data.projCSS]}>
+      <div className={Styles.details}>
+        <h3 className={Styles["project-title"]}>{data.title}</h3>
+        <p className={Styles["project-description"]}>{data.description}</p>
+        <TechStack skillsList={data.techStack} />
+      </div>
+      <ImageCard url={data.imageURL} />
+    </div>
+  );
+});
 
 function Projects() {
   return (
-    <div className={Styles.container}>
+    <div id="projects" className={Styles.container}>
       <h2 className={Styles.title}>Projects</h2>
-      <div className={Styles.project}>
-        <div className={Styles.details}>
-          <h3 className={Styles["project-title"]}>All Track System</h3>
-          <p className={Styles["project-description"]}>
-            Details about what I did for this project. Details about what I did
-            for this project. Details about what I did for this project. Details
-            about what I did for this project. Details about what I did for this
-            project. Details about what I did for this project. Details about
-            what I did for this project. Details about what I did for this
-            project. Details about what I did for this project.
-          </p>
-          <TechStack />
-        </div>
-        <ImageCard url={ATSUrl} />
-      </div>
-      <div className={Styles["project-reverse"]}>
-        <div className={Styles.details}>
-          <h3 className={Styles["project-title"]}>EME Group Inc.</h3>
-          <p className={Styles["project-description"]}>
-            Details about what I did for this project. Details about what I did
-            for this project. Details about what I did for this project. Details
-            about what I did for this project. Details about what I did for this
-            project. Details about what I did for this project. Details about
-            what I did for this project. Details about what I did for this
-            project. Details about what I did for this project.
-          </p>
-          <TechStack />
-        </div>
-        <ImageCard url={EMEUrl} />
-      </div>
-      <div className={Styles.project}>
-        <div className={Styles.details}>
-          <h3 className={Styles["project-title"]}>React Portfolio</h3>
-          <p className={Styles["project-description"]}>
-            Details about what I did for this project. Details about what I did
-            for this project. Details about what I did for this project. Details
-            about what I did for this project. Details about what I did for this
-            project. Details about what I did for this project. Details about
-            what I did for this project. Details about what I did for this
-            project. Details about what I did for this project.
-          </p>
-          <TechStack />
-        </div>
-        <ImageCard url={PortfolioUrl} />
-      </div>
-      <div className={Styles["project-reverse"]}>
-        <div className={Styles.details}>
-          <h3 className={Styles["project-title"]}>Capstone Project</h3>
-          <p className={Styles["project-description"]}>
-            Details about what I did for this project. Details about what I did
-            for this project. Details about what I did for this project. Details
-            about what I did for this project. Details about what I did for this
-            project. Details about what I did for this project. Details about
-            what I did for this project. Details about what I did for this
-            project. Details about what I did for this project.
-          </p>
-          <TechStack />
-        </div>
-        <ImageCard url={CapstoneUrl} />
-      </div>
+      {projects}
     </div>
   );
 }

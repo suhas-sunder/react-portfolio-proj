@@ -30,9 +30,7 @@ function ContactForm(props) {
         {props.required && <span className={Styles.highlight}> *</span>}
       </label>
       {addTextArea ? txtarea : input}
-      {touched === "true" && (
-        <span className={Styles.error}>{errorMessage}</span>
-      )}
+      {touched && <span className={Styles.error}>{errorMessage}</span>}
     </div>
   );
 }

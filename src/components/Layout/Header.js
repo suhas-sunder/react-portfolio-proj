@@ -24,8 +24,8 @@ function Header() {
         </h3>
         <p className={Styles.description}>
           I'm a curiosity-driven web developer who loves bringing projects to
-          life. I sweat the details, always strive to write clean, semantic, and accessible
-          code while paying careful attention to both client and project needs.
+          life. I sweat the details, paying careful attention to all client and project needs. I always look forward to opportunities involving collaboration and teamwork, and strive to write clean, semantic, and accessible
+          code.
           <span className={Styles.highlight}> View my bio to learn more...</span>
         </p>
         {/* <p>

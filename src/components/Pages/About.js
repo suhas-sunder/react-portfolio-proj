@@ -1,7 +1,18 @@
 import React from "react";
+import NavBar from "../UI/NavBar";
+import Contact from "../Layout/Contact";
+import Footer from "../Layout/Footer";
+import Skills from "../Layout/Skills";
 
-function About() {
-  return <div>About</div>;
+function Home({ routePage }) {
+  return (
+    <>
+      <NavBar routePage={routePage} />
+      <Skills />
+      <Contact />
+      <Footer />
+    </>
+  );
 }
 
-export default About;
+export default Home;

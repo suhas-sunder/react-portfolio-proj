@@ -33,6 +33,7 @@
 
 .nav-link:hover {
     color: yellow;
+    cursor: pointer;
 }
 
 @media (max-width: 1200px) {

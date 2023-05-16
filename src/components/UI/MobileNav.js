@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import Button from "./Button";
 import Styles from "./MobileNav.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouseUser as logoIcon } from "@fortawesome/free-solid-svg-icons";
+import { faS as logoIcon } from "@fortawesome/free-solid-svg-icons";
 import { faBars as burgerIcon } from "@fortawesome/free-solid-svg-icons";
 import { faX as xIcon } from "@fortawesome/free-solid-svg-icons";
 

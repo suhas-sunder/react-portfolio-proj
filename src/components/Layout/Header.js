@@ -20,13 +20,21 @@ function Header() {
           Developer
         </h1>
         <h3 className={Styles["sub-title"]}>
-          I have a passion for learning, creating, and problem-solving.
+          A creative soul driven by a passion for learning and
+          problem-solving.
         </h3>
         <p className={Styles.description}>
-          I'm a curiosity-driven web developer who loves bringing projects to
-          life. I sweat the details, paying careful attention to all client and project needs. I always look forward to opportunities involving collaboration and teamwork, and strive to write clean, semantic, and accessible
-          code.
-          <span className={Styles.highlight}> View my bio to learn more...</span>
+          I'm a curiosity-driven web developer with an unwavering passion for
+          learning, creating, and problem-solving. My meticulous nature ensures
+          that I sweat the details, paying careful attention to every client and
+          project need. When programming, my goal is to always deliver clean,
+          semantic, and accessible code that enhances user experiences. I thrive
+          on collaborative opportunities, eagerly engaging in teamwork to bring
+          projects to life.
+          <span className={Styles.highlight}>
+            {" "}
+            View my bio to learn more...
+          </span>
         </p>
         {/* <p>
           {" "}

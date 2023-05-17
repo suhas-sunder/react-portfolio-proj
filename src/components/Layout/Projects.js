@@ -12,7 +12,7 @@ const projData = [
     id: 1,
     title: "All Track System",
     description:
-      "All Track System (ATS) is a facility management software that allows Landlords and Contractors to manage data, organize teams, and track all progress on management work in real time. This website makes it easy to understand the various features offered by the ATS software and mobile app, as well as, other important details such as the onboarding process for Landlords and Contractors.",
+      "All Track System (ATS) is a revolutionary facility management software transforming the operations of landlords and contractors. This project website offers comprehensive details about ATS and its innovative features, providing a deep understanding of its capabilities. Discover the powerful functionalities offered by the ATS software and mobile app, as well as important information regarding the onboarding process for landlords and contractors. ",
     techStack: [
       "HTML5",
       "CSS3",
@@ -31,7 +31,7 @@ const projData = [
     id: 2,
     title: "EME Group Inc.",
     description:
-      "The EME Group Inc. website makes it easy for clients to understand the consulting process from start to finish. The website also provides details about all Electrical and Mechanical services offered and showcases a variety of client projects organized by industry. A detailed summary of all available positions and job requirements are available for review on the careers page. The contact page provides visitors with pertinent contact information alongside a convenient contact form, and includes a live map for users to interact with.",
+      "The EME Group Inc. website showcases the consulting process, Electrical and Mechanical services, and notable client projects of the company. This website provides clients with a clear understanding of the end-to-end consulting journey, detailed information about services offered, and a showcase of client projects categorized by industry. Additionally, the website features a comprehensive careers page that outlines available positions and their respective requirements. For seamless communication, the contact page offers visitors easy access to pertinent contact information, a convenient contact form, and an interactive map.",
     techStack: [
       "HTML5",
       "CSS3",
@@ -49,7 +49,7 @@ const projData = [
     id: 3,
     title: "React Portfolio",
     description:
-      "A personal portfolio website built using React that highlights my professional skills, accomplishments, and other relevant details for potential employers to review. Additionally, this portfolio provides easy access to my current resume, a detailed overview for each project, and includes a contact form on every page.",
+      "My personal portfolio website, built using React, showcases my professional skills, accomplishments, and other relevant details to impress potential employers. With easy access to my current resume, detailed project overviews, and a contact form on every page, this portfolio presents a comprehensive overview of my work. Explore my portfolio to gain insights into my expertise and get in touch for exciting opportunities.",
     techStack: [
       "HTML5",
       "CSS3",
@@ -67,7 +67,7 @@ const projData = [
     id: 4,
     title: "Capstone Project",
     description:
-      "SPArcDS is a prototype Arc Fault detection system that sends a notification to the SPArcDS mobile app when an Arc Fault has been detected in a home. As an added safety measure SPArcDS also sends an SMS notification to the user's phone. Users can register new devices to the mobile app wirelessly and can view an activity log that details the status of all registered SPAarcDS devices.",
+      "SPArcDS is a prototype Arc Fault detection system designed to enhance home safety. When an Arc Fault is detected, SPArcDS promptly notifies the user through the SPArcDS mobile app and sends an SMS notification to their phone as an additional safety measure. All notifications and relevant data are securely logged to a database for future reference. The mobile app enables users to wirelessly register new devices and conveniently view the activity log, which provides detailed status updates for all registered SPArcDS devices.",
     techStack: [
       "Godot Game Engine",
       "Mobile App Development",

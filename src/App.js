@@ -1,7 +1,7 @@
 import { React } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Pages/Home";
-import ProjectOverview from "./components/Pages/ProjectOverview";
+import ProjectOverview from "./components/Pages/ProjOverview";
 import About from "./components/Pages/About";
 
 function App() {
@@ -12,19 +12,19 @@ function App() {
       <Route path="/Projects">
         <Route
           path="AllTrackSystem"
-          element={<ProjectOverview projName="ATS" />}
+          element={<ProjectOverview projName="All Track System" />}
         />
         <Route
           path="EMEGroupInc"
-          element={<ProjectOverview projName="EME" />}
+          element={<ProjectOverview projName="EME Group Inc." />}
         />
         <Route
           path="Portfolio"
-          element={<ProjectOverview projName="Portfolio" />}
+          element={<ProjectOverview projName="React Portfolio" />}
         />
         <Route
           path="Capstone"
-          element={<ProjectOverview projName="Capstone" />}
+          element={<ProjectOverview projName="Capstone SPArcDS" />}
         />
       </Route>
       <Route path="*" element={<h2>404 Not Found!</h2>} />

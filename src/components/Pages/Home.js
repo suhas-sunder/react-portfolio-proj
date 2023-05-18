@@ -7,45 +7,14 @@ import Footer from "../Layout/Footer";
 import Styles from "./Home.module.css";
 import Button from "../UI/Button";
 import ProfilePic from "../../assets/profile-pic.png";
+import HomeBtnData from "../../data/HomeBtnData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode as code } from "@fortawesome/free-solid-svg-icons";
 
-function Home({ routePage }) {
-  // Buttons to be mapped onto header section
-  const buttonData = [
-    {
-      text: "",
-      logo: "linkedin",
-      type: "logoLink",
-      url: "https://www.linkedin.com/in/s-sunder/",
-      target: "_blank",
-    },
-    {
-      text: "",
-      logo: "github",
-      type: "logoLink",
-      url: "https://github.com/suhas-sunder",
-      target: "_blank",
-    },
-    {
-      text: "",
-      logo: "certificates",
-      type: "logoLink",
-      url: "https://www.linkedin.com/in/s-sunder/details/certifications/",
-      target: "_blank",
-    },
-    {
-      text: "",
-      logo: "email",
-      type: "logoLink",
-      url: "/#contact",
-      isHashLink: true,
-    },
-  ];
-
+function Home() {
   return (
     <>
-      <NavBar routePage={routePage} />
+      <NavBar />
       <div id="about" className={Styles.header}>
         <img
           alt="head-shot of Suhas Sunder"
@@ -76,7 +45,7 @@ function Home({ routePage }) {
             </span>
           </p>
           <ul className={Styles.links}>
-            {buttonData.map((data, index) => (
+            {HomeBtnData.map((data, index) => (
               <li key={index}>
                 <Button
                   logo={data.logo}

@@ -4,10 +4,10 @@ import Contact from "../Layout/Contact";
 import Footer from "../Layout/Footer";
 import Skills from "../Layout/Skills";
 
-function Home({ routePage }) {
+function About() {
   return (
     <>
-      <NavBar routePage={routePage} />
+      <NavBar />
       <Skills />
       <Contact />
       <Footer />
@@ -15,4 +15,4 @@ function Home({ routePage }) {
   );
 }
 
-export default Home;
+export default About;

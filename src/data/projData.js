@@ -3,7 +3,7 @@ import EMEUrl from "../assets/eme-website-screenshot.jpg";
 import PortfolioUrl from "../assets/portfolio-screenshot.jpg";
 import ATSUrl from "../assets/ats-website-screenshot.jpg";
 
-const data = [
+const ProjData = [
   {
     id: 1,
     title: "All Track System",
@@ -73,7 +73,7 @@ const data = [
   },
   {
     id: 4,
-    title: "Capstone Project",
+    title: "Capstone SPArcDS",
     description:
       "SPArcDS is a prototype Arc Fault detection system designed to enhance home safety. When an Arc Fault is detected, SPArcDS promptly notifies the user through the SPArcDS mobile app and sends an SMS notification to their phone as an additional safety measure. All notifications and relevant data are securely logged to a database for future reference. The mobile app enables users to wirelessly register new devices and conveniently view the activity log, which provides detailed status updates for all registered SPArcDS devices.",
     techStack: [
@@ -93,4 +93,4 @@ const data = [
   },
 ];
 
-export default data;
+export default ProjData;

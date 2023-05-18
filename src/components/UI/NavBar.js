@@ -14,7 +14,7 @@ function NavBar({ routePage }) {
       behavior: "smooth",
     });
 
-    console.log("true")
+    console.log("true");
   };
 
   return (

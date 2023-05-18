@@ -4,7 +4,7 @@ import ImageCard from "../UI/ImageCard";
 import TechStack from "./TechStack";
 import ProjData from "../../data/projData";
 
-// Store project details to be displayed
+
 const projects = ProjData.map((data) => {
   return (
     <div key={data.id} className={Styles[data.projCSS]}>

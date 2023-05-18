@@ -1,5 +1,3 @@
-
-
 import CapstoneUrl from "../assets/capstone-proj-screenshot.jpg";
 import EMEUrl from "../assets/eme-website-screenshot.jpg";
 import PortfolioUrl from "../assets/portfolio-screenshot.jpg";
@@ -25,6 +23,9 @@ const data = [
     imageURL: ATSUrl,
     projCSS: "project",
     projLink: "/projects/AllTrackSystem",
+    features: "",
+    projProposal: "",
+    problems: "",
   },
   {
     id: 2,
@@ -44,6 +45,9 @@ const data = [
     imageURL: EMEUrl,
     projCSS: "project-reverse",
     projLink: "/projects/EMEGroupInc",
+    features: "",
+    projProposal: "",
+    problems: "",
   },
   {
     id: 3,
@@ -63,6 +67,9 @@ const data = [
     imageURL: PortfolioUrl,
     projCSS: "project",
     projLink: "/projects/Portfolio",
+    features: "",
+    projProposal: "",
+    problems: "",
   },
   {
     id: 4,
@@ -80,7 +87,10 @@ const data = [
     imageURL: CapstoneUrl,
     projCSS: "project-reverse",
     projLink: "/projects/Capstone",
+    projProposal: "",
+    features: "",
+    problems: "",
   },
 ];
 
-export default data
+export default data;

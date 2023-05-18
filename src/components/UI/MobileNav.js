@@ -1,4 +1,6 @@
 import { React, useState } from "react";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import Button from "./Button";
 import Styles from "./MobileNav.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,25 +8,30 @@ import { faS as logoIcon } from "@fortawesome/free-solid-svg-icons";
 import { faBars as burgerIcon } from "@fortawesome/free-solid-svg-icons";
 import { faX as xIcon } from "@fortawesome/free-solid-svg-icons";
 
-function NavBar({ resumeImg }) {
+function NavBar({ resumeImg, handleScroll }) {
   const [toggle, setToggle] = useState(true);
 
-  // Close burger menu and toggle burger icon
-  const handleBurgerMenu = () => {
-    setToggle(!toggle);
+  // Handle burger menu toggle and page scroll behaviour 
+  const handleBurgerMenu = (shouldToggle, shouldScroll) => {
+    shouldToggle ? setToggle(!toggle) : setToggle(true);
+    shouldScroll && handleScroll();
   };
 
   return (
     <>
       <div className={Styles["mobile-nav"]}>
-        <a href="#header" className={Styles["home-link"]} onClick={() => setToggle(true)}>
+        <Link
+          to="/"
+          className={Styles["home-link"]}
+          onClick={() => handleBurgerMenu(false, true)}
+        >
           <FontAwesomeIcon icon={logoIcon} className={Styles.logo} />
-        </a>
+        </Link>
         {toggle && (
           <FontAwesomeIcon
             icon={burgerIcon}
             className={Styles.burger}
-            onClick={handleBurgerMenu}
+            onClick={() => handleBurgerMenu(true, false)}
           />
         )}
         {!toggle && (
@@ -37,7 +44,7 @@ function NavBar({ resumeImg }) {
       </div>
       {!toggle && (
         <ul id="burger-menu" className={Styles["nav-list"]}>
-          <li>
+          {/* <li>
             <a
               href="#about"
               className={Styles["nav-link"]}
@@ -45,33 +52,33 @@ function NavBar({ resumeImg }) {
             >
               About
             </a>
-          </li>
+          </li> */}
           <li>
-            <a
-              href="#about"
+            <HashLink
+              to="/#skills"
               className={Styles["nav-link"]}
               onClick={handleBurgerMenu}
             >
               Skills
-            </a>
+            </HashLink>
           </li>
           <li>
-            <a
-              href="#projects"
+            <HashLink
+              to="/#projects"
               className={Styles["nav-link"]}
               onClick={handleBurgerMenu}
             >
               Projects
-            </a>
+            </HashLink>
           </li>
           <li>
-            <a
-              href="#contact"
+            <HashLink
+              to="/#contact"
               className={Styles["nav-link"]}
               onClick={handleBurgerMenu}
             >
               Contact
-            </a>
+            </HashLink>
           </li>
           <li className={Styles["nav-btn"]}>
             <Button

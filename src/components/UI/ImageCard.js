@@ -2,7 +2,7 @@ import React from "react";
 import Styles from "./ImageCard.module.css";
 import Button from "./Button";
 
-function ImageCard({ url }) {
+function ImageCard({ url, projLink }) {
   return (
     <div className={Styles["img-card"]}>
       <img src={url} alt="website" className={Styles.img} />
@@ -11,7 +11,7 @@ function ImageCard({ url }) {
           text="project overview"
           type="project-link"
           logo="arrow"
-          url={"www.google.com"}
+          url={projLink}
         />
       </div>
     </div>

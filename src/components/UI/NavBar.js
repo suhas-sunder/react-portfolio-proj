@@ -1,48 +1,66 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import Button from "./Button";
 import Styles from "./NavBar.module.css";
 import resumeImg from "../../assets/google_logo.jpg";
 import MobileNav from "../UI/MobileNav";
 
 function NavBar({ routePage }) {
+  // Scroll to top of page on redirect
+  const handleScroll = () => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+
+    console.log("true")
+  };
+
   return (
     <nav className={Styles.nav}>
       <div className={Styles["nav-items"]}>
         <ul className={Styles["nav-list"]}>
           <li>
-            <a
-              href="#header"
-              className={Styles["nav-link"]}
-              onClick={() => routePage("home")}
-            >
+            <Link to="/" className={Styles["nav-link"]} onClick={handleScroll}>
               Home
-            </a>
+            </Link>
           </li>
-          <li>
-            <div
+          {/* <li>
+            <Link
+              to="/about"
               className={Styles["nav-link"]}
-              onClick={() => routePage("home")}
+              onClick={handleScroll}
             >
               About
-            </div>
-          </li>
+            </Link>
+          </li> */}
           <li>
-            <a href="#skills" className={Styles["nav-link"]}>
-              Skills
-            </a>
-          </li>
-          <li>
-            <div
+            <HashLink
+              to="/#skills"
               className={Styles["nav-link"]}
-              onClick={() => routePage("project")}
+              onClick={handleScroll}
+            >
+              Skills
+            </HashLink>
+          </li>
+          <li>
+            <HashLink
+              to="/#projects"
+              className={Styles["nav-link"]}
+              onClick={handleScroll}
             >
               Projects
-            </div>
+            </HashLink>
           </li>
           <li>
-            <a href="#contact" className={Styles["nav-link"]}>
+            <HashLink
+              to="/#contact"
+              className={Styles["nav-link"]}
+              onClick={handleScroll}
+            >
               Contact
-            </a>
+            </HashLink>
           </li>
         </ul>
         <Button
@@ -53,7 +71,11 @@ function NavBar({ routePage }) {
           target="_blank"
         />
       </div>
-      <MobileNav id="mobile-nav" resumeImg={resumeImg} />
+      <MobileNav
+        id="mobile-nav"
+        resumeImg={resumeImg}
+        handleScroll={handleScroll}
+      />
     </nav>
   );
 }

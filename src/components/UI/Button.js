@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleDown as downloadIcon } from "@fortawesome/free-regular-svg-icons";
 import { faLinkedin as linkedinIcon } from "@fortawesome/free-brands-svg-icons";
@@ -20,8 +21,8 @@ function Button({ text, logo, type, url, target }) {
   };
 
   return (
-    <a
-      href={url}
+    <Link
+      to={url}
       className={Styles[type]}
       download={type === "downloadBtn" ? true : false}
       target={target}
@@ -30,7 +31,7 @@ function Button({ text, logo, type, url, target }) {
       {type !== "link" && (
         <FontAwesomeIcon icon={logos[logo]} className={Styles.icon} />
       )}
-    </a>
+    </Link>
   );
 }
 

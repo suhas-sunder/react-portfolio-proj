@@ -26,6 +26,7 @@ const projData = [
     ],
     imageURL: ATSUrl,
     projCSS: "project",
+    projLink: "/projects/AllTrackSystem",
   },
   {
     id: 2,
@@ -44,6 +45,7 @@ const projData = [
     ],
     imageURL: EMEUrl,
     projCSS: "project-reverse",
+    projLink: "/projects/EMEGroupInc",
   },
   {
     id: 3,
@@ -62,6 +64,7 @@ const projData = [
     ],
     imageURL: PortfolioUrl,
     projCSS: "project",
+    projLink: "/projects/Portfolio",
   },
   {
     id: 4,
@@ -78,6 +81,7 @@ const projData = [
     ],
     imageURL: CapstoneUrl,
     projCSS: "project-reverse",
+    projLink: "/projects/Capstone",
   },
 ];
 
@@ -90,7 +94,7 @@ const projects = projData.map((data) => {
         <p className={Styles["project-description"]}>{data.description}</p>
         <TechStack skillsList={data.techStack} />
       </div>
-      <ImageCard url={data.imageURL} />
+      <ImageCard url={data.imageURL} projLink={data.projLink} />
     </div>
   );
 });

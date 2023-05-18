@@ -6,10 +6,11 @@ import Projects from "../Layout/Projects";
 import Contact from "../Layout/Contact";
 import Footer from "../Layout/Footer";
 
-function Home() {
+function Home({ routePage }) {
+
   return (
     <>
-      <NavBar />
+      <NavBar routePage={routePage} />
       <Header />
       <Skills />
       <Projects />

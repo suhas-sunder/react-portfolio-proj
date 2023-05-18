@@ -4,21 +4,27 @@ import Styles from "./NavBar.module.css";
 import resumeImg from "../../assets/google_logo.jpg";
 import MobileNav from "../UI/MobileNav";
 
-function NavBar() {
-
+function NavBar({ routePage }) {
   return (
     <nav className={Styles.nav}>
       <div className={Styles["nav-items"]}>
         <ul className={Styles["nav-list"]}>
           <li>
-            <a href="#header" className={Styles["nav-link"]}>
+            <a
+              href="#header"
+              className={Styles["nav-link"]}
+              onClick={() => routePage("home")}
+            >
               Home
             </a>
           </li>
           <li>
-            <a href="#about" className={Styles["nav-link"]}>
+            <div
+              className={Styles["nav-link"]}
+              onClick={() => routePage("home")}
+            >
               About
-            </a>
+            </div>
           </li>
           <li>
             <a href="#skills" className={Styles["nav-link"]}>
@@ -26,9 +32,12 @@ function NavBar() {
             </a>
           </li>
           <li>
-            <a href="#projects" className={Styles["nav-link"]}>
+            <div
+              className={Styles["nav-link"]}
+              onClick={() => routePage("project")}
+            >
               Projects
-            </a>
+            </div>
           </li>
           <li>
             <a href="#contact" className={Styles["nav-link"]}>

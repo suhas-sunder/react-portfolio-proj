@@ -15,16 +15,30 @@ function Header() {
       />
       <div className={Styles.profile}>
         <h1 className={Styles.title}>
-          Suhas Sunder <FontAwesomeIcon className={Styles.highlight} icon={code}/> Front-end
+          Suhas Sunder{" "}
+          <FontAwesomeIcon className={Styles.highlight} icon={code} /> Front-end
           Developer
         </h1>
-        <h3 className={Styles["sub-title"]}>I have a passion for learning, creating, and problem-solving.</h3>
+        <h3 className={Styles["sub-title"]}>
+          I have a passion for learning, creating, and problem-solving.
+        </h3>
         <p className={Styles.description}>
-          About me. Here is some interesting information about me. Here is some
-          interesting information about me. Here is some interesting information
-          about me. Here is some interesting information about me.{" "}
-          {/* <span className={Styles.highlight}>View bio to learn more...</span> */}
+          I'm a curiosity-driven web developer who loves bringing projects to
+          life. I sweat the details, paying careful attention to all client and project needs. I always look forward to opportunities involving collaboration and teamwork, and strive to write clean, semantic, and accessible
+          code.
+          <span className={Styles.highlight}> View my bio to learn more...</span>
         </p>
+        {/* <p>
+          {" "}
+          I have an Honours Bachelor's degree in Electrical Engineering and
+          Management.{" "}
+        </p>
+        <p className={Styles.description}>
+          Aside from teaching myself to code, I enjoy socializing with friends
+          and playing board games, video games, badminton, and archery. My
+          creative hobbies include folding origami, learning to draw, and making
+          YouTube videos of my hobbies.
+        </p> */}
         <ul className={Styles.links}>
           <li>
             <Button

@@ -11,52 +11,56 @@ import { faReact as reactIcon } from "@fortawesome/free-brands-svg-icons";
 import { faMobileScreen as responsiveIcon } from "@fortawesome/free-solid-svg-icons";
 
 function About() {
+  // Technical skills data for skills section
+  const skillsData = [
+    {
+      icon: htmlIcon,
+      skill: "HTML5",
+    },
+    {
+      icon: cssIcon,
+      skill: "CSS3",
+    },
+    {
+      icon: jsIcon,
+      skill: "JavaScript",
+    },
+    {
+      icon: gitIcon,
+      skill: "Git",
+    },
+    {
+      icon: githubIcon,
+      skill: "GitHub",
+    },
+    {
+      icon: sassIcon,
+      skill: "SASS",
+    },
+    {
+      icon: reactIcon,
+      skill: "React",
+    },
+    {
+      icon: responsiveIcon,
+      skill: "Responsive Design",
+    },
+  ];
+
   return (
     <div id="skills" className={Styles.container}>
       <div className={Styles["inner-container"]}>
         <h2 className={Styles.title}>Technical skills</h2>
         <ul className={Styles["skills-list"]}>
-          <li className={Styles.skill}>
-            <FontAwesomeIcon icon={htmlIcon} className={Styles["skill-icon"]} />
-            <span className={Styles["skill-name"]}>HTML5</span>
-          </li>
-          <li className={Styles.skill}>
-            <FontAwesomeIcon icon={cssIcon} className={Styles["skill-icon"]} />
-            <span className={Styles["skill-name"]}>CSS3</span>
-          </li>
-          <li className={Styles.skill}>
-            <FontAwesomeIcon icon={jsIcon} className={Styles["skill-icon"]} />
-            <span className={Styles["skill-name"]}>JavaScript</span>
-          </li>
-          <li className={Styles.skill}>
-            <FontAwesomeIcon icon={gitIcon} className={Styles["skill-icon"]} />
-            <span className={Styles["skill-name"]}>Git</span>
-          </li>
-          <li className={Styles.skill}>
-            <FontAwesomeIcon
-              icon={githubIcon}
-              className={Styles["skill-icon"]}
-            />
-            <span className={Styles["skill-name"]}>GitHub</span>
-          </li>
-          <li className={Styles.skill}>
-            <FontAwesomeIcon icon={sassIcon} className={Styles["skill-icon"]} />
-            <span className={Styles["skill-name"]}>SASS</span>
-          </li>
-          <li className={Styles.skill}>
-            <FontAwesomeIcon
-              icon={reactIcon}
-              className={Styles["skill-icon"]}
-            />
-            <span className={Styles["skill-name"]}>React</span>
-          </li>
-          <li className={Styles.skill}>
-            <FontAwesomeIcon
-              icon={responsiveIcon}
-              className={Styles["skill-icon"]}
-            />
-            <span className={Styles["skill-name"]}>Responsive Design</span>
-          </li>
+          {skillsData.map((data, index) => (
+            <li key={index} className={Styles.skill}>
+              <FontAwesomeIcon
+                icon={data.icon}
+                className={Styles["skill-icon"]}
+              />
+              <span className={Styles["skill-name"]}>{data.skill}</span>
+            </li>
+          ))}
         </ul>
       </div>
     </div>

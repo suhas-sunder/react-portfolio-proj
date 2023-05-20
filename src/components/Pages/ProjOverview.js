@@ -19,7 +19,9 @@ function ProjOverview({ projName }) {
       <div className={Styles.header}>
         <div className={Styles["header-container"]}>
           <h1>{title}</h1>
-          <img src={imageURL} alt={`${title} project screenshot`} />
+          <a href="https://ontariotechu.ca/index.php">
+            <img src={imageURL} alt={`${title} project screenshot`} />
+          </a>
           <p>{description}</p>
           <h3>Tech Stack</h3>
           <ul>
@@ -28,7 +30,11 @@ function ProjOverview({ projName }) {
             ))}
           </ul>
           <h3>Links</h3>
-          <p>Sorry, a link will be available soon. The client is waiting for their mobile app to be published before going live. <span>Meanwhile, here are some screenshots for review...</span></p>
+          <p>
+            Sorry, a link will be available soon. The client is waiting for
+            their mobile app to be published before going live.{" "}
+            <span>Meanwhile, here are some screenshots for review...</span>
+          </p>
           <p>GitHub repository not available as per client request.</p>
         </div>
       </div>

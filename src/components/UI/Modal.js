@@ -3,31 +3,44 @@ import Styles from "./Modal.module.css";
 import uniLogoImg from "../../assets/ontariotechu-img.jpg";
 import Button from "./Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleXmark as closeIcon } from "@fortawesome/free-regular-svg-icons";
+import { faXmark as closeIcon } from "@fortawesome/free-solid-svg-icons";
 
 function Modal({ closeModal }) {
   return (
-    <div className={Styles.background} onClick={() => closeModal()}>
+    <>
       <div className={Styles.modal}>
-        <FontAwesomeIcon icon={closeIcon} onClick={() => closeModal()}/>
-        <h2>Education</h2>
-        <img src={uniLogoImg} />
-        <h3>Ontario Tech University </h3>
-        <p>
-          <span>B. Eng, Electrical Engineering and Management</span>
-          <span>Graduated Apr 2019</span>
+        <FontAwesomeIcon
+          icon={closeIcon}
+          className={Styles["close-btn"]}
+          onClick={() => closeModal()}
+        />
+        <h2 className={Styles.title}>Education</h2>
+        <a href="https://ontariotechu.ca/" rel="noreferrer" target="_blank">
+          <img
+            src={uniLogoImg}
+            alt="Ontario Tech University Logo"
+            className={Styles.img}
+          />
+        </a>
+        <h3 className={Styles["sub-title"]}>Ontario Tech University </h3>
+        <p className={Styles.details}>
+          B. Eng, Electrical Engineering & Management (Honours)
         </p>
-        <div>
+        <p className={Styles.details}>Location: Oshawa, Canada</p>
+        <p className={Styles.details}>Graduated: Apr 2019</p>
+        <div className={Styles["button-bkgd"]}>
           <Button
-            text="VIEW CAPSTONE PROJECT"
-            type="logoLink"
+            text="University Capstone Project"
+            type="project-link"
+            logo={"arrow"}
             url="/#capstone"
             isHashLink={true}
             onClick={() => closeModal()}
           />
         </div>
       </div>
-    </div>
+      <div className={Styles.background} onClick={() => closeModal()}></div>
+    </>
   );
 }
 

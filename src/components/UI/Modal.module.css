@@ -3,14 +3,81 @@
   position: fixed;
   justify-content: center;
   align-items: center;
-  background-color: rgb(5, 4, 4, 0.5);
+  background-color: rgba(255, 255, 255, 0.4);
   width: 100%;
   height: 100vh;
   z-index: 3;
 }
 
+.background:hover {
+  cursor: pointer;
+}
+
 .modal {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(18, 23, 35, 255);
+  padding: 3rem;
+  border-radius: 10px;
+  color: white;
+  z-index: 4;
+}
+
+.img {
+  display: block;
+  max-width: 350px;
+  border-radius: 15px;
+  margin: auto;
+}
+
+.close-btn {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  background-color: yellow;
+  padding: 0.5rem;
+  color: rgba(29, 36, 48, 255);
+  border: 3px solid rgba(29, 36, 48, 255);
+  border-radius: 10px;
+  top: 0.7rem;
+  right: 0.7rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 2rem;
+  padding-bottom: 3rem;
+}
+
+.sub-title {
+  font-size: 1.4rem;
+  margin: 3rem 0 2rem 0;
+}
+
+.details {
+  font-size: 1.2rem;
+}
+
+.details:last-of-type {
+  padding-bottom: 1.5rem;
+}
+
+.close-btn:hover {
+  cursor: pointer;
+  background-color: rgba(29, 36, 48, 255);
+  border: 3px solid yellow;
+  color: yellow;
+}
+
+.button-bkgd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(29, 36, 48, 255);
+  padding: 2rem;
+  border-radius: 10px;
 }

@@ -24,16 +24,9 @@
     margin-right: 2.5rem;
 }
 
-.nav-link {
+.download-link {
     display: block;
-    text-decoration: none;
-    padding: 1.4rem 2.5rem;
-    color: white;
-}
-
-.nav-link:hover {
-    color: yellow;
-    cursor: pointer;
+    margin: auto 0 auto 2rem;
 }
 
 @media (max-width: 1200px) {

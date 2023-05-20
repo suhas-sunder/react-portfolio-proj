@@ -26,9 +26,18 @@
   flex-direction: column;
 }
 
+.title {
+  font-size: 2rem;
+}
+
+.sub-title {
+  font-size: 1.25rem;
+}
+
 .description {
   max-width: 690px;
   line-height: 2rem;
+  font-size: 1.15rem;
 }
 
 .highlight {
@@ -46,9 +55,8 @@
 @media (max-width: 1200px) {
   .header {
     flex-direction: column;
-    padding: 1.5rem;
-    padding-bottom: 10vh;
-    min-height: 1050px;
+    padding: 9rem 1.5rem;
+    min-height: auto;
     gap: 0;
   }
 
@@ -64,7 +72,7 @@
   }
 
   .title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .sub-title {

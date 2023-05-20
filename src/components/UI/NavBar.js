@@ -3,57 +3,31 @@ import Button from "./Button";
 import Styles from "./NavBar.module.css";
 import resumeImg from "../../assets/google_logo.jpg";
 import MobileNav from "../UI/MobileNav";
+import NavBtnData from "../../data/NavBtnData";
 
-function NavBar({ routePage }) {
+function NavBar() {
   return (
     <nav className={Styles.nav}>
       <div className={Styles["nav-items"]}>
         <ul className={Styles["nav-list"]}>
-          <li>
-            <a
-              href="#header"
-              className={Styles["nav-link"]}
-              onClick={() => routePage("home")}
-            >
-              Home
-            </a>
-          </li>
-          <li>
-            <div
-              className={Styles["nav-link"]}
-              onClick={() => routePage("home")}
-            >
-              About
-            </div>
-          </li>
-          <li>
-            <a href="#skills" className={Styles["nav-link"]}>
-              Skills
-            </a>
-          </li>
-          <li>
-            <div
-              className={Styles["nav-link"]}
-              onClick={() => routePage("project")}
-            >
-              Projects
-            </div>
-          </li>
-          <li>
-            <a href="#contact" className={Styles["nav-link"]}>
-              Contact
-            </a>
-          </li>
+          {NavBtnData.map((data, index) => (
+            <li key={index} className={(data.type === "downloadBtn") ? Styles["download-link"] : ""}>
+              <Button
+                url={data.url !== "resumeImg" ? data.url : resumeImg}
+                type={data.type}
+                text={data.text}
+                logo={data.logo}
+                target={data.target}
+                isHashLink={data.hashLink}
+              />
+            </li>
+          ))}
         </ul>
-        <Button
-          text="resume"
-          logo="download"
-          type="downloadBtn"
-          url={resumeImg}
-          target="_blank"
-        />
       </div>
-      <MobileNav id="mobile-nav" resumeImg={resumeImg} />
+      <MobileNav
+        id="mobile-nav"
+        resumeImg={resumeImg}
+      />
     </nav>
   );
 }

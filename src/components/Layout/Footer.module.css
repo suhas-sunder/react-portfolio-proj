@@ -2,10 +2,24 @@
   background-color: rgba(18, 23, 35, 255);
   color: white;
   text-align: center;
-  padding: 1.25rem 1rem;
+  padding: 1.75rem 1rem;
 }
 
 .highlight {
   color: yellow;
   text-decoration: none;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin-bottom: 1.75rem;
+  padding: 0;
+  gap: 2rem;
+}
+
+.text {
+  margin: 0;
+  padding: 0;
 }

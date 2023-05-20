@@ -2,29 +2,33 @@ import { React, useState } from "react";
 import Button from "./Button";
 import Styles from "./MobileNav.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faS as logoIcon } from "@fortawesome/free-solid-svg-icons";
 import { faBars as burgerIcon } from "@fortawesome/free-solid-svg-icons";
 import { faX as xIcon } from "@fortawesome/free-solid-svg-icons";
+import NavBtnData from "../../data/NavBtnData";
 
-function NavBar({ resumeImg }) {
+function NavBar({ resumeImg, handleScroll }) {
   const [toggle, setToggle] = useState(true);
 
-  // Close burger menu and toggle burger icon
-  const handleBurgerMenu = () => {
-    setToggle(!toggle);
+  // Handle burger menu toggle and page scroll behaviour
+  const handleBurgerMenu = (shouldToggle, shouldScroll) => {
+    shouldToggle ? setToggle(!toggle) : setToggle(true);
+    shouldScroll && handleScroll();
   };
 
   return (
     <>
       <div className={Styles["mobile-nav"]}>
-        <a href="#header" className={Styles["home-link"]} onClick={() => setToggle(true)}>
-          <FontAwesomeIcon icon={logoIcon} className={Styles.logo} />
-        </a>
+        <Button
+          url="/"
+          type="home-link"
+          logo="homeLogo"
+          onClick={() => handleBurgerMenu(false, true)}
+        />
         {toggle && (
           <FontAwesomeIcon
             icon={burgerIcon}
             className={Styles.burger}
-            onClick={handleBurgerMenu}
+            onClick={() => handleBurgerMenu(true, false)}
           />
         )}
         {!toggle && (
@@ -37,51 +41,24 @@ function NavBar({ resumeImg }) {
       </div>
       {!toggle && (
         <ul id="burger-menu" className={Styles["nav-list"]}>
-          <li>
-            <a
-              href="#about"
-              className={Styles["nav-link"]}
-              onClick={handleBurgerMenu}
-            >
-              About
-            </a>
-          </li>
-          <li>
-            <a
-              href="#about"
-              className={Styles["nav-link"]}
-              onClick={handleBurgerMenu}
-            >
-              Skills
-            </a>
-          </li>
-          <li>
-            <a
-              href="#projects"
-              className={Styles["nav-link"]}
-              onClick={handleBurgerMenu}
-            >
-              Projects
-            </a>
-          </li>
-          <li>
-            <a
-              href="#contact"
-              className={Styles["nav-link"]}
-              onClick={handleBurgerMenu}
-            >
-              Contact
-            </a>
-          </li>
-          <li className={Styles["nav-btn"]}>
-            <Button
-              text="resume"
-              logo="download"
-              type="downloadBtn"
-              url={resumeImg}
-              target="_blank"
-            />
-          </li>
+          {NavBtnData.filter((data) => data.text !== "Home").map(
+            (data, index) => (
+              <li
+                keys={index}
+                className={data.type === "downloadBtn" ? Styles["nav-btn"] : ""}
+              >
+                <Button
+                  url={data.url !== "resumeImg" ? data.url : resumeImg}
+                  type={data.typeMobile}
+                  text={data.text}
+                  logo={data.logo}
+                  target={data.target}
+                  isHashLink={data.hashLink}
+                  onClick={handleBurgerMenu}
+                />
+              </li>
+            )
+          )}
         </ul>
       )}
     </>

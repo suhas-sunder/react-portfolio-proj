@@ -32,15 +32,55 @@
   font-size: 2rem;
 }
 
-.icon {
-  margin: 0;
-  padding: 0;
-}
-
 .downloadBtn:hover,
 .project-link:hover,
 .logoLink:hover {
   background-color: rgba(29, 36, 48, 255);
   border: 2px solid yellow;
   color: yellow;
+}
+
+.nav-link {
+  display: block;
+  text-decoration: none;
+  padding: 1.4rem 2.5rem;
+  color: white;
+}
+
+.nav-link:hover {
+  color: yellow;
+  cursor: pointer;
+}
+
+.mobile-nav-link {
+  display: block;
+  color: white;
+  width: 100%;
+  padding: 1.5rem 3.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.mobile-nav-link:hover {
+  background-color: yellow;
+  color: rgba(18, 23, 35, 255);
+}
+
+.home-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  margin: auto 2.5rem;
+  background-color: yellow;
+  color: rgba(29, 36, 48, 255);
+  cursor: pointer;
+}
+
+.icon {
+  margin: 0;
+  padding: 0;
 }

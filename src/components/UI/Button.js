@@ -9,10 +9,11 @@ import { faEnvelope as emailIcon } from "@fortawesome/free-solid-svg-icons";
 import { faAward as certificateIcon } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRight as arrowIcon } from "@fortawesome/free-solid-svg-icons";
 import { faS as logoIcon } from "@fortawesome/free-solid-svg-icons";
+import { faGraduationCap as gradIcon } from "@fortawesome/free-solid-svg-icons";
 import Styles from "./Button.module.css";
 
 function Button({ text, logo, type, url, target, isHashLink, onClick }) {
-  // List of all font-awesome logos
+  // Object list of all font-awesome logos
   const logos = {
     download: downloadIcon,
     linkedin: linkedinIcon,
@@ -21,13 +22,22 @@ function Button({ text, logo, type, url, target, isHashLink, onClick }) {
     certificates: certificateIcon,
     arrow: arrowIcon,
     homeLogo: logoIcon,
+    education: gradIcon,
   };
+
+  const dispText = text && <span className={Styles.text}>{text}</span>;
+
+  const dispLogo = logo && (
+    <FontAwesomeIcon icon={logos[logo]} className={Styles.icon} />
+  );
+
+  const isDownloadable = type === "downloadBtn" ? true : false;
 
   const link = (
     <Link
       to={url}
       className={Styles[type]}
-      download={type === "downloadBtn" ? true : false}
+      download={isDownloadable}
       target={target}
       onClick={() =>
         window.scroll({
@@ -35,25 +45,25 @@ function Button({ text, logo, type, url, target, isHashLink, onClick }) {
         })
       }
     >
-      {text && <span className={Styles.text}>{text}</span>}
-      {logo && <FontAwesomeIcon icon={logos[logo]} className={Styles.icon} />}
+      {dispText}
+      {dispLogo}
     </Link>
   );
 
-  const hashlink = (
+  const anchorLink = (
     <HashLink
       to={url}
       className={Styles[type]}
-      download={type === "downloadBtn" ? true : false}
+      download={isDownloadable}
       target={target}
       onClick={onClick}
     >
-      {text && <span className={Styles.text}>{text}</span>}
-      {logo && <FontAwesomeIcon icon={logos[logo]} className={Styles.icon} />}
+      {dispText}
+      {dispLogo}
     </HashLink>
   );
 
-  return isHashLink ? hashlink : link;
+  return isHashLink ? anchorLink : link;
 }
 
 export default Button;

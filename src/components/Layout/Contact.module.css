@@ -14,6 +14,16 @@
   margin: 0;
 }
 
+.text {
+  line-height: 2.5rem;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.text:first-of-type {
+  margin-top: 1rem;
+}
+
 .link {
   color: yellow;
   text-decoration: none;

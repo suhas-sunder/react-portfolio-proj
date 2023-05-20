@@ -8,7 +8,7 @@ const ProjData = [
     id: 1,
     title: "All Track System",
     description:
-      "All Track System (ATS) is a revolutionary facility management software transforming the operations of landlords and contractors. This project website offers comprehensive details about ATS and its innovative features, providing a deep understanding of its capabilities. Discover the powerful functionalities offered by the ATS software and mobile app, as well as important information regarding the onboarding process for landlords and contractors. ",
+      "The All Track System (ATS) official website offers facilities management services to Landlords and Contractors. Discover the powerful functionalities offered by the ATS software and mobile app, including a visual showcase of all features and important information regarding the onboarding process for landlords and contractors. ",
     techStack: [
       "HTML5",
       "CSS3",
@@ -24,14 +24,13 @@ const ProjData = [
     projCSS: "project",
     projLink: "/projects/AllTrackSystem",
     features: "",
-    projProposal: "",
     problems: "",
   },
   {
     id: 2,
     title: "EME Group Inc.",
     description:
-      "The EME Group Inc. website showcases the consulting process, Electrical and Mechanical services, and notable client projects of the company. This website provides clients with a clear understanding of the end-to-end consulting journey, detailed information about services offered, and a showcase of client projects categorized by industry. Additionally, the website features a comprehensive careers page that outlines available positions and their respective requirements. For seamless communication, the contact page offers visitors easy access to pertinent contact information, a convenient contact form, and an interactive map.",
+      "The EME Group Inc. website provides clients with a clear understanding of the end-to-end consulting journey, detailed information about services offered, and a showcase of client projects categorized by industry. Additionally, the website features a comprehensive careers page that outlines available positions and their respective requirements. For seamless communication, the contact page offers visitors a convenient contact form and an interactive map.",
     techStack: [
       "HTML5",
       "CSS3",
@@ -46,14 +45,13 @@ const ProjData = [
     projCSS: "project-reverse",
     projLink: "/projects/EMEGroupInc",
     features: "",
-    projProposal: "",
     problems: "",
   },
   {
     id: 3,
     title: "React Portfolio",
     description:
-      "My personal portfolio website, built using React, showcases my professional skills, accomplishments, and other relevant details to impress potential employers. With easy access to my current resume, detailed project overviews, and a contact form on every page, this portfolio presents a comprehensive overview of my work. Explore my portfolio to gain insights into my expertise and get in touch for exciting opportunities.",
+      "My personal portfolio website showcases my professional skills, accomplishments, and other relevant details to impress potential employers. With easy access to my current resume, detailed project overviews, links for seamless navigation, and a contact form, this portfolio presents a comprehensive overview of my work. Explore my portfolio to gain insights into my expertise and get in touch for exciting opportunities.",
     techStack: [
       "HTML5",
       "CSS3",
@@ -68,14 +66,14 @@ const ProjData = [
     projCSS: "project",
     projLink: "/projects/Portfolio",
     features: "",
-    projProposal: "",
     problems: "",
   },
   {
     id: 4,
+    projId: "capstone",
     title: "Capstone SPArcDS",
     description:
-      "SPArcDS is a prototype Arc Fault detection system designed to enhance home safety. When an Arc Fault is detected, SPArcDS promptly notifies the user through the SPArcDS mobile app and sends an SMS notification to their phone as an additional safety measure. All notifications and relevant data are securely logged to a database for future reference. The mobile app enables users to wirelessly register new devices and conveniently view the activity log, which provides detailed status updates for all registered SPArcDS devices.",
+      "SPArcDS is a prototype Arc Fault detection system designed to enhance home safety. When an Arc Fault is detected, SPArcDS promptly notifies the user through the SPArcDS mobile app and sends an SMS notification to all registered phone numbers. All notifications and relevant data are securely logged to a database for future reference. The mobile app enables users to wirelessly register new devices and conveniently view the activity log, which provides detailed status updates for all registered SPArcDS devices.",
     techStack: [
       "Godot Game Engine",
       "Mobile App Development",

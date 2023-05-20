@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import Styles from "./Contact.module.css";
 import FormInput from "../UI/FormInput";
 import FormSubmitMsg from "../Layout/FormSubmitMsg";
+import FormInputData from "../../data/FormInputData";
 
 function Contact() {
   const [values, setValues] = useState({
@@ -14,50 +15,8 @@ function Contact() {
     messageTouched: false,
     disableAutoComplete: false,
   });
-  const [submission, setSubmission] = useState("");
 
-  // Default values and states for form fields
-  const formProps = [
-    {
-      id: 1,
-      name: "name",
-      type: "text",
-      placeholder: "First Last",
-      label: "Name",
-      errorMessage: "* Please enter a name!",
-      required: true,
-      touched: values.nameTouched,
-    },
-    {
-      id: 2,
-      name: "email",
-      type: "email",
-      placeholder: "firstlast@email.com",
-      label: "Email",
-      errorMessage: "* Please enter a valid email address!",
-      required: true,
-      touched: values.emailTouched,
-    },
-    {
-      id: 3,
-      name: "phone",
-      type: "text",
-      placeholder: "111-111-1111",
-      label: "Phone",
-      required: false,
-      touched: false,
-    },
-    {
-      id: 4,
-      name: "message",
-      type: "text",
-      placeholder: "Hello!",
-      label: "Message",
-      errorMessage: "* Please enter a message!",
-      required: true,
-      touched: values.messageTouched,
-    },
-  ];
+  const [isSubmitted, setIsSubmitted] = useState("false");
 
   // Store user input values & reset input focus
   const handleChange = (event) => {
@@ -85,9 +44,9 @@ function Contact() {
     event.preventDefault();
 
     // Set submission state to sending [loading]
-    setSubmission("sending");
+    setIsSubmitted("sending");
 
-    // Form data to be sent
+    // Obtain form data to be sent as new obj
     var data = new FormData(event.target);
 
     // Form submission
@@ -95,31 +54,33 @@ function Contact() {
       method: form.method,
       body: data,
       headers: {
-        Accept: "application/json",
+        'Accept': "application/json",
       },
     })
       .then((response) => {
         if (response.ok) {
-          console.log("submitted");
-        } else {
           // Set submission to success state
-          setSubmission("sent");
+          setIsSubmitted("sent");
+        } else {
+          // Set submission to error state
+          setIsSubmitted("error");
         }
       })
       .catch((error) => {
         // Set submission to error state
-        setSubmission("error");
+        setIsSubmitted("error");
       });
   };
 
   // Storing form inputs in a variable for better readability
-  const formInputs = formProps.map((props) => (
+  const formInputs = FormInputData.map((data) => (
     <FormInput
-      key={props.id}
-      {...props}
-      value={values[props.name]}
+      key={data.id}
+      {...data}
+      value={values[data.name]}
       onChange={handleChange}
       onBlur={handleFocus}
+      touched={data.required ? values[`${data.name}Touched`] : false}
     />
   ));
 
@@ -136,7 +97,7 @@ function Contact() {
       <h2 className={Styles.title}>Contact</h2>
       <p className={Styles.text}>Let's have a chat!</p>
       <p className={Styles.text}>
-        Fill out the form below, or email me at{" "}
+        Fill out the form below or email me at{" "}
         <a href="mailto:suhas@live.ca" className={Styles.link}>
           suhas@live.ca
         </a>{" "}
@@ -150,12 +111,12 @@ function Contact() {
         className={Styles.form}
         autoComplete={values.disableAutoComplete ? "off" : "on"}
       >
-        {submission ? (
-          <FormSubmitMsg submissionState={submission} />
-        ) : (
+        {isSubmitted === "false" ? (
           formInputs
+        ) : (
+          <FormSubmitMsg submissionState={isSubmitted} />
         )}
-        {!submission && (
+        {isSubmitted === "false" && (
           <button
             className={Styles.button}
             type="submit"

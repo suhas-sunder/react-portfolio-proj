@@ -1,6 +1,13 @@
 .header {
     display: block;
     width: 100%;
-    padding-top: 10rem;
-    background-color: red;
+    padding: 10rem 0 6rem 0;
+    background-color: rgba(18, 23, 35, 255);
+}
+
+.header-container {
+    max-width: 1200px;
+    padding: 0 3rem;
+    color: white;
+    margin: auto;
 }

@@ -11,7 +11,7 @@ function NavBar() {
       <div className={Styles["nav-items"]}>
         <ul className={Styles["nav-list"]}>
           {NavBtnData.map((data, index) => (
-            <li key={index} className={(data.type === "downloadBtn") && Styles["download-link"]}>
+            <li key={index} className={(data.type === "downloadBtn") ? Styles["download-link"] : ""}>
               <Button
                 url={data.url !== "resumeImg" ? data.url : resumeImg}
                 type={data.type}

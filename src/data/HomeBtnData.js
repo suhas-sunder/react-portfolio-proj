@@ -12,6 +12,13 @@ const HomeBtnData = [
     target: "_blank",
   },
   {
+    logo: "education",
+    type: "logoLink",
+    url: "",
+    isHashLink: true,
+    onClick: true,
+  },
+  {
     logo: "certificates",
     type: "logoLink",
     url: "https://www.linkedin.com/in/s-sunder/details/certifications/",

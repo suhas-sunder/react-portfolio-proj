@@ -1,9 +1,7 @@
 import { React, useState } from "react";
-import { Link } from "react-router-dom";
 import Button from "./Button";
 import Styles from "./MobileNav.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faS as logoIcon } from "@fortawesome/free-solid-svg-icons";
 import { faBars as burgerIcon } from "@fortawesome/free-solid-svg-icons";
 import { faX as xIcon } from "@fortawesome/free-solid-svg-icons";
 import NavBtnData from "../../data/NavBtnData";
@@ -47,7 +45,7 @@ function NavBar({ resumeImg, handleScroll }) {
             (data, index) => (
               <li
                 keys={index}
-                className={data.type === "downloadBtn" && Styles["nav-btn"]}
+                className={data.type === "downloadBtn" ? Styles["nav-btn"] : ""}
               >
                 <Button
                   url={data.url !== "resumeImg" ? data.url : resumeImg}

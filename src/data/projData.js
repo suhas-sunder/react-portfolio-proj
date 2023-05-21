@@ -6,9 +6,10 @@ import ATSUrl from "../assets/ats-website-screenshot.jpg";
 const ProjData = [
   {
     id: 1,
+    projId: "atsproj",
     title: "All Track System",
     description:
-      "The All Track System (ATS) official website offers facilities management services to Landlords and Contractors. Discover the powerful functionalities offered by the ATS software and mobile app, including a visual showcase of all features and important information regarding the onboarding process for landlords and contractors. ",
+      "The All Track System (ATS) official website offers detailed information about the ATS facilities management software built for Landlords and Contractors. Discover the powerful functionalities offered by the ATS software and mobile app, including a visual showcase of all features, as well as, important information regarding the onboarding process for clients. ",
     techStack: [
       "HTML5",
       "CSS3",
@@ -21,13 +22,16 @@ const ProjData = [
       "Mobile-first Approach",
     ],
     imageURL: ATSUrl,
+    projURL: "https://alltracksystem.com/",
     projCSS: "project",
     projLink: "/projects/AllTrackSystem",
-    features: "",
-    problems: "",
+    features: "These are the project features.",
+    problems:
+      "These are the problems that I faced with this project and how I handled them.",
   },
   {
     id: 2,
+    projId: "emeproj",
     title: "EME Group Inc.",
     description:
       "The EME Group Inc. website provides clients with a clear understanding of the end-to-end consulting journey, detailed information about services offered, and a showcase of client projects categorized by industry. Additionally, the website features a comprehensive careers page that outlines available positions and their respective requirements. For seamless communication, the contact page offers visitors a convenient contact form and an interactive map.",
@@ -42,6 +46,7 @@ const ProjData = [
       "Responsive Design",
     ],
     imageURL: EMEUrl,
+    projURL: "https://www.emegroup.ca/",
     projCSS: "project-reverse",
     projLink: "/projects/EMEGroupInc",
     features: "",
@@ -49,6 +54,7 @@ const ProjData = [
   },
   {
     id: 3,
+    projId: "portfolio",
     title: "React Portfolio",
     description:
       "My personal portfolio website showcases my professional skills, accomplishments, and other relevant details to impress potential employers. With easy access to my current resume, detailed project overviews, links for seamless navigation, and a contact form, this portfolio presents a comprehensive overview of my work. Explore my portfolio to gain insights into my expertise and get in touch for exciting opportunities.",
@@ -63,6 +69,8 @@ const ProjData = [
       "Netlify Hosting",
     ],
     imageURL: PortfolioUrl,
+    projURL: "https://www.emegroup.ca/",
+    projGitHubURL: "http://suhassunder.com/",
     projCSS: "project",
     projLink: "/projects/Portfolio",
     features: "",

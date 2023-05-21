@@ -10,6 +10,7 @@ import { faAward as certificateIcon } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRight as arrowIcon } from "@fortawesome/free-solid-svg-icons";
 import { faS as logoIcon } from "@fortawesome/free-solid-svg-icons";
 import { faGraduationCap as gradIcon } from "@fortawesome/free-solid-svg-icons";
+import { faUpRightFromSquare as arrowUpIcon } from "@fortawesome/free-solid-svg-icons";
 import Styles from "./Button.module.css";
 
 function Button({ text, logo, type, url, target, isHashLink, onClick }) {
@@ -23,6 +24,7 @@ function Button({ text, logo, type, url, target, isHashLink, onClick }) {
     arrow: arrowIcon,
     homeLogo: logoIcon,
     education: gradIcon,
+    arrowUp: arrowUpIcon,
   };
 
   const dispText = text && <span className={Styles.text}>{text}</span>;

@@ -30,10 +30,6 @@
   font-size: 2rem;
 }
 
-.sub-title {
-  font-size: 1.25rem;
-}
-
 .description {
   max-width: 690px;
   line-height: 2rem;
@@ -50,6 +46,14 @@
   margin: 2.5rem 0 0 0;
   padding: 0;
   gap: 2rem;
+}
+
+.text-link {
+  color: yellow;
+}
+
+.text-link:hover {
+  cursor: pointer;
 }
 
 @media (max-width: 1200px) {

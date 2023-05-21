@@ -15,7 +15,7 @@ function Projects() {
             <p className={Styles["project-description"]}>{data.description}</p>
             <TechStack skillsList={data.techStack} />
           </div>
-          <ImageCard url={data.imageURL} projLink={data.projLink} />
+          <ImageCard url={data.imageURL} projLink={data.projLink} showGitHubURL={data.showGitHubURL}/>
         </div>
       ))}
     </div>

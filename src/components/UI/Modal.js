@@ -26,7 +26,7 @@ function Modal({ closeModal }) {
         <p className={Styles.details}>
           B. Eng, Electrical Engineering & Management (Honours)
         </p>
-        <p className={Styles.details}>Location: Oshawa, Canada</p>
+        <p className={Styles.details}>Location: Oshawa, ON</p>
         <p className={Styles.details}>Graduated: Apr 2019</p>
         <div className={Styles["button-bkgd"]}>
           <Button

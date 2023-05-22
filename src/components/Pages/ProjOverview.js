@@ -17,23 +17,22 @@ function ProjOverview({ projName, handleModal, showModal }) {
   // Filter data relevant to the active project url link clicked
   let projDetails = ProjData.filter((data) => data.title === projName);
 
+  // Gather data to determine project navigation
   const projNames = [...ProjData.map((data) => data.title)];
-  const projLinks = [...ProjData.map((data) => data.projLink)]
-
-  // projNames.push()
+  const projLinks = [...ProjData.map((data) => data.projLink)];
   const projIndex = projNames.indexOf(projName);
 
-  let nextProj =
-    projIndex === projNames.length - 1 ? "" : projNames[projIndex + 1];
+  // Store the next project name and url for navigation
+  const [nextProj, nextProjLink] =
+    projIndex === projNames.length - 1
+      ? ["", ""]
+      : [projNames[projIndex + 1], projLinks[projIndex + 1]];
 
-  let prevProj = projIndex === 0 ? "" : projNames[projIndex - 1];
-  
-  let nextProjLink = projIndex === projNames.length - 1 ? "" : projLinks[projIndex + 1];
-
-let prevProjLink = projIndex === 0 ? "" : projLinks[projIndex - 1];
-
-console.log(projLinks  )
-
+  // Store the previous project name and url for navigation
+  const [prevProj, prevProjLink] =
+    projIndex === 0
+      ? ["", ""]
+      : [projNames[projIndex - 1], projLinks[projIndex - 1]];
 
   const {
     description,
@@ -41,7 +40,7 @@ console.log(projLinks  )
     techStack,
     imageURL,
     features,
-    purpose,
+    // purpose,
     projURL,
     projGitHubURL,
   } = projDetails[0];
@@ -53,7 +52,12 @@ console.log(projLinks  )
       <div className={Styles.header}>
         <div className={Styles["header-container"]}>
           <h1 className={Styles.title}>{title}</h1>
-          <a className={Styles["img-link"]} href={projURL}>
+          <a
+            className={Styles["img-link"]}
+            href={projURL}
+            rel="noreferrer"
+            target="_blank"
+          >
             <div className={Styles.overlay}>
               <span className={Styles["link-text"]}>
                 {projName === "Capstone SPArcDS"
@@ -68,7 +72,6 @@ console.log(projLinks  )
               className={Styles.img}
             />
           </a>
-
           <p className={Styles.description}>{description}</p>
           <div className={Styles.buttons}>
             {projGitHubURL && (

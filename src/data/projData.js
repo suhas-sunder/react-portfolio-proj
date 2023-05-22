@@ -81,7 +81,12 @@ const ProjData = [
     projGitHubURL: "https://github.com/suhas-sunder/react-portfolio-proj",
     projCSS: "project",
     projLink: "/projects/Portfolio",
-    features: [""],
+    features: [
+      "Built a mobile-responsive website using React to showcase professional portfolio.",
+      "Developed comprehensive project overviews, seamless navigation, and a contact form.",
+      "Provided easy access to current resume and relevant details for potential employers.",
+      "Highlighted professional skills, accomplishments, and expertise.",
+    ],
     problems: "",
   },
   {
@@ -99,6 +104,8 @@ const ProjData = [
       "Waterfall Management",
     ],
     imageURL: CapstoneUrl,
+    projURL:
+      "https://drive.google.com/drive/folders/1AED_R-qRjy0SQBUPIFM95U8ib7Yal2pR?usp=sharing",
     projCSS: "project-reverse",
     projLink: "/projects/Capstone",
     projProposal: "",

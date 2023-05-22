@@ -1,14 +1,16 @@
 .header {
   display: block;
   width: 100%;
-  padding: 8rem 0 5rem 0;
+  padding: 7rem 0 5rem 0;
   background-color: rgba(18, 23, 35, 255);
   margin-bottom: 4rem;
 }
 
-.header-container, .proj-details  {
+.header-container,
+.proj-details {
   display: flex;
   flex-direction: column;
+  align-items: center;
   max-width: 1200px;
   padding: 0 1.5rem;
   color: white;
@@ -17,18 +19,21 @@
 
 .title {
   font-size: 2rem;
-  margin-bottom: 0;
+  margin-bottom: 1.5rem;
 }
 
 .description {
   font-size: 1.2rem;
   line-height: 2.5rem;
+  max-width: 800px;
+  text-align: center;
+  margin-bottom: 3.5rem;
 }
 
 .img-link {
   display: block;
   position: relative;
-  margin: 1.5rem auto 4rem auto;
+  margin: 1.5rem auto 2.5rem auto;
   max-width: 800px;
   border-radius: 15px;
   overflow: hidden;
@@ -50,10 +55,10 @@
 }
 
 .buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
 }
 
 .link-text {
@@ -71,6 +76,39 @@
 }
 
 .proj-details {
-    color: black;
-    padding-bottom: 3rem;
+  color: black;
+  padding-bottom: 3rem;
+  align-items: flex-start;
+}
+
+/* .highlights-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+} */
+
+.highlights {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  line-height: 2.5rem;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 1rem 0 10rem 0;
+  font-size: 1.5rem;
+  background-color: rgba(18, 23, 35, 255);
+}
+
+.nav-links {
+  color: white;
+  padding: 1.5rem;
+  text-decoration: none;
+}
+
+.nav-links:hover {
+  color: yellow;
+  cursor: pointer;
 }

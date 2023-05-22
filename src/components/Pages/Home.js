@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 import NavBar from "../UI/NavBar";
 import Skills from "../Layout/Skills";
 import Projects from "../Layout/Projects";
@@ -12,13 +12,7 @@ import Modal from "../UI/Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode as code } from "@fortawesome/free-solid-svg-icons";
 
-function Home() {
-  const [showModal, setShowModal] = useState(true);
-
-  const handleModal = () => {
-    setShowModal(!showModal)
-  };
-
+function Home({ handleModal, showModal }) {
   return (
     <>
       {showModal && <Modal closeModal={handleModal} />}
@@ -35,21 +29,16 @@ function Home() {
             <FontAwesomeIcon className={Styles.highlight} icon={code} />{" "}
             Front-end Developer
           </h1>
-          <h3 className={Styles["sub-title"]}>
-            A creative soul driven by a passion for learning and
-            problem-solving.
-          </h3>
           <p className={Styles.description}>
-            I'm a curiosity-driven web developer with an unwavering passion for
-            learning, creating, and problem-solving. My meticulous nature
-            ensures that I sweat the details, paying careful attention to every
-            client and project need.
-          </p>
-          <p className={Styles.description}>
-            When programming, my goal is to always deliver clean, semantic, and
-            accessible code that enhances user experiences. I thrive on
-            collaborative opportunities, eagerly engaging in teamwork to bring
-            projects to life.
+            I'm a curious, self-taught Web Developer with a passion for learning
+            and problem-solving. Armed with a{" "}
+            <span onClick={handleModal} className={Styles["text-link"]}>
+              Bachelor of Engineering and Management
+            </span>
+            , I approach every project with a meticulous mindset, ensuring
+            attention to detail and delivering high-quality results that meet
+            the unique needs of my clients. Collaborative opportunities energize
+            me, and I thrive on working with teams to bring ideas to life.
           </p>
           <ul className={Styles.links}>
             {HomeBtnData.map((data, index) => (
@@ -67,7 +56,7 @@ function Home() {
       <Skills />
       <Projects />
       <Contact />
-      <Footer />
+      <Footer handleModal={handleModal} />
     </>
   );
 }

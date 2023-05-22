@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import HomeBtnData from "../../data/HomeBtnData";
 import Button from "../UI/Button";
 
-function Footer() {
+function Footer({ handleModal }) {
   // Scroll to top of page on redirect
   const handleScroll = () => {
     window.scroll({
@@ -19,13 +19,11 @@ function Footer() {
       <ul className={Styles.links}>
         {HomeBtnData.map((data, index) => (
           <li key={index}>
-            <Button
-              logo={data.logo}
-              type={data.type}
-              url={data.url}
-              target={data.target}
-              isHashLink={data.isHashLink}
-            />
+            {data.onClick ? (
+              <Button {...data} onClick={handleModal} />
+            ) : (
+              <Button {...data} />
+            )}
           </li>
         ))}
       </ul>

@@ -1,6 +1,6 @@
 import React from "react";
 import Styles from "./Projects.module.css";
-import ImageCard from "../UI/ImageCard";
+import ImageCard from "../ui/ImageCard";
 import TechStack from "./TechStack";
 import ProjData from "../../data/ProjData";
 
@@ -15,7 +15,12 @@ function Projects() {
             <p className={Styles["project-description"]}>{data.description}</p>
             <TechStack skillsList={data.techStack} />
           </div>
-          <ImageCard imageURL={data.imageURL} projLink={data.projLink} projName={data.title} projURL={data.projURL}/>
+          <ImageCard
+            imageURL={data.imageURL}
+            projLink={data.projLink}
+            projName={data.title}
+            projURL={data.projURL}
+          />
         </div>
       ))}
     </div>

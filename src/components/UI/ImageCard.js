@@ -4,7 +4,7 @@ import Button from "./Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpRightFromSquare as link } from "@fortawesome/free-solid-svg-icons";
 
-function ImageCard({ imageURL, projLink,  projName, projURL }) {
+function ImageCard({ imageURL, projLink, projName, projURL }) {
   return (
     <div className={Styles["img-card"]}>
       <a

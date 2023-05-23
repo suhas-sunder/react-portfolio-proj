@@ -1,7 +1,7 @@
 .header {
   display: block;
   width: 100%;
-  padding: 7rem 0 5rem 0;
+  padding: 5rem 0 5rem 0;
   background-color: rgba(18, 23, 35, 255);
   margin-bottom: 4rem;
 }
@@ -89,20 +89,60 @@
 
 .navigation {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   width: 100%;
-  margin: 1rem 0 10rem 0;
+  margin: 1rem 0 0 0;
   font-size: 1.5rem;
   background-color: rgba(18, 23, 35, 255);
 }
 
-.nav-links {
+.nav-left,
+.nav-right {
+  display: flex;  
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 700px;
+  width: 100%;
   color: white;
   padding: 1.5rem;
   text-decoration: none;
+  gap: 0.8rem;
 }
 
-.nav-links:hover {
+.nav-right {
+  justify-content: flex-end;
+}
+
+.nav-left:hover,
+.nav-right:hover {
   color: yellow;
   cursor: pointer;
+}
+
+.arrow-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+@media (max-width: 520px) {
+  .nav-left,
+  .nav-right {
+    font-size: 1.2rem;
+    line-height: 2.5rem;
+    padding: 1rem 0 1rem 1rem;
+  }
+
+  .nav-right {
+    padding: 1rem 1rem 1rem 0;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .nav-proj-name {
+    display: none;
+  }
 }

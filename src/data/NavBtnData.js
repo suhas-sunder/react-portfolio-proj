@@ -13,11 +13,10 @@ const NavBtnData = [
     hashLink: true,
   },
   {
-    url: "/#projects",
+    url: "/projects/AllTrackSystem",
     text: "Projects",
     type: "nav-link",
     typeMobile: "mobile-nav-link",
-    hashLink: true,
   },
   {
     url: "/#contact",

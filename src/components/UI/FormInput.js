@@ -1,5 +1,5 @@
 import React from "react";
-import Styles from "./ContactForm.module.css";
+import Styles from "./FormInput.module.css";
 
 function ContactForm(props) {
   const { label, errorMessage, touched, ...formProps } = props;

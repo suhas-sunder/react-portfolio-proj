@@ -9,7 +9,7 @@ const ProjData = [
     projId: "atsproj",
     title: "All Track System",
     description:
-      "The All Track System (ATS) official website offers detailed information about the ATS facilities management software built for Landlords and Contractors. Discover the powerful functionalities offered by the ATS software and mobile app, including a visual showcase of all features, as well as, important information regarding the onboarding process for clients. ",
+      "The All Track System (ATS) official website offers detailed information about the ATS facilities management software built for Landlords and Contractors. Discover the powerful functionalities offered by the ATS software and mobile app, including a visual showcase of all features, as well as important information regarding the onboarding process for clients. ",
     techStack: [
       "HTML5",
       "CSS3",
@@ -65,7 +65,7 @@ const ProjData = [
     projId: "portfolio",
     title: "React Portfolio",
     description:
-      "My personal portfolio website showcases my professional skills, accomplishments, and other relevant details to impress potential employers. With easy access to my current resume, detailed project overviews, links for seamless navigation, and a contact form, this portfolio presents a comprehensive overview of my work. Explore my portfolio to gain insights into my expertise and get in touch for exciting opportunities.",
+      "My personal portfolio website highlights my professional skills, accomplishments, and other relevant details to impress potential employers. With easy access to my current resume, detailed project overviews, links for seamless navigation, and a contact form, this portfolio presents a comprehensive overview of my work. Explore my portfolio to gain insights into my expertise and get in touch for exciting opportunities.",
     techStack: [
       "HTML5",
       "CSS3",
@@ -96,10 +96,10 @@ const ProjData = [
     description:
       "SPArcDS is a prototype Arc Fault detection system designed to enhance home safety. When an Arc Fault is detected, SPArcDS promptly notifies the user through the SPArcDS mobile app and sends an SMS notification to all registered phone numbers. All notifications and relevant data are securely logged to a database for future reference. The mobile app enables users to wirelessly register new devices and conveniently view the activity log, which provides detailed status updates for all registered SPArcDS devices.",
     techStack: [
-      "Godot Game Engine",
       "Mobile App Development",
-      "GitHub",
       "Arduino Programming",
+      "Google Sheets Database",
+      "GitHub",
       "Meeting Minutes",
       "Waterfall Management",
     ],

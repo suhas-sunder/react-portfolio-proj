@@ -45,11 +45,43 @@ function ProjOverview({ projName, handleModal, showModal }) {
     projGitHubURL,
   } = projDetails[0];
 
+  // Store proj nav buttons as constant for reusability
+  const projNavigation = (
+    <div className={Styles.navigation}>
+      {prevProj && (
+        <Link to={prevProjLink} className={Styles["nav-left"]}>
+          <span>
+            <FontAwesomeIcon
+              icon={arrowLeft}
+              className={Styles["arrow-icon"]}
+            />
+          </span>
+          <span className={Styles["nav-proj-name"]}>{prevProj}</span> (PREV)
+        </Link>
+      )}
+      {!prevProj && <div className={Styles["nav-left"]}></div>}
+      {nextProj && (
+        <Link to={nextProjLink} className={Styles["nav-right"]}>
+          (NEXT)
+          <span className={Styles["nav-proj-name"]}>{nextProj}</span>
+          <span>
+            <FontAwesomeIcon
+              icon={arrowRight}
+              className={Styles["arrow-icon"]}
+            />
+          </span>
+        </Link>
+      )}
+      {!nextProj && <div className={Styles["nav-right"]}></div>}
+    </div>
+  );
+
   return (
     <>
       {showModal && <Modal closeModal={handleModal} />}
       <NavBar />
       <div className={Styles.header}>
+        {projNavigation}
         <div className={Styles["header-container"]}>
           <h1 className={Styles.title}>{title}</h1>
           <a
@@ -110,24 +142,7 @@ function ProjOverview({ projName, handleModal, showModal }) {
           ))}
         </ul>
       </div>
-      <div className={Styles.navigation}>
-        {prevProj && (
-          <Link to={prevProjLink} className={Styles["nav-links"]}>
-            <span>
-              <FontAwesomeIcon icon={arrowLeft} />
-            </span>{" "}
-            {prevProj} (PREV){" "}
-          </Link>
-        )}
-        {nextProj && (
-          <Link to={nextProjLink} className={Styles["nav-links"]}>
-            (NEXT) {nextProj}{" "}
-            <span>
-              <FontAwesomeIcon icon={arrowRight} />
-            </span>
-          </Link>
-        )}
-      </div>
+      {projNavigation}
       <Contact />
       <Footer handleModal={handleModal} />
     </>

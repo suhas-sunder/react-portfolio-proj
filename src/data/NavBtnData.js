@@ -31,7 +31,7 @@ const NavBtnData = [
     logo: "download",
     type: "downloadBtn",
     typeMobile: "downloadBtn",
-    target: "_blank",
+    target: "_self",
   },
 ];
 

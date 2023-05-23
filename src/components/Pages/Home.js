@@ -1,14 +1,14 @@
 import { React } from "react";
-import NavBar from "../ui/NavBar";
-import Skills from "../layout/Skills";
-import Projects from "../layout/Projects";
-import Contact from "../layout/Contact";
-import Footer from "../layout/Footer";
+import NavBar from "../UI/NavBar";
+import Skills from "../Layout/Skills";
+import Projects from "../Layout/Projects";
+import Contact from "../Layout/Contact";
+import Footer from "../Layout/Footer";
 import Styles from "./Home.module.css";
-import Button from "../ui/Button";
+import Button from "../UI/Button";
 import HomeBtnData from "../../data/HomeBtnData";
 import ProfilePic from "../../assets/profile-pic.png";
-import Modal from "../ui/Modal";
+import Modal from "../UI/Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode as code } from "@fortawesome/free-solid-svg-icons";
 

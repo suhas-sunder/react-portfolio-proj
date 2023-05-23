@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import Styles from "./Contact.module.css";
-import FormInput from "../ui/FormInput";
+import FormInput from "../UI/FormInput";
 import FormSubmitMsg from "./FormSubmitMsg";
 import FormInputData from "../../data/FormInputData";
 

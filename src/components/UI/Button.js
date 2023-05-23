@@ -35,13 +35,10 @@ function Button({ text, logo, type, url, target, isHashLink, onClick }) {
     <FontAwesomeIcon icon={logos[logo]} className={Styles.icon} />
   );
 
-  const isDownloadable = type === "downloadBtn" ? true : false;
-
   const link = (
     <Link
       to={url}
       className={Styles[type]}
-      download={isDownloadable}
       target={target}
       onClick={() =>
         window.scroll({
@@ -59,7 +56,6 @@ function Button({ text, logo, type, url, target, isHashLink, onClick }) {
     <HashLink
       to={url}
       className={Styles[type]}
-      download={isDownloadable}
       target={target}
       onClick={onClick}
       scroll={(el) => {

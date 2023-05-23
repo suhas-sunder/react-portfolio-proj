@@ -45,7 +45,7 @@ function NavBar({ resumeImg, handleScroll }) {
             (data, index) => (
               <li
                 keys={index}
-                className={data.type === "downloadBtn" ? Styles["nav-btn"] : ""}
+                className={data.type === "downloadBtn" ? Styles["download-link"] : ""}
               >
                 <Button
                   url={data.url !== "resumeImg" ? data.url : resumeImg}

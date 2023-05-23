@@ -63,9 +63,9 @@ function Button({ text, logo, type, url, target, isHashLink, onClick }) {
       target={target}
       onClick={onClick}
       scroll={(el) => {
-        // Offset y-coordinate by 200px up for all anchor links 
+        // Offset y-coordinate by 200px up for all anchor links
         const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-        const yOffset = -200; 
+        const yOffset = -200;
         window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
       }}
     >

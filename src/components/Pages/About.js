@@ -1,8 +1,8 @@
 import React from "react";
-import NavBar from "../ui/NavBar";
-import Contact from "../layout/Contact";
-import Footer from "../layout/Footer";
-import Skills from "../layout/Skills";
+import NavBar from "../UI/NavBar";
+import Contact from "../Layout/Contact";
+import Footer from "../Layout/Footer";
+import Skills from "../Layout/Skills";
 
 function About() {
   return (

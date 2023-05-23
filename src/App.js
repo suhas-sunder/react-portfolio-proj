@@ -1,9 +1,9 @@
 import { React, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "./components/pages/Home";
-import ProjectOverview from "./components/pages/ProjOverview";
-import About from "./components/pages/About";
- 
+import Home from "./components/Pages/Home";
+import ProjectOverview from "./components/Pages/ProjOverview";
+import About from "./components/Pages/About";
+
 function App() {
   const [showModal, setShowModal] = useState(false);
 

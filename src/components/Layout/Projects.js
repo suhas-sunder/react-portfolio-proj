@@ -1,6 +1,6 @@
 import React from "react";
 import Styles from "./Projects.module.css";
-import ImageCard from "../ui/ImageCard";
+import ImageCard from "../UI/ImageCard";
 import TechStack from "./TechStack";
 import ProjData from "../../data/ProjData";
 

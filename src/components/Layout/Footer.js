@@ -2,7 +2,7 @@ import React from "react";
 import Styles from "./Footer.module.css";
 import { Link } from "react-router-dom";
 import HomeBtnData from "../../data/HomeBtnData";
-import Button from "../ui/Button";
+import Button from "../UI/Button";
 
 function Footer({ handleModal }) {
   // Scroll to top of page on redirect

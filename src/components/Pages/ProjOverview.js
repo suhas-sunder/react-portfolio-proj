@@ -1,12 +1,12 @@
 import React from "react";
-import NavBar from "../ui/NavBar";
-import Contact from "../layout/Contact";
-import Footer from "../layout/Footer";
+import NavBar from "../UI/NavBar";
+import Contact from "../Layout/Contact";
+import Footer from "../Layout/Footer";
 import ProjData from "../../data/ProjData";
 import Styles from "./ProjOverview.module.css";
-import Modal from "../ui/Modal";
-import TechStack from "../layout/TechStack";
-import Button from "../ui/Button";
+import Modal from "../UI/Modal";
+import TechStack from "../Layout/TechStack";
+import Button from "../UI/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpRightFromSquare as link } from "@fortawesome/free-solid-svg-icons";
 import { faArrowAltCircleRight as arrowRight } from "@fortawesome/free-regular-svg-icons";

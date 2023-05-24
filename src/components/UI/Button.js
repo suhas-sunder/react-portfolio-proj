@@ -35,17 +35,23 @@ function Button({ text, logo, type, url, target, isHashLink, onClick }) {
     <FontAwesomeIcon icon={logos[logo]} className={Styles.icon} />
   );
 
+  const handleClick = () => {
+    window.scroll({
+      // Scroll to top on new page load
+      top: 0,
+    });
+
+    console.log("run");
+
+    onClick();
+  };
+
   const link = (
     <Link
       to={url}
       className={Styles[type]}
       target={target}
-      onClick={() =>
-        window.scroll({
-          // Scroll to top on new page load
-          top: 0,
-        })
-      }
+      onClick={handleClick}
     >
       {dispText}
       {dispLogo}

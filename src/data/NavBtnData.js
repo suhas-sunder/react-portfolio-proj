@@ -26,12 +26,12 @@ const NavBtnData = [
     hashLink: true,
   },
   {
-    url: "resumeImg",
+    url: "https://drive.google.com/file/d/1FMej8K-ZoM7OjsTorZ8w6sEI2d9UByxB/view?usp=drive_link",
     text: "resume",
     logo: "download",
     type: "downloadBtn",
     typeMobile: "downloadBtn",
-    target: "_self",
+    target: "_blank",
   },
 ];
 

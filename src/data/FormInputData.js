@@ -1,6 +1,6 @@
 const FormInputData = [
   {
-    id: 1,
+    id: "name-input",
     name: "name",
     type: "text",
     placeholder: "First Last",
@@ -9,7 +9,7 @@ const FormInputData = [
     required: true,
   },
   {
-    id: 2,
+    id: "email-input",
     name: "email",
     type: "email",
     placeholder: "firstlast@email.com",
@@ -18,7 +18,7 @@ const FormInputData = [
     required: true,
   },
   {
-    id: 3,
+    id: "phone-input",
     name: "phone",
     type: "text",
     placeholder: "111-111-1111",
@@ -26,7 +26,7 @@ const FormInputData = [
     required: false,
   },
   {
-    id: 4,
+    id: "text-input",
     type: "text",
     name: "message",
     placeholder: "Hello!",

@@ -28,6 +28,7 @@ function App() {
     <>
       <Helmet>
         <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
         <title>Suhas Sunder</title>
         <meta
           name="description"

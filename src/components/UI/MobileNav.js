@@ -39,28 +39,31 @@ function NavBar({ resumeImg, handleScroll }) {
         )}
       </div>
       {!toggle && (
-        <ul id="burger-menu" className={Styles["nav-list"]}>
-          {NavBtnData.filter((data) => data.text !== "Home").map(
-            (data, index) => (
-              <li
-                key={index}
-                className={
-                  data.type === "downloadBtn" ? Styles["download-link"] : ""
-                }
-              >
-                <Button
-                  url={data.url}
-                  type={data.typeMobile}
-                  text={data.text}
-                  logo={data.logo}
-                  target={data.target}
-                  isHashLink={data.hashLink}
-                  onClick={handleBurgerMenu}
-                />
-              </li>
-            )
-          )}
-        </ul>
+        <>
+          <ul id="burger-menu" className={Styles["nav-list"]}>
+            {NavBtnData.filter((data) => data.text !== "Home").map(
+              (data, index) => (
+                <li
+                  key={index}
+                  className={
+                    data.type === "downloadBtn" ? Styles["download-link"] : ""
+                  }
+                >
+                  <Button
+                    url={data.url}
+                    type={data.typeMobile}
+                    text={data.text}
+                    logo={data.logo}
+                    target={data.target}
+                    isHashLink={data.hashLink}
+                    onClick={handleBurgerMenu}
+                  />
+                </li>
+              )
+            )}
+          </ul>
+          <div class={Styles["background-overlay"]} onClick={handleBurgerMenu}/>
+        </>
       )}
     </>
   );

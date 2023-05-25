@@ -36,14 +36,12 @@ function Button({ text, logo, type, url, target, isHashLink, onClick }) {
   );
 
   const handleClick = () => {
+    // Scroll to top on new page load
     window.scroll({
-      // Scroll to top on new page load
       top: 0,
     });
 
-    console.log("run");
-
-    onClick();
+    onClick && onClick();
   };
 
   const link = (
@@ -67,7 +65,7 @@ function Button({ text, logo, type, url, target, isHashLink, onClick }) {
       scroll={(el) => {
         // Offset y-coordinate by 200px up for all anchor links
         const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-        const yOffset = -200;
+        const yOffset = -140;
         window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
       }}
     >

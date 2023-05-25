@@ -35,17 +35,21 @@ function Button({ text, logo, type, url, target, isHashLink, onClick }) {
     <FontAwesomeIcon icon={logos[logo]} className={Styles.icon} />
   );
 
+  const handleClick = () => {
+    // Scroll to top on new page load
+    window.scroll({
+      top: 0,
+    });
+
+    onClick && onClick();
+  };
+
   const link = (
     <Link
       to={url}
       className={Styles[type]}
       target={target}
-      onClick={() =>
-        window.scroll({
-          // Scroll to top on new page load
-          top: 0,
-        })
-      }
+      onClick={handleClick}
     >
       {dispText}
       {dispLogo}
@@ -61,7 +65,7 @@ function Button({ text, logo, type, url, target, isHashLink, onClick }) {
       scroll={(el) => {
         // Offset y-coordinate by 200px up for all anchor links
         const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-        const yOffset = -200;
+        const yOffset = -140;
         window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
       }}
     >

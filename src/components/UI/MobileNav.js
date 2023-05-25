@@ -9,10 +9,9 @@ import NavBtnData from "../../data/NavBtnData";
 function NavBar({ resumeImg, handleScroll }) {
   const [toggle, setToggle] = useState(true);
 
-  // Handle burger menu toggle and page scroll behaviour
-  const handleBurgerMenu = (shouldToggle, shouldScroll) => {
+  const handleBurgerMenu = (shouldToggle) => {
+    // Check if menu needs to be opened or closed
     shouldToggle ? setToggle(!toggle) : setToggle(true);
-    shouldScroll && handleScroll();
   };
 
   return (
@@ -22,13 +21,13 @@ function NavBar({ resumeImg, handleScroll }) {
           url="/"
           type="home-link"
           logo="homeLogo"
-          onClick={() => handleBurgerMenu(false, true)}
+          onClick={() => handleBurgerMenu(false)}
         />
         {toggle && (
           <FontAwesomeIcon
             icon={burgerIcon}
             className={Styles.burger}
-            onClick={() => handleBurgerMenu(true, false)}
+            onClick={handleBurgerMenu}
           />
         )}
         {!toggle && (
@@ -40,28 +39,31 @@ function NavBar({ resumeImg, handleScroll }) {
         )}
       </div>
       {!toggle && (
-        <ul id="burger-menu" className={Styles["nav-list"]}>
-          {NavBtnData.filter((data) => data.text !== "Home").map(
-            (data, index) => (
-              <li
-                keys={index}
-                className={
-                  data.type === "downloadBtn" ? Styles["download-link"] : ""
-                }
-              >
-                <Button
-                  url={data.url}
-                  type={data.typeMobile}
-                  text={data.text}
-                  logo={data.logo}
-                  target={data.target}
-                  isHashLink={data.hashLink}
-                  onClick={handleBurgerMenu}
-                />
-              </li>
-            )
-          )}
-        </ul>
+        <>
+          <ul id="burger-menu" className={Styles["nav-list"]}>
+            {NavBtnData.filter((data) => data.text !== "Home").map(
+              (data, index) => (
+                <li
+                  key={index}
+                  className={
+                    data.type === "downloadBtn" ? Styles["download-link"] : ""
+                  }
+                >
+                  <Button
+                    url={data.url}
+                    type={data.typeMobile}
+                    text={data.text}
+                    logo={data.logo}
+                    target={data.target}
+                    isHashLink={data.hashLink}
+                    onClick={handleBurgerMenu}
+                  />
+                </li>
+              )
+            )}
+          </ul>
+          <div class={Styles["background-overlay"]} onClick={handleBurgerMenu}/>
+        </>
       )}
     </>
   );

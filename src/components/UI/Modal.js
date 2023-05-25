@@ -30,7 +30,7 @@ function Modal({ closeModal }) {
         <p className={Styles.details}>Graduated: Apr 2019</p>
         <div className={Styles["button-bkgd"]}>
           <Button
-            text="University Capstone Project"
+            text="Capstone Project"
             type="project-link"
             logo={"arrow"}
             url="/#capstone"

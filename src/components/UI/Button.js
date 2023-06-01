@@ -47,6 +47,7 @@ function Button({ text, logo, type, url, target, isHashLink, onClick }) {
   const link = (
     <Link
       to={url}
+      aria-label={text}
       className={Styles[type]}
       target={target}
       onClick={handleClick}
@@ -59,6 +60,7 @@ function Button({ text, logo, type, url, target, isHashLink, onClick }) {
   const anchorLink = (
     <HashLink
       to={url}
+      aria-label={text}
       className={Styles[type]}
       target={target}
       onClick={onClick}

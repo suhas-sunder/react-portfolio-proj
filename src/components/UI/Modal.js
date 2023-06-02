@@ -8,7 +8,7 @@ import { faXmark as closeIcon } from "@fortawesome/free-solid-svg-icons";
 function Modal({ closeModal }) {
   return (
     <>
-      <div className={Styles.modal}>
+      <div data-testid="modal" className={Styles.modal}>
         <FontAwesomeIcon
           icon={closeIcon}
           className={Styles["close-btn"]}

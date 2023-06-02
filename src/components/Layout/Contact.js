@@ -104,6 +104,7 @@ function Contact() {
         and I will respond as soon as possible.
       </p>
       <form
+        aria-label="form"
         id={Styles.form}
         action="https://formspree.io/f/xknaendo"
         method="POST"

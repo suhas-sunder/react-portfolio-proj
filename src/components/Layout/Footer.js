@@ -15,7 +15,7 @@ function Footer({ handleModal }) {
   };
 
   return (
-    <div id="footer" className={Styles.footer}>
+    <footer id="footer" className={Styles.footer}>
       <ul className={Styles.links}>
         {HomeBtnData.map((data, index) => (
           <li key={index}>
@@ -32,13 +32,18 @@ function Footer({ handleModal }) {
         by
         <span>
           {" "}
-          <Link to="/" className={Styles.highlight} onClick={handleScroll}>
+          <Link
+            data-testid="link"
+            to="/"
+            className={Styles.highlight}
+            onClick={handleScroll}
+          >
             Suhas Sunder
           </Link>
         </span>
         .
       </p>
-    </div>
+    </footer>
   );
 }
 

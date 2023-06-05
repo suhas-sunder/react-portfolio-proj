@@ -13,7 +13,7 @@ import { faGraduationCap as gradIcon } from "@fortawesome/free-solid-svg-icons";
 import { faUpRightFromSquare as arrowUpIcon } from "@fortawesome/free-solid-svg-icons";
 import Styles from "./Button.module.css";
 
-function Button({ text, logo, type, url, target, isHashLink, onClick }) {
+function Button({ id, text, logo, type, url, target, isHashLink, onClick }) {
   // Object list of all font-awesome logos
   const logos = {
     download: downloadIcon,
@@ -46,6 +46,7 @@ function Button({ text, logo, type, url, target, isHashLink, onClick }) {
 
   const link = (
     <Link
+      data-testid={id}
       to={url}
       aria-label={text}
       className={Styles[type]}
@@ -59,6 +60,7 @@ function Button({ text, logo, type, url, target, isHashLink, onClick }) {
 
   const anchorLink = (
     <HashLink
+      data-testid={id}
       to={url}
       aria-label={text}
       className={Styles[type]}

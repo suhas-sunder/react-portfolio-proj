@@ -8,6 +8,7 @@ function About() {
   return (
     <>
       <NavBar />
+      {/* Add header */}
       <Skills />
       <Contact />
       <Footer />

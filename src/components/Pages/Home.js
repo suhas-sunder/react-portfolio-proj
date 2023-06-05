@@ -17,7 +17,7 @@ function Home({ handleModal, showModal }) {
     <>
       {showModal && <Modal closeModal={handleModal} />}
       <NavBar />
-      <div id="about" className={Styles.header}>
+      <header id="about" className={Styles.header}>
         <img
           alt="head-shot of Suhas Sunder"
           src={ProfilePic}
@@ -52,7 +52,7 @@ function Home({ handleModal, showModal }) {
             ))}
           </ul>
         </div>
-      </div>
+      </header>
       <Skills />
       <Projects />
       <Contact />

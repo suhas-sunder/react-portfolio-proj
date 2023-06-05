@@ -80,7 +80,7 @@ function ProjOverview({ projName, handleModal, showModal }) {
     <>
       {showModal && <Modal closeModal={handleModal} />}
       <NavBar />
-      <div className={Styles.header}>
+      <header className={Styles.header}>
         {projNavigation}
         <div className={Styles["header-container"]}>
           <h1 className={Styles.title}>{title}</h1>
@@ -131,7 +131,7 @@ function ProjOverview({ projName, handleModal, showModal }) {
           </div>
           <TechStack skillsList={techStack} />
         </div>
-      </div>
+      </header>
       <div className={Styles["proj-details"]}>
         <h2>Project Details</h2>
         <ul className={Styles["highlights-list"]}>

@@ -3,7 +3,7 @@ import Styles from "./Skills.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SkillsData from "../../data/SkillsData";
 
-function About() {
+function Skills() {
   return (
     <div id="skills" className={Styles.container}>
       <div className={Styles["inner-container"]}>
@@ -12,10 +12,16 @@ function About() {
           {SkillsData.map((data, index) => (
             <li key={index} className={Styles.skill}>
               <FontAwesomeIcon
+                data-testid={"skill-icon-" + data.icon}
                 icon={data.icon}
                 className={Styles["skill-icon"]}
               />
-              <span className={Styles["skill-name"]}>{data.skill}</span>
+              <span
+                data-testid={"skill-name-" + data.skill}
+                className={Styles["skill-name"]}
+              >
+                {data.skill}
+              </span>
             </li>
           ))}
         </ul>
@@ -24,4 +30,4 @@ function About() {
   );
 }
 
-export default About;
+export default Skills;

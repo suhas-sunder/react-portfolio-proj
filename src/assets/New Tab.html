@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/dashboard.html -->
+<html style="--bottom-side-width: 211px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>New Tab</title>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/css/style.min.css">
+<style type="text/css" data-vue-ssr-id="22e7e222:0">
+/* stylelint-disable */
+.three-col-layout[data-v-c4b3c062] { display: grid; align-items: center; grid-template-columns: minmax(var(--6bb3ce0a), 1fr) minmax(0, auto) minmax(var(--6bb3ce0a), 1fr);
+}
+.three-col-layout.grow-center[data-v-c4b3c062] { grid-template-columns: var(--6bb3ce0a) auto var(--6bb3ce0a);
+}
+.three-col-layout--left[data-v-c4b3c062] { justify-self: end;
+}
+	/* Width 100% largely so quote can fill the width and widening the window will trigger a resize when the text has wrapped */
+.three-col-layout.grow-center .three-col-layout--center[data-v-c4b3c062] { width: 100%;
+}
+.three-col-layout--right[data-v-c4b3c062] { justify-self: start;
+}
+.three-col-layout.align-sides-outside[data-v-c4b3c062] .three-col-layout--left { justify-self: start;
+}
+.three-col-layout.align-sides-outside[data-v-c4b3c062] .three-col-layout--right { justify-self: end;
+}
+
+</style><style type="text/css" data-vue-ssr-id="17c7793e:0">
+/* stylelint-disable */
+.dashboard[data-v-05d9a8ca] { position: absolute; inset: 0; z-index: 3; display: grid; grid-template-columns: var(--967ceb3a) minmax(auto, 1fr) var(--967ceb3a); grid-template-rows: var(--85846f08) minmax(0, var(--baf1987a)) auto minmax(auto, 1fr) auto; overflow: hidden; transition: opacity 0.3s var(--a-curve);
+}
+.full[data-v-05d9a8ca] { position: absolute; inset: 0;
+}
+
+/*
+top-left and top-right should compete equally for space but will take up more if they have proportionally more content
+However, top-left has minmax(auto, max-content) so that it will never grow to more than its content. This allows base metric
+To use as much room as possible once links has grown to the fullest extent.
+ */
+.top-row[data-v-05d9a8ca] { grid-column: 1 / -1; grid-row: 1 / span 1; display: grid; grid-template-columns: minmax(auto, max-content) auto; grid-template-rows: auto auto;
+}
+	/* Max width fixes blowout when bookmarks overflows. min-width: 0 causes top-left and top-right to lock to 50% width each which is not ideal */
+.top-bar[data-v-05d9a8ca] { max-width: var(--dash-width); grid-column: 1 / -1; grid-row: 1 / span 1;
+}
+.top-left[data-v-05d9a8ca] { height: fit-content; grid-column: 1 / span 1; grid-row: 2 / span 1; display: flex; align-items: flex-start; min-width: 0;
+} /* fit-content is used to ensure the top-left doesn't grow to the height of the top-right */
+.top-right[data-v-05d9a8ca] { grid-column: 2 / span 1; grid-row: 2 / span 1; min-width: 0; display: flex; flex-direction: row-reverse;
+}
+.top-right[data-v-05d9a8ca] .metric-item { padding: var(--dash-vertical-margin) var(--dash-metric-side-padding) 10px;
+}
+.sidebar-left[data-v-05d9a8ca] { grid-column: 1 / span 1; grid-row: 2 / span 3;
+}
+.sidebar-right[data-v-05d9a8ca] { grid-column: -2 / span 1; grid-row: 2 / span 3;
+}
+.sidebar-left[data-v-05d9a8ca], .sidebar-right[data-v-05d9a8ca] { display: flex; flex-direction: column; width: max-content;
+}
+.center-above[data-v-05d9a8ca] { grid-column: 2 / span 1; grid-row: 2 / span 1;
+}
+.center[data-v-05d9a8ca], .center-measure[data-v-05d9a8ca] { grid-column: 2 / span 1; grid-row: 3 / span 1;
+}
+.center-below[data-v-05d9a8ca] { align-self: center; grid-column: 2 / span 1; grid-row: 4 / span 1; text-align: center;
+}
+.bottom-row[data-v-05d9a8ca] { grid-column: 1 / -1; grid-row: 5 / span 1; align-items: end;
+}
+.bottom-left[data-v-05d9a8ca], .bottom-center[data-v-05d9a8ca], .bottom-right[data-v-05d9a8ca] { display: flex; align-items: flex-end;
+}
+.bottom-center[data-v-05d9a8ca] { flex-grow: 1;
+}
+.dash-overlay[data-v-05d9a8ca] { position: absolute; inset: 0; z-index: 3; background-color: rgba(0,0,0, var(--opacity-stop-4));
+}
+@media screen and (max-width: 768px) {
+	/* Modify the three-col-layout grid to move the quote above the left and right columns */
+.bottom-row[data-v-05d9a8ca] { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; grid-template-rows: auto auto !important;
+}
+.bottom-row[data-v-05d9a8ca] .three-col-layout--left { width: 100%; grid-column: 1 / span 1; grid-row: 2 / span 1;
+}
+.bottom-row[data-v-05d9a8ca] .three-col-layout--center { grid-column: 1 / -1; grid-row: 1 / span 1;
+}
+.bottom-row[data-v-05d9a8ca] .three-col-layout--right { grid-column: 2 / span 1; grid-row: 2 / span 1;
+}
+}
+@media screen and (max-width: 450px) {
+.dashboard[data-v-05d9a8ca] { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+}
+	/* The pomodoro needs to be centered, but the clock should be at the top */
+.center[data-v-05d9a8ca] { grid-row: 2 / span 2; display: flex; justify-content: center;
+}
+.center[data-v-05d9a8ca] .pomodoro { align-self: flex-end;
+}
+}
+
+/* .app-dash layout overrides */
+.top-right[data-v-05d9a8ca] > :first-child .app-dash, .bottom-right[data-v-05d9a8ca] > :last-child .app-dash { padding-right: var(--dash-side-margin);
+}
+.top-right > .base-metric[data-v-05d9a8ca]:first-child { padding-right: calc(var(--dash-side-margin) - var(--dash-metric-side-padding));
+}
+.top-right[data-v-05d9a8ca]:not(.app-hover):hover .needs-hover .app-dash { opacity: 1;
+}
+.bottom-left[data-v-05d9a8ca] > :first-child .app-dash { padding-left: var(--dash-side-margin);
+}
+
+/* Use negative margin so that app container matches the size of the app dash content for relative positioning of the popup while keeping the padding on the app-dash element for large clickable area. */
+/* TODO: set up for other regions as needed */
+.top-left[data-v-05d9a8ca] { padding-left: calc(var(--dash-side-margin) - 15px);
+}
+.top-left[data-v-05d9a8ca] .app-container:first-child { margin: 0 var(--side-padding) 0 var(--dash-side-margin);
+}
+.top-left[data-v-05d9a8ca] .app-container:first-child >>> .app-dash { margin: 0 calc(var(--side-padding) * -1) 0 calc(var(--dash-side-margin) * -1); padding-left: var(--dash-side-margin);
+}
+[data-v-05d9a8ca] .needs-hover:not(.active) .app-dash { opacity: 0; transition: opacity 0.1s var(--a-curve);
+}
+</style><style type="text/css" id="font-override"></style><style type="text/css" data-vue-ssr-id="0fab3b26:0">
+/* stylelint-disable */
+.flash-message-container[data-v-492f8dfe] { position: absolute; inset: 1.5em 0 auto; z-index: 10; display: flex; justify-content: center; pointer-events: none;
+}
+.flash-message[data-v-492f8dfe] { max-width: 650px; padding: 16px 20px; display: flex; gap: 16px; align-items: center; background-color: var(--color-bg); border-radius: 100px; color: var(--color-text); pointer-events: all; text-shadow: none;
+}
+.icon-alert[data-v-492f8dfe] { --icon-size: 20px; flex-shrink: 0;
+}
+.message a[data-v-492f8dfe] { color: var(--color-text); text-decoration: underline; transition: opacity 0.05s ease;
+}
+.message a[data-v-492f8dfe]:hover { opacity: 0.8;
+}
+.message a[data-v-492f8dfe]:hover:active { opacity: 1; transition-duration: 0s;
+}
+.close[data-v-492f8dfe] { margin-right: -4px; margin-left: 3px;
+}
+.close[data-v-492f8dfe]:after { --icon-wrapper-size: 30px;
+}
+.icon-close[data-v-492f8dfe] { --icon-size: 10px;
+}
+</style><style type="text/css" data-vue-ssr-id="71232ca8:0">
+/* stylelint-disable */
+.background[data-v-45269796], .background-item[data-v-45269796] { position: absolute; top: 0; right: 0; left: 0; bottom: 0; background-color: transparent; background-position: center center; background-repeat: no-repeat; background-size: cover;
+}
+.background[data-v-45269796] { margin: 0; padding: 0; z-index: 1; transition: transform 0.3s ease-out;
+}
+.background-item[data-v-45269796] { opacity: 1; transition: transform var(--a-show-full-duration) var(--a-show-full-curve);
+}
+.show-full-overlay-active .background-item[data-v-45269796] { transform: scale(1.05);
+}
+.show-full-overlay .background-item[data-v-45269796]:before { position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 0; opacity: 0; background: rgba(0,0,0,0.5); content: ''; transition: opacity var(--a-show-full-duration) var(--a-show-full-curve);
+}
+.show-full-overlay-active .background-item[data-v-45269796]:before { opacity: 1;
+}
+.background-overlay[data-v-45269796] { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 2; opacity: 1; background-image: url(chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/app/26068490522b9f5ca27a.png); background-size: 100% 100%; transition: opacity 0.3s ease-out;
+}
+.background-overlay.slow[data-v-45269796] { transition-duration: 1s;
+}
+.hide-overlay .background-overlay[data-v-45269796] { opacity: 0 !important;
+}
+.fade-enter-active[data-v-45269796], .fade-leave-active[data-v-45269796] { animation: fadein 0.3s ease-out 0s forwards;
+}
+.fade-enter[data-v-45269796], .fade-leave-to[data-v-45269796] { opacity: 0;
+}
+.fade-slow-enter-active[data-v-45269796], .fade-slow-leave-active[data-v-45269796] { animation: fadein 2s ease-out 0s forwards;
+}
+.fade-slow-enter[data-v-45269796], .fade-slow-leave-to[data-v-45269796] { opacity: 0;
+}
+</style><style type="text/css">.todo .icon-move-to-today #icon-path-one,.todo .icon-tick{fill:var(--color-icon)}.todo .icon-clear,.todo .icon-move-to-today #icon-path-two{stroke:var(--color-icon)}.todo{text-align:right;text-shadow:none}.todo .app-container{position:relative}.todo .todo-app{height:auto;width:330px;padding:0;position:absolute;display:block;opacity:1;overflow-y:hidden;text-align:left}.todo-app.animating::-webkit-scrollbar-thumb{background-color:rgba(255,255,255,0)!important}.todo .drop-zone{width:37px;position:absolute;top:4px;bottom:4px;z-index:10000;opacity:0;font-size:14px;transition:all .3s ease-out;visibility:hidden;writing-mode:vertical-rl}.todo .bar,.todo .bar:before{position:absolute;top:0;bottom:0;right:0;left:0}.todo .drop-left-zone{left:0}.todo .drop-right-zone{right:0}.todo .has-drop-left .drop-left-zone,.todo .has-drop-right .drop-right-zone{opacity:1;visibility:visible}.todo .bar{padding-top:12px;box-shadow:0 0 10px rgba(0,0,0,.125);text-align:left;transition:all .2s ease}.todo .bar:before{z-index:-1;background:var(--color-stop-4);content:""}.todo .bar-name,.todo .dropdown-wrapper{position:relative}.todo .hover .bar:before{background:var(--color-stop-3)}.todo .drop-zone.hover .bar{transform:translateX(0)}.todo .bar-name{font-weight:500;line-height:37px;text-transform:capitalize;transform:scale(0);transition:all .2s ease}.todo .drop-zone.hover .bar-name{transform:scale(1)}.todo .left-bar{overflow:hidden;transform:translateX(-37px)}.todo .left-bar,.todo .left-bar:before{border-radius:0 var(--border-radius) var(--border-radius) 0}.todo .has-drop-left .left-bar{transform:translateX(-29px)}.todo .right-bar{overflow:hidden;transform:translateX(37px)}.todo .right-bar,.todo .right-bar:before{border-radius:var(--border-radius) 0 0 var(--border-radius)}.todo .has-drop-right .right-bar{transform:translateX(29px)}.todo .dropdown{position:absolute;z-index:10}.todo .dropdown li{transition-duration:0s}.todo .dropdown .loading{margin:2px 0;opacity:.7!important;text-align:center}.todo .dropdown .loading:hover{background:0 0}.todo .dropdown.list-integrations{width:220px}.todo .list-integrations .dropdown-list-icon{opacity:1}.todo .icon-tick{height:7px;width:14px;vertical-align:6%}.todo-header{--header-padding-top:5px;min-height:var(--header-height);position:relative;z-index:2;display:block;cursor:pointer!important}.todo-header-row{height:var(--header-height);position:relative;flex-grow:1;display:flex}.todo .list-color{width:5px;position:absolute;top:11px;bottom:3px;left:0;display:inline;border-bottom-right-radius:3px;border-top-right-radius:3px}.todo .provider-icon{height:20px;padding-right:9px}.momentum-todo .provider-icon{display:none}.todo-ClickUp .provider-icon{margin-top:2px}.dropdown-list-icon.GitHub,.dropdown-list-icon.icon-GitHub,.provider-list li img.GitHub,.provider-logo.GitHub,.todo-GitHub .provider-icon,.todo-Microsoft .provider-icon{filter:var(--filter-dark-brightness)}.todo .list-icon{position:relative;top:2px}.todo .project-chooser{--left-margin:-8px;margin-right:calc(var(--app-padding) * -1);padding-left:var(--app-padding);z-index:5;flex:0 0 auto;display:flex;align-items:center}.todo .project-chooser-toggle{height:var(--chooser-height);margin:2px 5px 0 var(--left-margin);padding:8px 5px 4px 7px;position:relative;display:inline-block;background:rgba(255,255,255,0);border-radius:var(--border-radius);cursor:pointer}.todo .active .project-chooser-toggle{background:rgba(255,255,255,.12)}.todo .project-chooser .icon-wrapper{padding:0;display:block}.todo .project-chooser .icon-wrapper:after{height:auto;width:auto;top:0;right:0;bottom:0;left:0;border-radius:var(--border-radius)}.todo .project-chooser .provider-icon{padding-right:1px}.todo .project-chooser .todo-menu-dropdown-icon{height:16px;width:17px;margin-left:3px;display:inline-block;opacity:.5;cursor:pointer;fill:var(--color-icon)}.todo-provider-wrapper:hover .todo-menu-dropdown-icon{opacity:.8}.project-chooser.active .todo-menu-dropdown-icon{opacity:.6}.todo .project-chooser-dropdown{min-width:230px;margin-top:4px;margin-left:var(--left-margin);top:100%;z-index:100;transition:transform .15s ease}.todo .active-list-container .dropdown,.todo-folders .dropdown{top:var(--header-height)}.todo .project-chooser-dropdown .dropdown-list{max-height:209px;overflow:hidden;overflow-y:auto}.todo .project-chooser-dropdown.short-list li:last-child{margin-bottom:20px}.todo .project-chooser-dropdown li:last-child{margin-bottom:4px}.todo-header .project-chooser-dropdown .dropdown-list.available-empty{height:200px}.todo-header .project-chooser-dropdown .available-empty li:last-child{margin-bottom:20px}.todo-header .project-chooser-dropdown li{padding-top:5px;padding-bottom:5px}.todo-header .project-chooser-dropdown .provider-name{margin:4px 0 -1px;opacity:.85;cursor:default;font-weight:600}.todo-header .project-chooser-dropdown .section-title{padding-top:6px;padding-bottom:4px;opacity:.5;cursor:default;font-size:71.42857%;font-weight:500;text-transform:uppercase}.project-chooser-dropdown .provider-name:hover,.project-chooser-dropdown .section-title:hover{background:0 0!important}.todo-header .project-chooser-dropdown .active-item.highlighted{background:var(--color-stop-1)}.todo-header .project-chooser-dropdown .loading-dropdown{opacity:.5;text-align:center}.todo .active-list-container{min-width:0;padding-top:var(--header-padding-top);padding-left:var(--app-padding);flex:1 1 auto;display:inline-flex;align-items:center;transition:all .2s ease}.todo .active-list-name{font-size:20px;overflow:hidden;text-overflow:ellipsis;text-transform:capitalize;white-space:nowrap}.todo .active-list-name.no-caps{text-transform:none}.todo-folders .dropdown{left:var(--safe-zone-padding)}.todo-folders.active .dropdown{display:block}.todo-folders .dropdown.nipple-top-left:after{left:15px}.todo-folders .dropdown .list-chooser{max-height:650px;overflow:auto}.todo .list-chooser-toggle{margin:0 6px;padding:0}.todo .list-chooser-toggle:after{--icon-wrapper-size:22px}.todo .list-chooser-toggle .icon{--icon-size:10px;min-width:0;margin-top:2px}.todo .list-chooser.nipple-top-left:after{left:28px}.todo .list-chooser li{--padding-v:7px;--padding-h:16px;min-width:240px;padding:var(--padding-v) var(--padding-h);position:relative;font-size:.9375rem;line-height:normal;white-space:nowrap}.todo .list-chooser li:hover{background:var(--hover-bg)}.todo .list-chooser .todo-list-section{padding-left:38px}.todo .list-chooser .list-color{width:4px;top:4px;bottom:2px}.todo .list-chooser .list-name{opacity:.7;line-height:1.2;white-space:initial}.todo .todo-list-choice-active .list-name{opacity:1;font-weight:500}.todo .list-chooser .todo-count{margin-left:3px;opacity:.45;font-size:93.33333%}.todo .list-chooser .todo-list-add-row{max-width:none!important;padding:0!important;list-style:none}.todo .list-chooser .todo-list-add-row li{padding:0}.todo .todo-list-add-input,.todo-list-add-loading{padding:var(--padding-v) var(--padding-h);line-height:normal}.todo .todo-list-add-input{width:100%;opacity:.7;border-bottom:none;cursor:pointer}.todo .input-mode .todo-list-add-input{cursor:text}.todo .todo-list-add-icon{position:absolute;top:var(--padding-v);left:calc(var(--padding-h) - 1px);opacity:.7}.todo .todo-list-add-icon .icon-plus{opacity:.6375;font-size:14px}.todo-list-add-row .upsell-row{padding:5px 16px!important;display:flex;align-items:center}.todo-list-add-row .upsell-row .copy{opacity:.5;font-size:.875rem}.todo-list-add-row .upsell-row .badge{margin-top:1px;margin-left:8px}.todo-folder .icon-folder{--icon-size:14px;margin-right:4px;opacity:.4;vertical-align:-9%}.todo-folder .icon-tick{margin-left:-1px;opacity:.5;transform:rotate(-90deg);vertical-align:8%}.todo-folder.active .icon-tick{-webkit-backface-visibility:hidden;transform:rotate(0)}.todo-folder .todo-list-section{display:none}.todo-folder.active .todo-list-section{display:block}.todo-header-controls{flex:0 0 auto;display:flex}.todo-header .more{height:100%;position:static}.todo-header .mobile-close,.todo-header .more-toggle{padding:var(--header-padding-top) calc(var(--app-padding) - 3px) 0 5px!important;position:relative}.todo-header .mobile-close{margin-left:0}.todo-actions-dropdown{min-width:auto;margin-top:-6px;right:calc(var(--app-padding) - 7px);bottom:auto}.todo-header .dropdown .header{border-bottom:1px solid var(--color-stop-1)}.todo .icon-external{opacity:.35}.todo .icon-autofocus{--icon-size:9px}.todo .icon-assigned,.todo .icon-clear{--icon-size:14px}.todo .icon-move-to-today{--icon-size:16px;margin-left:-3px}.todo-provider-loading.dropdown-detail{bottom:0}.todo-provider-loading .loading{height:100%;margin:0!important;padding:0!important;display:flex;align-items:center;justify-content:center}.todo-list-wrapper{height:100%;width:100%;position:relative;z-index:1;overflow:hidden;transition:max-height .3s ease,min-height .3s ease,padding .3s ease}.todo.has-message .todo-list-wrapper{padding-top:1rem}.todo-list{width:100%;overflow-x:hidden;overflow-y:auto;transition:opacity .2s eas}.todo-list.animating::-webkit-scrollbar-thumb{background-color:rgba(255,255,255,0)!important}.todo-item-active>.todo-item-wrapper,.todo-item.active{background-color:var(--color-stop-1)}.todo-list.drop-top-margin{margin-top:-52px}.todo-list.hide-scroll{overflow-y:hidden}.todo-list.drop-area{padding:10px 0}.todo-list .placeholder{padding:0}.todo-item{position:relative;display:none;opacity:0;font-size:1rem;line-height:1.1875;visibility:hidden}.todo-item.visible{width:100%;display:inline-block;opacity:1;visibility:visible}.todo-item.hidden{display:none}.todo-item.transition{transition:visibility 0s,opacity .4s ease,margin-top .4s ease}.todo-item.drop-area{padding:8px 0}.todo-item label{padding-right:8px;padding-left:var(--app-padding);position:relative;top:1px;z-index:10;display:flex;opacity:1;font-size:1rem}.touch .todo-item label{top:2px}.todo-item input{width:auto}.todo-item-wrapper{padding:3px 0 2px;display:flex;align-items:baseline}.todo-item-title{min-width:0;flex:1 1 auto;display:block;cursor:default;outline:0;word-wrap:break-word}.editing>.todo-item-wrapper .todo-item-title{opacity:.7;outline:0;-webkit-user-select:text;user-select:text}.done>.todo-item-wrapper .todo-item-title{opacity:.5;text-decoration:line-through}.done-list .todo-item-title{opacity:.6;text-decoration:none}.todo-item-title:empty:before{content:"!";visibility:hidden}.todo-item .more{position:static}.todo-item .more-toggle{margin:-3px 0;padding:0 calc(var(--app-padding) - 1px) 0 8px;z-index:2}.todo-item-wrapper:hover .more-toggle{opacity:.525}.editing .more{opacity:0}.todo-item-dropdown{top:20px;right:calc(var(--app-padding) - 5px);bottom:auto}.todo-item-dropdown .list-color{width:4px;margin:0;top:3px;bottom:2px}.todo-item .icon-wrapper:after{--icon-wrapper-size:23px}.todo-item .icon-ellipsis{padding-top:1px}.todo-item .active .icon-wrapper,.todo-item-wrapper:hover .icon-wrapper{opacity:1}.todo-item-active>.todo-item-wrapper{display:block;box-shadow:0 0 0 2px var(--color-stop-1)}.todo-item .control{height:12px;width:12px;position:absolute;right:0;border-radius:100%;cursor:pointer;line-height:12px;text-align:center}.todo-item .error-icon,.todo-item .loading-icon{position:absolute;top:6px;display:none}.todo-item .failed>.todo-item-wrapper .error-icon,.todo-item .loading>.todo-item-wrapper .loading-icon{display:inline-block}.todo-item .failed .destroy,.todo-item .failed .more,.todo-item .loading .destroy,.todo-item .loading .more,.todo-subsection .todo-item-checkbox{display:none}.todo-item .loading-icon{height:10px;width:10px;right:6px;border-width:1px}.todo-item .error-icon{top:4px;right:13px}.todo-section{margin:0;padding:12px var(--app-padding) 6px;opacity:.75;font-size:.75rem;font-weight:700;text-transform:uppercase}.todo-list .todo-section:first-child{padding-top:5px}.todo-section-collapsible{cursor:pointer}.todo-section-collapsible:active,.todo-section-collapsible:hover{opacity:1}.todo-section .icon-tick{margin-left:1px;opacity:.5}.todo-section-collapsed .icon-tick{-webkit-backface-visibility:hidden;transform:rotate(-90deg)}.todo-section-collapsible:hover .icon-tick{opacity:.85}.todo-subsection{cursor:default}.todo-subsection .todo-item-title{margin-left:16px;margin-bottom:-2px;opacity:.7;font-size:13px}.todo-load-more{padding:8px var(--app-padding) 4px;text-align:center}.todo-load-more .todo-load-more-button{padding:7px 21px;border-radius:100px;font-size:12px;transition:opacity .2s ease!important}.todo-load-more .loading{height:28px;position:relative;display:block;line-height:25px}.todo-load-more .loading .loading-icon{margin-right:6px;position:relative;top:-2px;right:auto;left:2px}.todo-load-more .loading .loading-title{opacity:.9;font-size:12px}.todo-load-more .todo-load-more-done{height:28px;opacity:.9;font-size:12px;line-height:25px;transition:opacity .2s ease!important}.todo .empty .empty-link,.todo-list .empty .new-todo-button{transition:opacity .3s ease}.todo-list .info{margin-bottom:8px;padding:5px 15px;position:relative;background:#333;color:#ccc}.todo-list .info-hide{height:29px;width:29px;min-width:0;padding:0!important;position:absolute;top:0;right:0;opacity:.5;font-size:70%;line-height:29px;text-align:center}.todo-list .info-title{margin:0 0 1px;font-size:90%}.todo-list .info-description{margin:0;opacity:.5;font-size:85%;line-height:120%}.todo-list .info-action{margin:-3px -15px -5px;padding:5px 15px!important;opacity:.8;font-size:80%}.todo .empty .empty-title{padding:0;opacity:.7;cursor:default}.todo .empty .empty-link{display:inline-block;cursor:pointer}.todo .empty-link .icon{margin-left:3px;font-size:16px;line-height:1;vertical-align:-5%}.todo-list .empty .empty-link:hover{opacity:.8}.todo-item ol{margin-left:18px}.todo-upsell{min-height:180px}.todo .footer-input{position:static;display:flex;align-items:center;justify-content:space-between}.todo .is-empty .todo-app{overflow:hidden}.todo .is-empty .todo-new{position:absolute;bottom:0}.todo .is-empty .todo-list{visibility:hidden}.todo .is-empty .empty{display:flex}@media screen and (max-width:450px){.todo .todo-header{--header-padding-top:2px;display:flex}.todo-actions-dropdown{right:52px}}</style><style type="text/css" data-vue-ssr-id="c222dcb4:0">
+/* stylelint-disable */
+.app-container[data-v-06555f71] { order: 100; align-self: flex-start;
+}
+.app-dash[data-v-06555f71] {
+}
+.active .app-dash[data-v-06555f71] { opacity: 1;
+}
+.placeholder[data-v-06555f71] { position: relative; display: inline-block;
+} /* inline-block needed for Firefox */
+.placeholder .hide[data-v-06555f71] { opacity: 0;
+}
+.placeholder .icon-add[data-v-06555f71] { --icon-size: 21px; position: absolute; right: 0; bottom: 4px;
+}
+.Safari .icon-add[data-v-06555f71] { -webkit-transform: translate3d(0, 0, 0);
+} /* fixes subpixel movement when hovering */
+.metric-label[data-v-06555f71] { white-space: nowrap;
+}
+.app[data-v-06555f71] { --app-padding: 27px; text-align: center;
+}
+.title-wrapper[data-v-06555f71] { padding: 0 0 12px;
+}
+.title[data-v-06555f71] { margin: -3px 0 3px; color: var(--color-accent-safe); font-size: 20px; font-weight: 600;
+}
+.description[data-v-06555f71] { margin: 4px 0; opacity: 0.7; font-size: 14px;
+}
+.tiles[data-v-06555f71] { display: flex; justify-content: space-between;
+}
+.tile[data-v-06555f71] { width: 32%; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; border-radius: var(--border-radius); cursor: pointer;
+}
+.tile[data-v-06555f71]:hover { background: var(--color-stop-1);
+}
+.tile[data-v-06555f71]:hover:active { background: var(--color-stop-2);
+}
+[data-v-06555f71] .widget-icon { --size: 24px; height: var(--size); width: var(--size); margin: 5px auto 6px; opacity: 0.9;
+}
+.widget-name[data-v-06555f71] { font-size: 15px;
+}
+.tile .badge[data-v-06555f71] { margin-top: 5px; margin-left: 0;
+}
+.mobile-close[data-v-06555f71] { position: absolute; top: var(--app-padding); right: var(--app-padding);
+}
+@media screen and (max-width: 450px) {
+.app-container[data-v-06555f71] { display: none;
+}
+		/*.app { position: fixed; right: var(--app-offset); }*/
+		/*	.nipple-top-right:after { right: 104px; }*/
+}
+</style><style type="text/css" data-vue-ssr-id="8544ab60:0">
+/* stylelint-disable */
+.toast-hide[data-v-585a48d3] { opacity: 0;
+}
+.toast-visible .icon[data-v-585a48d3] { opacity: 0.8;
+}
+.toast-container[data-v-585a48d3] { height: 0; width: 100%; position: fixed; right: 0; bottom: 0; left: 0; z-index: 100; color: var(--color-text); overflow: visible;
+}
+.toast[data-v-585a48d3] { --toast-padding: calc(var(--app-padding) - 3px); --dropdown-padding: var(--toast-padding); max-width: none !important; margin: 0 !important; padding: 0; position: absolute; top: auto; right: 0 !important; bottom: 0 !important; left: 0 !important; z-index: 2; background-color: var(--color-bg); border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+.toast > *[data-v-585a48d3]:not(.toast-header):first-child { padding-top: calc(var(--app-padding) / 2);
+}
+.toast-header[data-v-585a48d3] { padding: var(--toast-padding); text-align: left;
+}
+[data-v-585a48d3] .toast-title { line-height: 1.25;
+}
+[data-v-585a48d3] .toast-source { margin-top: 4px; opacity: 0.7; font-size: 0.75rem; font-weight: 600;
+}
+.toast-list[data-v-585a48d3] li { max-width: 100% !important;
+}
+.header-line[data-v-585a48d3] { margin: 0 -4px 4px !important;
+}
+.section-title[data-v-585a48d3] { margin: var(--toast-padding); margin-bottom: 5px; opacity: 0.95; font-size: 12px; font-weight: 700; line-height: 1.2; text-align: left; text-transform: uppercase;
+} /* remove line-height when .focus-row { line-height: 120%; } is removed */
+[data-v-585a48d3] .toast .line { height: 1px; margin: 3px var(--toast-padding); background: var(--border-color);
+}
+[data-v-585a48d3] .dropdown-list-item { padding-right: var(--toast-padding); padding-left: var(--toast-padding);
+}
+.button-close[data-v-585a48d3] { margin: var(--toast-padding); margin-top: calc(var(--toast-padding) - 8px); padding: 6px; padding-bottom: 5px; display: block; background: var(--border-color-low) !important; color: var(--color-text) !important; font-size: 12px; line-height: 1.2; text-align: center;
+} /* remove line-height when .focus-row { line-height: 120%; } is removed */
+.button-close[data-v-585a48d3]:active { background: var(--border-color) !important;
+}
+.button-label[data-v-585a48d3] { opacity: 0.8;
+}
+.toast-overlay[data-v-585a48d3] { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 1; background: hsla(0 0% 0% / 50%);
+}
+.slide-up-enter-active[data-v-585a48d3], .slide-up-leave-active[data-v-585a48d3] { transition: all 0.2s ease;
+}
+.slide-up-enter[data-v-585a48d3], .slide-up-leave-to[data-v-585a48d3]  { transform: translateY(100%);
+}
+</style><style type="text/css" data-vue-ssr-id="0e175afe:0">
+/* stylelint-disable */
+.photo-info[data-v-e83dbdd8] { min-width: 0; flex: 0 1 auto;
+}
+.photo-info .app-dash[data-v-e83dbdd8] { height: var(--top-and-bottom-row-min-height); display: flex; justify-content: center; transition: all 0s var(--a-curve), opacity 1s var(--a-curve), transform 1s var(--a-curve);
+}
+.photo-info .app-dash[data-v-e83dbdd8]:before { opacity: 0; content: ''; transition: opacity 1s var(--a-curve);
+}
+.photo-info.add-shadow[data-v-e83dbdd8]:before { left: -40px; opacity: 0.3;
+}
+.title[data-v-e83dbdd8], .source[data-v-e83dbdd8] { width: max-content; transition: all 0.3s ease;
+}
+.title[data-v-e83dbdd8] { --hover-offset: -2px; padding: 5px 0; display: inline;
+}
+.has-button > .title[data-v-e83dbdd8] { --hover-offset: -6px !important;
+}
+.app-dash .title[data-v-e83dbdd8] { opacity: 0.8; font-size: 0.8125rem;
+}
+body:not(.touch) .app-dash .title[data-v-e83dbdd8] { transform: translateZ(0) translateY(10px);
+}
+body:not(.touch) .photo-info .app-dash:hover .title[data-v-e83dbdd8], .photo-info .app-dash.show-hover .title[data-v-e83dbdd8] { transform: none;
+}
+.hotkey-hover .title[data-v-e83dbdd8] { transition-duration: 1s;
+}
+.source[data-v-e83dbdd8] { --show-hover-transition: opacity 0.1s var(--a-curve); display: flex; align-items: center; font-size: 0.6875rem;
+}
+.app-dash .source[data-v-e83dbdd8] { opacity: 0; transform: translateZ(0) translateY(-13px);
+}
+.touch .app-dash:not(.show-hover) .source[data-v-e83dbdd8] { display: none;
+}
+.app-dash:hover .source[data-v-e83dbdd8], .app-dash.show-hover .source[data-v-e83dbdd8], .app-dash.pseudo-hover .source[data-v-e83dbdd8] { opacity: 1; transform: translateZ(0) translateY(-2px);
+}
+.hotkey-hover .source[data-v-e83dbdd8] { transition-duration: 0.8s;
+}
+.source-link[data-v-e83dbdd8] { margin: -3px; margin-right: 0px; padding: 3px; opacity: 0.7; cursor: pointer; line-height: 20px; transition: all 0.2s var(--a-curve); vertical-align: top;
+}
+.source-link[data-v-e83dbdd8]:hover { opacity: 0.9 !important;
+}
+.touch .source-link[data-v-e83dbdd8] { pointer-events: none;
+}
+.control[data-v-e83dbdd8] { --size: 16px; height: var(--size); width: var(--size); margin: -2px 0; padding: 2px 1px; position: relative; display: inline-flex; align-items: center; justify-content: center; opacity: 0.7; box-sizing: content-box; cursor: pointer; transition: var(--show-hover-transition);
+}
+.control[data-v-e83dbdd8]:hover, .control.active[data-v-e83dbdd8] { opacity: 1;
+}
+.control .icon[data-v-e83dbdd8] { --icon-size: 14px; height: var(--icon-size); width: var(--icon-size);
+}
+.app-dash.show-hover .control[data-v-e83dbdd8] { opacity: 0;
+}
+.app-dash.show-hover:hover .control[data-v-e83dbdd8] { opacity: 0.7;
+}
+.app-dash.show-hover .control[data-v-e83dbdd8]:hover { opacity: 1;
+}
+
+
+/* Mobile */
+@media screen and (max-width: 450px) {
+.title[data-v-e83dbdd8], .source[data-v-e83dbdd8] { width: auto;
+}
+.title[data-v-e83dbdd8], .source-link[data-v-e83dbdd8] { overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.title[data-v-e83dbdd8] { height: auto; font-size: 0.75rem; font-style: italic; line-height: 1.2;
+}
+}
+</style><style type="text/css" data-vue-ssr-id="90d36f42:0">
+/* stylelint-disable */
+.center-container { display: flex; flex-direction: column;
+}
+</style><style type="text/css">.dropdown-portal[data-v-941116ea]>*{z-index:50}.dropdown-portal[data-v-941116ea] .base-dropdown-container.app{--dropdown-color: var(--color-text);--dropdown-background-color: var(--color-accent-highlight)}.dropdown-portal[data-v-941116ea] .base-dropdown-container.dash{--dropdown-color: var(--color-text);--dropdown-background-color: var(--color-bg)}</style><style type="text/css">.full-screen-portals[data-v-3c658925]{position:absolute;inset:0 0 0 0}.full-screen-portals .toast-menu-portal[data-v-3c658925]>*{z-index:45}</style><style type="text/css" data-vue-ssr-id="72708cec:0">
+/* stylelint-disable */
+.onboarding-intro[data-v-4bb0f5fe] { padding: var(--modal-padding); padding-bottom: var(--modal-step-container-bottom-padding);
+}
+.slide-fade-enter[data-v-4bb0f5fe] { opacity: 0; transform: translateY(3px);
+}
+.slide-fade-enter-active[data-v-4bb0f5fe] { transition: all 0.2s ease-out;
+}
+.slide-fade-leave-to[data-v-4bb0f5fe] { opacity: 0; transform: translateY(-2px);
+}
+.slide-fade-leave-active[data-v-4bb0f5fe] { transition: all 0.1s ease-out;
+}
+.benefit-icons[data-v-4bb0f5fe] { margin-top: 2rem; position: relative; z-index: 1; display: flex;
+}
+.benefit-icon[data-v-4bb0f5fe] { --padding: 1rem; margin: calc(var(--padding) * -1) 0; padding: var(--padding) 0; flex: 0 0 33.333%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: hsl(var(--hue-modal), 57%, 42%); font-size: 1.0625rem; font-weight: 600; transition: all 0.5s ease;
+}
+.benefit-icon[data-v-4bb0f5fe]:hover  { transform: scale(1) translateY(-3px);
+}
+.icon-svg[data-v-4bb0f5fe] { --icon-size: 65px; height: var(--icon-size); margin-bottom: 9px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.icon-svg[data-v-4bb0f5fe]:before { --size: 57px; height: var(--size); width: var(--size); position: absolute; z-index: -1; background: white; border-radius: var(--size); content: '';
+}
+.benefit-icons[data-v-4bb0f5fe] .icon-svg-icon { height: var(--icon-size); width: var(--icon-size); fill: hsl(var(--hue-modal), 46%, 51%);
+}
+.benefit-icons[data-v-4bb0f5fe] .icon-mantras { margin-top: -4px; margin-left: -4px;
+}
+.benefit-icons[data-v-4bb0f5fe] .icon-focus { --icon-size: 67px;
+}
+.benefit-icons[data-v-4bb0f5fe] .icon-todo { --icon-size: 61px;
+}
+.benefit-icons[data-v-4bb0f5fe] .icon-links { --icon-size: 65px;
+}
+.benefit-icons[data-v-4bb0f5fe] .icon-notes { margin-right: -1px;
+}
+.benefit-icons[data-v-4bb0f5fe] .icon-content { --icon-size: 67px; margin-right: -10px;
+}
+.benefit-icons[data-v-4bb0f5fe] .icon-integration { --icon-size: 63px; position: relative; top: 3px;
+}
+.benefit-icons[data-v-4bb0f5fe] .icon-functionality { --icon-size: 57px;
+}
+.benefit-list[data-v-4bb0f5fe] { margin-top: 27px; margin-left: 4%; padding: 0 3rem; display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: var(--spacing);
+}
+.benefit-list li[data-v-4bb0f5fe] { padding: 4px 0 3px 2.2rem; position: relative; cursor: default; font-size: 0.875rem; font-weight: 500; text-align: left;
+}
+.benefit-list .icon-container[data-v-4bb0f5fe] { --size: 22px; height: var(--size); width: var(--size); margin-right: 5px; display: inline-flex; align-items: center; justify-content: center; vertical-align: text-bottom;
+}
+.benefit-list[data-v-4bb0f5fe] .icon { height: 18px; padding-top: 4px; opacity: 0.6; fill: #000;
+}
+.benefit-list[data-v-4bb0f5fe] .icon-autofocus { height: 16px;
+}
+.bottom-link[data-v-4bb0f5fe] { margin-top: 4px;
+}
+.bottom-link[data-v-4bb0f5fe] .icon { height: 8px; margin-left: 4px;
+}
+.bottom-link-anchor[data-v-4bb0f5fe] { padding: 7px; opacity: 0.65; color: #111; font-size: 0.75rem; font-weight: 500; text-transform: uppercase; transition: var(--a-default);
+}
+.bottom-link-anchor[data-v-4bb0f5fe]:hover { text-decoration: underline;
+}
+.bottom-link-anchor[data-v-4bb0f5fe]:hover:active { opacity: 1;
+}
+@media screen and (max-width: 450px) {
+.benefit-icons[data-v-4bb0f5fe] { --h-margin: -10px; margin-right: var(--h-margin); margin-left: var(--h-margin);
+}
+.benefit-icon[data-v-4bb0f5fe] { font-size: 1rem;
+}
+.benefit-list[data-v-4bb0f5fe] { display: none;
+}
+.bottom-link[data-v-4bb0f5fe] { margin-top: 1em;
+}
+.bottom-link-anchor[data-v-4bb0f5fe] { opacity: 0.7; font-weight: 700; letter-spacing: 0.2px;
+}
+}
+</style><style type="text/css" data-vue-ssr-id="057d3985:0">
+/* stylelint-disable */
+.popup[data-v-549d1dd4] { width: 390px; position: fixed; z-index: 100; overflow: visible;
+}
+.popup.popup-pulse[data-v-549d1dd4]:before { --size: 26px; position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: -1; opacity: 0; animation: 1.8s popup-pulse-549d1dd4 infinite forwards; border-radius: 20px; box-shadow: inset 0 0 var(--size) calc(var(--size)*0.5) white, 0 0 var(--size) calc(var(--size)*0.5) white; content: '';
+}
+@keyframes popup-pulse-549d1dd4 {
+0% { opacity: 0.6; transform: scale(1);
+}
+			/*0.1% { opacity: 0.6; }*/
+100% { opacity: 0; transform: scale(1.15);
+}
+}
+.app[data-v-549d1dd4] { --app-padding: 26px; position: relative;
+}
+.popup-header[data-v-549d1dd4] { padding-right: 20px; display: flex; align-items: flex-start; justify-content: space-between;
+}
+.popup-title[data-v-549d1dd4] { margin: 0 0 8px;
+}
+.popup-hide[data-v-549d1dd4] { margin: 8px; padding: 13px; position: absolute; top: 0; right: 0; z-index: 1; display: flex; align-items: center; justify-content: center;
+}
+.popup-hide .icon[data-v-549d1dd4] { fill: var(--color-text);
+}
+.popup-body[data-v-549d1dd4] { padding-right: 20px; font-size: 0.9375rem; line-height: 1.5;
+}
+.popup-footer[data-v-549d1dd4] { margin: 14px 0 -1px; display: flex; align-items: center;
+}
+.button-primary[data-v-549d1dd4] { margin-right: 15px;
+}
+.button-secondary[data-v-549d1dd4] { padding: 0 10px; align-self: stretch; display: flex; align-items: center; opacity: 0.7; cursor: pointer; font-size: 14px; font-weight: 500;
+}
+.button-secondary[data-v-549d1dd4]:hover { opacity: 0.85;
+}
+.button-secondary[data-v-549d1dd4]:hover:active { opacity: 0.7;
+}
+</style><style type="text/css" data-vue-ssr-id="2a30f348:0">
+/* stylelint-disable */
+.tour-feature[data-v-674d557f] { max-width: 550px; position: absolute; display: flex; align-items: center;
+}
+.cta[data-v-674d557f] { max-width: 400px; padding: 1rem; flex-grow: 1; display: flex; flex-direction: column;
+}
+.arrow[data-v-674d557f] { padding: 15px; order: 1; font-size: 14px;
+}
+.arrow.right-below[data-v-674d557f] { align-self: flex-end;
+}
+.arrow.right-above[data-v-674d557f] { align-self: flex-start; transform: rotateX(180deg);
+}
+.arrow.below-left[data-v-674d557f] { align-self: flex-start; transform: rotate(90deg);
+}
+.arrow.below-right[data-v-674d557f] { align-self: flex-end; transform: rotateY(180deg) rotate(90deg);
+}
+.arrow.left-above[data-v-674d557f] { order: -1; align-self: flex-start; transform: rotate(180deg);
+}
+.arrow.left-below[data-v-674d557f] { order: -1; align-self: flex-end; transform: rotateX(180deg) rotate(180deg);
+}
+.arrow.above-right[data-v-674d557f] { order: -1; align-self: flex-end; transform: rotate(-90deg);
+}
+.arrow.above-left[data-v-674d557f] { order: -1; align-self: flex-start; transform: rotateY(180deg) rotate(-90deg);
+}
+.icon-arrow[data-v-674d557f] { height: 60px; width: 60px;
+}
+.sub-step-transition-enter-active .feature[data-v-674d557f], .sub-step-transition-leave-active .feature[data-v-674d557f] { transition: opacity 0.5s ease;
+}
+.sub-step-transition-enter .feature[data-v-674d557f], .sub-step-transition-leave-to .feature[data-v-674d557f] { opacity: 0;
+}
+</style><style type="text/css" data-vue-ssr-id="0230daef:0">
+/* stylelint-disable */
+.modal-component[data-v-6e1d3a80] { --modal-padding: 40px;
+}
+.fade-slide-down-enter-active[data-v-6e1d3a80], .fade-slide-down-leave-active[data-v-6e1d3a80] { transition: all 0.5s ease-out;
+}
+.fade-slide-down-enter[data-v-6e1d3a80], .fade-slide-down-leave-to[data-v-6e1d3a80] { opacity: 0; transform: translateY(0px);
+}
+.fade-slide-up-enter-active[data-v-6e1d3a80], .fade-slide-up-leave-active[data-v-6e1d3a80] { transition: all 0.5s ease-out;
+}
+.fade-slide-up-enter[data-v-6e1d3a80], .fade-slide-up-leave-to[data-v-6e1d3a80] { opacity: 0; transform: translateY(0px);
+}
+[data-v-6e1d3a80] .opt-out { margin-bottom: 0px; opacity: 0.45; font-size: 0.8125rem; line-height: 1.4;
+}
+[data-v-6e1d3a80] .opt-out-button { margin-left: -3px; padding: 3px; cursor: pointer; text-decoration: underline; white-space: nowrap;
+}
+[data-v-6e1d3a80] .opt-out-button:hover { opacity: 0.75;
+}
+</style><style type="text/css" data-vue-ssr-id="501ce6d7:0">
+/* stylelint-disable */
+
+/*
+	Quote vertical positioning rules:
+	- If the quote is one line: vertically aligned with background info and Notes/To-do app dashes
+	- If the quote is two lines: vertically aligned with background info and Notes/To-do app dashes so that space between two lines is centered
+	- If the quote is more than two lines: respect the dash vertical margin and move the quote up as lines increase
+	When hovered:
+	- Source should translate down to edge of screen, it does not need to respect the dash vertical padding
+	- Body must translate up only as much as necessary, this means it will need to translate more if it is 2+ lines.
+
+	Quote horizontal positioning rules:
+	- Quote body element must extend the entire width of the bottom (middle) region even if the quote is wrapping
+	  to ensure that if the region expands it will trigger the resize observer.
+*/
+.quote[data-v-260d0702] { --below-height: 30px; --max-translate-y: calc((var(--below-height) - var(--dash-vertical-margin)) * -1); min-height: var(--top-and-bottom-row-min-height); width: 100%; margin-top: calc(var(--max-translate-y) * -1); padding: 0; display: flex; align-items: center; text-align: center;
+}
+.app-dash[data-v-260d0702] { padding: var(--dash-vertical-margin) 5px; flex-basis: 100%;
+}
+.body[data-v-260d0702], .below[data-v-260d0702] { margin: 0; color: rgba(255,255,255,0.9); line-height: 1.2; transition: all 0.35s 0.1s var(--a-curve);
+}
+.body[data-v-260d0702] { --relative-translate-y: calc(50% * -1); display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 1.125rem; -moz-user-select: text; -webkit-user-select: text; user-select: text;
+}
+.quote .app-dash:hover .body[data-v-260d0702] { transform: translateY(max(var(--relative-translate-y), var(--max-translate-y)));
+}
+.touch .quote .app-dash:hover .body[data-v-260d0702] { transform: translateY(0);
+}
+.below[data-v-260d0702] { height: var(--below-height); position: absolute; inset: auto 0 0; opacity: 0; font-size: 0.875rem; transform: translateY(-50%);
+}
+.quote .app-dash:hover .below[data-v-260d0702], .quote.pseudo-hover .below[data-v-260d0702] { opacity: 1; transform: translateY(0);
+}
+.below-actions[data-v-260d0702] { display: flex; align-items: center; justify-content: center;
+}
+.source[data-v-260d0702] { margin-right: 4px; opacity: 0.75;
+}
+.below-actions .control[data-v-260d0702] { padding: 6px 3px; position: relative; display: inline-flex; align-items: center; justify-content: center; opacity: 0.75; cursor: pointer; line-height: 100%; vertical-align: middle;
+}
+.below-actions .control[data-v-260d0702]:hover, .below .control.active[data-v-260d0702] { opacity: 1;
+}
+.below-actions .control.skip[data-v-260d0702] { padding-left: 2px;
+}
+.below-actions .icon[data-v-260d0702] { --icon-size: 16px; display: block;
+}
+
+
+/* Tablet */
+@media screen and (max-width: 768px) {
+.quote[data-v-260d0702] { margin-top: 0; padding: 0 10px;
+}
+.quote .body .body-text[data-v-260d0702] { font-size: 1rem !important; font-style: italic;
+}
+}
+</style><style type="text/css" data-vue-ssr-id="fd5cd138:0">
+/* stylelint-disable */
+.center-below-app-wrapper[data-v-19e8edf6] { display: flex; flex-direction: column; align-items: center;
+}
+/*
+	fade transition needs to occur on the same element as the backdrop-filter element (.search) or else the backdrop filter will not transition
+	Any ancestor elements to .search with less than 1 opacity should be avoided else the transition will appear broken.
+	Only the .search element itself can receive less than 1 opacity for the backdrop filter to render with reduced opacity.
+
+	So in order to fade in/out elements in this region, we need to fade them all independently
+ */
+.fade-deep-enter-active.focuses[data-v-19e8edf6],
+.fade-deep-leave-active.focuses[data-v-19e8edf6],
+.fade-deep-enter-active[data-v-19e8edf6] .three-col-layout--left,
+.fade-deep-leave-active[data-v-19e8edf6] .three-col-layout--left,
+.fade-deep-enter-active[data-v-19e8edf6] .search .search-form,
+.fade-deep-leave-active[data-v-19e8edf6] .search .search-form ,
+.fade-deep-enter-active[data-v-19e8edf6] .search .backdrop-filter,
+.fade-deep-leave-active[data-v-19e8edf6] .search .backdrop-filter { transition: opacity 0.5s ease;
+}
+.fade-deep-enter.focuses[data-v-19e8edf6],
+.fade-deep-leave-to.focuses[data-v-19e8edf6],
+.fade-deep-enter[data-v-19e8edf6] .three-col-layout--left,
+.fade-deep-leave-to[data-v-19e8edf6] .three-col-layout--left,
+.fade-deep-enter[data-v-19e8edf6] .search .search-form,
+.fade-deep-leave-to[data-v-19e8edf6] .search .search-form,
+.fade-deep-enter[data-v-19e8edf6] .search .backdrop-filter,
+.fade-deep-leave-to[data-v-19e8edf6] .search .backdrop-filter { opacity: 0;
+}
+
+</style><style type="text/css" data-vue-ssr-id="325af400:0">
+/* stylelint-disable */
+.dropdown[data-v-0a952a33] { display: block;
+} /* Override general stylesheet dropdown styling for display: block, but move to this when refactor complete; */
+.dropdown-hide[data-v-0a952a33] { opacity: 0;
+}
+.dropdown-visible .icon[data-v-0a952a33] { opacity: 0.8;
+}
+.open-enter-active[data-v-0a952a33], .open-leave-active[data-v-0a952a33] { transition: opacity 0.1s ease;
+} /* Consolidate this with center nav and other animations? */
+.open-enter[data-v-0a952a33], .open-leave-to[data-v-0a952a33] { opacity: 0;
+}
+
+</style><style type="text/css" data-vue-ssr-id="5290f4cb:0">
+/* stylelint-disable */
+.more-dropdown[data-v-3fc1880d] { display: block;
+} /* TODO. remove this once we remove the use of 'active' class on more icons */
+.search-form[data-v-3fc1880d] { position: relative; margin: 1.0625rem 0.625rem;
+}
+.search .search-input[data-v-3fc1880d] { height: calc(24px + 2 * 1.0625rem); width: 100%; max-width: var(--width); margin: -1.0625rem 0; padding: 0 32px 0 22px; position: relative; z-index: 2; background: none; border: none; cursor: pointer; line-height: 20px; outline: none;
+}
+.app-dash .search-input[data-v-3fc1880d] { color: #fff;
+}
+.search-underline[data-v-3fc1880d] { margin-top: 17px; position: absolute; top: 50%; right: 0; left: 0; z-index: 1; opacity: 0; border-bottom: 2px solid white; transition: opacity var(--a-fast) var(--a-curve);
+}
+.search:hover .search-underline[data-v-3fc1880d] { opacity: 0.4;
+}
+.search:focus-within .search-underline[data-v-3fc1880d] { opacity: 1;
+}
+.search .search-icon-container[data-v-3fc1880d] { display: flex; align-items: center; position: absolute; top: 0; bottom: 0; left: 1px; z-index: 1; transition: opacity var(--a-fast) var(--a-curve);
+}
+.search .search-icon-container .icon-search[data-v-3fc1880d] { --icon-size: 16px; opacity: 0.85;
+}
+.search:hover .search-icon-container .icon-search[data-v-3fc1880d], .search:focus-within .search-icon-container .icon-search[data-v-3fc1880d] { opacity: 1;
+}
+.search .source[data-v-3fc1880d] { position: absolute; top: 0; right: 0; bottom: 0; z-index: 3; display: flex; opacity: 0; transition: var(--a-fast) var(--a-curve);
+}
+.search:hover .source[data-v-3fc1880d] { opacity: 0.65;
+}
+.search:focus-within .source[data-v-3fc1880d] { opacity: 1;
+}
+.search .source .icon[data-v-3fc1880d] { --icon-size: 16px; height: var(--icon-size); width: var(--icon-size);
+}
+.search .source-toggle[data-v-3fc1880d] { position: relative; align-self: center; display: flex; align-items: center; justify-content: center; cursor: pointer; outline: none;
+}
+
+			/* Icons */
+.search .source-toggle .icon-dropdown[data-v-3fc1880d] { --icon-size: 14px; display: block; opacity: 0.5; fill: #fff; transition: 0.1s var(--a-curve);
+}
+.source.active .source-toggle .icon-dropdown[data-v-3fc1880d] { opacity: 1; transition-duration: 0s;
+}
+.search .source[data-v-3fc1880d] .dropdown { margin-top: 29px; top: 50%; right: -100px; left: auto;
+}
+.search[data-v-3fc1880d] .dropdown.nipple-top-right:after { right: 14px;
+}
+.search .dropdown .search-provider[data-v-3fc1880d] { outline: none;
+}
+.search .dropdown .icon[data-v-3fc1880d] { max-height: 15px;
+}
+
+				/* TODO: Generalize the padding here to match dropdown li headings (might need to just move this direct to general dropdown styling */
+.search .dropdown .heading[data-v-3fc1880d] { padding: 4px 14px 6px; opacity: 0.75; cursor: default; font-size: 0.625rem; font-weight: 500; text-transform: uppercase;
+}
+.search .dropdown[data-v-3fc1880d] .dropdown-list-icon { --icon-size: 15px;
+}
+.search .dropdown .icon.active[data-v-3fc1880d] { opacity: 1;
+}
+
+
+/* Search in focus */
+.big .search-form[data-v-3fc1880d] { --action-width: 50px; width: 584px; margin: 0; height: 100%;
+}
+.big .search-icon-container[data-v-3fc1880d] { position: absolute; top: 0; left: 22px; bottom: 0; display: flex; align-items: center;
+}
+.big .icon-search[data-v-3fc1880d] { --size: 24px; height: var(--size); width: var(--size); margin: 0; position: relative; top: auto; left: auto; text-shadow: none;
+}
+.big .search-input[data-v-3fc1880d] { height: var(--height); max-width: none; padding: 0 58px 1px 62px; font-size: 28px; margin: 0;
+}
+.big .search-input[data-v-3fc1880d]::placeholder { opacity: 0.5; color: #fff;
+}
+.big:focus-within .more[data-v-3fc1880d] { pointer-events: auto;
+}
+.big .source.dropdown-visible[data-v-3fc1880d]  { opacity: 1;
+}
+.big .source[data-v-3fc1880d] { opacity: 1;
+}
+.big:hover .source[data-v-3fc1880d] { opacity: 1;
+}
+.big .source-toggle[data-v-3fc1880d] { width: var(--action-width); margin-right: 0; padding-right: 10px; align-self: stretch;
+}
+.big .source-selected[data-v-3fc1880d] { display: flex;
+}
+.big .source-selected .icon[data-v-3fc1880d] { --icon-size: 18px;
+}
+.big .source-selected .icon-ecosia[data-v-3fc1880d] { --icon-size: 16px; margin-right: -1px;
+}
+
+		/* Review if this specificity/redundancy is necessary */
+.big .source-toggle .icon-dropdown[data-v-3fc1880d], .big .source-toggle .icon-source[data-v-3fc1880d] { transition: var(--a-fast) var(--a-curve);
+}
+.big .source-toggle:hover .icon-dropdown[data-v-3fc1880d], .big .source-toggle:hover .icon-source[data-v-3fc1880d] { opacity: 1;
+}
+.big .dropdown-visible .source-toggle .icon-source[data-v-3fc1880d] { opacity: 1;
+}
+.big:focus-within .source-toggle .icon-source[data-v-3fc1880d] { opacity: 1;
+}
+.big .source-toggle .icon-dropdown[data-v-3fc1880d] { --icon-size: 16px; margin: 0; margin-left: -1px; opacity: 0;
+}
+.big .dropdown-visible .source-toggle .icon-dropdown[data-v-3fc1880d] { opacity: 0.6;
+}
+.big .source[data-v-3fc1880d] .dropdown { margin-top: -2px; top: 100%; right: auto; left: -5px;
+}
+.big .search-underline[data-v-3fc1880d] { display: none;
+}
+
+
+	/* Mobile */
+@media screen and (max-width: 450px) {
+.big .search-form[data-v-3fc1880d] { width: auto;
+}
+.big .search-icon-container[data-v-3fc1880d] { margin-left: -2px;
+}
+.big .icon-search[data-v-3fc1880d] { --size: 20px;
+}
+.big .search-input[data-v-3fc1880d] { padding-left: 55px; font-size: 21px;
+}
+.big .source-toggle .icon-dropdown[data-v-3fc1880d] { opacity: 0.5;
+}
+}
+</style><style type="text/css" data-vue-ssr-id="c05b5532:0">
+/* stylelint-disable */
+.app-popup[data-v-c6a81e44] { --window-edge-padding: 11px; --origin-inset: 0px; --top: auto; --bottom: auto; --right: auto; --left: auto; height: calc(100vh - (var(--origin-inset) + var(--window-edge-padding))); width: var(--width); position: absolute !important; z-index: 2; top: var(--top); bottom: var(--bottom); right: var(--right); left: var(--left); pointer-events: none;
+}
+.app-popup.focused[data-v-c6a81e44] { z-index: 4;
+}
+.app[data-v-c6a81e44] { height: auto; min-height: auto; max-height: 100%; max-width: none; position: absolute !important; top: var(--app-top); bottom: var(--app-bottom); right: 0; left: 0; display: flex; flex-direction: column; align-items: stretch; background-color: var(--color-bg); border-radius: var(--border-radius); pointer-events: auto;
+}
+.fullscreen:not(.animating) .app[data-v-c6a81e44], .fullscreen:not(.animating) .app[data-v-c6a81e44] > * { border-radius: 0;
+}
+.animating .app[data-v-c6a81e44] { transition: transform 0.2s ease, opacity 0.2s ease, top 0.2s ease-in-out, right 0.2s ease-in-out, bottom 0.2s ease-in-out, left 0.2s ease-in-out;
+}
+.animating .app[data-v-c6a81e44] > * { opacity: 0;
+}
+.app[data-v-c6a81e44] > * { transition: opacity var(--opacity-anim-duration) ease-in-out;
+}
+.nipple-top-left[data-v-c6a81e44]:after, .nipple-bottom-left[data-v-c6a81e44]:after { left: var(--nipple-displacement);
+}
+.nipple-top-right[data-v-c6a81e44]:after, .nipple-bottom-right[data-v-c6a81e44]:after { right: var(--nipple-displacement);
+}
+		/* This needs to be in this component (or general stylesheet) or else the transition won't work when the component is async. I don't know why. */
+.slide-down-fade-enter-active[data-v-c6a81e44], .slide-down-fade-leave-active[data-v-c6a81e44], .slide-up-fade-enter-active[data-v-c6a81e44], .slide-up-fade-leave-active[data-v-c6a81e44] { transition: transform 0.2s ease, opacity, 0.2s ease, inset 0s;
+} /* inset 0s is to fix a case where the app transitions right when opening if it is flipping horizontal direction */
+.slide-down-fade-enter[data-v-c6a81e44], .slide-down-fade-leave-to[data-v-c6a81e44] { opacity: 0; transform: translateY(-3px);
+}
+.slide-up-fade-enter[data-v-c6a81e44], .slide-up-fade-leave-to[data-v-c6a81e44] { opacity: 0; transform: translateY(3px);
+}
+@media screen and (max-width: 450px) {
+.app-popup[data-v-c6a81e44] { height: var(--app-max-height); max-width: 95vw !important; position: fixed !important;
+}
+.top-row .app-popup[data-v-c6a81e44] { top: var(--app-offset);
+}
+.bottom-row .app-popup[data-v-c6a81e44] { bottom: var(--app-offset);
+}
+.top-left .app-popup[data-v-c6a81e44], .bottom-left .app-popup[data-v-c6a81e44] { right: auto; left: var(--app-offset);
+}
+.top-right .app-popup[data-v-c6a81e44], .bottom-right .app-popup[data-v-c6a81e44] { right: var(--app-offset); left: auto;
+}
+.slide-down-fade-enter-active[data-v-c6a81e44], .slide-down-fade-leave-active[data-v-c6a81e44], .slide-up-fade-enter-active[data-v-c6a81e44], .slide-up-fade-leave-active[data-v-c6a81e44] { transition: transform 0.2s ease, opacity, 0.2s ease, inset 0s;
+} /* inset 0s is to fix a case where the app transitions right when opening if it is flipping horizontal direction */
+.slide-down-fade-enter[data-v-c6a81e44], .slide-down-fade-leave-to[data-v-c6a81e44] { opacity: 0; transform: translateY(calc(var(--app-translate-amount) * -1));
+}
+.slide-up-fade-enter[data-v-c6a81e44], .slide-up-fade-leave-to[data-v-c6a81e44] { opacity: 0; transform: translateY(var(--app-translate-amount));
+}
+}
+
+</style><style type="text/css" data-vue-ssr-id="1787c46c:0">
+/* stylelint-disable */
+/* Touch popup */
+.app[data-v-b74672ce] .app-body { padding: var(--app-padding);
+}
+.app[data-v-b74672ce] .search-underline { display: none;
+}
+</style><style type="text/css" data-vue-ssr-id="2620594e:0">
+/* stylelint-disable */
+.search[data-v-5dd064fe] { --width: 240px; --icon-size: 16px; height: 60px; width: 100%; max-width: var(--width); position: relative; flex: 2 2 auto; order: 6; display: inline-block; cursor: pointer;
+}
+body:not(.touch) .search[data-v-5dd064fe] { flex-basis: 150px; min-width: 150px;
+}
+[data-v-5dd064fe] .app-dash { height: 100%; padding: 0 var(--side-padding);
+}
+[data-v-5dd064fe] .app-dash .icon-search { --icon-size: 18px; margin-top: 2px;
+}
+</style><style type="text/css" data-vue-ssr-id="24e0b5b6:0">
+/* stylelint-disable */
+.app-container[data-v-63fd64a2] { order: 0; align-self: flex-start;
+}
+.app-dash[data-v-63fd64a2] {
+}
+.metric-label[data-v-63fd64a2] { white-space: nowrap;
+}
+.metric-stat[data-v-63fd64a2] { display: flex; align-items: baseline; justify-content: flex-end;
+}
+.current-icon[data-v-63fd64a2] { margin-right: 6px;
+}
+.icon[data-v-63fd64a2] { --icon-size: 25px; display: block;
+}
+</style><style type="text/css" data-vue-ssr-id="f2afe32c:0">
+/* stylelint-disable */
+.resize-wrapper[data-v-51387419] { position: relative;
+}
+.resize-wrapper.tr-height[data-v-51387419] { transition: height var(--duration) ease;
+}
+.resize-wrapper.tr-width[data-v-51387419] { display: flex; justify-content: center; transition: width var(--duration) ease;
+}
+.resize-wrapper.tr-height.tr-width[data-v-51387419] { transition: height var(--duration) ease, width var(--duration) ease;
+}
+.resize-wrapper.hide-overflow[data-v-51387419] { overflow: hidden;
+}
+.resize-wrapper.tr-width > div[data-v-51387419] { width: fit-content;
+}
+[data-v-51387419] .smooth-height-fade-enter-active { transition: opacity var(--transition-duration) cubic-bezier(.85,-0.18,.66,.66);
+}
+[data-v-51387419] .smooth-height-fade-leave-active { position: absolute !important; top: 0; right: 0; left: 0; transition: opacity var(--transition-duration) cubic-bezier(.33,.13,.33,1.26);
+}
+[data-v-51387419] .smooth-height-fade-enter,[data-v-51387419] .smooth-height-fade-leave-to { opacity: 0;
+}
+[data-v-51387419] .smooth-width-fade-enter-active { transition: opacity var(--transition-duration) cubic-bezier(.85,-0.18,.66,.66);
+}
+[data-v-51387419] .smooth-width-fade-leave-active { position: absolute; top: 0; left: 50%; transform: translateX(-50%); transition: opacity var(--transition-duration) cubic-bezier(.33,.13,.33,1.26);
+}
+[data-v-51387419] .smooth-width-fade-enter,[data-v-51387419] .smooth-width-fade-leave-to { opacity: 0;
+}
+[data-v-51387419] .smooth-height-slide-left-enter-active,[data-v-51387419] .smooth-height-slide-left-leave-active,[data-v-51387419] .smooth-height-slide-right-enter-active,[data-v-51387419] .smooth-height-slide-right-leave-active { transition: transform 300ms ease;
+}
+[data-v-51387419] .smooth-height-slide-left-leave-active,[data-v-51387419] .smooth-height-slide-right-leave-active { position: absolute; top: 0; right: 0; left: 0;
+}
+[data-v-51387419] .smooth-height-slide-left-leave-to,[data-v-51387419] .smooth-height-slide-right-enter { transform: translateX(-100%);
+}
+[data-v-51387419] .smooth-height-slide-left-enter,[data-v-51387419] .smooth-height-slide-right-leave-to { transform: translateX(100%);
+}
+</style><style type="text/css" data-vue-ssr-id="ee88c396:0">
+/* stylelint-disable */
+.percent-format[data-v-7ad1b549] { top: 65%; opacity: 1; font-size: 25%;
+}
+@media screen and (max-width: 450px) {
+.percent-format[data-v-7ad1b549] { margin-bottom: -3px; top: auto; font-size: 62%;
+}
+}
+</style><style type="text/css">.clocks-reflow[data-v-80f6575c]{max-width:100%}</style><style type="text/css" data-vue-ssr-id="b8902a0a:0">
+/* stylelint-disable */
+/* Using em units for font sizing for focus because it needs to scale down for responsive more than the other regions */
+h3[data-v-39996f61] { margin: 0; padding: 0;
+}
+.focuses[data-v-39996f61] { width: 100%; position: relative; display: flex; flex-direction: column; gap: 0.5rem; align-items: center; vertical-align: top;
+}
+.focuses[data-v-39996f61]::before { height: 450px; width: 100%; max-width: 800px; position: absolute; top: 50%; left: 50%; z-index: -1; background: url(chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/app/4db99af162d6759d96bd.png) no-repeat 50% 60%; background-size: contain; content: " "; transform: translate3d(-50%, -50%, 0); transition: opacity 0.2s;
+}
+.pomodoro .focuses[data-v-39996f61]:before { display: none;
+}
+.focus-wrapper[data-v-39996f61] { display: grid; align-items: end; justify-content: center; justify-items: center;
+}
+.focus-inner-wrapper[data-v-39996f61], .focus-prompt-wrapper[data-v-39996f61] { grid-area: 1 / 1 / 2 / 2;
+}
+.focus-wrapper .greeting[data-v-39996f61] { width: 100%; position: relative; display: inline-block !important; overflow: visible;
+}
+.prompt[data-v-39996f61] { --input-padding: 4px 2px 1px; max-width: 87.5vw;
+}
+[data-v-39996f61] .focus-question { margin: 0; font-size: 2.1875em; font-weight: 400; line-height: normal;
+}
+[data-v-39996f61] .focus-input, .prompt .hidden-data[data-v-39996f61] { width: 100%; padding: var(--input-padding); display: block; background: 0; border: 0; border-bottom: 2px solid #fff; -webkit-border-radius: 0; color: #fff; font-size: 2.25em; font-weight: 500; line-height: 1.2; outline: none; text-align: center; transition: border-color .2s ease; /* -webkit-border-radius: removes curves on iOS */
+}
+[data-v-39996f61] .focus-input::placeholder { color: #fff;
+}
+.prompt .hidden-data[data-v-39996f61] { height: 0; padding-top: 0; padding-bottom: 0; display: block; border: none; border-bottom: none; transition: none; visibility: hidden;
+}
+.focus-prompt-wrapper[data-v-39996f61] { width: 100%;
+}
+.focus-prompt-wrapper[data-v-39996f61] .three-col-layout--center { display: flex; flex-direction: column; align-items: center;
+}
+.team-focus-wrapper[data-v-39996f61] { position: relative;
+}
+@media screen and (max-width: 450px) {
+.focuses[data-v-39996f61] {
+}
+.focuses[data-v-39996f61]:before { display: none;
+}
+.focus-wrapper[data-v-39996f61] { padding-bottom: 6px;
+}
+.prompt[data-v-39996f61] { padding-bottom: 0;
+}
+[data-v-39996f61] .focus-question { margin-bottom: 4px !important; font-size: 20px !important;
+} /* Ensure we deep select to target both the actual question and the placeholder one in FocusContent */
+[data-v-39996f61] .focus-input { margin-bottom: -2px; font-size: 24px !important;
+}
+[data-v-39996f61] .button { --v-padding: 7px; font-size: 0.875rem;
+}
+.team-focus .side-col[data-v-39996f61] { flex-basis: 0;
+}
+}
+</style><style type="text/css">.dashlinks{flex:0 0 auto;order:5;--side-padding:10px}.dashlinks-icon-wrapper{min-height:60px;max-height:var(--max-height);cursor:pointer;filter:drop-shadow(0 1px 5px rgba(0, 0, 0, .1));transition:opacity .1s ease}.dashlinks-icon-wrapper:hover{opacity:1}.dashlinks-icon-wrapper:active{opacity:.9;transition-duration:0s}.dashlinks .dashlinks-icon{height:18px;width:18px;margin:0;fill:#fff!important;vertical-align:-4%}</style><style type="text/css" data-vue-ssr-id="8bd6bdaa:0">
+/* stylelint-disable */
+.nav[data-v-0876512d] { display: flex;
+}
+.nav-item[data-v-0876512d] { position: relative; display: flex; align-items: center;
+}
+.nav-item .icon[data-v-0876512d] { padding: var(--icon-padding) calc(var(--icon-padding) - 4px); opacity: 0.5; color: var(--color-text);
+}
+.nav-item:first-child .icon[data-v-0876512d] { padding-left: calc(var(--icon-padding) + 2px);
+}
+.nav-item:last-child .icon[data-v-0876512d] { padding-right: calc(var(--icon-padding) + 2px);
+}
+.nav-item:hover .icon[data-v-0876512d] { opacity: 0.8;
+}
+.nav-item:hover:active .icon[data-v-0876512d], .nav-item.active .icon[data-v-0876512d] { opacity: 1 !important;
+}
+.nav-title[data-v-0876512d] { display: none;
+}
+.tooltip[data-v-0876512d] { padding: 3px 5px; position: absolute; top: calc(100% + 2px); left: 50%; z-index: 1; display: none; background: hsla(0deg 0% 15% / 95%); border-radius: 4px; color: white; font-size: 0.8125rem; transform: translateX(-50%); white-space: nowrap;
+}
+.nav-item:hover .tooltip[data-v-0876512d] { display: block;
+}
+.tooltip .badge[data-v-0876512d] { background: rgba(255 255 255 / 20%); color: white;
+}
+
+	/* Mobile */
+.toast .nav[data-v-0876512d] { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-column-gap: 10px;
+}
+.toast .nav-item[data-v-0876512d] { padding: 7px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 6px; box-shadow: inset 0 0 0 1.5px var(--border-color); font-size: 12px;
+}
+.toast .nav-icon[data-v-0876512d] { --size: 22px; height: var(--size); width: var(--size); margin: 3px 0; opacity: 0.5; border-radius: 4px;
+}
+.toast .nav-title[data-v-0876512d] { margin: 1px 0 -1px; display: block; opacity: 0.7; line-height: 1.2;
+} /* remove line-height when .focus-row { line-height: 120%; } is removed */
+.toast .tooltip[data-v-0876512d] { display: none;
+}
+.toast .nav-item.active[data-v-0876512d], .toast .nav-item[data-v-0876512d]:active { background: var(--border-color); box-shadow: none;
+}
+.toast .nav-item.active .nav-icon[data-v-0876512d], .toast .nav-item.active .nav-title[data-v-0876512d] { opacity: 1;
+}
+
+</style><style type="text/css" data-vue-ssr-id="308bbf0a:0">
+/* stylelint-disable */
+.container[data-v-f5576a50] { --icon-padding: 11px; margin-right: 20px; position: relative; z-index: 1; display: flex; align-items: center;
+}
+[data-v-f5576a50] .icon { --icon-size: 24px; padding: var(--icon-padding); box-sizing: content-box; cursor: pointer; vertical-align: top;
+}
+.icon-toggle[data-v-f5576a50] { --icon-size: 22px; --icon-padding: 12px;
+}
+.dash-icon-wrapper[data-v-f5576a50] { padding: 0; vertical-align: top;
+}
+.dash-icon-wrapper[data-v-f5576a50]:after { --icon-wrapper-size: 46px;
+}
+.dash-icon[data-v-f5576a50] { opacity: 0;
+}
+.dash-icon[data-v-f5576a50]:hover { opacity: 1;
+}
+
+	/* Ensure the negative side margin matches the nav-item first/last child padding */
+.nav[data-v-f5576a50] { margin: 0 -2px; position: absolute; top: 0; right: 0; background: var(--color-bg); border-radius: 100px;
+}
+.open-to-right .nav[data-v-f5576a50] { right: auto; left: 0;
+}
+.open-enter-active[data-v-f5576a50], .open-leave-active[data-v-f5576a50] { transition: opacity 0.1s ease;
+}
+.open-enter[data-v-f5576a50], .open-leave-to[data-v-f5576a50] { opacity: 0;
+}
+@media screen and (max-width: 450px) {
+.container[data-v-f5576a50] { --icon-size: 22px;
+}
+.icon[data-v-f5576a50] { padding-right: 10px;
+}
+}
+</style><style type="text/css" data-vue-ssr-id="e0fac5b2:0">
+/* stylelint-disable */
+.greeting .content[data-v-f022c9da] { display: inline;
+}
+.name-punctuation-no-wrap[data-v-f022c9da] { white-space: nowrap;
+}
+.greeting .name-wrapper[data-v-f022c9da] { position: relative; white-space: nowrap;
+}
+.greeting .name[data-v-f022c9da], .greeting .hidden-span[data-v-f022c9da] { max-width: min(100%, 12em); display: inline-block;
+}
+.hidden-span[data-v-f022c9da] { visibility: hidden;
+}
+.greeting .name[data-v-f022c9da] { border-radius: 3px; outline: none; overflow: hidden; vertical-align: top; white-space: nowrap;
+}
+input.name[data-v-f022c9da] { padding: 0; position: absolute; inset: 0;
+}
+.input-wrapper[data-v-f022c9da] { margin: -5px -2px -8px; padding: 5px 2px 8px; position: relative;
+}
+.greeting .name.editing[data-v-f022c9da], .greeting .hidden-span[data-v-f022c9da] { min-width: 1.5em;
+}
+.greeting .name.editing[data-v-f022c9da] { border: none; font-weight: 500; text-align: center; border-bottom: 3px solid white; border-bottom-left-radius: 0; border-bottom-right-radius: 0; cursor: auto;
+}
+.f--quirky .greeting .name.editing[data-v-f022c9da], .f--startup .greeting .name.editing[data-v-f022c9da] { padding-bottom: 0;
+}
+.f--modern .greeting .name.editing[data-v-f022c9da] { padding-bottom: 3px;
+}
+.Firefox .greeting .name.editing[data-v-f022c9da]:after { content: '';
+} /* Necessary to fix bug where moving cursor to right edge of contenteditable name would cause blur event on Firefox */
+</style><style type="text/css" data-vue-ssr-id="f29e8e52:0">
+/* stylelint-disable */
+.checkbox[data-v-606a8f33] { margin: 4px 10px 0; position: relative; border: none; line-height: 1; text-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+.checkbox[data-v-606a8f33]:hover, .touch .checkbox[data-v-606a8f33] { opacity: 1;
+}
+.checkbox .icon[data-v-606a8f33] { height: auto; width: auto;
+}
+.checkbox .icon[data-v-606a8f33]:before { width: auto;
+}
+.icon-checkbox[data-v-606a8f33] { position: absolute; top: 0; left: 0; display: none;
+}
+.icon-checkbox-empty[data-v-606a8f33] { display: block;
+}
+.checked .icon-checkbox[data-v-606a8f33] { display: block;
+}
+.checked .icon-checkbox-empty[data-v-606a8f33] { visibility: hidden;
+}
+</style><style type="text/css" data-vue-ssr-id="38998528:0">
+/* stylelint-disable */
+.focus .focus-title[data-v-c15d886e] { margin: 17px 0 3px; font-size: 70%; line-height: 120%; text-transform: uppercase;
+}
+.focus-content[data-v-c15d886e] { width: 100%; font-size: 1.875em;
+}
+.focus-row[data-v-c15d886e] { font-size: 2.25rem;
+}
+.center .focus-row[data-v-c15d886e] { max-width: inherit; font-size: var(--font-size-greeting);
+}
+.focus-row[data-v-c15d886e] .three-col-layout--center { display: inline-block;
+}
+.todays-focus[data-v-c15d886e] { max-width: 87.5vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.complete .todays-focus[data-v-c15d886e] { opacity: 0.85; text-decoration: line-through;
+}
+.control[data-v-c15d886e] { opacity: 0; cursor: pointer;
+}
+.focus-wrapper:hover .control[data-v-c15d886e] { opacity: 0.8;
+}
+.complete .control[data-v-c15d886e] { opacity: 1 !important;
+}
+
+			/* set a transition for the checking off */
+.focus-row[data-v-c15d886e] .three-col-layout--left { display: flex; align-items: center;
+}
+.checkbox[data-v-c15d886e] { font-size: 70%;
+}
+.pomodoro .checkbox[data-v-c15d886e] { margin-top: 7px;
+}
+.checkbox[data-v-c15d886e] .icon-checkbox { opacity: 0.85;
+}
+.focus-row[data-v-c15d886e] .three-col-layout--right {
+}
+[data-v-c15d886e] .more {
+}
+.focus-row[data-v-c15d886e] .more-toggle { margin-left: 16px; position: relative; top: -4px;
+}
+.focus-row[data-v-c15d886e] .icon-wrapper .icon-toggle { --icon-padding: 10px;
+}
+.focus-row[data-v-c15d886e] .right .icon-wrapper:after { --icon-wrapper-size: 30px;
+}
+.focus-row[data-v-c15d886e] .more-icon { --icon-size: 18px;
+}
+.focus-dropdown[data-v-c15d886e] {
+}
+.focus-dropdown[data-v-c15d886e] .dropdown { margin-top: 4px; left: 8px;
+}
+.focus-dropdown .icon-new[data-v-c15d886e] { height: 9px; transform: rotate(45deg);
+}
+.focus-dropdown .icon-delete[data-v-c15d886e] { height: 10px; margin-top: 1px;
+}
+.focus-dropdown .icon-pomodoro[data-v-c15d886e] { height: 15px;
+}
+.focus-dropdown .icon-autofocus[data-v-c15d886e] { height: 9px;
+}
+.focus-dropdown.shift-to-left[data-v-c15d886e] .more-dropdown { right: -8px; left: auto;
+}
+.focus-dropdown.shift-to-left[data-v-c15d886e] .more-dropdown.nipple-top-left:after { right: 14px; left: auto;
+}
+
+
+
+/* Touch */
+[data-v-c15d886e] .touch >>> .right { flex-basis: 25px;
+} /* Centers the checkbox/focus over on touch */
+
+
+/* Mobile */
+@media screen and (max-width: 450px) {
+.focus-title[data-v-c15d886e] { margin: 2px 0 4px !important; font-size: 17px !important;
+}
+.focus-row[data-v-c15d886e] { font-size: 26px;
+}
+.left[data-v-c15d886e] {
+}
+.checkbox[data-v-c15d886e] { margin-top: 8px; font-size: 76.9%;
+}
+.three-col-layout--center[data-v-c15d886e] {
+}
+.todays-focus[data-v-c15d886e] { margin: 0; /* display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; text-align: left; white-space: unset; <-- 2 line ellipses overflow to explore sometime */
+}
+}
+</style><style type="text/css" id="themeCss">:root { --color-hue: 188; --color-sat: 67%; --color-lit: 35%; --color-alpha: 0.95; ;--color-accent-safe: hsla(188 67% 35% / 0.95);}</style><meta id="safariTabTheme" name="theme-color" content="hsla(188 67% 35% / 0.95)"></head>
+<body class="f--default Chrome light light-full">
+<div class="overlay loading-overlay">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="loading-logo" data-test="loading-logo" style="display: none;" fill="#ccc">
+<path d="M256 0C114.615 0 0 114.615 0 256s114.615 256 256 256 256-114.615 256-256S397.385 0 256 0zm122.763 344.309h-15.484v-95.746c0-34.76-18.012-54.983-47.715-54.983-27.176 0-50.875 20.856-50.875 56.879v93.85h-15.484v-96.695c0-33.5-18.327-54.035-47.083-54.035s-51.507 25.28-51.507 57.827v92.9h-15.483V183.151h15.483v28.756c10.428-16.748 24.964-32.548 53.719-32.548 28.124 0 45.5 16.116 54.352 34.76 10.428-18.012 27.807-34.76 58.143-34.76 38.235 0 61.935 26.86 61.935 67.307z"></path>
+</svg>
+</div>
+<div id="main-view" style="visibility: visible;">
+<div data-v-45269796="" class="backgrounds"><div data-v-45269796="" class="background"><div data-v-45269796="" data-test="background-item" class="background-item" style="background-image: url(&quot;https://images.unsplash.com/photo-1563985336376-568060942b80?ixlib=rb-1.2.1&amp;q=99&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=2048&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjcwOTV9?momo_cache_bg_uuid=f9270cce-80bc-4ad5-9417-748f79c030da&quot;);"></div></div> <div data-v-45269796="" class="background-overlay"></div></div>
+<div data-v-05d9a8ca="" class="dashboard apps" style="--967ceb3a: 0px; --85846f08: 60px; --baf1987a: 469.5px;"><div data-v-05d9a8ca="" class="region full"><div data-v-6e1d3a80="" data-test="modal-base" class="modal-base"><!----> <span data-v-6e1d3a80=""></span></div></div> <div data-v-05d9a8ca="" class="top-row"><div data-v-05d9a8ca="" class="region top-bar" data-resize-sensor-id="rkhc8"></div> <div data-v-05d9a8ca="" data-test="top-left" class="region top-left"><div id="quicklinks" class="app-container quicklinks links" data-test="undefined" style=""><span class="app-dash toggle Links-toggle" data-test="links-app-dash" data-ob="links-app-dash">Links</span><div class="app-wrapper app-placeholder nipple nipple-top-left">
+	<div class="app links-app calculates-own-max-height" style="height:70px; width:260px">
+		<div class="app-placeholder-loading">
+			<i class="loading-icon"></i>Loading...
+		</div>
+	</div>
+	<div class="touch-overlay"></div>
+</div>
+
+</div><div id="dashlinks" class="dashlinks">
+</div><div data-v-5dd064fe="" id="search" data-test="search" class="app-dash app-container search"><form data-v-3fc1880d="" data-v-5dd064fe="" class="search-form"><div data-v-3fc1880d="" class="search-underline"></div> <div data-v-3fc1880d="" class="search-icon-container"><svg data-v-3fc1880d="" fill="currentColor" viewBox="0 0 64 64" height="64" width="64" xmlns="http://www.w3.org/2000/svg" data-test="icon-search" class="icon dash-icon icon-search">
+<path xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" d="M28.2358 4.86133C15.3264 4.86133 4.86133 15.3264 4.86133 28.2358C4.86133 41.1452 15.3264 51.6103 28.2358 51.6103C32.3047 51.6103 36.1308 50.5706 39.4628 48.7425C40.2873 48.2902 41.3215 48.3937 41.9865 49.0587L52.3211 59.3933C54.2738 61.3459 57.4396 61.3459 59.3922 59.3933C61.3448 57.4407 61.3448 54.2748 59.3922 52.3222L49.0579 41.9879C48.3929 41.3229 48.2894 40.2886 48.7418 39.4641C50.5704 36.1317 51.6103 32.3052 51.6103 28.2358C51.6103 15.3264 41.1452 4.86133 28.2358 4.86133ZM12.8613 28.2358C12.8613 19.7447 19.7447 12.8613 28.2358 12.8613C36.7269 12.8613 43.6103 19.7447 43.6103 28.2358C43.6103 36.7269 36.7269 43.6103 28.2358 43.6103C19.7447 43.6103 12.8613 36.7269 12.8613 28.2358Z"></path>
+</svg></div> <div data-v-0a952a33="" data-v-3fc1880d="" data-test="more-container" class="more more source more-dash" data-just-bound-click-outside-handler="false" data-click-outside-mouseup-handler-id="wifwnl" data-click-outside-mousedown-handler-id="j0443" section-title="Search with"><div data-v-3fc1880d="" data-v-0a952a33="" tabindex="0" data-test="provider-toggle" class="source-toggle"><div data-v-3fc1880d="" data-v-0a952a33="" class="source-selected"><img data-v-3fc1880d="" data-v-0a952a33="" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik00NC41IDIwSDI0djguNWgxMS44QzM0LjcgMzMuOSAzMC4xIDM3IDI0IDM3Yy03LjIgMC0xMy01LjgtMTMtMTNzNS44LTEzIDEzLTEzYzMuMSAwIDUuOSAxLjEgOC4xIDIuOWw2LjQtNi40QzM0LjYgNC4xIDI5LjYgMiAyNCAyIDExLjggMiAyIDExLjggMiAyNHM5LjggMjIgMjIgMjJjMTEgMCAyMS04IDIxLTIyIDAtMS4zLS4yLTIuNy0uNS00eiIvPjwvc3ZnPg==" class="icon-google icon icon-source active"></div> <svg data-v-3fc1880d="" fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="icon icon-dropdown"><path xmlns="http://www.w3.org/2000/svg" d="M16.6 8.6L12 13.2 7.4 8.6 6 10l6 6 6-6z"></path></svg></div> <!----></div> <input data-v-3fc1880d="" id="search-input" search-url="https://www.google.com/search?q=" type="text" autocomplete="off" data-test="search-input" placeholder="" class="search-input"></form></div></div> <div data-v-05d9a8ca="" class="region top-right"><div data-v-63fd64a2="" data-test="weather" class="app-container weather"><div data-v-63fd64a2="" data-just-bound-click-outside-handler="false" data-click-outside-mouseup-handler-id="hfq01d" data-click-outside-mousedown-handler-id="pqwqi"><div data-v-63fd64a2="" data-test="app-dash" class="app-dash metric-item add-shadow"><div data-v-63fd64a2="" class="metric-stat"><div data-v-63fd64a2="" class="current-icon"><svg data-v-63fd64a2="" height="512" width="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" class="icon"><path xmlns="http://www.w3.org/2000/svg" class="sun" fill-rule="evenodd" clip-rule="evenodd" d="M256 144c-61.75 0-112 50.25-112 112s50.25 112 112 112 112-50.25 112-112-50.25-112-112-112zm0 192c-44.188 0-80-35.812-80-80s35.812-80 80-80 80 35.812 80 80-35.812 80-80 80zm0-224c8.833 0 16-7.167 16-16V64c0-8.833-7.167-16-16-16s-16 7.167-16 16v32c0 8.833 7.167 16 16 16zm0 288c-8.833 0-16 7.167-16 16v32c0 8.833 7.167 16 16 16s16-7.167 16-16v-32c0-8.833-7.167-16-16-16zm124.438-245.833l22.625-22.625c6.25-6.25 6.25-16.375 0-22.625s-16.375-6.25-22.625 0l-22.625 22.625c-6.25 6.25-6.25 16.375 0 22.625 6.249 6.25 16.375 6.25 22.625 0zM131.562 357.834l-22.625 22.625c-6.25 6.249-6.25 16.374 0 22.624s16.375 6.25 22.625 0l22.625-22.624c6.25-6.271 6.25-16.376 0-22.625-6.249-6.251-16.375-6.272-22.625 0zM112 256c0-8.833-7.167-16-16-16H64c-8.833 0-16 7.167-16 16s7.167 16 16 16h32c8.833 0 16-7.167 16-16zm336-16h-32c-8.833 0-16 7.167-16 16s7.167 16 16 16h32c8.833 0 16-7.167 16-16s-7.167-16-16-16zm-316.459-85.833c6.251 6.25 16.376 6.25 22.625 0 6.251-6.25 6.251-16.375 0-22.625l-22.625-22.625c-6.25-6.25-16.374-6.25-22.625 0-6.25 6.25-6.25 16.375 0 22.625l22.625 22.625zm248.918 203.645c-6.271-6.25-16.376-6.25-22.625 0-6.251 6.25-6.271 16.375 0 22.625l22.625 22.625c6.249 6.25 16.374 6.25 22.624 0s6.25-16.374 0-22.625l-22.624-22.625z"></path></svg></div> <div data-v-63fd64a2="" data-test="temperature" class="current-temp">
+					23°
+				</div></div> <div data-v-63fd64a2="" class="metric-label"><span data-v-63fd64a2="" data-test="location" class="metric-label-name">Toronto</span></div></div> <!----></div> <!----></div><div data-v-06555f71="" class="app-container add-metric needs-hover" data-just-bound-click-outside-handler="false" data-click-outside-mouseup-handler-id="ur2l3k" data-click-outside-mousedown-handler-id="ebbi2gx"><div data-v-06555f71="" data-ob="add-metric" data-test="add-metric-dash" class="app-dash metric-item add-shadow"><div data-v-06555f71="" class="metric-stat"><span data-v-06555f71="" class="placeholder"><span data-v-06555f71="" class="hide">a</span> <svg data-v-06555f71="" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" class="icon icon-add"><path xmlns="http://www.w3.org/2000/svg" d="M19 32C19 30.3431 20.3431 29 22 29H29V22C29 20.3431 30.3431 19 32 19C33.6569 19 35 20.3431 35 22V29H42C43.6569 29 45 30.3431 45 32C45 33.6569 43.6569 35 42 35H35V42C35 43.6569 33.6569 45 32 45C30.3431 45 29 43.6569 29 42V35H22C20.3431 35 19 33.6569 19 32Z"></path><path xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" d="M32 64C49.6731 64 64 49.6731 64 32C64 14.3269 49.6731 0 32 0C14.3269 0 0 14.3269 0 32C0 49.6731 14.3269 64 32 64ZM32 58C46.3594 58 58 46.3594 58 32C58 17.6406 46.3594 6 32 6C17.6406 6 6 17.6406 6 32C6 46.3594 17.6406 58 32 58Z"></path></svg></span></div> <div data-v-06555f71="" class="metric-label"><span data-v-06555f71="" class="metric-label-name">Add</span></div></div> <!----></div></div><div data-v-492f8dfe="" class="flash-message-container"><!----></div></div> <div data-v-05d9a8ca="" class="region sidebar-left" data-resize-sensor-id="wv1mz8"></div> <div data-v-05d9a8ca="" class="region center-above"></div> <div data-v-05d9a8ca="" class="center-measure" data-resize-sensor-id="lkyqvh"></div> <div data-v-05d9a8ca="" data-test="region-center" class="region center"><div data-test="clock-greeting-mantra" class="center-container"><div data-v-51387419="" data-smooth-reflow-id="trgz7k" data-test="smooth-reflow" class="resize-wrapper tr-height" style="--duration: 500ms; --transition-duration: 500ms; height: 168px;"><div data-v-51387419="" data-resize-sensor-id="sjdjg5"><div data-v-c4b3c062="" data-v-80f6575c="" data-v-51387419="" class="three-col-layout app-container clock center-clock has-dash-icon" data-show-anyway="clock" data-test="center-clock" style="--6bb3ce0a: 66px;"><div data-v-c4b3c062="" class="three-col-layout--left" data-resize-sensor-id="9btbb"><div data-v-f5576a50="" data-v-80f6575c="" data-test="center-nav" class="container" data-just-bound-click-outside-handler="false" data-click-outside-mouseup-handler-id="1oojwa" data-click-outside-mousedown-handler-id="jnppj"><div data-v-f5576a50="" data-test="open-center-nav" data-ob="center-nav" class="icon-wrapper dash-icon-wrapper"><svg data-v-f5576a50="" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" class="dash-icon icon icon-toggle"><path xmlns="http://www.w3.org/2000/svg" d="M3.879 13.879A3 3 0 108.12 18.12L3.88 13.88zM18.12 8.12A3 3 0 1013.88 3.88L18.12 8.12zm-10 5.758A3 3 0 103.88 18.12L8.12 13.88zM13.88 28.12a3 3 0 104.242-4.242L13.88 28.12zM53 27a3 3 0 106 0h-6zm3-11h3a3 3 0 00-3-3v3zM6 13a3 3 0 100 6v-6zm2.121 5.121l10-10L13.88 3.88l-10 10L8.12 18.12zm-4.242 0l10 10 4.242-4.242-10-10L3.88 18.12zM59 27V16h-6v11h6zm-3-14H6v6h50v-6zM60.121 50.121a3 3 0 10-4.242-4.242l4.242 4.242zM45.88 55.88a3 3 0 104.242 4.242L45.88 55.88zm10-5.758a3 3 0 104.242-4.242L55.88 50.12zM50.12 35.88a3 3 0 10-4.242 4.242l4.242-4.242zM11 37a3 3 0 10-6 0h6zM8 48H5a3 3 0 003 3v-3zm50 3a3 3 0 100-6v6zm-2.121-5.121l-10 10 4.242 4.242 10-10-4.242-4.242zm4.242 0l-10-10-4.242 4.242 10 10 4.242-4.242zM5 37v11h6V37H5zm3 14h50v-6H8v6z"></path></svg></div> <!----></div></div> <div data-v-c4b3c062="" class="three-col-layout--center"><div data-v-51387419="" data-v-80f6575c="" data-smooth-reflow-id="4p5wrr" data-test="smooth-reflow" class="resize-wrapper clocks-reflow tr-width" data-v-c4b3c062="" style="--duration: 100ms; --transition-duration: 1000ms; height: auto; width: 306.969px;"><div data-v-51387419="" data-resize-sensor-id="ahcwal"><div data-v-80f6575c="" data-v-51387419=""><span data-v-80f6575c="" data-test="default-clock" class="default-clock"><div data-test="default-clock-time" class="time">3:53</div></span></div></div></div></div> <div data-v-c4b3c062="" class="three-col-layout--right" data-resize-sensor-id="idgvpp"><div data-v-0a952a33="" data-v-80f6575c="" data-test="more-container" class="more more-dash" data-just-bound-click-outside-handler="false" data-click-outside-mouseup-handler-id="4zr9ys" data-click-outside-mousedown-handler-id="m70jw7g" section-title="Clock Settings" data-v-c4b3c062=""><div data-v-0a952a33="" data-test="more-toggle" data-ob="" class="icon-wrapper more-toggle dash-icon-wrapper u--touch-hide"><svg data-v-0a952a33="" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" class="icon icon-ellipsis more-icon dash-icon"><path xmlns="http://www.w3.org/2000/svg" d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg></div> <!----></div></div></div></div></div> <div data-v-51387419="" data-smooth-reflow-id="3lw7vq" data-test="smooth-reflow" class="resize-wrapper tr-height" style="--duration: 500ms; --transition-duration: 500ms; height: 62px;"><div data-v-51387419="" data-resize-sensor-id="6x9sp"><div data-v-51387419=""><div data-v-c4b3c062="" class="three-col-layout app-container has-dash-icon greeting" data-show-anyway="greeting" data-test="greeting" style="--6bb3ce0a: 40px;"><div data-v-c4b3c062="" class="three-col-layout--left" data-resize-sensor-id="vqrj8h"></div> <div data-v-c4b3c062="" class="three-col-layout--center"><span data-v-f022c9da="" data-test="content" class="content" data-v-c4b3c062=""><span data-v-f022c9da="" data-test="message" class="message">Good afternoon, </span><span data-v-f022c9da="" class="name-punctuation-no-wrap"><span data-v-f022c9da="" data-test="name-wrapper" class="name-wrapper"><span data-v-f022c9da="" data-test="name" class="name">Suhas</span></span><span data-v-f022c9da="" data-test="punctuation">.</span></span></span></div> <div data-v-c4b3c062="" class="three-col-layout--right" data-resize-sensor-id="snu09b"><div data-v-0a952a33="" data-test="more-container" class="more more-dash" data-just-bound-click-outside-handler="false" data-click-outside-mouseup-handler-id="3sol72" data-click-outside-mousedown-handler-id="hkafb8" section-title="Greeting Actions" data-v-c4b3c062=""><div data-v-0a952a33="" data-test="more-toggle" data-ob="" class="icon-wrapper more-toggle dash-icon-wrapper u--touch-hide"><svg data-v-0a952a33="" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" class="icon icon-ellipsis more-icon dash-icon"><path xmlns="http://www.w3.org/2000/svg" d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg></div> <!----></div></div></div></div></div></div></div></div> <div data-v-05d9a8ca="" data-test="region-center-below" class="region center-below"><div data-v-19e8edf6="" class="center-below-app-wrapper"><div data-v-39996f61="" data-v-19e8edf6="" data-test="focus" data-show-anyway="focus" class="focuses app-container"><div data-v-39996f61="" data-ob="focus-dash" class="focus-wrapper has-dash-icon clock-view"><div data-v-39996f61="" class="focus-inner-wrapper" style="opacity: 0; pointer-events: none; visibility: hidden;"><div data-v-39996f61="" class="focus"><div data-v-c15d886e="" data-v-39996f61="" class="focus-content"><h3 data-v-c15d886e="" class="focus-title">Today</h3> <div data-v-c4b3c062="" data-v-c15d886e="" class="three-col-layout focus-row" style="--6bb3ce0a: 44px;"><div data-v-c4b3c062="" class="three-col-layout--left" data-resize-sensor-id="j6y8j"> <div data-v-606a8f33="" data-v-c15d886e="" data-test="complete" class="control checkbox" data-v-c4b3c062=""><i data-v-606a8f33="" class="icon icon-checkbox-empty"></i> <i data-v-606a8f33="" class="icon icon-checkbox"></i></div></div> <div data-v-c4b3c062="" class="three-col-layout--center"><div data-v-c15d886e="" data-v-c4b3c062="" data-test="focus-active" class="todays-focus"></div></div> <div data-v-c4b3c062="" class="three-col-layout--right" data-resize-sensor-id="d5bsat"><div data-v-0a952a33="" data-v-c15d886e="" data-test="dropdown" class="more focus-dropdown more-dash" data-just-bound-click-outside-handler="false" data-click-outside-mouseup-handler-id="46k9ps" data-click-outside-mousedown-handler-id="t5elu" section-title="Focus Actions" data-v-c4b3c062=""><div data-v-0a952a33="" data-test="more-toggle" data-ob="" class="icon-wrapper more-toggle dash-icon-wrapper u--touch-hide"><svg data-v-0a952a33="" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" class="icon icon-ellipsis more-icon dash-icon"><path xmlns="http://www.w3.org/2000/svg" d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg></div> <!----></div></div></div></div></div></div> <div data-v-c4b3c062="" data-v-39996f61="" class="three-col-layout focus-prompt-wrapper" style="opacity: 1; visibility: visible; --6bb3ce0a: 0px;"><div data-v-c4b3c062="" class="three-col-layout--left" data-resize-sensor-id="nj5okr"></div> <div data-v-c4b3c062="" class="three-col-layout--center"><div data-v-39996f61="" data-v-c4b3c062="" class="prompt"><h3 data-v-39996f61="" data-v-c4b3c062="" class="focus-question">What is your main focus for today?</h3> <span data-v-39996f61="" data-v-c4b3c062="" class="hidden-data"></span> <input data-v-39996f61="" data-v-c4b3c062="" type="text" data-test="focus-input" autocomplete="off" class="focus-input"></div></div> <div data-v-c4b3c062="" class="three-col-layout--right" data-resize-sensor-id="63p05v"></div></div></div> <!----></div></div></div> <div data-v-05d9a8ca="" class="region sidebar-right" data-resize-sensor-id="vyogxd"></div> <div data-v-c4b3c062="" data-v-05d9a8ca="" class="three-col-layout bottom-row grow-center align-sides-outside" style="--6bb3ce0a: 211px;"><div data-v-c4b3c062="" class="three-col-layout--left" data-resize-sensor-id="ej9i9xe"><div data-v-05d9a8ca="" data-v-c4b3c062="" class="region bottom-left"><div id="settings" class="app-container settings" data-test="settings" data-justboundclickoutsidehandler="false" data-clickoutsidemouseuphandlerid="r5jugj" data-clickoutsidemousedownhandlerid="wuovx"><span class="app-dash toggle" data-test="settings-toggle" data-ob="settings-toggle"><svg class="toggle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340.274 340.274"><path d="M293.629 127.806l-5.795-13.739c19.846-44.856 18.53-46.189 14.676-50.08l-25.353-24.77-2.516-2.12h-2.937c-1.549 0-6.173 0-44.712 17.48l-14.184-5.719c-18.332-45.444-20.212-45.444-25.58-45.444h-35.765c-5.362 0-7.446-.006-24.448 45.606l-14.123 5.734C86.848 43.757 71.574 38.19 67.452 38.19l-3.381.105-27.27 26.737c-4.138 3.891-5.582 5.263 15.402 49.425l-5.774 13.691C0 146.097 0 147.838 0 153.33v35.068c0 5.501 0 7.44 46.585 24.127l5.773 13.667c-19.843 44.832-18.51 46.178-14.655 50.032l25.353 24.8 2.522 2.168h2.951c1.525 0 6.092 0 44.685-17.516l14.159 5.758c18.335 45.438 20.218 45.427 25.598 45.427h35.771c5.47 0 7.41 0 24.463-45.589l14.195-5.74c26.014 11 41.253 16.585 45.349 16.585l3.404-.096 27.479-26.901c3.909-3.945 5.278-5.309-15.589-49.288l5.734-13.702c46.496-17.967 46.496-19.853 46.496-25.221V151.88c-.005-5.519-.005-7.446-46.644-24.074zM170.128 228.474c-32.798 0-59.504-26.187-59.504-58.364 0-32.153 26.707-58.315 59.504-58.315 32.78 0 59.43 26.168 59.43 58.315-.006 32.177-26.656 58.364-59.43 58.364z" fill="#FFF"></path></svg></span></div><div data-v-e83dbdd8="" class="app-container photo-info"><div data-v-e83dbdd8="" class="app-dash show-hover"><div data-v-e83dbdd8="" class="title">Sandwich Harbour, Namibia</div> <div data-v-e83dbdd8="" class="source"><span data-v-e83dbdd8="" data-url="https://unsplash.com/photos/pWshkmAH4qA" class="source-link">Sergi Ferrete / Unsplash</span> <span data-v-e83dbdd8=""><span data-v-e83dbdd8="" title="Favorite" class="favorite control"><svg data-v-e83dbdd8="" fill="#fff" viewBox="0 0 1000 1000" y="0px" x="0px" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" class="icon icon-heart">
+<path xmlns="http://www.w3.org/2000/svg" class="outline" d="M42.9,332.9c4.5-73.8,29.8-135.1,76-183.8h1.9l1.9-1.9C179.2,98.4,243.1,74,314.3,74s132.5,22.5,183.8,67.4  c20.5-18,42-32.4,64.5-43.3l1.9-1.9h1.9C602.4,81.4,639.9,74,679.1,74c56.5-1.3,108.1,12.5,155,41.4  c46.8,28.9,82.1,68.7,105.9,119.3v1.9l1.9,3.8c19.2,68,22.5,132.8,9.6,194.4c-12.8,61.6-38.5,117.7-77,168.4  c-39.8,56.5-91.8,111.6-155.9,165.5c0,1.3-0.6,1.9-1.9,1.9c-31.4,28.9-65.8,57.7-103,86.6c-21.8,16-40.7,29.2-56.8,39.5  c-21.2,14.8-38.8,22.1-52.9,22.1l-5.8,1.9l-4.8-1.9c-18-1.9-36.9-11.2-56.8-27.9c-6.4-3.8-13.2-9-20.2-15.4s-12.2-10.6-15.4-12.5  H399C241.2,742.6,135.9,633.5,83.3,536v-1.9C51.9,473.8,38.4,406.7,42.9,332.9z M124.7,342.6c-3.8,55.2,6.7,107.2,31.8,155.9  c47.5,86.6,144.7,186.1,291.6,298.4h1.9c3.8,3.8,9.6,9,17.3,15.4c7.7,6.4,13.8,10.9,18.3,13.5c5.1,3.8,9.9,7.1,14.4,9.6  c5.1-1.3,9.6-3.2,13.5-5.8c14.1-9,30.5-20.9,49.1-35.6c37.2-27.6,70.9-55.8,101.1-84.7c60.3-51.3,108.8-103,145.3-155  c68.7-91.1,87.3-186.7,55.8-286.8c-17.3-36.6-42.3-64.8-75.1-84.7c-32.7-19.9-69-29.2-108.8-27.9c-27.6,0-55.2,5.5-82.8,16.4  c-25,14.1-46.8,32.4-65.4,54.9L502,267.5l-33.7-41.4c-33.4-41.7-78.6-65.1-135.7-70.3s-108.8,11.9-155,51  C146.2,242.2,128.5,287.4,124.7,342.6z"></path>
+<path xmlns="http://www.w3.org/2000/svg" class="fill" d="M41.7,332.9c4.5-73.8,29.9-135.1,76-183.8h1.9l1.9-1.9C178.1,98.4,241.9,74,313.1,74  c71.2,0,132.5,22.5,183.8,67.4c19.4-17.3,41.1-31.8,64.5-43.3l1.9-1.9h1.9C601,81.5,639.3,74,677.9,74c56.5-1.3,108.1,12.5,155,41.4  c46.9,28.9,82.2,68.7,105.9,119.3v1.9l1.9,3.8c19.2,68,22.5,132.8,9.6,194.4c-12.8,61.6-38.5,117.7-77,168.4  c-39.7,56.5-91.7,111.7-155.9,165.5c0.1,1-0.6,1.8-1.5,1.9c-0.1,0-0.3,0-0.4,0c-31.5,28.9-65.8,57.7-103,86.6  c-21.8,16.1-40.7,29.2-56.8,39.5c-21.2,14.7-38.8,22.1-52.9,22.1l-5.8,1.9l-4.8-1.9c-18-1.9-36.9-11.3-56.8-27.9  c-7.2-4.4-14-9.6-20.2-15.4c-7-6.4-12.2-10.6-15.4-12.5h-1.9C240,742.7,134.7,633.6,82.1,536v-1.9C50.7,473.7,37.2,406.7,41.7,332.9  z"></path>
+</svg> <!----></span><span data-v-e83dbdd8="" title="Skip" class="skip control"><svg data-v-e83dbdd8="" viewBox="0 0 249.05 132.12" class="icon icon-skip" xmlns="http://www.w3.org/2000/svg">
+	<circle xmlns="http://www.w3.org/2000/svg" cx="115.5" cy="108.62" r="23"></circle>
+	<path xmlns="http://www.w3.org/2000/svg" d="M291.5,281A22.5,22.5,0,1,1,269,303.5,22.52,22.52,0,0,1,291.5,281m0-1A23.5,23.5,0,1,0,315,303.5,23.5,23.5,0,0,0,291.5,280Z" transform="translate(-176 -194.88)"></path>
+	<path xmlns="http://www.w3.org/2000/svg" class="arrow" d="M399,257.5a135.18,135.18,0,0,0-41.16-42.17c-22.7-14.74-49.38-21.92-75.15-20.2a108.71,108.71,0,0,0-65.16,27c-19.91,17.5-33.76,41.79-41.18,72.19a13.52,13.52,0,0,0,9.92,16.32,13.66,13.66,0,0,0,3.21.38,13.51,13.51,0,0,0,13.11-10.3c6.07-24.92,17.1-44.54,32.76-58.31a82,82,0,0,1,49.13-20.32c20-1.33,40.81,4.32,58.65,15.9A108.07,108.07,0,0,1,374,268.51l-30,13.2,72.43,40.36,8.6-76Z" transform="translate(-176 -194.88)"></path>
+</svg> <!----></span></span></div></div> <!----></div></div></div> <div data-v-c4b3c062="" class="three-col-layout--center"><div data-v-05d9a8ca="" data-v-c4b3c062="" class="region bottom-center"><div data-v-260d0702="" data-test="quote" class="app-container quote"><div data-v-260d0702="" data-test="app-dash" class="app-dash" data-resize-sensor-id="smxq9g"><p data-v-260d0702="" class="body"><span data-v-260d0702="" data-test="body-text" class="body-text"><span data-v-260d0702="">
+						“Life 
+					</span><span data-v-260d0702="">
+						has 
+					</span><span data-v-260d0702="">
+						no 
+					</span><span data-v-260d0702="">
+						limitations, 
+					</span><span data-v-260d0702="">
+						except 
+					</span><span data-v-260d0702="">
+						the 
+					</span><span data-v-260d0702="">
+						ones 
+					</span><span data-v-260d0702="">
+						you 
+					</span><span data-v-260d0702="">
+						make.” 
+					</span></span></p> <div data-v-260d0702="" class="below"><div data-v-260d0702="" data-test="below" class="below-actions u--touch-hide"><span data-v-260d0702="" data-test="source" class="source">Les Brown</span> <div data-v-260d0702="" title="Favorite" data-test="favorite" class="control favorite"><svg data-v-260d0702="" fill="#fff" viewBox="0 0 1000 1000" y="0px" x="0px" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" class="icon icon-heart">
+<path xmlns="http://www.w3.org/2000/svg" class="outline" d="M42.9,332.9c4.5-73.8,29.8-135.1,76-183.8h1.9l1.9-1.9C179.2,98.4,243.1,74,314.3,74s132.5,22.5,183.8,67.4  c20.5-18,42-32.4,64.5-43.3l1.9-1.9h1.9C602.4,81.4,639.9,74,679.1,74c56.5-1.3,108.1,12.5,155,41.4  c46.8,28.9,82.1,68.7,105.9,119.3v1.9l1.9,3.8c19.2,68,22.5,132.8,9.6,194.4c-12.8,61.6-38.5,117.7-77,168.4  c-39.8,56.5-91.8,111.6-155.9,165.5c0,1.3-0.6,1.9-1.9,1.9c-31.4,28.9-65.8,57.7-103,86.6c-21.8,16-40.7,29.2-56.8,39.5  c-21.2,14.8-38.8,22.1-52.9,22.1l-5.8,1.9l-4.8-1.9c-18-1.9-36.9-11.2-56.8-27.9c-6.4-3.8-13.2-9-20.2-15.4s-12.2-10.6-15.4-12.5  H399C241.2,742.6,135.9,633.5,83.3,536v-1.9C51.9,473.8,38.4,406.7,42.9,332.9z M124.7,342.6c-3.8,55.2,6.7,107.2,31.8,155.9  c47.5,86.6,144.7,186.1,291.6,298.4h1.9c3.8,3.8,9.6,9,17.3,15.4c7.7,6.4,13.8,10.9,18.3,13.5c5.1,3.8,9.9,7.1,14.4,9.6  c5.1-1.3,9.6-3.2,13.5-5.8c14.1-9,30.5-20.9,49.1-35.6c37.2-27.6,70.9-55.8,101.1-84.7c60.3-51.3,108.8-103,145.3-155  c68.7-91.1,87.3-186.7,55.8-286.8c-17.3-36.6-42.3-64.8-75.1-84.7c-32.7-19.9-69-29.2-108.8-27.9c-27.6,0-55.2,5.5-82.8,16.4  c-25,14.1-46.8,32.4-65.4,54.9L502,267.5l-33.7-41.4c-33.4-41.7-78.6-65.1-135.7-70.3s-108.8,11.9-155,51  C146.2,242.2,128.5,287.4,124.7,342.6z"></path>
+<path xmlns="http://www.w3.org/2000/svg" class="fill" d="M41.7,332.9c4.5-73.8,29.9-135.1,76-183.8h1.9l1.9-1.9C178.1,98.4,241.9,74,313.1,74  c71.2,0,132.5,22.5,183.8,67.4c19.4-17.3,41.1-31.8,64.5-43.3l1.9-1.9h1.9C601,81.5,639.3,74,677.9,74c56.5-1.3,108.1,12.5,155,41.4  c46.9,28.9,82.2,68.7,105.9,119.3v1.9l1.9,3.8c19.2,68,22.5,132.8,9.6,194.4c-12.8,61.6-38.5,117.7-77,168.4  c-39.7,56.5-91.7,111.7-155.9,165.5c0.1,1-0.6,1.8-1.5,1.9c-0.1,0-0.3,0-0.4,0c-31.5,28.9-65.8,57.7-103,86.6  c-21.8,16.1-40.7,29.2-56.8,39.5c-21.2,14.7-38.8,22.1-52.9,22.1l-5.8,1.9l-4.8-1.9c-18-1.9-36.9-11.3-56.8-27.9  c-7.2-4.4-14-9.6-20.2-15.4c-7-6.4-12.2-10.6-15.4-12.5h-1.9C240,742.7,134.7,633.6,82.1,536v-1.9C50.7,473.7,37.2,406.7,41.7,332.9  z"></path>
+</svg></div><div data-v-260d0702="" title="Skip" data-test="skip" class="control skip"><svg data-v-260d0702="" viewBox="0 0 249.05 132.12" class="icon icon-skip" xmlns="http://www.w3.org/2000/svg">
+	<circle xmlns="http://www.w3.org/2000/svg" cx="115.5" cy="108.62" r="23"></circle>
+	<path xmlns="http://www.w3.org/2000/svg" d="M291.5,281A22.5,22.5,0,1,1,269,303.5,22.52,22.52,0,0,1,291.5,281m0-1A23.5,23.5,0,1,0,315,303.5,23.5,23.5,0,0,0,291.5,280Z" transform="translate(-176 -194.88)"></path>
+	<path xmlns="http://www.w3.org/2000/svg" class="arrow" d="M399,257.5a135.18,135.18,0,0,0-41.16-42.17c-22.7-14.74-49.38-21.92-75.15-20.2a108.71,108.71,0,0,0-65.16,27c-19.91,17.5-33.76,41.79-41.18,72.19a13.52,13.52,0,0,0,9.92,16.32,13.66,13.66,0,0,0,3.21.38,13.51,13.51,0,0,0,13.11-10.3c6.07-24.92,17.1-44.54,32.76-58.31a82,82,0,0,1,49.13-20.32c20-1.33,40.81,4.32,58.65,15.9A108.07,108.07,0,0,1,374,268.51l-30,13.2,72.43,40.36,8.6-76Z" transform="translate(-176 -194.88)"></path>
+</svg></div><div data-v-260d0702="" title="Share" data-test="share" class="control control-twitter"><svg data-v-260d0702="" viewBox="0 0 512.004 419.042" xmlns="http://www.w3.org/2000/svg" class="icon icon-twitter"><path xmlns="http://www.w3.org/2000/svg" d="M191.012,466.043a439.3,439.3,0,0,1-67.856-5.387C82.777,454.32,41.9,433.2,30.336,426.875L0,410.289l32.844-10.8c35.9-11.8,57.742-19.129,84.777-30.6-27.07-13.11-47.933-36.692-57.976-67.176L52,278.52l6.266.957A113.977,113.977,0,0,1,44,261.883c-12.934-19.645-19.781-43.649-18.324-64.219l1.437-20.246,12.121,4.695a113.319,113.319,0,0,1-10.98-30.777c-5.293-26.359-.863-54.363,12.476-78.852L51.289,53.1,65.41,70.062c44.66,53.649,101.227,85.473,168.363,94.79-2.742-18.9-.687-37.145,6.114-53.5,7.918-19.039,22-35.183,40.722-46.691A122.322,122.322,0,0,1,351.6,47.23c26.511,1.629,50.582,11.563,69.7,28.747,9.336-2.426,16.215-5.016,25.512-8.516,5.593-2.106,11.937-4.5,19.875-7.231l29.25-10.078-19.075,54.477c1.258-.106,2.555-.2,3.911-.254L512,102.961l-18.461,25.23c-1.059,1.446-1.328,1.856-1.7,2.422-1.488,2.242-3.34,5.032-28.68,38.867-6.344,8.473-9.512,19.508-8.922,31.079,2.246,43.968-3.148,83.75-16.043,118.234C426,351.418,407.1,379.41,382.031,401.992c-31.023,27.938-70.582,47.067-117.582,56.848A361.961,361.961,0,0,1,191.012,466.043Z" transform="translate(0 -47.001)"></path></svg></div></div></div></div> <!----></div></div></div> <div data-v-c4b3c062="" class="three-col-layout--right" data-resize-sensor-id="2nbeqg"><div data-v-05d9a8ca="" data-v-c4b3c062="" class="region bottom-right"><div id="todo" class="app-container todo show show-fade-in" data-test="todo" style="" data-justboundclickoutsidehandler="false" data-clickoutsidemouseuphandlerid="0hyodl" data-clickoutsidemousedownhandlerid="ix610f"><div class="app-wrapper nipple nipple-bottom-right">
+	<div class="app todo-app calculates-own-max-height" style="height: auto; width: 320px;">		<div class="drop-zone drop-left-zone">
+			<span class="bar left-bar">
+				<span class="bar-name"></span>
+			</span>
+		</div>
+
+		<div class="drop-zone drop-right-zone">
+			<span class="bar right-bar">
+				<span class="bar-name"></span>
+			</span>
+		</div>
+
+		<header class="header todo-header momentum-todo has-assignee" data-test="todo-header"><div class="todo-header-row">
+	<div class="list-color" style="background-color: rgba(0,0,0,0)"></div>
+
+	
+	<div class=" active-list-container has-icon" data-test="todo-list-chooser">
+		<img class="provider-icon" src="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/dashboard.html">
+		<span class="list-name active-list-name " title="Inbox" data-test="todo-active-list-title">Inbox</span>
+		<div class="list-chooser-toggle icon-wrapper" style="display: inline-flex;"><svg class="icon icon-angle-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55.751 55.751"><path d="M31.836 43.006c.282-.281.518-.59.725-.912L54.17 20.485a5.403 5.403 0 0 0 0-7.638 5.403 5.403 0 0 0-7.638 0l-18.608 18.61L9.217 12.753A5.4 5.4 0 0 0 0 16.571a5.363 5.363 0 0 0 1.582 3.816l21.703 21.706c.207.323.445.631.729.913a5.367 5.367 0 0 0 3.91 1.572 5.37 5.37 0 0 0 3.912-1.572z"></path></svg></div>
+		<div class="dropdown nipple nipple-top-left">
+			<div class="list-chooser dropdown-list" data-test="todo-list-dropdown"><ul data-test="inbox" data-list-id="1-inbox">
+	<li class="todo-list-choice-active " data-list-id="1-inbox">
+		<div class="list-color" style="background-color: ">&nbsp;</div>
+		<span class="list-name">Inbox</span>
+		<span class="todo-count">25</span>
+	</li>
+</ul><ul data-test="today" data-list-id="1-today">
+	<li class="todo-list-choice " data-list-id="1-today">
+		<div class="list-color" style="background-color: ">&nbsp;</div>
+		<span class="list-name">Today</span>
+		<span class="todo-count">0</span>
+	</li>
+</ul><ul data-test="done" data-list-id="1-done">
+	<li class="todo-list-choice " data-list-id="1-done">
+		<div class="list-color" style="background-color: ">&nbsp;</div>
+		<span class="list-name">Done</span>
+		<span class="todo-count">196</span>
+	</li>
+</ul><ul class="todo-list-add-row">	<div id="list-new" class="upsell-row">
+		<div class="copy">+ New List</div>
+		<span class="badge badge-plus">Plus</span>
+	</div>
+
+</ul></div>
+		</div>
+	</div>
+
+	<div class="todo-header-controls">
+		<div class="todo-header-control more" id="todo-top-menu">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-actions-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+		<div class="todo-header-control mobile-close">
+			<span class="icon-wrapper u--mobile-show-bg hide">
+				<svg class="icon icon-hide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 348.333 348.334"><path d="M336.559 68.611L231.016 174.165l105.543 105.549c15.699 15.705 15.699 41.145 0 56.85-7.844 7.844-18.128 11.769-28.407 11.769-10.296 0-20.581-3.919-28.419-11.769L174.167 231.003 68.609 336.563c-7.843 7.844-18.128 11.769-28.416 11.769-10.285 0-20.563-3.919-28.413-11.769-15.699-15.698-15.699-41.139 0-56.85l105.54-105.549L11.774 68.611c-15.699-15.699-15.699-41.145 0-56.844 15.696-15.687 41.127-15.687 56.829 0l105.563 105.554L279.721 11.767c15.705-15.687 41.139-15.687 56.832 0 15.705 15.699 15.705 41.145.006 56.844z"></path></svg>
+			</span>
+		</div>
+	</div>
+</div>
+
+
+
+</header>
+
+		<div class="todo-list-wrapper" style="min-height: 906px; max-height: 906px;">
+			<ol class="todo-list" style="max-height: 906px; min-height: 906px; opacity: 1;" data-test-list-loaded=""><li class="todo-item visible" data-test="todo-item" data-todo-id="d6b1102c-4f21-4d1a-a24c-5509a31df357" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">-------------- Final changes ---------</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="55693cc0-20c0-41b5-b7df-36819e3c5db4" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">Add readme to projs going on portfolio: https://github.com/Halmesn/Hotflix</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="2f11db93-5cc3-40ca-bbd9-e40cfd135090" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">Portfolio section &amp; interview q's about project challenges, etc.</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="46b8dd7f-fb63-4029-9e69-b2189865631e" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">-----------Daily/Chores---------</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="8b2e12ec-4c29-4509-ae9c-e22a66b757bb" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">Hype yourself up, cus' if ya' don't no one else will. You got this!</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="595f1207-06a9-430b-889c-81fa6c9ca014" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">Throw some trash on GitHub</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="e3736323-539f-4732-a07b-b744647b61f7" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">Cut your dirty nails!</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="4ac52d29-46dc-489d-92b3-ef8ecaa092fa" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">Moisturize that beautiful face</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="17f0789d-0fdf-4dc8-80b9-470ca840e7c0" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">That bed isn't making itself...</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="06c89bb7-2267-4cf8-8a29-e6740222883d" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">Shave to preserve that baby face</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="67af809f-76cf-492c-8053-965b8db92f39" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">Add wood board to fence</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="3bc8a910-9158-42f3-bc27-a51607547efb" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">drill base to door &amp; cut wood piece for window A/C gap.</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="eadc65da-668b-4cff-b21b-ace8ff931faf" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">Add testing to resume</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="f49441c3-56eb-4293-853c-9a77aabbe2c9" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">Remind mom about some course on Sat</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="5c17f664-4009-4f8e-84c7-f2a7d92c97db" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">add some hobbies to portfolio</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="cfaee48c-fbab-438e-839d-088a48b294d3" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">Remind dad to pay soem bill</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="a35f4653-5585-4a99-aedc-4c83e9d6d248" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">-----------ATS---------</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="3e6c8ab4-ad5d-4af2-a733-4f2659ffca1e" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">Add scroll to top btn</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="c6ff3e01-65ff-4c79-b3f9-89fced87b6ed" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">Convert all slideshows logic to one JS function</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="5b49f94a-4a76-424c-b6ae-7eb4bd826003" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">Import slideshow data from JSON and dynamically generate hidden data&nbsp;https://stackoverflow.com/questions/7346563/loading-local-json-file</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="f43d5b08-c7b0-444d-bd85-239f3ca3f9f9" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">Create Jest tests for ATS</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="5a983bc7-99da-42df-a861-b9821da82bb3" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">minify/gzip all code</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="e0d44814-0fb9-46c5-8a64-6ccc7b03f6e3" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">If time permits, generate timeline component using JS.</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="c33551e0-290a-4510-869e-636cc054aefb" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title">Add blurred placeholder img to slideshows and lazy load</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li><li class="todo-item visible" data-test="todo-item" data-todo-id="3a919e29-7909-414d-8ee3-77e3da7c7cfe" draggable="true"><span class="todo-item-wrapper has-more">
+	<i class="loading-icon"></i>
+	<i class="control error-icon" title="Error saving click to retry">!</i>
+
+	<label><input class="todo-item-checkbox" data-test="todo-item-checkbox" type="checkbox"></label>
+	<span class="todo-item-title" data-test="todo-item-title" contenteditable="false">For EME, change all a tags to btns and add area labels</span>
+	<div class="more">	<div class="icon-wrapper more-toggle" data-test="todo-item-dropdown-toggle">
+		<svg class="icon icon-ellipsis more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"></path></svg>
+	</div>
+<div class="dropdown todo-item-dropdown">
+	<ul class="dropdown-list"></ul>
+	<ul class="dropdown-list dropdown-detail"></ul>
+</div>
+</div>
+</span>
+</li></ol>
+		</div>
+
+		<footer class="footer-input new-todo-footer" style="visibility: visible;">
+			<input id="todo-new" class="todo-input todo-new" type="text" placeholder="New Todo" data-test="todo-new-input" autocomplete="off" title="Use Ctrl-Enter to create a todo at top of the list">
+		</footer>
+</div>
+	<div class="touch-overlay"></div>
+</div>
+<span class="app-dash toggle Todo-toggle" data-test="todo-app-dash" data-ob="todo-app-dash">Todo</span>
+</div></div></div></div> <!----></div>
+<div class="overlay drop-overlay">
+<p>Drop to upload backgrounds <span class="badge badge-plus">PLUS</span></p>
+</div>
+<div data-v-3c658925="" class="full-screen-portals"><div data-v-3c658925="" class="toast-menu-portal vue-portal-target" data-test="dropdown-portal"></div> <div data-v-941116ea="" data-v-3c658925="" class="dropdown-portal vue-portal-target" data-test="dropdown-portal"></div></div>
+</div>
+<script src="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/app/globals.js"></script>
+<script src="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/js/lib.min.js"></script>
+<script src="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/app/es6.js"></script>
+<script src="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/app/app.min.js"></script>
+
+
+<script type="text/javascript" async="" src="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/app/1369894c-efef-4d5f-9bd6-3e136e09c5e8.js" id="1369894c-efef-4d5f-9bd6-3e136e09c5e8"></script><script type="text/javascript" async="" src="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/app/6be10923-c6a7-4e5f-b85a-85e6159c3018.js" id="6be10923-c6a7-4e5f-b85a-85e6159c3018"></script><script type="text/javascript" async="" src="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/app/7d9ace94-8620-4bc0-9160-fcc15d4cb578.js" id="7d9ace94-8620-4bc0-9160-fcc15d4cb578"></script></body></html>

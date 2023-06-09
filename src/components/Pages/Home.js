@@ -16,7 +16,6 @@ function Home({ handleModal, showModal }) {
   return (
     <>
       {showModal && <Modal closeModal={handleModal} />}
-      <NavBar />
       <header id="about" className={Styles.header}>
         <img
           alt="head-shot of Suhas Sunder"
@@ -27,11 +26,12 @@ function Home({ handleModal, showModal }) {
           <h1 className={Styles.title}>
             Suhas Sunder{" "}
             <FontAwesomeIcon className={Styles.highlight} icon={code} />{" "}
-            Front-end Developer
+            Software Developer
           </h1>
           <p className={Styles.description}>
-            I'm a curious, self-taught Web Developer with a passion for learning
-            and problem-solving. Armed with a{" "}
+            I'm a curious, self-taught programmer with experience in front-end
+            development and a passion for learning, creating, and
+            problem-solving. Armed with a{" "}
             <span onClick={handleModal} className={Styles["text-link"]}>
               Bachelor of Engineering and Management
             </span>
@@ -39,6 +39,11 @@ function Home({ handleModal, showModal }) {
             attention to detail and delivering high-quality results that meet
             the unique needs of my clients. Collaborative opportunities energize
             me, and I thrive on working with teams to bring ideas to life.
+          </p>
+          <p className={Styles.description}>
+            In addition to my passion for programming, I enjoy a variety of
+            interests such as archery, badminton, drawing, reading, exercise,
+            and getting quality sleep.
           </p>
           <ul className={Styles.links}>
             {HomeBtnData.map((data, index) => (

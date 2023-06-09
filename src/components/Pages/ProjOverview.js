@@ -79,7 +79,6 @@ function ProjOverview({ projName, handleModal, showModal }) {
   return (
     <>
       {showModal && <Modal closeModal={handleModal} />}
-      <NavBar />
       <header className={Styles.header}>
         {projNavigation}
         <div className={Styles["header-container"]}>

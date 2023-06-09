@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./components/Pages/Home";
 import ProjectOverview from "./components/Pages/ProjOverview";
 import About from "./components/Pages/About";
+import NavBar from "./components/UI/NavBar";
 import { Helmet } from "react-helmet";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           content="Welcome to my personal portfolio! Here you will find a showcase of my skills, list of projects and work done, link to resume, and contact information."
         />
       </Helmet>
+      <NavBar />
       <Routes>
         <Route
           path="/"

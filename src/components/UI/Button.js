@@ -46,7 +46,7 @@ function Button({ id, text, logo, type, url, target, isHashLink, onClick }) {
 
   const link = (
     <Link
-      data-testid={id}
+      data-testid={`btn-link-${id}`}
       to={url}
       aria-label={text}
       className={Styles[type]}
@@ -60,7 +60,7 @@ function Button({ id, text, logo, type, url, target, isHashLink, onClick }) {
 
   const anchorLink = (
     <HashLink
-      data-testid={id}
+      data-testid={`btn-link-${id}`}
       to={url}
       aria-label={text}
       className={Styles[type]}

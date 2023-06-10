@@ -12,6 +12,10 @@ const MockHome = (showModal) => {
   );
 };
 
+const testHref = (elements, link) => {
+  elements.forEach((element) => expect(element).toHaveAttribute("href", link));
+};
+
 describe("Header", () => {
   it("should render a header title text", () => {
     render(<MockHome showModal={false} />);
@@ -27,16 +31,18 @@ describe("Header", () => {
 });
 
 describe("Links", () => {
-  it("should render two linkedin buttons in the document", () => {
+  it("should render two linkedin buttons in the document with proper links", () => {
     render(<MockHome showModal={false} />);
     const modalBtnElements = screen.getAllByTestId(/btn-link-linkedin/i);
     expect(modalBtnElements).toHaveLength(2);
+    testHref(modalBtnElements, "https://www.linkedin.com/in/s-sunder/");
   });
 
-  it("should render two github buttons in the document", () => {
+  it("should render two github buttons in the document with proper links", () => {
     render(<MockHome showModal={false} />);
-    const modalBtnElements = screen.getAllByTestId(/btn-link-linkedin/i);
+    const modalBtnElements = screen.getAllByTestId(/btn-link-github/i);
     expect(modalBtnElements).toHaveLength(2);
+    testHref(modalBtnElements, "https://github.com/suhas-sunder");
   });
 
   it("should render two modal buttons in the document", () => {
@@ -45,16 +51,21 @@ describe("Links", () => {
     expect(modalBtnElements).toHaveLength(2);
   });
 
-  it("should render certificate linkedin buttons in the document", () => {
+  it("should render certificate linkedin buttons in the document with proper links", () => {
     render(<MockHome showModal={false} />);
     const modalBtnElements = screen.getAllByTestId(/btn-link-certificate/i);
     expect(modalBtnElements).toHaveLength(2);
+    testHref(
+      modalBtnElements,
+      "https://www.linkedin.com/in/s-sunder/details/certifications/"
+    );
   });
 
-  it("should render two email buttons in the document", () => {
+  it("should render two email buttons in the document with proper links", () => {
     render(<MockHome showModal={false} />);
     const modalBtnElements = screen.getAllByTestId(/btn-link-email/i);
     expect(modalBtnElements).toHaveLength(2);
+    testHref(modalBtnElements, "/#contact");
   });
 
   it("should display a modal", () => {

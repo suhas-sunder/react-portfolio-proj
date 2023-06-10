@@ -41,7 +41,7 @@ function Home({ handleModal, showModal }) {
             me, and I thrive on working with teams to bring ideas to life.
           </p>
           <p className={Styles.description}>
-            In addition to my passion for programming, I enjoy a variety of
+            In addition to my passion for programming, I have a variety of
             interests such as archery, badminton, drawing, reading, exercise,
             and getting quality sleep.
           </p>

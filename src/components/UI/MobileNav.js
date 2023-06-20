@@ -62,7 +62,10 @@ function NavBar({ resumeImg, handleScroll }) {
               )
             )}
           </ul>
-          <div class={Styles["background-overlay"]} onClick={handleBurgerMenu}/>
+          <div
+            className={Styles["background-overlay"]}
+            onClick={handleBurgerMenu}
+          />
         </>
       )}
     </>

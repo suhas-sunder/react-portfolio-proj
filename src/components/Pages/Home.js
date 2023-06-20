@@ -42,8 +42,8 @@ function Home({ handleModal, showModal }) {
           </p>
           <p className={Styles.description}>
             In addition to my passion for programming, I have a variety of
-            interests such as archery, badminton, drawing, reading, exercise,
-            and getting quality sleep.
+            interests such as archery, badminton, drawing, gaming, exercise, and
+            getting quality sleep.
           </p>
           <ul className={Styles.links}>
             {HomeBtnData.map((data, index) => (

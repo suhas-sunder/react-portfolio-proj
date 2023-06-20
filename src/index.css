@@ -15,4 +15,6 @@ body {
   padding: 0;
   font-family: "Montserrat", "Source Sans Pro", Georgia, "Times New Roman",
     Times, serif;
+
+  min-width: 320px;
 }

@@ -17,14 +17,17 @@ function NavBar({ resumeImg, handleScroll }) {
   return (
     <>
       <div className={Styles["mobile-nav"]}>
+        {/* Logo button */}
         <Button
           url="/"
           type="home-link"
           logo="homeLogo"
           onClick={() => handleBurgerMenu(false)}
         />
+        {/* Burger menu toggle buttons */}
         {toggle && (
           <FontAwesomeIcon
+            data-testid="burgerBtn-open"
             icon={burgerIcon}
             className={Styles.burger}
             onClick={handleBurgerMenu}
@@ -32,12 +35,14 @@ function NavBar({ resumeImg, handleScroll }) {
         )}
         {!toggle && (
           <FontAwesomeIcon
+            data-testid="burgerBtn-close"
             icon={xIcon}
             className={Styles.burger}
             onClick={handleBurgerMenu}
           />
         )}
       </div>
+      {/* Burger menu */}
       {!toggle && (
         <>
           <ul id="burger-menu" className={Styles["nav-list"]}>

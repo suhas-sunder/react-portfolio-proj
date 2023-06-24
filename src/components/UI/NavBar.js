@@ -6,7 +6,7 @@ import NavBtnData from "../../data/NavBtnData";
 
 function NavBar() {
   return (
-    <nav className={Styles.nav}>
+    <nav role="navigation" className={Styles.nav}>
       <div className={Styles["nav-items"]}>
         <ul className={Styles["nav-list"]}>
           {NavBtnData.map((data, index) => (
@@ -17,6 +17,7 @@ function NavBar() {
               }
             >
               <Button
+                id={data.id}
                 url={data.url}
                 type={data.type}
                 text={data.text}

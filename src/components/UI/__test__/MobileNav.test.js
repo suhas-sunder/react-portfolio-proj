@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import MobileNav from "../MobileNav";
 import { BrowserRouter } from "react-router-dom";
 
@@ -26,17 +26,25 @@ describe("Default Navigation Bar", () => {
     expect(navElement.length).toBeGreaterThan(0);
   });
 
-  it("Should render burger menu button", () => {
+  it("Should render burger menu button icon in open state", () => {
     render(<MockNavBar />);
-    const navElement = screen.getByTestId(/burgerBtn/i);
+    const navElement = screen.getByTestId(/burgerBtn-open/i);
     expect(navElement).toBeInTheDocument();
   });
 
-  //   it("Should render links with appropriate url", () => {
-  //     render(<MockNavBar />);
-  //     const navElement = screen.getAllByTestId(/btn-link-nav/i);
-  //     navElement.map((element, index) =>
-  //       expect(element).toHaveAttribute("href", btnURL[index])
-  //     );
-  //   });
+  it("Should have burger closed icon hidden", () => {
+    render(<MockNavBar />);
+    const navElement = screen.queryByTestId(/burgerBtn-close/i);
+    expect(navElement).not.toBeInTheDocument();
+  });
+
+  it("Should render links with appropriate url once burger menu is open", () => {
+    render(<MockNavBar />);
+    const navElement = screen.getByTestId(/burgerBtn-open/i);
+    fireEvent.click(navElement)
+    const navLinks = screen.getAllByTestId(/btn-link/i);
+    navLinks.map((element, index) =>
+      expect(element).toHaveAttribute("href", btnURL[index])
+    );
+  });
 });

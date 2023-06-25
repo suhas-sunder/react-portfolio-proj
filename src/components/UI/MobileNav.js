@@ -68,6 +68,7 @@ function NavBar({ resumeImg, handleScroll }) {
             )}
           </ul>
           <div
+            data-testid="mobile-nav-bkgd"
             className={Styles["background-overlay"]}
             onClick={handleBurgerMenu}
           />

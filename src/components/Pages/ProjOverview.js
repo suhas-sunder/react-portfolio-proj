@@ -1,5 +1,4 @@
 import React from "react";
-import NavBar from "../UI/NavBar";
 import Contact from "../Layout/Contact";
 import Footer from "../Layout/Footer";
 import ProjData from "../../data/ProjData";

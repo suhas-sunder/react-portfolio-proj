@@ -20,7 +20,7 @@ const btnURL = [
 ];
 
 describe("Mobile Nav bar defaults", () => {
-  it("Should render atleast one link", () => {
+  it("Should render at least one link", () => {
     render(<MockNavBar />);
     const navElement = screen.getAllByTestId(/btn-link-/i);
     expect(navElement.length).toBeGreaterThan(0);
@@ -55,7 +55,7 @@ describe("Mobile Nav Bar click events", () => {
     expect(navElementTwo).toBeInTheDocument();
   });
 
-  it("Should render 6 links when burger menu is open", () => {
+  it("Should render 5 links when burger menu is open", () => {
     render(<MockNavBar />);
     const navElement = screen.getByTestId(/burgerBtn-open/i);
     fireEvent.click(navElement);
@@ -73,7 +73,7 @@ describe("Mobile Nav Bar click events", () => {
     );
   });
 
-  it("Should only render 1 link (logo button) when burger menu is toggled open then close, meaning menu is closed", () => {
+  it("Should only render only logo link when burger menu is toggled open then close, meaning menu is closed", () => {
     render(<MockNavBar />);
     const navElement = screen.getByTestId(/burgerBtn-open/i);
     fireEvent.click(navElement);

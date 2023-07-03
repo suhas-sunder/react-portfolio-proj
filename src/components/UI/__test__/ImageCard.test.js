@@ -1,6 +1,5 @@
 import { screen, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import user from "@testing-library/user-event";
 import ImageCard from "../ImageCard";
 import { BrowserRouter } from "react-router-dom";
 
@@ -21,18 +20,16 @@ describe("Renders Image Card elements", () => {
   });
 
   it("should render a link to view project", () => {
-    render(<MockImageCard projURL="https://alltracksystem.com/" />);
+    render(<MockImageCard />);
     const linkElement = screen.getByLabelText(/view project live/i);
 
     expect(linkElement).toBeInTheDocument();
-    // expect(linkElement).toHaveAttribute("href", "/projects/Capstone");
   });
 
   it("should render a button that links to appropriate url", () => {
-    render(<MockImageCard projLink="https://alltracksystem.com/" />);
+    render(<MockImageCard />);
 
     const btnElement = screen.getByTestId(/project-overview/i);
     expect(btnElement).toBeInTheDocument();
-    // expect(btnElement).toHaveAttribute("href", "https://alltracksystem.com/");
   });
 });

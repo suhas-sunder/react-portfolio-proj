@@ -9,13 +9,15 @@ function Modal({ closeModal }) {
   return (
     <>
       <div data-testid="modal" className={Styles.modal}>
-        <FontAwesomeIcon
-          icon={closeIcon}
+        <button
+          aria-label="close btn or x-icon btn"
           className={Styles["close-btn"]}
           onClick={() => closeModal()}
-        />
+        >
+          <FontAwesomeIcon icon={closeIcon} />
+        </button>
         <h2 className={Styles.title}>Education</h2>
-        <a href="https://ontariotechu.ca/" rel="noreferrer" target="_blank">
+        <a data-testid="img-link" aria-label="Ontario Tech University website" href="https://ontariotechu.ca/" rel="noreferrer" target="_blank">
           <img
             src={uniLogoImg}
             alt="Ontario Tech University Logo"
@@ -30,6 +32,7 @@ function Modal({ closeModal }) {
         <p className={Styles.details}>Graduated: Apr 2019</p>
         <div className={Styles["button-bkgd"]}>
           <Button
+            id="capstone"
             text="Capstone Project"
             type="project-link"
             logo={"arrow"}
@@ -39,7 +42,11 @@ function Modal({ closeModal }) {
           />
         </div>
       </div>
-      <div className={Styles.background} onClick={() => closeModal()}></div>
+      <div
+        data-testid="bkgd-underlay"
+        className={Styles.background}
+        onClick={() => closeModal()}
+      ></div>
     </>
   );
 }

@@ -8,6 +8,7 @@ function ImageCard({ imageURL, projLink, projName, projURL }) {
   return (
     <div className={Styles["img-card"]}>
       <a
+        aria-label="view project live"
         className={Styles["img-link"]}
         href={projURL}
         rel="noreferrer"
@@ -27,6 +28,7 @@ function ImageCard({ imageURL, projLink, projName, projURL }) {
       </a>
       <div className={Styles["btn-background"]}>
         <Button
+          id="project-overview"
           text="project overview"
           type="project-link"
           logo="arrow"

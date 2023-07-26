@@ -38,7 +38,7 @@ const ProjData = [
     projId: "emeproj",
     title: "EME Group Inc.",
     description:
-      "The EME Group Inc. website provides clients with a clear understanding of the end-to-end consulting journey, detailed information about services offered, and a showcase of client projects categorized by industry. Additionally, the website features a comprehensive careers page that outlines available positions and their respective requirements. For seamless communication, the contact page offers visitors a convenient contact form and an interactive map.",
+      "The EME Group Inc. website provides clients with a clear understanding of the end-to-end consulting journey, detailed information about services offered, and a showcase of client projects categorized by industry. Additionally, the website features a comprehensive careers page that outlines available positions and their respective requirements. The contact page facilitates seamless communication through a contact form and an interactive map for easy navigation.",
     techStack: [
       "HTML5",
       "CSS3",
@@ -65,7 +65,7 @@ const ProjData = [
     projId: "portfolio",
     title: "React Portfolio",
     description:
-      "My personal portfolio website highlights my professional skills, accomplishments, and other relevant details to impress potential employers. With easy access to my current resume, detailed project overviews, links for seamless navigation, and a contact form, this portfolio presents a comprehensive overview of my work. Explore my portfolio to gain insights into my expertise and get in touch for exciting opportunities.",
+      "My personal portfolio website highlights my professional skills, accomplishments, and other relevant details, making it easy for potential employers to review. With easy access to my current resume, project details, links for seamless navigation, and a contact form, this portfolio presents a comprehensive overview of my work. Explore my portfolio to gain insights into my expertise and get in touch for exciting opportunities.",
     techStack: [
       "HTML5",
       "CSS3",
@@ -94,7 +94,7 @@ const ProjData = [
     projId: "capstone",
     title: "Capstone SPArcDS",
     description:
-      "SPArcDS is a prototype Arc Fault detection system designed to enhance home safety. When an Arc Fault is detected, SPArcDS promptly notifies the user through the SPArcDS mobile app and sends an SMS notification to all registered phone numbers. All notifications and relevant data are securely logged to a database for future reference. The mobile app enables users to wirelessly register new devices and conveniently view the activity log, which provides detailed status updates for all registered SPArcDS devices.",
+      "SPArcDS is a prototype Arc Fault detection system designed to enhance home safety. When an Arc Fault is detected, SPArcDS promptly notifies the user through the SPArcDS mobile app and sends an SMS notification to all registered phone numbers. All notifications and relevant data are securely logged to a database for future reference. The SPArcDS mobile app enables users to wirelessly register new devices and view an activity log that provides detailed status updates for all registered SPArcDS devices.",
     techStack: [
       "Mobile App Development",
       "Arduino Programming",

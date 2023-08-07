@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { getAllByTestId, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Home from "../Home";
 import { BrowserRouter } from "react-router-dom";
@@ -59,7 +59,10 @@ describe("renders all page elements", () => {
     const footerElement = screen.getByText(/2023 | Designed & coded by/i);
     expect(footerElement).toBeInTheDocument();
   });
+<<<<<<< HEAD
   
+=======
+>>>>>>> e73ffd7b717429a0dfdcdb67a133121508517e3a
 });
 
 describe("renders links/buttons with proper redirect/action", () => {

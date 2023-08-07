@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Skills from "../Skills";
 
-describe("Skills", () => {
+describe("renders skill elements", () => {
   it("should render a title", () => {
     render(<Skills />);
     const headingElement = screen.getByRole("heading");

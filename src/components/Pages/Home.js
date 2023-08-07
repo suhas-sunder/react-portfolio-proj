@@ -29,8 +29,10 @@ function Home({ handleModal, showModal }) {
             Software Developer
           </h1>
           <p className={Styles.description}>
-            I'm a curious, self-driven programmer with a passion for learning, creating, and
-            problem-solving. Having worked on multiple programming projects, including real-world websites and mobile applications, I have gained vast experience in software development. Armed with a{" "}
+            I'm a curious, self-driven programmer with a passion for learning,
+            creating, and problem-solving. Having worked on multiple programming
+            projects, including real-world websites and mobile applications, I
+            have gained vast experience in software development. Armed with a{" "}
             <span onClick={handleModal} className={Styles["text-link"]}>
               Bachelor of Engineering and Management
             </span>
@@ -41,8 +43,8 @@ function Home({ handleModal, showModal }) {
           </p>
           <p className={Styles.description}>
             In addition to my passion for programming, I have a variety of
-            interests including archery, badminton, drawing, gaming, exercise, and
-            getting quality sleep.
+            interests including archery, badminton, drawing, gaming, exercise,
+            and getting quality sleep.
           </p>
           <ul className={Styles.links}>
             {HomeBtnData.map((data, index) => (

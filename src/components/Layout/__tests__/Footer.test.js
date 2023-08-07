@@ -21,7 +21,7 @@ const checkURL = [
   "/",
 ];
 
-describe("Footer", () => {
+describe("renders footer elements", () => {
   it("should render footer with paragraph text", () => {
     render(<MockFooter />);
     const textElement = screen.getByText(

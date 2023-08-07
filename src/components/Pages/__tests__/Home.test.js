@@ -1,4 +1,4 @@
-import { getAllByTestId, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Home from "../Home";
 import { BrowserRouter } from "react-router-dom";
@@ -58,7 +58,7 @@ describe("renders all page elements", () => {
     render(<MockHome showModal={false} />);
     const footerElement = screen.getByText(/2023 | Designed & coded by/i);
     expect(footerElement).toBeInTheDocument();
-  });  
+  });
 });
 
 describe("renders links/buttons with proper redirect/action", () => {

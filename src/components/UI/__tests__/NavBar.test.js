@@ -12,14 +12,14 @@ const MockNavBar = () => {
 };
 
 const btnURL = [
-    "/",
-    "/#skills",
-    "/projects/AllTrackSystem",
-    "/#contact",
-    "https://drive.google.com/file/d/1FMej8K-ZoM7OjsTorZ8w6sEI2d9UByxB/view?usp=drive_link"
-]
+  "/",
+  "/#skills",
+  "/projects/AllTrackSystem",
+  "/#contact",
+  "https://drive.google.com/file/d/1FMej8K-ZoM7OjsTorZ8w6sEI2d9UByxB/view?usp=drive_link",
+];
 
-describe("Default Navigation Bar", () => {
+describe("nav elements render", () => {
   it("Should render a nav element", () => {
     render(<MockNavBar />);
     const navElement = screen.getByRole(/navigation/i);
@@ -41,6 +41,8 @@ describe("Default Navigation Bar", () => {
   it("Should render links with appropriate url", () => {
     render(<MockNavBar />);
     const navElement = screen.getAllByTestId(/btn-link-nav/i);
-    navElement.map((element, index) => expect(element).toHaveAttribute("href", btnURL[index]));
+    navElement.map((element, index) =>
+      expect(element).toHaveAttribute("href", btnURL[index])
+    );
   });
 });

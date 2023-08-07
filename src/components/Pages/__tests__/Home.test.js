@@ -1,10 +1,9 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Home from "../Home";
-import App from "../../../App";
 import { BrowserRouter } from "react-router-dom";
 
-const MockHome = (showModal) => {
+const MockHome = ({ showModal }) => {
   return (
     <BrowserRouter>
       <Home showModal={showModal} />
@@ -16,7 +15,7 @@ const testHref = (elements, link) => {
   elements.forEach((element) => expect(element).toHaveAttribute("href", link));
 };
 
-describe("Header", () => {
+describe("renders header elements", () => {
   it("should render a header title text", () => {
     render(<MockHome showModal={false} />);
     const headerElement = screen.getByText(/Suhas Sunder Software Developer/i);
@@ -30,7 +29,7 @@ describe("Header", () => {
   });
 });
 
-describe("Links", () => {
+describe("renders links", () => {
   it("should render two linkedin buttons in the document with proper links", () => {
     render(<MockHome showModal={false} />);
     const modalBtnElements = screen.getAllByTestId(/btn-link-linkedin/i);
@@ -68,9 +67,13 @@ describe("Links", () => {
     testHref(modalBtnElements, "/#contact");
   });
 
-  it("should display a modal", () => {
+  it("should render a modal when modal state is true", () => {
     render(<MockHome showModal={true} />);
     let modal = screen.getByText(/Graduated: Apr 2019/i);
     expect(modal).toBeInTheDocument();
-  });
+  });  
 });
+
+// describe("render skills list", () => {
+//   it("should render ")
+// });

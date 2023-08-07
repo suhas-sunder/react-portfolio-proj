@@ -5,7 +5,7 @@ const FormInputData = [
     type: "text",
     placeholder: "First Last",
     label: "Name",
-    errorMessage: "* Please enter a name!",
+    errorMessage: "* Please enter a valid name!",
     required: true,
   },
   {
@@ -31,7 +31,7 @@ const FormInputData = [
     name: "message",
     placeholder: "Hello!",
     label: "Message",
-    errorMessage: "* Please enter a message!",
+    errorMessage: "* Please enter a valid message!",
     required: true,
   },
 ];

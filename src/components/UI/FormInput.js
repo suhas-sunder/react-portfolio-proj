@@ -10,7 +10,6 @@ function ContactForm(props) {
   // Store input element as constant for better readability
   const input = (
     <input
-      data-testid={`input-${props.name}`}
       className={`${Styles.input} ${touched && Styles["invalid-input"]}`}
       {...formProps}
     />
@@ -19,7 +18,6 @@ function ContactForm(props) {
   // Store text area as constant for better readability
   const textArea = (
     <textarea
-      data-testid='textarea'
       className={`${Styles.message} ${touched && Styles["invalid-input"]}`}
       {...formProps}
     />

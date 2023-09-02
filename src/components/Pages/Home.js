@@ -5,7 +5,7 @@ import Projects from "../Layout/Projects";
 import Contact from "../Layout/Contact";
 import Footer from "../Layout/Footer";
 import Styles from "./Home.module.css";
-import Button from "../UI/Button";
+import Button from "../UI/LinkButton";
 import HomeBtnData from "../../data/HomeBtnData";
 import ProfilePic from "../../assets/profile-pic.png";
 import Modal from "../UI/Modal";
@@ -29,17 +29,23 @@ function Home({ handleModal, showModal }) {
             Software Developer
           </h1>
           <p className={Styles.description}>
-            I'm a curious, self-driven programmer with a passion for learning,
-            creating, and problem-solving. Having worked on multiple programming
-            projects, including real-world websites and mobile applications, I
-            have gained vast experience in software development. Armed with a{" "}
+            Professional Software Developer with a degree in{" "}
             <span onClick={handleModal} className={Styles["text-link"]}>
-              Bachelor of Engineering and Management
-            </span>
-            , I approach every project with a meticulous mindset, ensuring
-            attention to detail and delivering high-quality results that meet
-            the unique needs of my clients. Collaborative opportunities energize
-            me, and I thrive on working with teams to bring ideas to life.
+              Electrical Engineering and Management
+            </span>{" "}
+            from Ontario Tech University, who loves collaborating, creating,
+            learning, and problem-solving. For instance, during my capstone
+            project, I managed a team of three students while programming an
+            Arduino Arc Fault detection system and mobile application, enabling
+            real-time notifications through an SQL database.
+          </p>
+          <p className={Styles.description}>
+            I am dedicated to continuous learning and have obtained
+            certifications from FreeCodeCamp (Front End Developer Certification)
+            and Harvard University (CS50 Introduction to Computer Science).
+            Furthermore, I have undertaken a multitude of programming courses
+            and projects, significantly expanding my expertise across various
+            facets of software development.
           </p>
           <p className={Styles.description}>
             In addition to my passion for programming, I have a variety of

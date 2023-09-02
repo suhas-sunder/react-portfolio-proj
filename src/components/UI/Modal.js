@@ -1,7 +1,7 @@
 import React from "react";
 import Styles from "./Modal.module.css";
 import uniLogoImg from "../../assets/ontariotechu-img.jpg";
-import Button from "./Button";
+import Button from "./LinkButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark as closeIcon } from "@fortawesome/free-solid-svg-icons";
 
@@ -17,7 +17,13 @@ function Modal({ closeModal }) {
           <FontAwesomeIcon icon={closeIcon} />
         </button>
         <h2 className={Styles.title}>Education</h2>
-        <a data-testid="img-link" aria-label="Ontario Tech University website" href="https://ontariotechu.ca/" rel="noreferrer" target="_blank">
+        <a
+          data-testid="img-link"
+          aria-label="Ontario Tech University website"
+          href="https://ontariotechu.ca/"
+          rel="noreferrer"
+          target="_blank"
+        >
           <img
             src={uniLogoImg}
             alt="Ontario Tech University Logo"

@@ -1,10 +1,9 @@
-import React from "react";
 import Button from "./ButtonLink";
 import Styles from "./styles/NavBar.module.css";
 import MobileNav from "./MobileNav";
 import NavBtnData from "../../data/NavBtnData";
 
-function NavBar() {
+export default function NavBar() {
   return (
     <nav role="navigation" className={Styles.nav}>
       <div className={Styles["nav-items"]}>
@@ -29,9 +28,7 @@ function NavBar() {
           ))}
         </ul>
       </div>
-      <MobileNav id="mobile-nav" />
+      <MobileNav />
     </nav>
   );
 }
-
-export default NavBar;

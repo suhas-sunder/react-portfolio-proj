@@ -1,5 +1,4 @@
-import React from "react";
-import Styles from "./Modal.module.css";
+import Styles from "./styles/Modal.module.css";
 import uniLogoImg from "../../assets/ontariotechu-img.jpg";
 import Button from "../Navigation/ButtonLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

@@ -1,8 +1,7 @@
-import React from "react";
 import Contact from "../Layout/Contact";
 import Footer from "../Layout/Footer";
 import ProjData from "../../data/ProjData";
-import Styles from "./ProjOverview.module.css";
+import Styles from "./styles/ProjOverview.module.css";
 import Modal from "../UI/Modal";
 import Button from "../Navigation/ButtonLink";
 import { faArrowAltCircleRight as arrowRight } from "@fortawesome/free-regular-svg-icons";

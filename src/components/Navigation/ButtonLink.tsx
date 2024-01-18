@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,7 +11,27 @@ import { faGraduationCap as gradIcon } from "@fortawesome/free-solid-svg-icons";
 import { faUpRightFromSquare as arrowUpIcon } from "@fortawesome/free-solid-svg-icons";
 import Styles from "./styles/ButtonLink.module.css";
 
-function Button({ id, text, logo, type, url, target, isHashLink, onClick }) {
+interface PropType {
+  id?: string;
+  text?: any;
+  logo?: any;
+  type?: any;
+  url: string;
+  target?: any;
+  isHashLink?: boolean;
+  onClick?: any;
+}
+
+function Button({
+  id,
+  text,
+  logo,
+  type,
+  url,
+  target,
+  isHashLink,
+  onClick,
+}: PropType) {
   // Object list of all font-awesome logos
   const logos = {
     download: arrowUpIcon,
@@ -35,11 +54,12 @@ function Button({ id, text, logo, type, url, target, isHashLink, onClick }) {
   );
 
   const handleClick = () => {
-    console.log(target)
+    console.log(target);
     // Scroll to top on new page load
-    target !== "blank" && window.scroll({
-      top: 0,
-    });
+    target !== "blank" &&
+      window.scroll({
+        top: 0,
+      });
 
     onClick && onClick();
   };

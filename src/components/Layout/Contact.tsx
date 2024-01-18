@@ -1,5 +1,5 @@
-import { React, useState } from "react";
-import Styles from "./Contact.module.css";
+import { useState } from "react";
+import Styles from "./styles/Contact.module.css";
 import FormInput from "../UI/FormInput";
 import FormSubmitMsg from "./FormSubmitMsg";
 import FormInputData from "../../data/FormInputData";
@@ -37,8 +37,6 @@ function Contact() {
     });
   };
 
-  const form = document.getElementById(`${Styles.form}`);
-
   // Handle form submission through Formspree.io
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -51,7 +49,7 @@ function Contact() {
 
     // Form submission
     fetch(event.target.action, {
-      method: form.method,
+      method: "POST",
       body: data,
       headers: {
         Accept: "application/json",
@@ -67,8 +65,7 @@ function Contact() {
         }
       })
       .catch((error) => {
-        // Set submission to error state
-        setIsSubmitted("error");
+        setIsSubmitted(error);
       });
   };
 

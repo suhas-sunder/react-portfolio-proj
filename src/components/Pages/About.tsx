@@ -1,4 +1,3 @@
-import React from "react";
 import Contact from "../Layout/Contact";
 import Footer from "../Layout/Footer";
 import Skills from "../Layout/Skills";

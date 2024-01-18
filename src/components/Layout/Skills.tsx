@@ -1,5 +1,4 @@
-import React from "react";
-import Styles from "./Skills.module.css";
+import Styles from "./styles/Skills.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SkillsData from "../../data/SkillsData";
 

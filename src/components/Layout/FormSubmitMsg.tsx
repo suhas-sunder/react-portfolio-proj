@@ -1,5 +1,4 @@
-import React from "react";
-import Styles from "./FormSubmitMsg.module.css";
+import Styles from "./styles/FormSubmitMsg.module.css";
 
 function FormSubmitMsg({ submissionState }) {
   let sendingMsg;

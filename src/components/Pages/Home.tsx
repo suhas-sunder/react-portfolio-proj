@@ -1,9 +1,8 @@
-import { React } from "react";
 import Skills from "../Layout/Skills";
 import Projects from "../Layout/Projects";
 import Contact from "../Layout/Contact";
 import Footer from "../Layout/Footer";
-import Styles from "./Home.module.css";
+import Styles from "./styles/Home.module.css";
 import Button from "../Navigation/ButtonLink";
 import HomeBtnData from "../../data/HomeBtnData";
 import ProfilePic from "../../assets/profile-pic.png";

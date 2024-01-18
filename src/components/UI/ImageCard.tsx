@@ -1,5 +1,4 @@
-import React from "react";
-import Styles from "./ImageCard.module.css";
+import Styles from "./styles/ImageCard.module.css";
 import Button from "../Navigation/ButtonLink";
 
 function ImageCard({ imageURL, projLink, projName, projURL }) {

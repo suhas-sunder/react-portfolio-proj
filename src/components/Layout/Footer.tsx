@@ -1,10 +1,13 @@
-import React from "react";
-import Styles from "./Footer.module.css";
+import Styles from "./styles/Footer.module.css";
 import { Link } from "react-router-dom";
 import HomeBtnData from "../../data/HomeBtnData";
 import Button from "../Navigation/ButtonLink";
 
-function Footer({ handleModal }) {
+interface PropType {
+  handleModal?: any;
+}
+
+function Footer({ handleModal }: PropType) {
   // Scroll to top of page on redirect
   const handleScroll = () => {
     window.scroll({

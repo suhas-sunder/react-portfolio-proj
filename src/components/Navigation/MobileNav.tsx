@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { useState } from "react";
 import Button from "./ButtonLink";
 import Styles from "./styles/MobileNav.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,7 +6,7 @@ import { faBars as burgerIcon } from "@fortawesome/free-solid-svg-icons";
 import { faX as xIcon } from "@fortawesome/free-solid-svg-icons";
 import NavBtnData from "../../data/NavBtnData";
 
-function NavBar({ resumeImg, handleScroll }) {
+export default function MobileNav() {
   const [toggle, setToggle] = useState(true);
 
   const handleBurgerMenu = (shouldToggle) => {
@@ -16,7 +16,7 @@ function NavBar({ resumeImg, handleScroll }) {
 
   return (
     <>
-      <div className={Styles["mobile-nav"]}>
+      <div className={Styles["mobile-nav"]} id="mobile-nav">
         {/* Logo button */}
         <Button
           url="/"
@@ -77,5 +77,3 @@ function NavBar({ resumeImg, handleScroll }) {
     </>
   );
 }
-
-export default NavBar;

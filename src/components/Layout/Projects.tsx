@@ -1,5 +1,4 @@
-import React from "react";
-import Styles from "./Projects.module.css";
+import Styles from "./styles/Projects.module.css";
 import ImageCard from "../UI/ImageCard";
 import TechStack from "./TechStack";
 import ProjData from "../../data/ProjData";

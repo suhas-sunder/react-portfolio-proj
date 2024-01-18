@@ -1,11 +1,11 @@
 import React from "react";
-import Styles from "./ContactForm.module.css";
+import Styles from "./FormInput.module.css";
 
 function ContactForm(props) {
   const { label, errorMessage, touched, ...formProps } = props;
 
   // Check if form should have input or text area
-  const addTextArea = props.name === "message";
+  const addTextArea = props.name !== "message";
 
   // Store input element as constant for better readability
   const input = (
@@ -14,9 +14,9 @@ function ContactForm(props) {
       {...formProps}
     />
   );
-
+  
   // Store text area as constant for better readability
-  const txtarea = (
+  const textArea = (
     <textarea
       className={`${Styles.message} ${touched && Styles["invalid-input"]}`}
       {...formProps}
@@ -25,12 +25,16 @@ function ContactForm(props) {
 
   return (
     <div className={Styles["form-section"]}>
-      <label>
-        {props.label}
+      <label htmlFor={props.id}>
+        {label}
         {props.required && <span className={Styles.highlight}> *</span>}
       </label>
-      {addTextArea ? txtarea : input}
-      {touched && <span className={Styles.error}>{errorMessage}</span>}
+      {addTextArea ? input : textArea}
+      {touched && (
+        <span data-testid="error" className={Styles.error}>
+          {errorMessage}
+        </span>
+      )}
     </div>
   );
 }

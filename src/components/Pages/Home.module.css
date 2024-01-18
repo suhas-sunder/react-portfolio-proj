@@ -7,7 +7,7 @@
   background-color: rgba(18, 23, 35, 255);
   min-height: 100vh;
   padding-bottom: 10vh;
-  gap: 5rem;
+  gap: 10rem;
 }
 
 .profile-img {
@@ -41,15 +41,17 @@
 }
 
 .links {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, 40px);
   list-style: none;
   margin: 2.5rem 0 0 0;
   padding: 0;
-  gap: 2rem;
+  gap: 7rem;
 }
 
 .text-link {
   color: yellow;
+  text-decoration: none;
 }
 
 .text-link:hover {
@@ -59,7 +61,7 @@
 @media (max-width: 1200px) {
   .header {
     flex-direction: column;
-    padding: 9rem 1.5rem;
+    padding: 10rem 1.5rem 12rem 1.5rem;
     min-height: auto;
     gap: 0;
   }
@@ -76,15 +78,26 @@
   }
 
   .title {
-    font-size: 1.4rem;
-  }
-
-  .sub-title {
-    font-size: 1.2rem;
-    line-height: 2.5rem;
+    font-size: 2rem;
   }
 
   .description {
-    font-size: 1rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 776px) {
+  .links {
+    gap: 4rem;
+    grid-template-columns: repeat(3, 40px);
+    row-gap: 2.8rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .description {
+    font-size: 1.1rem;
   }
 }

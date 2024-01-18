@@ -1,17 +1,14 @@
 import React from "react";
-import NavBar from "../UI/NavBar";
 import Contact from "../Layout/Contact";
 import Footer from "../Layout/Footer";
 import ProjData from "../../data/ProjData";
 import Styles from "./ProjOverview.module.css";
 import Modal from "../UI/Modal";
 import TechStack from "../Layout/TechStack";
-import Button from "../UI/Button";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUpRightFromSquare as link } from "@fortawesome/free-solid-svg-icons";
+import Button from "../Navigation/ButtonLink";
 import { faArrowAltCircleRight as arrowRight } from "@fortawesome/free-regular-svg-icons";
 import { faArrowAltCircleLeft as arrowLeft } from "@fortawesome/free-regular-svg-icons";
-import { Link } from "react-router-dom";
+import ProjNavBar from "../UI/ProjNavBar";
 
 function ProjOverview({ projName, handleModal, showModal }) {
   // Filter data relevant to the active project url link clicked
@@ -34,56 +31,32 @@ function ProjOverview({ projName, handleModal, showModal }) {
       ? ["", ""]
       : [projNames[projIndex - 1], projLinks[projIndex - 1]];
 
-  const {
-    description,
-    title,
-    techStack,
-    imageURL,
-    features,
-    // purpose,
-    projURL,
-    projGitHubURL,
-  } = projDetails[0];
+  const { title, techStack, imageURL, features, projURL, projGitHubURL } =
+    projDetails[0];
 
   return (
     <>
       {showModal && <Modal closeModal={handleModal} />}
-      <NavBar />
-      <div className={Styles.header}>
+      <header className={Styles.header}>
+        <ProjNavBar
+          Styles={Styles}
+          prevProj={prevProj}
+          prevProjLink={prevProjLink}
+          arrowLeft={arrowLeft}
+          nextProjLink={nextProjLink}
+          nextProj={nextProj}
+          arrowRight={arrowRight}
+        />
         <div className={Styles["header-container"]}>
           <h1 className={Styles.title}>{title}</h1>
-          <a
-            className={Styles["img-link"]}
-            href={projURL}
-            rel="noreferrer"
-            target="_blank"
-          >
-            <div className={Styles.overlay}>
-              <span className={Styles["link-text"]}>
-                {projName === "Capstone SPArcDS"
-                  ? "View Demo Video"
-                  : "View Live"}
-              </span>
-              <FontAwesomeIcon icon={link} />
-            </div>
+          <div className={Styles["img-link"]}>
             <img
               src={imageURL}
               alt={`${title} project screenshot`}
               className={Styles.img}
             />
-          </a>
-          <p className={Styles.description}>{description}</p>
+          </div>
           <div className={Styles.buttons}>
-            {projGitHubURL && (
-              <Button
-                text="View GitHub"
-                logo="github"
-                type="project-link"
-                url={projGitHubURL}
-                isHashLink={true}
-                target="_blank"
-              />
-            )}
             <Button
               text={
                 projName === "Capstone SPArcDS"
@@ -93,15 +66,39 @@ function ProjOverview({ projName, handleModal, showModal }) {
               logo="arrowUp"
               type="project-link"
               url={projURL}
-              isHashLink={true}
+              isHashLink={false}
               target="_blank"
             />
+            {projGitHubURL && (
+              <Button
+                text="View GitHub"
+                logo="github"
+                type="project-link"
+                url={projGitHubURL}
+                isHashLink={false}
+                target="_blank"
+              />
+            )}
+            <Button
+              text="Overview"
+              logo=""
+              type="project-link"
+              url={"#proj-overview"}
+              isHashLink={true}
+            />
+
+            <Button
+              text="Challenges"
+              logo=""
+              type="project-link"
+              url={"#proj-challenges"}
+              isHashLink={true}
+            />
           </div>
-          <TechStack skillsList={techStack} />
         </div>
-      </div>
+      </header>
       <div className={Styles["proj-details"]}>
-        <h2>Project Details</h2>
+        <h2 id="proj-overview">Project Overview</h2>
         <ul className={Styles["highlights-list"]}>
           {features.map((feature, index) => (
             <li key={index} className={Styles.highlights}>
@@ -110,24 +107,25 @@ function ProjOverview({ projName, handleModal, showModal }) {
           ))}
         </ul>
       </div>
-      <div className={Styles.navigation}>
-        {prevProj && (
-          <Link to={prevProjLink} className={Styles["nav-links"]}>
-            <span>
-              <FontAwesomeIcon icon={arrowLeft} />
-            </span>{" "}
-            {prevProj} (PREV){" "}
-          </Link>
-        )}
-        {nextProj && (
-          <Link to={nextProjLink} className={Styles["nav-links"]}>
-            (NEXT) {nextProj}{" "}
-            <span>
-              <FontAwesomeIcon icon={arrowRight} />
-            </span>
-          </Link>
-        )}
+      <div className={Styles["proj-details"]}>
+        <h2 id="proj-challenges">Project Challenges</h2>
+        <ul className={Styles["highlights-list"]}>
+          {features.map((feature, index) => (
+            <li key={index} className={Styles.highlights}>
+              {feature}
+            </li>
+          ))}
+        </ul>
       </div>
+      <ProjNavBar
+        Styles={Styles}
+        prevProj={prevProj}
+        prevProjLink={prevProjLink}
+        arrowLeft={arrowLeft}
+        nextProjLink={nextProjLink}
+        nextProj={nextProj}
+        arrowRight={arrowRight}
+      />
       <Contact />
       <Footer handleModal={handleModal} />
     </>

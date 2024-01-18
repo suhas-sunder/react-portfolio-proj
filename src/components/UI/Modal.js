@@ -1,21 +1,29 @@
 import React from "react";
 import Styles from "./Modal.module.css";
 import uniLogoImg from "../../assets/ontariotechu-img.jpg";
-import Button from "./Button";
+import Button from "../Navigation/ButtonLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark as closeIcon } from "@fortawesome/free-solid-svg-icons";
 
 function Modal({ closeModal }) {
   return (
     <>
-      <div className={Styles.modal}>
-        <FontAwesomeIcon
-          icon={closeIcon}
+      <div data-testid="modal" className={Styles.modal}>
+        <button
+          aria-label="close btn or x-icon btn"
           className={Styles["close-btn"]}
           onClick={() => closeModal()}
-        />
+        >
+          <FontAwesomeIcon icon={closeIcon} />
+        </button>
         <h2 className={Styles.title}>Education</h2>
-        <a href="https://ontariotechu.ca/" rel="noreferrer" target="_blank">
+        <a
+          data-testid="img-link"
+          aria-label="Ontario Tech University website"
+          href="https://ontariotechu.ca/"
+          rel="noreferrer"
+          target="_blank"
+        >
           <img
             src={uniLogoImg}
             alt="Ontario Tech University Logo"
@@ -30,7 +38,8 @@ function Modal({ closeModal }) {
         <p className={Styles.details}>Graduated: Apr 2019</p>
         <div className={Styles["button-bkgd"]}>
           <Button
-            text="University Capstone Project"
+            id="capstone"
+            text="Capstone Project"
             type="project-link"
             logo={"arrow"}
             url="/#capstone"
@@ -39,7 +48,11 @@ function Modal({ closeModal }) {
           />
         </div>
       </div>
-      <div className={Styles.background} onClick={() => closeModal()}></div>
+      <div
+        data-testid="bkgd-underlay"
+        className={Styles.background}
+        onClick={() => closeModal()}
+      ></div>
     </>
   );
 }

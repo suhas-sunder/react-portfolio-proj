@@ -1,19 +1,24 @@
 import React from "react";
-import Button from "./Button";
-import Styles from "./NavBar.module.css";
-import resumeImg from "../../assets/google_logo.jpg";
-import MobileNav from "../UI/MobileNav";
+import Button from "./ButtonLink";
+import Styles from "./styles/NavBar.module.css";
+import MobileNav from "./MobileNav";
 import NavBtnData from "../../data/NavBtnData";
 
 function NavBar() {
   return (
-    <nav className={Styles.nav}>
+    <nav role="navigation" className={Styles.nav}>
       <div className={Styles["nav-items"]}>
         <ul className={Styles["nav-list"]}>
           {NavBtnData.map((data, index) => (
-            <li key={index} className={(data.type === "downloadBtn") ? Styles["download-link"] : ""}>
+            <li
+              key={index}
+              className={
+                data.type === "downloadBtn" ? Styles["download-link"] : ""
+              }
+            >
               <Button
-                url={data.url !== "resumeImg" ? data.url : resumeImg}
+                id={data.id}
+                url={data.url}
                 type={data.type}
                 text={data.text}
                 logo={data.logo}
@@ -24,10 +29,7 @@ function NavBar() {
           ))}
         </ul>
       </div>
-      <MobileNav
-        id="mobile-nav"
-        resumeImg={resumeImg}
-      />
+      <MobileNav id="mobile-nav" />
     </nav>
   );
 }

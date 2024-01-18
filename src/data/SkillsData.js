@@ -37,8 +37,8 @@ const SkillsData = [
     skill: "React",
   },
   {
-    icon: responsiveIcon,
-    skill: "Responsive Design",
+    icon: reactIcon,
+    skill: "React Testing Library",
   },
 ];
 

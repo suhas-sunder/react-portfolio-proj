@@ -2,7 +2,7 @@ import React from "react";
 import Styles from "./Footer.module.css";
 import { Link } from "react-router-dom";
 import HomeBtnData from "../../data/HomeBtnData";
-import Button from "../UI/Button";
+import Button from "../Navigation/ButtonLink";
 
 function Footer({ handleModal }) {
   // Scroll to top of page on redirect
@@ -15,7 +15,7 @@ function Footer({ handleModal }) {
   };
 
   return (
-    <div id="footer" className={Styles.footer}>
+    <footer id="footer" className={Styles.footer}>
       <ul className={Styles.links}>
         {HomeBtnData.map((data, index) => (
           <li key={index}>
@@ -32,13 +32,18 @@ function Footer({ handleModal }) {
         by
         <span>
           {" "}
-          <Link to="/" className={Styles.highlight} onClick={handleScroll}>
+          <Link
+            data-testid="link"
+            to="/"
+            className={Styles.highlight}
+            onClick={handleScroll}
+          >
             Suhas Sunder
           </Link>
         </span>
         .
       </p>
-    </div>
+    </footer>
   );
 }
 

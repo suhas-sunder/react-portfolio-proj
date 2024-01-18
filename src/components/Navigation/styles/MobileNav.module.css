@@ -54,9 +54,21 @@
     color: rgba(18, 23, 35, 255);
   }
 
-  .nav-btn {
+  .download-link {
     display: block;
     width: 20rem;
     margin: 2rem auto;
+  }
+
+  .background-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .background-overlay:hover {
+    cursor: pointer;
   }
 }

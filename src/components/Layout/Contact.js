@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import Styles from "./Contact.module.css";
 import FormInput from "../UI/FormInput";
-import FormSubmitMsg from "../Layout/FormSubmitMsg";
+import FormSubmitMsg from "./FormSubmitMsg";
 import FormInputData from "../../data/FormInputData";
 
 function Contact() {
@@ -54,7 +54,7 @@ function Contact() {
       method: form.method,
       body: data,
       headers: {
-        'Accept': "application/json",
+        Accept: "application/json",
       },
     })
       .then((response) => {
@@ -104,6 +104,7 @@ function Contact() {
         and I will respond as soon as possible.
       </p>
       <form
+        aria-label="form"
         id={Styles.form}
         action="https://formspree.io/f/xknaendo"
         method="POST"

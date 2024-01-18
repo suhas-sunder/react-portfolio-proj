@@ -17,12 +17,14 @@
 }
 
 .project-link {
-  gap: 1rem;
+  padding: 1rem;
+  font-size: 0.95rem;
+  gap: 0.8rem;
 }
 
 .downloadBtn {
-  padding: 0.35rem 0.6rem;
-  gap: 0.4rem;
+  padding: 0.4rem 1rem;
+  gap: 0.7rem;
 }
 
 .logoLink {
@@ -83,4 +85,12 @@
 .icon {
   margin: 0;
   padding: 0;
+}
+
+@media (max-width: 1200px) {
+  .project-link {
+    font-size: 1rem;
+    line-height: 1.7rem;
+    padding: 0.5rem 1.3rem;
+  }
 }

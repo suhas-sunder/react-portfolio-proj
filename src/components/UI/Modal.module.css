@@ -31,38 +31,44 @@
   display: block;
   width: 100%;
   background-color: white;
-  max-width: 350px;
+  max-width: 300px;
   border-radius: 15px;
   margin: auto;
 }
 
 .close-btn {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 2rem;
   height: 2rem;
   position: absolute;
   background-color: yellow;
-  padding: 0.5rem;
+  padding: 1.2rem;
   color: rgba(29, 36, 48, 255);
   border: 3px solid rgba(29, 36, 48, 255);
   border-radius: 10px;
   top: 0.7rem;
   right: 0.7rem;
+  font-size: 1.8rem;
 }
 
 .title {
   margin: 0;
   font-size: 2rem;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
+  text-transform: uppercase;
 }
 
 .sub-title {
   font-size: 1.4rem;
-  margin: 3rem 0 2rem 0;
+  margin: 2rem 0;
+  line-height: 2rem;
 }
 
 .details {
   font-size: 1.2rem;
+  line-height: 2rem;
 }
 
 .details:last-of-type {
@@ -83,4 +89,41 @@
   background-color: rgba(29, 36, 48, 255);
   padding: 2rem;
   border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+  .modal {
+    text-align: center;
+    padding: 2.5rem;
+  }
+
+  .img {
+    max-width: 200px;
+  }
+
+  .title {
+    font-size: 1.4rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .sub-title {
+    display: none;
+  }
+
+  .details {
+    font-size: 1rem;
+    line-height: 2rem;
+    margin-bottom: 0;
+  }
+
+  .close-btn {
+    padding: 0.5rem;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 1.3rem;
+  }
+
+  .button-bkgd {
+    padding: 1.2rem;
+  }
 }

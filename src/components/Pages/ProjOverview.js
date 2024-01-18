@@ -80,18 +80,35 @@ function ProjOverview({ projName, handleModal, showModal }) {
               />
             )}
             <Button
-              text="Project Challenges"
+              text="Overview"
               logo=""
               type="project-link"
-              url={"#details"}
+              url={"#proj-overview"}
               isHashLink={true}
-              target="_blank"
+            />
+
+            <Button
+              text="Challenges"
+              logo=""
+              type="project-link"
+              url={"#proj-challenges"}
+              isHashLink={true}
             />
           </div>
         </div>
       </header>
       <div className={Styles["proj-details"]}>
-        <h2>Project Details</h2>
+        <h2 id="proj-overview">Project Overview</h2>
+        <ul className={Styles["highlights-list"]}>
+          {features.map((feature, index) => (
+            <li key={index} className={Styles.highlights}>
+              {feature}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className={Styles["proj-details"]}>
+        <h2 id="proj-challenges">Project Challenges</h2>
         <ul className={Styles["highlights-list"]}>
           {features.map((feature, index) => (
             <li key={index} className={Styles.highlights}>

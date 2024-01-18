@@ -51,6 +51,7 @@
 
 .text-link {
   color: yellow;
+  text-decoration: none;
 }
 
 .text-link:hover {

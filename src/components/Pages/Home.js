@@ -30,9 +30,17 @@ function Home({ handleModal, showModal }) {
           <p className={Styles.description}>
             Professional Software Developer with a degree in{" "}
             <span onClick={handleModal} className={Styles["text-link"]}>
-              Electrical Engineering and Management
+              Electrical Engineering & Management.
             </span>{" "}
-            who loves creating, collaborating, and problem-solving.
+            My personal and work{" "}
+            <span>
+              <a href="#projects" className={Styles["text-link"]}>
+                {" "}
+                projects
+              </a>
+            </span>{" "}
+            are an embodiment of my love for creating, collaborating, and
+            problem-solving. I am happiest when I'm programming!
           </p>
           <p className={Styles.description}>
             I'm dedicated to continuous learning and have obtained
@@ -40,9 +48,8 @@ function Home({ handleModal, showModal }) {
             and Harvard University (CS50 Introduction to Computer Science).
           </p>
           <p className={Styles.description}>
-            If I'm not programming, I'm playing video games, exercising, or
-            spend time with friends and family on fun activities like archery,
-            badminton, chess, and board games.
+            Aside from programming, I play video games, exercise, and spend time with friends and family on fun activities
+            such as archery, badminton, chess, and board games.
           </p>
           <ul className={Styles.links}>
             {HomeBtnData.map((data, index) => (

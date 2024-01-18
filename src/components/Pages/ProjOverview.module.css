@@ -57,8 +57,7 @@
 .buttons {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin-bottom: 4rem;
+  gap: 4rem;
 }
 
 .link-text {
@@ -92,7 +91,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 1rem 0 8rem 0;
+  margin: 1rem 0 0 0;
   font-size: 1.5rem;
   background-color: rgba(18, 23, 35, 255);
 }
@@ -105,7 +104,8 @@
   max-width: 700px;
   width: 100%;
   color: white;
-  padding: 1.5rem;
+  padding: 1rem;
+  font-size: 1.2rem;
   text-decoration: none;
   gap: 0.8rem;
 }
@@ -130,8 +130,8 @@
 @media (max-width: 520px) {
   .nav-left,
   .nav-right {
-    font-size: 1.2rem;
-    line-height: 2.5rem;
+    font-size: 1rem;
+    line-height: 1rem;
     padding: 1rem 0 1rem 1rem;
   }
 
@@ -141,9 +141,11 @@
 
   .buttons {
     flex-direction: column;
+    gap: 1em;
   }
 
   .nav-proj-name {
-    display: none;
+    /* display: none; */
+    font-size: 0.65rem;
   }
 }

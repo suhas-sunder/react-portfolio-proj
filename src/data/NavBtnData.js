@@ -16,10 +16,11 @@ const NavBtnData = [
   },
   {
     id: "nav-projects",
-    url: "/projects/AllTrackSystem",
+    url: "/#projects",
     text: "Projects",
     type: "nav-link",
     typeMobile: "mobile-nav-link",
+    hashLink: true,
   },
   {
     id: "nav-contact",

@@ -35,8 +35,9 @@ function Button({ id, text, logo, type, url, target, isHashLink, onClick }) {
   );
 
   const handleClick = () => {
+    console.log(target)
     // Scroll to top on new page load
-    window.scroll({
+    target !== "blank" && window.scroll({
       top: 0,
     });
 

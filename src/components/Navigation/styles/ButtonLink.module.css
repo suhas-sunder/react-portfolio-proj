@@ -17,12 +17,14 @@
 }
 
 .project-link {
-  gap: 1rem;
+  padding: 1rem;
+  font-size: 0.95rem;
+  gap: 0.8rem;
 }
 
 .downloadBtn {
-  padding: 0.35rem 0.6rem;
-  gap: 0.4rem;
+  padding: 0.4rem 1rem;
+  gap: 0.7rem;
 }
 
 .logoLink {

@@ -1,6 +1,6 @@
 import React from "react";
 import Styles from "./ImageCard.module.css";
-import Button from "./LinkButton";
+import Button from "../Navigation/ButtonLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpRightFromSquare as link } from "@fortawesome/free-solid-svg-icons";
 

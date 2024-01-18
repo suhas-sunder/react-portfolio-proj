@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleDown as downloadIcon } from "@fortawesome/free-regular-svg-icons";
 import { faLinkedin as linkedinIcon } from "@fortawesome/free-brands-svg-icons";
 import { faGithub as githubIcon } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope as emailIcon } from "@fortawesome/free-solid-svg-icons";
@@ -11,12 +10,12 @@ import { faArrowRight as arrowIcon } from "@fortawesome/free-solid-svg-icons";
 import { faS as logoIcon } from "@fortawesome/free-solid-svg-icons";
 import { faGraduationCap as gradIcon } from "@fortawesome/free-solid-svg-icons";
 import { faUpRightFromSquare as arrowUpIcon } from "@fortawesome/free-solid-svg-icons";
-import Styles from "./Button.module.css";
+import Styles from "./styles/ButtonLink.module.css";
 
 function Button({ id, text, logo, type, url, target, isHashLink, onClick }) {
   // Object list of all font-awesome logos
   const logos = {
-    download: downloadIcon,
+    download: arrowUpIcon,
     linkedin: linkedinIcon,
     github: githubIcon,
     email: emailIcon,

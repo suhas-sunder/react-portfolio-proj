@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./components/Pages/Home";
 import ProjectOverview from "./components/Pages/ProjOverview";
 import About from "./components/Pages/About";
-import NavBar from "./components/UI/NavBar";
+import NavBar from "./components/Navigation/NavBar";
 import { Helmet } from "react-helmet";
 
 function App() {

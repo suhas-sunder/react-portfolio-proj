@@ -1,6 +1,6 @@
 import React from "react";
-import Button from "./LinkButton";
-import Styles from "./NavBar.module.css";
+import Button from "./ButtonLink";
+import Styles from "./styles/NavBar.module.css";
 import MobileNav from "./MobileNav";
 import NavBtnData from "../../data/NavBtnData";
 

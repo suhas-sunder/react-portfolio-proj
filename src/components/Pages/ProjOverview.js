@@ -5,7 +5,7 @@ import ProjData from "../../data/ProjData";
 import Styles from "./ProjOverview.module.css";
 import Modal from "../UI/Modal";
 import TechStack from "../Layout/TechStack";
-import Button from "../UI/LinkButton";
+import Button from "../Navigation/ButtonLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpRightFromSquare as link } from "@fortawesome/free-solid-svg-icons";
 import { faArrowAltCircleRight as arrowRight } from "@fortawesome/free-regular-svg-icons";

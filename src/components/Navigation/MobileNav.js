@@ -1,6 +1,6 @@
 import { React, useState } from "react";
-import Button from "./LinkButton";
-import Styles from "./MobileNav.module.css";
+import Button from "./ButtonLink";
+import Styles from "./styles/MobileNav.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars as burgerIcon } from "@fortawesome/free-solid-svg-icons";
 import { faX as xIcon } from "@fortawesome/free-solid-svg-icons";

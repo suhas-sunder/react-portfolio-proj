@@ -1,7 +1,6 @@
-
 import Styles from "./styles/FormInput.module.css";
 
-function ContactForm(props) {
+export default function FormInputs(props) {
   const { label, errorMessage, touched, ...formProps } = props;
 
   // Check if form should have input or text area
@@ -14,7 +13,7 @@ function ContactForm(props) {
       {...formProps}
     />
   );
-  
+
   // Store text area as constant for better readability
   const textArea = (
     <textarea
@@ -25,9 +24,9 @@ function ContactForm(props) {
 
   return (
     <div className={Styles["form-section"]}>
-      <label htmlFor={props.id}>
+      <label htmlFor={props.id} className="text-white">
         {label}
-        {props.required && <span className={Styles.highlight}> *</span>}
+        {props.required && <span className="text-highlight-yellow"> *</span>}
       </label>
       {addTextArea ? input : textArea}
       {touched && (
@@ -38,5 +37,3 @@ function ContactForm(props) {
     </div>
   );
 }
-
-export default ContactForm;

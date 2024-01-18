@@ -4,7 +4,6 @@ import Footer from "../Layout/Footer";
 import ProjData from "../../data/ProjData";
 import Styles from "./ProjOverview.module.css";
 import Modal from "../UI/Modal";
-import TechStack from "../Layout/TechStack";
 import Button from "../Navigation/ButtonLink";
 import { faArrowAltCircleRight as arrowRight } from "@fortawesome/free-regular-svg-icons";
 import { faArrowAltCircleLeft as arrowLeft } from "@fortawesome/free-regular-svg-icons";
@@ -31,8 +30,7 @@ function ProjOverview({ projName, handleModal, showModal }) {
       ? ["", ""]
       : [projNames[projIndex - 1], projLinks[projIndex - 1]];
 
-  const { title, techStack, imageURL, features, projURL, projGitHubURL } =
-    projDetails[0];
+  const { title, imageURL, features, projURL, projGitHubURL } = projDetails[0];
 
   return (
     <>

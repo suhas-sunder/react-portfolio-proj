@@ -11,6 +11,9 @@ import { faGithub as githubIcon } from "@fortawesome/free-brands-svg-icons";
 import { faSass as sassIcon } from "@fortawesome/free-brands-svg-icons";
 import { faReact as reactIcon } from "@fortawesome/free-brands-svg-icons";
 import { faGitlab as gitlabIcon } from "@fortawesome/free-brands-svg-icons";
+import { faNodeJs as nodeIcon } from "@fortawesome/free-brands-svg-icons";
+import { faDatabase as databaseIcon } from "@fortawesome/free-solid-svg-icons";
+
 
 export default function Skills() {
   const [expandSkills, setExpandSkills] = useState<boolean>(false);
@@ -49,12 +52,20 @@ export default function Skills() {
       skill: "Remix",
     },
     {
-      icon: reactIcon,
+      icon: nodeIcon,
       skill: "Node",
     },
     {
-      icon: reactIcon,
+      icon: nodeIcon,
       skill: "Express",
+    },
+    {
+      icon: databaseIcon,
+      skill: "PostgreSQL",
+    },
+    {
+      icon: databaseIcon,
+      skill: "Prisma",
     },
     {
       icon: reactIcon,
@@ -73,16 +84,16 @@ export default function Skills() {
       skill: "Git",
     },
     {
-      icon: reactIcon,
-      skill: "Postman API",
-    },
-    {
       icon: githubIcon,
       skill: "GitHub",
     },
     {
       icon: gitlabIcon,
       skill: "GitLab",
+    },
+    {
+      icon: reactIcon,
+      skill: "Postman API",
     },
   ];
 

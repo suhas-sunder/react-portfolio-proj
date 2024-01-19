@@ -5,15 +5,14 @@ import { Link } from "react-router-dom";
 
 function ImageCard({ imageURL, projLink, projName, projURL }) {
   return (
-    <div className="flex flex-col justify-evenly items-center bg-dark-blueish-gray text-white rounded-lg">
-      
+    <div className="flex flex-col justify-evenly items-center bg-dark-blueish-gray text-white rounded-lg min-h-[24em]">
       <h3 className="text-2xl leading-4">{projName}</h3>
       <img
-        width={400}
-        height={225}
+        width={350}
+        height={196}
         src={imageURL}
         alt={`${projName} project screenshot`}
-        className="flex max-w-[400px] mx-8 rounded-lg"
+        className="flex max-w-[350px] mx-7 rounded-lg"
       />
       <div className="flex justify-evenly w-full items-center ">
         <Link

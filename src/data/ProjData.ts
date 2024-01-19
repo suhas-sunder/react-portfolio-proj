@@ -2,10 +2,79 @@ import CapstoneUrl from "../assets/capstone-proj-screenshot.jpg";
 import EMEUrl from "../assets/eme-website-screenshot.jpg";
 import PortfolioUrl from "../assets/portfolio-screenshot.jpg";
 import ATSUrl from "../assets/ats-website-screenshot.jpg";
+import { v4 as uuidv4 } from "uuid"
 
 const ProjData = [
   {
-    id: 1,
+    id: uuidv4(),
+    projId: "atsproj",
+    title: "Dobson Partners",
+    description:
+      "",
+    techStack: [
+      "Remix",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vitest",
+      "GitLab",
+      "Prisma",
+      "PostgreSQL",
+      "Postman API",
+      "Figma"
+    ],
+    year: "2023",
+    endYear: "2024",
+    imageURL: ATSUrl,
+    projURL: "https://freetypingcamp.com/",
+    projCSS: "project",
+    projLink: "/projects/AllTrackSystem",
+    features: [
+      "Developed a responsive website using mobile – first design, implementing best practices for SEO and accessibility, and optimizing load speeds for an excellent user experience. ",
+      "Implemented BEM methodology and utilized SASS to write maintainable, efficient, and well-structured HTML, CSS, and JavaScript code.",
+      "Managed the codebase with GitHub for version control and collaborated with the client throughout the coding process to create custom designs and fluid CSS animations that exceeded their expectations.",
+    ],
+    challenges:
+      "These are the challenges that I faced with this project and how I handled them.",
+  },
+  {
+    id: uuidv4(),
+    projId: "atsproj",
+    title: "Free Typing Camp",
+    description:
+      "",
+    techStack: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node",
+      "Express", 
+      "PostgreSQL",
+      "GitHub",
+      "Vitest",  
+      "Cloudflare",
+      "Postman API",
+      "Digital Ocean",
+      "Photoshop",
+      "Adobe Firefly",
+      "Chat GPT 4",
+      "Google Analytics",
+    ],
+    year: "2023",
+    endYear: "2024",
+    imageURL: ATSUrl,
+    projURL: "https://freetypingcamp.com/",
+    projCSS: "project-reverse",
+    projLink: "/projects/AllTrackSystem",
+    features: [
+      "Developed a responsive website using mobile – first design, implementing best practices for SEO and accessibility, and optimizing load speeds for an excellent user experience. ",
+      "Implemented BEM methodology and utilized SASS to write maintainable, efficient, and well-structured HTML, CSS, and JavaScript code.",
+      "Managed the codebase with GitHub for version control and collaborated with the client throughout the coding process to create custom designs and fluid CSS animations that exceeded their expectations.",
+    ],
+    challenges:
+      "These are the challenges that I faced with this project and how I handled them.",
+  },
+  {
+    id: uuidv4(),
     projId: "atsproj",
     title: "All Track System",
     description:
@@ -35,7 +104,7 @@ const ProjData = [
       "These are the challenges that I faced with this project and how I handled them.",
   },
   {
-    id: 3,
+    id: uuidv4(),
     projId: "portfolio",
     title: "React Portfolio",
     description:
@@ -52,6 +121,7 @@ const ProjData = [
       "Netlify Hosting",
     ],
     year: "2023",
+    endYear: "2024",
     imageURL: PortfolioUrl,
     projURL: "http://suhassunder.com/",
     projGitHubURL: "https://github.com/suhas-sunder/react-portfolio-proj",
@@ -66,7 +136,7 @@ const ProjData = [
     problems: "",
   },
   {
-    id: 2,
+    id: uuidv4(),
     projId: "emeproj",
     title: "EME Group Inc.",
     description:
@@ -93,9 +163,9 @@ const ProjData = [
     ],
     problems: "",
   },
-  
+
   {
-    id: 4,
+    id: uuidv4(),
     projId: "capstone",
     title: "Capstone SPArcDS",
     description:
@@ -106,7 +176,8 @@ const ProjData = [
       "GitHub",
       "MySQL",
       "Meeting Minutes",
-      "Waterfall Management",
+      "Waterfall Management",      
+      "Corona SDK",
     ],
     year: "2019",
     imageURL: CapstoneUrl,

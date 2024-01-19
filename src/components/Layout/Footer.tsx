@@ -1,4 +1,3 @@
-import Styles from "./styles/Footer.module.css";
 import { Link } from "react-router-dom";
 import LogoButtonGroup from "../UI/LogoButtonGroup";
 
@@ -15,25 +14,24 @@ function Footer() {
   return (
     <footer
       id="footer"
-      className="flex flex-col bg-dark-blueish-gray text-white items-center  px-4"
+      className="flex flex-col bg-dark-blueish-gray text-white items-center px-4 pt-2"
     >
       <LogoButtonGroup />
-      <p className={Styles.text}>
-        &copy; 2023 <span className={Styles.highlight}>|</span> Designed & coded
-        by
+      <div className="flex gap-2 pt-10 pb-6">
+        <span>&copy; 2023 </span>
+        <span className="text-highlight-yellow">|</span>
+        <span>Designed & coded by</span>
         <span>
-          {" "}
           <Link
             data-testid="link"
             to="/"
-            className={Styles.highlight}
+            className="text-highlight-yellow cursor-pointer"
             onClick={handleScroll}
           >
             Suhas Sunder
           </Link>
         </span>
-        .
-      </p>
+      </div>
     </footer>
   );
 }

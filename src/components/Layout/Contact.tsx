@@ -67,19 +67,6 @@ function Contact() {
         setIsSubmitted(error);
       });
   };
-
-  // Storing form inputs in a variable for better readability
-  const formInputs = FormInputData.map((data) => (
-    <FormInput
-      key={data.id}
-      {...data}
-      value={values[data.name]}
-      onChange={handleChange}
-      onBlur={handleFocus}
-      touched={data.required ? values[`${data.name}Touched`] : false}
-    />
-  ));
-
   // Disable autocomplete on form  which hides default error msg when submit is clicked
   const handleAutoComplete = () => {
     setValues({
@@ -93,7 +80,9 @@ function Contact() {
       id="contact"
       className="max-w-[500px] items-center leading-relaxed lg:leading-loose text-base sm:text-xl p-8 pt-12 mt-12 mb-32 mx-4 sm:mb-40 bg-light-blueish-gray rounded-2xl sm:p-16 sm:pb-10 text-white sm:mx-auto "
     >
-      <h2 className="uppercase text-3xl sm:text-4xl -translate-x-3 -translate-y-2">Contact</h2>
+      <h2 className="uppercase text-3xl sm:text-4xl -translate-x-3 -translate-y-2">
+        Contact
+      </h2>
       <p className="mt-6">Let's have a chat!</p>
       <p className="mt-2">
         Fill out the form below or email me at{" "}
@@ -105,7 +94,6 @@ function Contact() {
         </a>{" "}
         and I will respond as soon as possible.
       </p>
-
       <form
         aria-label="form"
         id="contact-form"
@@ -116,7 +104,18 @@ function Contact() {
         autoComplete={values.disableAutoComplete ? "off" : "on"}
       >
         {isSubmitted === "false" ? (
-          formInputs
+          <>
+            {FormInputData.map((data) => (
+              <FormInput
+                key={data.id}
+                {...data}
+                value={values[data.name]}
+                onChange={handleChange}
+                onBlur={handleFocus}
+                touched={data.required ? values[`${data.name}Touched`] : false}
+              />
+            ))}
+          </>
         ) : (
           <FormSubmitMsg submissionState={isSubmitted} />
         )}

@@ -1,7 +1,6 @@
 import { useState } from "react";
-import FormInput from "../UI/FormInputs";
-import FormSubmitMsg from "./FormSubmitMsg";
-import FormInputData from "../../data/FormInputData";
+import FormInput from "./FormInputs";
+import FormSubmitMsg from "../Layout/FormSubmitMsg";
 
 function Contact() {
   const [values, setValues] = useState({
@@ -16,6 +15,44 @@ function Contact() {
   });
 
   const [isSubmitted, setIsSubmitted] = useState("false");
+
+  const formInputData = [
+    {
+      id: "name-input",
+      name: "name",
+      type: "text",
+      placeholder: "Name",
+      label: "Name",
+      errorMessage: "* Please enter a valid name!",
+      required: true,
+    },
+    {
+      id: "email-input",
+      name: "email",
+      type: "email",
+      placeholder: "Email",
+      label: "Email",
+      errorMessage: "* Please enter a valid email address!",
+      required: true,
+    },
+    {
+      id: "phone-input",
+      name: "phone",
+      type: "text",
+      placeholder: "Phone",
+      label: "Phone",
+      required: false,
+    },
+    {
+      id: "text-input",
+      type: "text",
+      name: "message",
+      placeholder: "Message",
+      label: "Message",
+      errorMessage: "* Please enter a valid message!",
+      required: true,
+    },
+  ];
 
   // Store user input values & reset input focus
   const handleChange = (event) => {
@@ -105,7 +142,7 @@ function Contact() {
       >
         {isSubmitted === "false" ? (
           <>
-            {FormInputData.map((data) => (
+            {formInputData.map((data) => (
               <FormInput
                 key={data.id}
                 {...data}

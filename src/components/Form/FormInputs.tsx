@@ -1,4 +1,4 @@
-import Styles from "./styles/FormInput.module.css";
+import Styles from "./styles/FormInputs.module.css";
 
 export default function FormInputs(props) {
   const { label, errorMessage, touched, ...formProps } = props;

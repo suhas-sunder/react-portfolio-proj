@@ -1,6 +1,6 @@
-import Contact from "../Layout/Contact";
+import Contact from "../Form/Contact";
 import Footer from "../Layout/Footer";
-import ProjData from "../../data/ProjData";
+import projData from "../../data/ProjData";
 import Styles from "./styles/ProjOverview.module.css";
 import Modal from "../UI/Modal";
 import Button from "../Navigation/ButtonLink";
@@ -10,11 +10,11 @@ import ProjNavBar from "../UI/ProjNavBar";
 
 function ProjOverview({ projName, handleModal, showModal }) {
   // Filter data relevant to the active project url link clicked
-  let projDetails = ProjData.filter((data) => data.title === projName);
+  let projDetails = projData.filter((data) => data.title === projName);
 
   // Gather data to determine project navigation
-  const projNames = [...ProjData.map((data) => data.title)];
-  const projLinks = [...ProjData.map((data) => data.projLink)];
+  const projNames = [...projData.map((data) => data.title)];
+  const projLinks = [...projData.map((data) => data.projLink)];
   const projIndex = projNames.indexOf(projName);
 
   // Store the next project name and url for navigation

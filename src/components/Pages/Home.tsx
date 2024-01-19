@@ -1,6 +1,6 @@
 import Skills from "../Layout/Skills";
 import Projects from "../Layout/Projects";
-import Contact from "../Layout/Contact";
+import Contact from "../Form/Contact";
 import Footer from "../Layout/Footer";
 import Styles from "./styles/Home.module.css";
 import ProfilePic from "../../assets/profile-pic.png";

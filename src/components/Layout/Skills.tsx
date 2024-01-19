@@ -1,12 +1,90 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import SkillsData from "../../data/SkillsData";
 import { v4 as uuidv4 } from "uuid";
 import { faAnglesDown as arrowsDown } from "@fortawesome/free-solid-svg-icons";
 import { faAnglesUp as arrowsUp } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import { faHtml5 as htmlIcon } from "@fortawesome/free-brands-svg-icons";
+import { faCss3Alt as cssIcon } from "@fortawesome/free-brands-svg-icons";
+import { faSquareJs as jsIcon } from "@fortawesome/free-brands-svg-icons";
+import { faSquareGit as gitIcon } from "@fortawesome/free-brands-svg-icons";
+import { faGithub as githubIcon } from "@fortawesome/free-brands-svg-icons";
+import { faSass as sassIcon } from "@fortawesome/free-brands-svg-icons";
+import { faReact as reactIcon } from "@fortawesome/free-brands-svg-icons";
+import { faGitlab as gitlabIcon } from "@fortawesome/free-brands-svg-icons";
 
 export default function Skills() {
   const [expandSkills, setExpandSkills] = useState<boolean>(false);
+
+  const skillsData = [
+    {
+      icon: htmlIcon,
+      skill: "HTML5",
+    },
+    {
+      icon: cssIcon,
+      skill: "CSS3",
+    },
+    {
+      icon: cssIcon,
+      skill: "Tailwind CSS",
+    },
+    {
+      icon: sassIcon,
+      skill: "SASS",
+    },
+    {
+      icon: jsIcon,
+      skill: "JavaScript",
+    },
+    {
+      icon: jsIcon,
+      skill: "TypeScript",
+    },
+    {
+      icon: reactIcon,
+      skill: "React",
+    },
+    {
+      icon: reactIcon,
+      skill: "Remix",
+    },
+    {
+      icon: reactIcon,
+      skill: "Node",
+    },
+    {
+      icon: reactIcon,
+      skill: "Express",
+    },
+    {
+      icon: reactIcon,
+      skill: "Jest",
+    },
+    {
+      icon: reactIcon,
+      skill: "React Testing Library",
+    },
+    {
+      icon: reactIcon,
+      skill: "Vitest",
+    },
+    {
+      icon: gitIcon,
+      skill: "Git",
+    },
+    {
+      icon: reactIcon,
+      skill: "Postman API",
+    },
+    {
+      icon: githubIcon,
+      skill: "GitHub",
+    },
+    {
+      icon: gitlabIcon,
+      skill: "GitLab",
+    },
+  ];
 
   return (
     <div
@@ -22,7 +100,7 @@ export default function Skills() {
             !expandSkills ? "max-h-44" : "max-h-[100%]"
           } transition-all delay-200 grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-x-20 gap-y-14 pt-10 pb-5 grid px-6 mx-auto overflow-hidden`}
         >
-          {SkillsData.map((data) => (
+          {skillsData.map((data) => (
             <li
               key={uuidv4()}
               className="flex flex-col gap-5 text-white text-lg"

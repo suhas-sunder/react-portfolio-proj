@@ -3,11 +3,8 @@ import { HashLink } from "react-router-hash-link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin as linkedinIcon } from "@fortawesome/free-brands-svg-icons";
 import { faGithub as githubIcon } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope as emailIcon } from "@fortawesome/free-solid-svg-icons";
-import { faAward as certificateIcon } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRight as arrowIcon } from "@fortawesome/free-solid-svg-icons";
 import { faS as logoIcon } from "@fortawesome/free-solid-svg-icons";
-import { faGraduationCap as gradIcon } from "@fortawesome/free-solid-svg-icons";
 import { faUpRightFromSquare as arrowUpIcon } from "@fortawesome/free-solid-svg-icons";
 import Styles from "./styles/ButtonLink.module.css";
 
@@ -37,11 +34,8 @@ function Button({
     download: arrowUpIcon,
     linkedin: linkedinIcon,
     github: githubIcon,
-    email: emailIcon,
-    certificates: certificateIcon,
     arrow: arrowIcon,
     homeLogo: logoIcon,
-    education: gradIcon,
     arrowUp: arrowUpIcon,
   };
 
@@ -69,7 +63,7 @@ function Button({
       data-testid={`btn-link-${id}`}
       to={url}
       aria-label={text}
-      className={Styles[type]}
+      className={`${Styles[type]} tracking-widest font-semibold text-base`}
       target={target}
       onClick={handleClick}
     >
@@ -83,7 +77,7 @@ function Button({
       data-testid={`btn-link-${id}`}
       to={url}
       aria-label={text}
-      className={Styles[type]}
+      className={`${Styles[type]} tracking-widest font-semibold text-base`}
       target={target}
       onClick={onClick}
       scroll={(el) => {

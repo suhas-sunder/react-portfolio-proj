@@ -1,14 +1,13 @@
 import Skills from "../Layout/Skills";
 import Projects from "../Layout/Projects";
-import Contact from "../Layout/Contact";
+import Contact from "../Form/Contact";
 import Footer from "../Layout/Footer";
 import Styles from "./styles/Home.module.css";
-import Button from "../Navigation/ButtonLink";
-import HomeBtnData from "../../data/HomeBtnData";
 import ProfilePic from "../../assets/profile-pic.png";
 import Modal from "../UI/Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode as code } from "@fortawesome/free-solid-svg-icons";
+import LogoButtonGroup from "../UI/LogoButtonGroup";
 
 function Home({ handleModal, showModal }) {
   return (
@@ -16,7 +15,7 @@ function Home({ handleModal, showModal }) {
       {showModal && <Modal closeModal={handleModal} />}
       <header
         id="about"
-        className="box-content flex flex-col justify-center items-center text-white bg-dark-blueish-gray lg:min-h-[100vh] pt-[10em] px-[1.5em] pb-[12em] lg:pb-[10vh] gap-5 lg:gap-[10em] lg:flex-row lg:pt-0"
+        className="box-content flex flex-col justify-center items-center text-white bg-dark-blueish-gray lg:min-h-[100vh] pt-[10em] px-[2em] pb-[12em] lg:pb-[10vh] gap-5 lg:gap-[10em] lg:flex-row lg:pt-0"
       >
         <img
           alt="head-shot of Suhas Sunder"
@@ -62,23 +61,13 @@ function Home({ handleModal, showModal }) {
             with friends and family on fun activities such as archery,
             badminton, chess, and board games.
           </p>
-          <ul className="grid lg:grid-cols-5 lg:gap-[4em] mt-10 gap-x-16 gap-y-12 grid-cols-3">
-            {HomeBtnData.map((data, index) => (
-              <li key={index}>
-                {data.onClick ? (
-                  <Button {...data} onClick={handleModal} />
-                ) : (
-                  <Button {...data} />
-                )}
-              </li>
-            ))}
-          </ul>
+          <LogoButtonGroup />
         </div>
       </header>
       <Skills />
       <Projects />
       <Contact />
-      <Footer handleModal={handleModal} />
+      <Footer />
     </>
   );
 }

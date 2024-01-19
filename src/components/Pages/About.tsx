@@ -1,4 +1,4 @@
-import Contact from "../Layout/Contact";
+import Contact from "../Form/Contact";
 import Footer from "../Layout/Footer";
 import Skills from "../Layout/Skills";
 

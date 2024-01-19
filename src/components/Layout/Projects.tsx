@@ -5,26 +5,25 @@ import ProjData from "../../data/ProjData";
 
 function Projects() {
   return (
-    <div id="projects" className={Styles.container}>
-      <h2 className={Styles.title}>Projects</h2>
-      {ProjData.map((data) => (
+    <div id="projects" className="flex flex-col max-w-[1200px] mx-auto px-6 gap-60 mb-52">
+      <h2 className={` text-6xl mt-16 uppercase`}>Projects</h2>
+      {ProjData.map((data, index) => (
         <div
           data-testid={`proj-section_${data.projId}`}
           id={data.projId}
           key={data.id}
-          className={Styles[data.projCSS]}
+          className={`${
+            index % 2 === 0
+              ? "lg:flex-row-reverse flex-col-reverse"
+              : "lg:flex-row flex-col-reverse"
+          } ${index === 0 && "-mt-6"} flex gap-16 mx-8 lg:mx-0`}
         >
           <div className={Styles.details}>
-            <h3 className={Styles["project-title"]}>{data.title}</h3>
             <p className={Styles["project-description"]}>{data.description}</p>
             <TechStack skillsList={data.techStack} />
           </div>
-          <ImageCard
-            imageURL={data.imageURL}
-            projLink={data.projLink}
-            projName={data.title}
-            projURL={data.projURL}
-          />
+
+          <ImageCard data={data} index={index} />
         </div>
       ))}
     </div>

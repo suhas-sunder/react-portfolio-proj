@@ -1,8 +1,6 @@
 import { useState } from "react";
-import Styles from "./styles/Contact.module.css";
-import FormInput from "../UI/FormInput";
-import FormSubmitMsg from "./FormSubmitMsg";
-import FormInputData from "../../data/FormInputData";
+import FormInput from "./FormInputs";
+import FormSubmitMsg from "../Layout/FormSubmitMsg";
 
 function Contact() {
   const [values, setValues] = useState({
@@ -17,6 +15,44 @@ function Contact() {
   });
 
   const [isSubmitted, setIsSubmitted] = useState("false");
+
+  const formInputData = [
+    {
+      id: "name-input",
+      name: "name",
+      type: "text",
+      placeholder: "Name",
+      label: "Name",
+      errorMessage: "* Please enter a valid name!",
+      required: true,
+    },
+    {
+      id: "email-input",
+      name: "email",
+      type: "email",
+      placeholder: "Email",
+      label: "Email",
+      errorMessage: "* Please enter a valid email address!",
+      required: true,
+    },
+    {
+      id: "phone-input",
+      name: "phone",
+      type: "text",
+      placeholder: "Phone",
+      label: "Phone",
+      required: false,
+    },
+    {
+      id: "text-input",
+      type: "text",
+      name: "message",
+      placeholder: "Message",
+      label: "Message",
+      errorMessage: "* Please enter a valid message!",
+      required: true,
+    },
+  ];
 
   // Store user input values & reset input focus
   const handleChange = (event) => {
@@ -68,19 +104,6 @@ function Contact() {
         setIsSubmitted(error);
       });
   };
-
-  // Storing form inputs in a variable for better readability
-  const formInputs = FormInputData.map((data) => (
-    <FormInput
-      key={data.id}
-      {...data}
-      value={values[data.name]}
-      onChange={handleChange}
-      onBlur={handleFocus}
-      touched={data.required ? values[`${data.name}Touched`] : false}
-    />
-  ));
-
   // Disable autocomplete on form  which hides default error msg when submit is clicked
   const handleAutoComplete = () => {
     setValues({
@@ -90,33 +113,52 @@ function Contact() {
   };
 
   return (
-    <div id="contact" className={Styles.container}>
-      <h2 className={Styles.title}>Contact</h2>
-      <p className={Styles.text}>Let's have a chat!</p>
-      <p className={Styles.text}>
+    <div
+      id="contact"
+      className="max-w-[500px] items-center leading-relaxed lg:leading-loose text-base sm:text-xl p-8 pt-12 mt-12 mb-32 mx-4 sm:mb-40 bg-light-blueish-gray rounded-2xl sm:p-16 sm:pb-10 text-white sm:mx-auto "
+    >
+      <h2 className="uppercase text-3xl sm:text-4xl -translate-x-3 -translate-y-2">
+        Contact
+      </h2>
+      <p className="mt-6">Let's have a chat!</p>
+      <p className="mt-2">
         Fill out the form below or email me at{" "}
-        <a href="mailto:suhas@live.ca" className={Styles.link}>
+        <a
+          href="mailto:suhas@live.ca"
+          className="text-highlight-yellow cursor-pointer"
+        >
           suhas@live.ca
         </a>{" "}
         and I will respond as soon as possible.
       </p>
       <form
         aria-label="form"
-        id={Styles.form}
+        id="contact-form"
         action="https://formspree.io/f/xknaendo"
         method="POST"
         onSubmit={handleSubmit}
-        className={Styles.form}
+        className="text-black mt-4 gap-8 flex flex-col"
         autoComplete={values.disableAutoComplete ? "off" : "on"}
       >
         {isSubmitted === "false" ? (
-          formInputs
+          <>
+            {formInputData.map((data) => (
+              <FormInput
+                key={data.id}
+                {...data}
+                value={values[data.name]}
+                onChange={handleChange}
+                onBlur={handleFocus}
+                touched={data.required ? values[`${data.name}Touched`] : false}
+              />
+            ))}
+          </>
         ) : (
           <FormSubmitMsg submissionState={isSubmitted} />
         )}
         {isSubmitted === "false" && (
           <button
-            className={Styles.button}
+            className="uppercase mx-8 py-2 my-4 bg-highlight-yellow text-dark-blueish-gray hover:text-highlight-yellow border-2 border-highlight-yellow rounded-lg hover:bg-transparent font-semibold tracking-widest"
             type="submit"
             onClick={handleAutoComplete}
           >

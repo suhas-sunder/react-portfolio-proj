@@ -12,9 +12,9 @@
 .input,
 .message,
 .invalid-input {
-  height: 2.5rem;
-  font-size: 1rem;
+  height: 2.1em;
   padding-left: 0.5rem;
+  border-radius: 2px;
 }
 
 .invalid-input:invalid {
@@ -34,12 +34,11 @@
 .error {
   color: yellow;
   margin: 0;
-  font-size: 1rem;
 }
 
 .message {
   padding-top: 0.5rem;
-  min-height: 8em;
+  min-height: 4em;
   resize: vertical;
 }
 

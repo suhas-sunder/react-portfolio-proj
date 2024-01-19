@@ -1,4 +1,4 @@
-import Button from "./ButtonLink";
+import NavLinks from "./NavLinks";
 import Styles from "./styles/NavBar.module.css";
 import MobileNav from "./MobileNav";
 import NavBtnData from "../../data/NavBtnData";
@@ -15,7 +15,7 @@ export default function NavBar() {
                 data.type === "downloadBtn" ? Styles["download-link"] : ""
               }
             >
-              <Button
+              <NavLinks
                 id={data.id}
                 url={data.url}
                 type={data.type}

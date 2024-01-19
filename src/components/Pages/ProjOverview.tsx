@@ -3,7 +3,7 @@ import Footer from "../Layout/Footer";
 import projData from "../../data/ProjData";
 import Styles from "./styles/ProjOverview.module.css";
 import Modal from "../UI/Modal";
-import Button from "../Navigation/ButtonLink";
+import Button from "../Navigation/NavLinks";
 import { faArrowAltCircleRight as arrowRight } from "@fortawesome/free-regular-svg-icons";
 import { faArrowAltCircleLeft as arrowLeft } from "@fortawesome/free-regular-svg-icons";
 import ProjNavBar from "../UI/ProjNavBar";

@@ -19,7 +19,7 @@ interface PropType {
   onClick?: any;
 }
 
-function Button({
+export default function NavLinks({
   id,
   text,
   logo,
@@ -63,7 +63,9 @@ function Button({
       data-testid={`btn-link-${id}`}
       to={url}
       aria-label={text}
-      className={`${Styles[type]} tracking-widest font-semibold text-base`}
+      className={`${Styles[type]} ${
+        type.includes("download") && "font-semibold"
+      } tracking-widest text-base`}
       target={target}
       onClick={handleClick}
     >
@@ -77,7 +79,7 @@ function Button({
       data-testid={`btn-link-${id}`}
       to={url}
       aria-label={text}
-      className={`${Styles[type]} tracking-widest font-semibold text-base`}
+      className={`${Styles[type]} tracking-widest text-base`}
       target={target}
       onClick={onClick}
       scroll={(el) => {
@@ -94,5 +96,3 @@ function Button({
 
   return isHashLink ? anchorLink : link;
 }
-
-export default Button;

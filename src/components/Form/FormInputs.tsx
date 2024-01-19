@@ -9,7 +9,9 @@ export default function FormInputs(props) {
   // Store input element as constant for better readability
   const input = (
     <input
-      className={`${Styles.input} ${touched && Styles["invalid-input"]}`}
+      className={`${Styles.input} ${
+        touched && Styles["invalid-input"]
+      } text-sm sm:text-base`}
       {...formProps}
     />
   );
@@ -17,20 +19,22 @@ export default function FormInputs(props) {
   // Store text area as constant for better readability
   const textArea = (
     <textarea
-      className={`${Styles.message} ${touched && Styles["invalid-input"]}`}
+      className={`${Styles.message} ${
+        touched && Styles["invalid-input"]
+      } text-sm sm:text-base`}
       {...formProps}
     />
   );
 
   return (
-    <div className={Styles["form-section"]}>
+    <div className="flex flex-col gap-4 mt-2 text-sm sm:text-base">
       <label htmlFor={props.id} className="text-white">
         {label}
         {props.required && <span className="text-highlight-yellow"> *</span>}
       </label>
       {addTextArea ? input : textArea}
       {touched && (
-        <span data-testid="error" className={Styles.error}>
+        <span data-testid="error" className="text-highlight-yellow">
           {errorMessage}
         </span>
       )}

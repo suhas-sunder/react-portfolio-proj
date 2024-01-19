@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "./ButtonLink";
+import Button from "./NavLinks";
 import Styles from "./styles/MobileNav.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars as burgerIcon } from "@fortawesome/free-solid-svg-icons";

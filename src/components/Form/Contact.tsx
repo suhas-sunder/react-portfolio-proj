@@ -115,29 +115,18 @@ function Contact() {
   return (
     <div
       id="contact"
-      className="max-w-[500px] items-center leading-relaxed lg:leading-loose text-base sm:text-xl p-8 pt-12 mt-12 mb-32 mx-4 sm:mb-40 bg-light-blueish-gray rounded-2xl sm:p-16 sm:pb-10 text-white sm:mx-auto "
+      className="max-w-[400px] items-center leading-relaxed lg:leading-loose text-base sm:text-xl p-8 pt-12 mt-12 mb-32 mx-4 bg-light-blueish-gray rounded-2xl sm:px-10 sm:py-12 sm:pb-5 text-white sm:mx-auto "
     >
-      <h2 className="uppercase text-3xl sm:text-4xl -translate-x-3 -translate-y-2">
-        Contact
+      <h2 className="text-2xl sm:text-3xl -translate-x-1 -translate-y-3">
+        Let's have a chat!
       </h2>
-      <p className="mt-6">Let's have a chat!</p>
-      <p className="mt-2">
-        Fill out the form below or email me at{" "}
-        <a
-          href="mailto:suhas@live.ca"
-          className="text-highlight-yellow cursor-pointer"
-        >
-          suhas@live.ca
-        </a>{" "}
-        and I will respond as soon as possible.
-      </p>
       <form
         aria-label="form"
         id="contact-form"
         action="https://formspree.io/f/xknaendo"
         method="POST"
         onSubmit={handleSubmit}
-        className="text-black mt-4 gap-8 flex flex-col"
+        className="text-black gap-2 flex flex-col"
         autoComplete={values.disableAutoComplete ? "off" : "on"}
       >
         {isSubmitted === "false" ? (
@@ -158,7 +147,7 @@ function Contact() {
         )}
         {isSubmitted === "false" && (
           <button
-            className="uppercase mx-8 py-2 my-4 bg-highlight-yellow text-dark-blueish-gray hover:text-highlight-yellow border-2 border-highlight-yellow rounded-lg hover:bg-transparent font-semibold tracking-widest"
+            className="uppercase sm:mx-8 py-2 mb-4 mt-6 text-base sm:text-lg bg-highlight-yellow text-dark-blueish-gray hover:text-highlight-yellow border-2 border-highlight-yellow rounded-lg hover:bg-transparent font-semibold tracking-widest"
             type="submit"
             onClick={handleAutoComplete}
           >

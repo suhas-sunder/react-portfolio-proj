@@ -37,35 +37,35 @@ function Home({ handleModal, showModal }) {
               <HashLink to="/#skills" className="text-highlight-yellow">
                 Electrical Engineering & Management
               </HashLink>
-            </span>{" "}
+            </span>
+            .{" "}
             <span className="sm:inline hidden">
-              and over three years of professional programming experience{" "}
+              I have over three years of professional programming experience
+              building web applications and{" "}
             </span>
             <span className="sm:inline hidden">
               <HashLink to="/#skills" className="text-highlight-yellow">
-                utilizing various technologies
+                leveraging various technologies
               </HashLink>
             </span>
             .
           </p>
           <p>
-            My{" "}
             <span>
               <HashLink
                 to="/#projects"
                 className="text-highlight-yellow cursor-pointer"
               >
-                {" "}
-                projects
+                My projects
               </HashLink>
             </span>
             <span className="hidden sm:inline">
-              , both persoal and work,
+              , both personal and professional,
             </span>{" "}
-            are an embodiment of my love for creating, collaborating, and
+            are a testament to my passion for creating, collaborating, and
             problem-solving.{" "}
             <span className="hidden sm:inline">
-              I am happiest when I'm coding!
+              Simply put, I am happiest when I'm coding!
             </span>
           </p>
           {/* <p className={Styles.description}>
@@ -74,9 +74,10 @@ function Home({ handleModal, showModal }) {
             and Harvard University (CS50 Introduction to Computer Science).
           </p> */}
           <p className={Styles.description}>
-            I also enjoy exercising, working on creative personal projects, and
-            spending time with friends and family on fun activities such as
-            archery, badminton, video games, and board games.
+            Apart from coding, I like exercising and working on creative
+            projects in my free time. I also enjoy spending quality time with
+            friends and family, be it through archery, badminton, video games,
+            board games, and more.
           </p>
           <LogoButtonGroup />
         </div>

@@ -69,8 +69,9 @@ const ProjData = [
     techStack: [
       "HTML5",
       "CSS3",
-      "JavaScript",
       "React",
+      "Tailwind CSS",
+      "TypeScript",
       "GitHub",
       "Fetch API",
       "Responsive Design",
@@ -98,8 +99,8 @@ const ProjData = [
     techStack: [
       "Mobile App Development",
       "Arduino Programming",
-      "Google Sheets Database",
       "GitHub",
+      "MySQL",
       "Meeting Minutes",
       "Waterfall Management",
     ],

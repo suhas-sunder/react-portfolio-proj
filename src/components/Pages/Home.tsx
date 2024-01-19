@@ -16,7 +16,7 @@ function Home({ handleModal, showModal }) {
       {showModal && <Modal closeModal={handleModal} />}
       <header
         id="about"
-        className="box-content flex flex-col justify-center items-center text-white bg-dark-blueish-gray lg:min-h-[100vh] pt-[10em] px-[1.5em] pb-[12em] lg:pb-[10vh] gap-5 lg:gap-[10em] lg:flex-row lg:pt-0"
+        className="box-content flex flex-col justify-center items-center text-white bg-dark-blueish-gray lg:min-h-[100vh] pt-[10em] px-[2em] pb-[12em] lg:pb-[10vh] gap-5 lg:gap-[10em] lg:flex-row lg:pt-0"
       >
         <img
           alt="head-shot of Suhas Sunder"
@@ -62,7 +62,7 @@ function Home({ handleModal, showModal }) {
             with friends and family on fun activities such as archery,
             badminton, chess, and board games.
           </p>
-          <ul className="grid lg:grid-cols-5 lg:gap-[4em] mt-10 gap-x-16 gap-y-12 grid-cols-3">
+          <ul className="grid lg:grid-cols-5 lg:gap-[4em] mt-10 sm:gap-x-24 gap-x-10 gap-y-14 grid-cols-2 sm:grid-cols-3">
             {HomeBtnData.map((data, index) => (
               <li key={index}>
                 {data.onClick ? (

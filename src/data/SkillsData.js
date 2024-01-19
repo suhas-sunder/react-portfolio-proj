@@ -5,7 +5,7 @@ import { faSquareGit as gitIcon } from "@fortawesome/free-brands-svg-icons";
 import { faGithub as githubIcon } from "@fortawesome/free-brands-svg-icons";
 import { faSass as sassIcon } from "@fortawesome/free-brands-svg-icons";
 import { faReact as reactIcon } from "@fortawesome/free-brands-svg-icons";
-import { faMobileScreen as responsiveIcon } from "@fortawesome/free-solid-svg-icons";
+import { faGitlab as gitlabIcon } from "@fortawesome/free-brands-svg-icons";
 
 const SkillsData = [
   {
@@ -17,20 +17,20 @@ const SkillsData = [
     skill: "CSS3",
   },
   {
-    icon: jsIcon,
-    skill: "JavaScript",
-  },
-  {
-    icon: gitIcon,
-    skill: "Git",
-  },
-  {
-    icon: githubIcon,
-    skill: "GitHub",
+    icon: cssIcon,
+    skill: "Tailwind CSS",
   },
   {
     icon: sassIcon,
     skill: "SASS",
+  },
+  {
+    icon: jsIcon,
+    skill: "JavaScript",
+  },
+  {
+    icon: jsIcon,
+    skill: "TypeScript",
   },
   {
     icon: reactIcon,
@@ -38,8 +38,45 @@ const SkillsData = [
   },
   {
     icon: reactIcon,
-    skill: "React Testing Library",
+    skill: "Remix",
   },
+  {
+    icon: reactIcon,
+    skill: "Node",
+  },
+  {
+    icon: reactIcon,
+    skill: "Express",
+  },
+  {
+    icon: reactIcon,
+    skill: "Jest",
+  },
+  {
+    icon: reactIcon,
+    skill: "React Testing Library",
+  },  
+  {
+    icon: reactIcon,
+    skill: "Vitest",
+  },
+  {
+    icon: gitIcon,
+    skill: "Git",
+  },
+  {
+    icon: reactIcon,
+    skill: "Postman API",
+  },
+  {
+    icon: githubIcon,
+    skill: "GitHub",
+  },
+  {
+    icon: gitlabIcon,
+    skill: "GitLab",
+  },
+
 ];
 
 export default SkillsData;

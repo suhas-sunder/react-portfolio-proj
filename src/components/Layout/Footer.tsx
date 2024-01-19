@@ -1,13 +1,8 @@
 import Styles from "./styles/Footer.module.css";
 import { Link } from "react-router-dom";
-import HomeBtnData from "../../data/HomeBtnData";
-import Button from "../Navigation/ButtonLink";
+import LogoButtonGroup from "../UI/LogoButtonGroup";
 
-interface PropType {
-  handleModal?: any;
-}
-
-function Footer({ handleModal }: PropType) {
+function Footer() {
   // Scroll to top of page on redirect
   const handleScroll = () => {
     window.scroll({
@@ -18,18 +13,11 @@ function Footer({ handleModal }: PropType) {
   };
 
   return (
-    <footer id="footer" className={Styles.footer}>
-      <ul className={Styles.links}>
-        {HomeBtnData.map((data, index) => (
-          <li key={index}>
-            {data.onClick ? (
-              <Button {...data} onClick={handleModal} />
-            ) : (
-              <Button {...data} />
-            )}
-          </li>
-        ))}
-      </ul>
+    <footer
+      id="footer"
+      className="flex flex-col bg-dark-blueish-gray text-white items-center  px-4"
+    >
+      <LogoButtonGroup />
       <p className={Styles.text}>
         &copy; 2023 <span className={Styles.highlight}>|</span> Designed & coded
         by

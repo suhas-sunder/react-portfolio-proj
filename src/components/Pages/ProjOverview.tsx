@@ -124,7 +124,7 @@ function ProjOverview({ projName, handleModal, showModal }) {
         arrowRight={arrowRight}
       />
       <Contact />
-      <Footer handleModal={handleModal} />
+      <Footer />
     </>
   );
 }

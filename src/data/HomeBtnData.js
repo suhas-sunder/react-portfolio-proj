@@ -17,9 +17,8 @@ const HomeBtnData = [
     id: "education",
     logo: "education",
     type: "logoLink",
-    url: "",
-    isHashLink: true,
-    onClick: true,
+    url: "https://ontariotechu.ca/",
+    target: "_blank",
   },
   {
     id: "certificates",

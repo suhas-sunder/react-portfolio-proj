@@ -3,12 +3,11 @@ import Projects from "../Layout/Projects";
 import Contact from "../Layout/Contact";
 import Footer from "../Layout/Footer";
 import Styles from "./styles/Home.module.css";
-import Button from "../Navigation/ButtonLink";
-import HomeBtnData from "../../data/HomeBtnData";
 import ProfilePic from "../../assets/profile-pic.png";
 import Modal from "../UI/Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode as code } from "@fortawesome/free-solid-svg-icons";
+import LogoButtonGroup from "../UI/LogoButtonGroup";
 
 function Home({ handleModal, showModal }) {
   return (
@@ -62,23 +61,13 @@ function Home({ handleModal, showModal }) {
             with friends and family on fun activities such as archery,
             badminton, chess, and board games.
           </p>
-          <ul className="grid lg:grid-cols-5 lg:gap-[4em] mt-10 sm:gap-x-24 gap-x-10 gap-y-14 grid-cols-2 sm:grid-cols-3">
-            {HomeBtnData.map((data, index) => (
-              <li key={index}>
-                {data.onClick ? (
-                  <Button {...data} onClick={handleModal} />
-                ) : (
-                  <Button {...data} />
-                )}
-              </li>
-            ))}
-          </ul>
+          <LogoButtonGroup />
         </div>
       </header>
       <Skills />
       <Projects />
       <Contact />
-      <Footer handleModal={handleModal} />
+      <Footer />
     </>
   );
 }

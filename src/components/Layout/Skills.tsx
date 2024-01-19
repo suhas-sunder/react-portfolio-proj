@@ -20,7 +20,7 @@ export default function Skills() {
         <ul
           className={`${
             !expandSkills ? "max-h-44" : "max-h-[100%]"
-          } transition-all delay-75 grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-x-20 gap-y-14 pt-10 pb-5 grid px-6 mx-auto overflow-hidden`}
+          } transition-all delay-200 grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-x-20 gap-y-14 pt-10 pb-5 grid px-6 mx-auto overflow-hidden`}
         >
           {SkillsData.map((data) => (
             <li

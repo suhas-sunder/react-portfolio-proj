@@ -52,7 +52,7 @@ function LogoButtonGroup() {
         <li key={uuidv4()} className="m-auto">
           <Link
             to={data.url}
-            className="flex justify-center items-center text-dark-blueish-gray w-16 h-12 text-3xl md:w-20 md:h-16 bg-highlight-yellow rounded-xl md:text-4xl hover:text-highlight-yellow hover:bg-dark-blueish-gray border-2 border-highlight-yellow"
+            className="flex justify-center items-center text-dark-blueish-gray w-16 h-12 text-3xl bg-highlight-yellow rounded-lg  hover:text-highlight-yellow hover:bg-dark-blueish-gray border-2 border-highlight-yellow"
           >
             <FontAwesomeIcon icon={data.logo} />
           </Link>

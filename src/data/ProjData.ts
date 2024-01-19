@@ -7,17 +7,17 @@ import { v4 as uuidv4 } from "uuid"
 const ProjData = [
   {
     id: uuidv4(),
-    projId: "atsproj",
+    projId: "true10proj",
     title: "Dobson Partners",
     description:
-      "",
+      "The All Track System (ATS) official website offers detailed information about the ATS facilities management software built for Landlords and Contractors. Discover the powerful functionalities offered by the ATS software and mobile app, including a visual showcase of all features, as well as important information regarding the onboarding process for clients. ",
     techStack: [
       "Remix",
       "TypeScript",
       "Tailwind CSS",
       "Vitest",
       "GitLab",
-      "Prisma",
+      "Prisma ORM",
       "PostgreSQL",
       "Postman API",
       "Figma"
@@ -38,10 +38,10 @@ const ProjData = [
   },
   {
     id: uuidv4(),
-    projId: "atsproj",
+    projId: "ftcproj",
     title: "Free Typing Camp",
     description:
-      "",
+      "The All Track System (ATS) official website offers detailed information about the ATS facilities management software built for Landlords and Contractors. Discover the powerful functionalities offered by the ATS software and mobile app, including a visual showcase of all features, as well as important information regarding the onboarding process for clients. ",
     techStack: [
       "React",
       "TypeScript",
@@ -72,37 +72,7 @@ const ProjData = [
     ],
     challenges:
       "These are the challenges that I faced with this project and how I handled them.",
-  },
-  {
-    id: uuidv4(),
-    projId: "atsproj",
-    title: "All Track System",
-    description:
-      "The All Track System (ATS) official website offers detailed information about the ATS facilities management software built for Landlords and Contractors. Discover the powerful functionalities offered by the ATS software and mobile app, including a visual showcase of all features, as well as important information regarding the onboarding process for clients. ",
-    techStack: [
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-      "SASS",
-      "GitHub",
-      "AWS S3",
-      "BEM Methodology",
-      "Responsive Design",
-      "Mobile-first",
-    ],
-    year: "2023",
-    imageURL: ATSUrl,
-    projURL: "https://alltracksystem.com/",
-    projCSS: "project",
-    projLink: "/projects/AllTrackSystem",
-    features: [
-      "Developed a responsive website using mobile – first design, implementing best practices for SEO and accessibility, and optimizing load speeds for an excellent user experience. ",
-      "Implemented BEM methodology and utilized SASS to write maintainable, efficient, and well-structured HTML, CSS, and JavaScript code.",
-      "Managed the codebase with GitHub for version control and collaborated with the client throughout the coding process to create custom designs and fluid CSS animations that exceeded their expectations.",
-    ],
-    challenges:
-      "These are the challenges that I faced with this project and how I handled them.",
-  },
+  },  
   {
     id: uuidv4(),
     projId: "portfolio",
@@ -137,6 +107,37 @@ const ProjData = [
   },
   {
     id: uuidv4(),
+    projId: "atsproj",
+    title: "All Track System",
+    description:
+      "The All Track System (ATS) official website offers detailed information about the ATS facilities management software built for Landlords and Contractors. Discover the powerful functionalities offered by the ATS software and mobile app, including a visual showcase of all features, as well as important information regarding the onboarding process for clients. ",
+    techStack: [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "SASS",
+      "GitHub",
+      "AWS S3",
+      "BEM Methodology",
+      "Responsive Design",
+      "Mobile-first",
+    ],
+    year: "2021",
+    endYear: "2023",
+    imageURL: ATSUrl,
+    projURL: "https://alltracksystem.com/",
+    projCSS: "project",
+    projLink: "/projects/AllTrackSystem",
+    features: [
+      "Developed a responsive website using mobile – first design, implementing best practices for SEO and accessibility, and optimizing load speeds for an excellent user experience. ",
+      "Implemented BEM methodology and utilized SASS to write maintainable, efficient, and well-structured HTML, CSS, and JavaScript code.",
+      "Managed the codebase with GitHub for version control and collaborated with the client throughout the coding process to create custom designs and fluid CSS animations that exceeded their expectations.",
+    ],
+    challenges:
+      "These are the challenges that I faced with this project and how I handled them.",
+  },
+  {
+    id: uuidv4(),
     projId: "emeproj",
     title: "EME Group Inc.",
     description:
@@ -151,7 +152,8 @@ const ProjData = [
       "Google Maps API",
       "Responsive Design",
     ],
-    year: "2022",
+    year: "2021",
+    endYear: "2022",
     imageURL: EMEUrl,
     projURL: "https://www.emegroup.ca/",
     projLink: "/projects/EMEGroupInc",

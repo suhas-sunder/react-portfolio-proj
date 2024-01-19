@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { useLayoutEffect, useState } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./components/Pages/Home";
 import ProjectOverview from "./components/Pages/ProjOverview";
 import About from "./components/Pages/About";
@@ -24,6 +24,20 @@ function App() {
     // Hide/show modal
     setShowModal(!showModal);
   };
+
+  const location = useLocation();
+
+  //Scroll page to top on page transitions
+  useLayoutEffect(() => {
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    };
+
+    scrollToTop();
+  }, [location]);
 
   return (
     <>

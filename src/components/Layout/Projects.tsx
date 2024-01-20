@@ -5,12 +5,10 @@ import ProjData from "../../data/ProjData";
 
 function Projects() {
   return (
-    <div className="flex relative flex-col max-w-[1200px] mx-auto sm:px-6 gap-40 sm:gap-56 lg:gap-56 xl:gap-64 mb-52 overflow-hidden">
-      <div
-        id="projects"
-        className="flex absolute opacity-0 -top-16"
-        aria-label="hidden element for hash link scroll position"
-      ></div>
+    <div
+      id="projects"
+      className="flex relative flex-col max-w-[1200px] mx-auto sm:px-6 gap-40 sm:gap-56 lg:gap-56 xl:gap-64 mb-52 overflow-hidden"
+    >
       <h2
         className={`text-center sm:text-left text-5xl sm:text-6xl mt-16 uppercase`}
       >

@@ -27,7 +27,7 @@ const ProjData = [
     imageURL: ATSUrl,
     projURL: "https://freetypingcamp.com/",
     projCSS: "project",
-    projLink: "/projects/AllTrackSystem",
+    projLink: "/projects/dobsonpartners",
     features: [
       "Developed a responsive website using mobile – first design, implementing best practices for SEO and accessibility, and optimizing load speeds for an excellent user experience. ",
       "Implemented BEM methodology and utilized SASS to write maintainable, efficient, and well-structured HTML, CSS, and JavaScript code.",
@@ -64,7 +64,7 @@ const ProjData = [
     imageURL: ATSUrl,
     projURL: "https://freetypingcamp.com/",
     projCSS: "project-reverse",
-    projLink: "/projects/AllTrackSystem",
+    projLink: "/projects/freetypingcamp",
     features: [
       "Developed a responsive website using mobile – first design, implementing best practices for SEO and accessibility, and optimizing load speeds for an excellent user experience. ",
       "Implemented BEM methodology and utilized SASS to write maintainable, efficient, and well-structured HTML, CSS, and JavaScript code.",
@@ -96,7 +96,7 @@ const ProjData = [
     projURL: "http://suhassunder.com/",
     projGitHubURL: "https://github.com/suhas-sunder/react-portfolio-proj",
     projCSS: "project-reverse",
-    projLink: "/projects/Portfolio",
+    projLink: "/projects/reactportfolio",
     features: [
       "Built a mobile-responsive website using React to showcase professional portfolio.",
       "Developed comprehensive project overviews, seamless navigation, and a contact form.",
@@ -127,7 +127,7 @@ const ProjData = [
     imageURL: ATSUrl,
     projURL: "https://alltracksystem.com/",
     projCSS: "project",
-    projLink: "/projects/AllTrackSystem",
+    projLink: "/projects/alltracksystem",
     features: [
       "Developed a responsive website using mobile – first design, implementing best practices for SEO and accessibility, and optimizing load speeds for an excellent user experience. ",
       "Implemented BEM methodology and utilized SASS to write maintainable, efficient, and well-structured HTML, CSS, and JavaScript code.",
@@ -156,7 +156,7 @@ const ProjData = [
     endYear: "2022",
     imageURL: EMEUrl,
     projURL: "https://www.emegroup.ca/",
-    projLink: "/projects/EMEGroupInc",
+    projLink: "/projects/emegroupinc.",
     projCSS: "project",
     features: [
       "Created user-friendly websites with mobile-responsive design using HTML, CSS, JavaScript, SASS, GitHub, and Google Maps API, optimizing the user experience for various devices and screens.",
@@ -186,7 +186,7 @@ const ProjData = [
     projURL:
       "https://drive.google.com/drive/folders/1AED_R-qRjy0SQBUPIFM95U8ib7Yal2pR?usp=sharing",
     projCSS: "project-reverse",
-    projLink: "/projects/Capstone",
+    projLink: "/projects/capstonesparcds",
     projProposal: "",
     features: [
       "Programmed an Arduino-based Arc Fault detection system that updates a database and sends real-time safety notifications to a mobile app, which successfully demonstrated the concept of our project idea.",

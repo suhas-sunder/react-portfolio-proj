@@ -8,14 +8,9 @@ export default function NavBar() {
   return (
     <nav role="navigation" className={Styles.nav}>
       <div className={Styles["nav-items"]}>
-        <ul className={Styles["nav-list"]}>
+        <ul className="flex w-full justify-evenly max-w-[900px] items-center">
           {NavBtnData.map((data, index) => (
-            <li
-              key={index}
-              className={
-                data.type === "downloadBtn" ? Styles["download-link"] : ""
-              }
-            >
+            <li key={index}>
               <NavLinks
                 id={data.id}
                 url={data.url}

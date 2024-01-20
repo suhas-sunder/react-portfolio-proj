@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode as code } from "@fortawesome/free-solid-svg-icons";
 import { HashLink } from "react-router-hash-link";
 import LogoButtonGroup from "../UI/LogoButtonGroup";
+import handleScrollOffset from "../utility/handleScrollOffset";
 
 function Home({ handleModal, showModal }) {
   return (
@@ -32,29 +33,28 @@ function Home({ handleModal, showModal }) {
             Software Developer
           </h1>
           <p className="block">
-            Full-Stack Software Developer with a degree in{" "}
-            <span className="inline cursor-pointer">
-              <HashLink to="/#skills" className="text-highlight-yellow">
-                Electrical Engineering & Management
-              </HashLink>
-            </span>
-            .{" "}
+            Full-Stack Software Developer with a degree in Electrical
+            Engineering and Management.{" "}
             <span className="sm:inline hidden">
-              I have over three years of professional programming experience
-              building web applications and{" "}
-            </span>
+              I have over three years of professional programming experience,
+            </span>{" "}
             <span className="sm:inline hidden">
-              <HashLink to="/#skills" className="text-highlight-yellow">
+              <HashLink
+                to="/#skills"
+                className="text-highlight-yellow"
+                scroll={(el) => handleScrollOffset(el)}
+              >
                 leveraging various technologies
               </HashLink>
-            </span>
-            .
+            </span>{" "}
+            to build websites and web applications.
           </p>
           <p>
             <span>
               <HashLink
                 to="/#projects"
                 className="text-highlight-yellow cursor-pointer"
+                scroll={(el) => handleScrollOffset(el)}
               >
                 My projects
               </HashLink>
@@ -65,7 +65,7 @@ function Home({ handleModal, showModal }) {
             are a testament to my passion for creating, collaborating, and
             problem-solving.{" "}
             <span className="hidden sm:inline">
-              Simply put, I am happiest when I'm coding!
+              Simply put, I am happiest when I'm programming!
             </span>
           </p>
           {/* <p className={Styles.description}>

@@ -48,11 +48,11 @@ function ProjNavBar({ Styles, projName }) {
   }, [nextProjName, prevProjName, projName]);
 
   return (
-    <div className={Styles.navigation}>
+    <div className={`flex justify-between pt-3 bg-dark-blueish-gray`}>
       {prevProjName && (
         <Link
           to={`/projects/${prevProjName.split(" ").join("").toLowerCase()}`}
-          className={Styles["nav-left"]}
+          className="flex justify-center items-center gap-4 text-xl text-white hover:text-highlight-yellow px-10 py-4"
         >
           <span>
             <FontAwesomeIcon
@@ -67,7 +67,7 @@ function ProjNavBar({ Styles, projName }) {
       {nextProjName && (
         <Link
           to={`/projects/${nextProjName.split(" ").join("").toLowerCase()}`}
-          className={Styles["nav-right"]}
+          className="flex justify-center items-center gap-4 text-xl text-white hover:text-highlight-yellow px-10 py-4"
         >
           <span className={Styles["nav-proj-name"]}>{nextProjName}</span>
           <span>

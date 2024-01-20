@@ -97,12 +97,10 @@ export default function Skills() {
   ];
 
   return (
-    <div className="flex relative w-full justify-center bg-light-blueish-gray tracking-wider">
-      <div
-        id="skills"
-        className="flex absolute opacity-0 -top-40"
-        aria-label="hidden element for hash link scroll position"
-      ></div>
+    <div
+      id="skills"
+      className="flex relative w-full justify-center bg-light-blueish-gray tracking-wider"
+    >
       <div className="flex flex-col max-w-[1200px] w-full relative">
         <h2 className="flex absolute uppercase text-white bg-light-blueish-gray px-12 pt-6 py-4 text-xl sm:text-4xl rounded-t-lg sm:left-0 -top-[3.35em] sm:-top-[2.2em]">
           Technical skills

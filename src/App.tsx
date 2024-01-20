@@ -99,7 +99,7 @@ function App() {
             }
           />
         </Route>
-        <Route path="*" element={<h2>404 Not Found!</h2>} />
+        <Route path="*" element={<h2 className="flex text-black w-full h-[100vh] justify-center items-center text-4xl">😞 404 Page Not Found !</h2>} />
       </Routes>
     </>
   );

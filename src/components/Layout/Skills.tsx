@@ -109,8 +109,8 @@ export default function Skills() {
         </h2>
         <ul
           className={`${
-            !expandSkills ? "max-h-44" : "max-h-[100%]"
-          } transition-all delay-200 grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-x-20 gap-y-14 pt-10 pb-5 grid px-6 mx-auto overflow-hidden`}
+            !expandSkills ? "max-h-52 md:max-h-52 xl:max-h-50" : "max-h-[100%]"
+          } transition-all delay-200 grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-x-16 sm:gap-x-10 md:gap-x-16 gap-y-14 pt-10 pb-5 grid px-6 mx-auto overflow-hidden`}
         >
           {skillsData.map((data) => (
             <li
@@ -124,7 +124,7 @@ export default function Skills() {
               />
               <span
                 data-testid={"skill-name-" + data.skill}
-                className="flex justify-center items-center rounded-md p-3 text-center bg-dark-blueish-gray"
+                className="flex justify-center text-sm md:text-base items-center rounded-md p-3 text-center bg-dark-blueish-gray"
               >
                 {data.skill}
               </span>

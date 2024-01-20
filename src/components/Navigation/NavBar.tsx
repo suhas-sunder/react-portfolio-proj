@@ -2,6 +2,7 @@ import NavLinks from "./NavLinks";
 import Styles from "./styles/NavBar.module.css";
 import MobileNav from "./MobileNav";
 import NavBtnData from "../../data/NavBtnData";
+import SideNav from "./SideNav";
 
 export default function NavBar() {
   return (
@@ -28,6 +29,7 @@ export default function NavBar() {
           ))}
         </ul>
       </div>
+      <SideNav />
       <MobileNav />
     </nav>
   );

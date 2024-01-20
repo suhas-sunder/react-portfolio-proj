@@ -1,4 +1,3 @@
-import Contact from "../Form/Contact";
 import Footer from "../Layout/Footer";
 import projData from "../../data/ProjData";
 import Styles from "./styles/ProjOverview.module.css";
@@ -123,7 +122,6 @@ function ProjOverview({ projName, handleModal, showModal }) {
         nextProj={nextProj}
         arrowRight={arrowRight}
       />
-      <Contact />
       <Footer />
     </>
   );

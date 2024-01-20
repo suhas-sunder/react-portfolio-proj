@@ -59,47 +59,38 @@ function App() {
         <Route path="/About" element={<About />} />
         <Route path="/Projects">
           <Route
-            path="AllTrackSystem"
-            element={
-              <ProjectOverview
-                projName="All Track System"
-                handleModal={handleModal}
-                showModal={showModal}
-              />
-            }
+            path="alltracksystem"
+            element={<ProjectOverview projName="All Track System" />}
           />
           <Route
-            path="EMEGroupInc"
-            element={
-              <ProjectOverview
-                projName="EME Group Inc."
-                handleModal={handleModal}
-                showModal={showModal}
-              />
-            }
+            path="emegroupinc."
+            element={<ProjectOverview projName="EME Group Inc." />}
           />
           <Route
-            path="Portfolio"
-            element={
-              <ProjectOverview
-                projName="React Portfolio"
-                handleModal={handleModal}
-                showModal={showModal}
-              />
-            }
+            path="reactportfolio"
+            element={<ProjectOverview projName="React Portfolio" />}
           />
           <Route
-            path="Capstone"
-            element={
-              <ProjectOverview
-                projName="Capstone SPArcDS"
-                handleModal={handleModal}
-                showModal={showModal}
-              />
-            }
+            path="capstonesparcds"
+            element={<ProjectOverview projName="Capstone SPArcDS" />}
+          />
+          <Route
+            path="dobsonpartners"
+            element={<ProjectOverview projName="Dobson Partners" />}
+          />
+          <Route
+            path="freetypingcamp"
+            element={<ProjectOverview projName="Free Typing Camp" />}
           />
         </Route>
-        <Route path="*" element={<h2 className="flex text-black w-full h-[100vh] justify-center items-center text-4xl">😞 404 Page Not Found !</h2>} />
+        <Route
+          path="*"
+          element={
+            <h2 className="flex text-black w-full h-[100vh] justify-center items-center text-4xl">
+              😞 404 Page Not Found !
+            </h2>
+          }
+        />
       </Routes>
     </>
   );

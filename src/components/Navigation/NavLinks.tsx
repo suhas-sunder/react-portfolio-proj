@@ -63,9 +63,7 @@ export default function NavLinks({
       data-testid={`btn-link-${id}`}
       to={url}
       aria-label={text}
-      className={`${Styles[type]} ${
-        type.includes("download") && "font-semibold"
-      } tracking-widest text-base`}
+      className={`${type !== "nav-link" ? "font-semibold border-2 border-highlight-yellow px-5 py-[0.7em] text-sm rounded-md text-dark-blueish-gray bg-highlight-yellow justify-center items-center gap-2 hover:text-highlight-yellow hover:bg-dark-blueish-gray" : "h-full hover:text-highlight-yellow justify-center items-center text-white"} flex tracking-widest text-base`}
       target={target}
       onClick={handleClick}
     >
@@ -79,7 +77,7 @@ export default function NavLinks({
       data-testid={`btn-link-${id}`}
       to={url}
       aria-label={text}
-      className={`${Styles[type]} tracking-widest text-base`}
+      className={`${Styles[type]} tracking-widest text-base `}
       target={target}
       onClick={onClick}
       scroll={(el) => {

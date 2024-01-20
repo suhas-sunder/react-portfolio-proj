@@ -48,37 +48,39 @@ function ProjNavBar({ Styles, projName }) {
   }, [nextProjName, prevProjName, projName]);
 
   return (
-    <div className={`flex justify-between pt-3 bg-dark-blueish-gray`}>
-      {prevProjName && (
-        <Link
-          to={`/projects/${prevProjName.split(" ").join("").toLowerCase()}`}
-          className="flex justify-center items-center gap-4 text-xl text-white hover:text-highlight-yellow px-10 py-4"
-        >
-          <span>
-            <FontAwesomeIcon
-              icon={arrowLeft}
-              className={Styles["arrow-icon"]}
-            />
-          </span>
-          <span className={Styles["nav-proj-name"]}>{prevProjName}</span>
-        </Link>
-      )}
-      {!prevProjName && <div className={Styles["nav-left"]}></div>}
-      {nextProjName && (
-        <Link
-          to={`/projects/${nextProjName.split(" ").join("").toLowerCase()}`}
-          className="flex justify-center items-center gap-4 text-xl text-white hover:text-highlight-yellow px-10 py-4"
-        >
-          <span className={Styles["nav-proj-name"]}>{nextProjName}</span>
-          <span>
-            <FontAwesomeIcon
-              icon={arrowRight}
-              className={Styles["arrow-icon"]}
-            />
-          </span>
-        </Link>
-      )}
-      {!nextProjName && <div className={Styles["nav-right"]}></div>}
+    <div className={` pt-3 bg-dark-blueish-gray`}>
+      <div className=" flex justify-between max-w-[1400px] mx-auto">
+        {prevProjName && (
+          <Link
+            to={`/projects/${prevProjName.split(" ").join("").toLowerCase()}`}
+            className="flex justify-center items-center gap-4 text-xl text-white hover:text-highlight-yellow px-10 py-4"
+          >
+            <span>
+              <FontAwesomeIcon
+                icon={arrowLeft}
+                className={Styles["arrow-icon"]}
+              />
+            </span>
+            <span className={Styles["nav-proj-name"]}>{prevProjName}</span>
+          </Link>
+        )}
+        {!prevProjName && <div className={Styles["nav-left"]}></div>}
+        {nextProjName && (
+          <Link
+            to={`/projects/${nextProjName.split(" ").join("").toLowerCase()}`}
+            className="flex justify-center items-center gap-4 text-xl text-white hover:text-highlight-yellow px-10 py-4"
+          >
+            <span className={Styles["nav-proj-name"]}>{nextProjName}</span>
+            <span>
+              <FontAwesomeIcon
+                icon={arrowRight}
+                className={Styles["arrow-icon"]}
+              />
+            </span>
+          </Link>
+        )}
+        {!nextProjName && <div className={Styles["nav-right"]}></div>}
+      </div>
     </div>
   );
 }

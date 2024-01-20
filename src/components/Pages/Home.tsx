@@ -63,10 +63,7 @@ function Home({ handleModal, showModal }) {
               , both personal and professional,
             </span>{" "}
             are a testament to my passion for creating, collaborating, and
-            problem-solving.{" "}
-            <span className="hidden sm:inline">
-              Simply put, I am happiest when I'm programming!
-            </span>
+            problem-solving.
           </p>
           {/* <p className={Styles.description}>
             I'm dedicated to continuous learning and have obtained

@@ -65,6 +65,7 @@ const ProjData = [
     projURL: "https://freetypingcamp.com/",
     projCSS: "project-reverse",
     projLink: "/projects/freetypingcamp",
+    projGitHubURL: "https://github.com/suhas-sunder/typing-test-app",
     features: [
       "Developed a responsive website using mobile – first design, implementing best practices for SEO and accessibility, and optimizing load speeds for an excellent user experience. ",
       "Implemented BEM methodology and utilized SASS to write maintainable, efficient, and well-structured HTML, CSS, and JavaScript code.",
@@ -72,7 +73,7 @@ const ProjData = [
     ],
     challenges:
       "These are the challenges that I faced with this project and how I handled them.",
-  },  
+  },
   {
     id: uuidv4(),
     projId: "portfolio",

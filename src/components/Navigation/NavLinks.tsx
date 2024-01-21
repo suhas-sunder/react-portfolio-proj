@@ -47,7 +47,6 @@ export default function NavLinks({
     <FontAwesomeIcon icon={logos[logo]} className={Styles.icon} />
   );
 
-
   const link = (
     <Link
       data-testid={`btn-link-${id}`}
@@ -55,9 +54,9 @@ export default function NavLinks({
       aria-label={text}
       className={`${
         type !== "nav-link"
-          ? "font-semibold border-2 border-highlight-yellow px-5 py-[0.7em] text-sm rounded-md text-dark-blueish-gray bg-highlight-yellow justify-center items-center gap-2 hover:text-highlight-yellow hover:bg-dark-blueish-gray"
-          : "py-4 hover:text-highlight-yellow justify-center items-center text-white"
-      } uppercase flex tracking-widest text-base`}
+          ? "font-semibold border-2 border-highlight-yellow  py-[0.7em] text-sm rounded-md  text-dark-blueish-gray bg-highlight-yellow justify-center items-center gap-2 hover:text-highlight-yellow hover:bg-dark-blueish-gray"
+          : "hover:text-highlight-yellow justify-center items-center text-white py-5"
+      } uppercase flex tracking-widest text-base px-5`}
       target={target}
     >
       {dispText}
@@ -70,7 +69,7 @@ export default function NavLinks({
       data-testid={`btn-link-${id}`}
       to={url}
       aria-label={text}
-      className={`flex hover:text-highlight-yellow justify-center items-center text-white tracking-widest text-base px-5 py-4 uppercase`}
+      className={`flex hover:text-highlight-yellow justify-center items-center text-white tracking-widest text-base px-5 py-5 uppercase`}
       target={target}
       scroll={(el) => handleScrollOffset(el)}
     >

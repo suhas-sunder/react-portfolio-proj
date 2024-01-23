@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "./NavLinks";
+import NavLinks from "./NavLinks";
 import Styles from "./styles/MobileNav.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars as burgerIcon } from "@fortawesome/free-solid-svg-icons";
@@ -22,6 +22,7 @@ export default function MobileNav() {
         {/* Logo button */}
         <Link
           to="/"
+          onClick={handleBurgerMenu}
           className="text-black bg-highlight-yellow w-12 flex justify-center items-center rounded-md h-12 text-2xl ml-6"
         >
           <FontAwesomeIcon icon={logoIcon} />
@@ -51,19 +52,19 @@ export default function MobileNav() {
             {NavBtnData.filter((data) => data.text !== "Home").map(
               (data, index) => (
                 <li
+                  onClick={handleBurgerMenu}
                   key={index}
                   className={
                     data.type === "downloadBtn" ? Styles["download-link"] : ""
                   }
                 >
-                  <Button
+                  <NavLinks
                     url={data.url}
                     type={data.typeMobile}
                     text={data.text}
                     logo={data.logo}
                     target={data.target}
                     isHashLink={data.hashLink}
-                    onClick={handleBurgerMenu}
                   />
                 </li>
               )

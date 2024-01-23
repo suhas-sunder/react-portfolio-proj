@@ -17,7 +17,7 @@ function Home({ handleModal, showModal }) {
       {showModal && <Modal closeModal={handleModal} />}
       <header
         id="about"
-        className="box-content flex flex-col justify-center items-center text-white bg-dark-blueish-gray lg:min-h-[100vh] pt-[10em] px-[2em] pb-[12em] lg:pb-[10vh] gap-5 lg:gap-[10em] lg:flex-row lg:pt-0"
+        className="box-content flex flex-col justify-center items-center text-white bg-dark-blueish-gray lg:min-h-[100dvh] pt-[10em] px-[2em] pb-[12em] lg:pb-[10dvh] gap-5 lg:gap-[10em] lg:flex-row lg:pt-0"
       >
         <img
           alt="head-shot of Suhas Sunder"

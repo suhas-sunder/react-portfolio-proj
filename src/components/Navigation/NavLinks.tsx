@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin as linkedinIcon } from "@fortawesome/free-brands-svg-icons";
 import { faGithub as githubIcon } from "@fortawesome/free-brands-svg-icons";
 import { faArrowRight as arrowIcon } from "@fortawesome/free-solid-svg-icons";
-import { faS as logoIcon } from "@fortawesome/free-solid-svg-icons";
 import { faUpRightFromSquare as arrowUpIcon } from "@fortawesome/free-solid-svg-icons";
 import Styles from "./styles/ButtonLink.module.css";
 import handleScrollOffset from "../utility/handleScrollOffset";
@@ -35,7 +34,6 @@ export default function NavLinks({
     linkedin: linkedinIcon,
     github: githubIcon,
     arrow: arrowIcon,
-    homeLogo: logoIcon,
     arrowUp: arrowUpIcon,
   };
 

@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars as burgerIcon } from "@fortawesome/free-solid-svg-icons";
 import { faX as xIcon } from "@fortawesome/free-solid-svg-icons";
 import NavBtnData from "../../data/NavBtnData";
+import { faS as logoIcon } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 export default function MobileNav() {
   const [toggle, setToggle] = useState(true);
@@ -18,12 +20,12 @@ export default function MobileNav() {
     <>
       <div className={Styles["mobile-nav"]} id="mobile-nav">
         {/* Logo button */}
-        <Button
-          url="/"
-          type="home-link"
-          logo="homeLogo"
-          onClick={() => handleBurgerMenu(false)}
-        />
+        <Link
+          to="/"
+          className="text-black bg-highlight-yellow w-12 flex justify-center items-center rounded-md h-12 text-2xl ml-6"
+        >
+          <FontAwesomeIcon icon={logoIcon} />
+        </Link>
         {/* Burger menu toggle buttons */}
         {toggle && (
           <FontAwesomeIcon

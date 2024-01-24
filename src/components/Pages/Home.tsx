@@ -20,14 +20,14 @@ function Home({ handleModal, showModal }) {
         className="box-content flex flex-col justify-center items-center text-white bg-dark-blueish-gray lg:min-h-[100dvh] pt-[10em] px-[2em] pb-[12em] lg:pb-[10dvh] gap-5 lg:gap-[10em] lg:flex-row lg:pt-0"
       >
         <img
-          alt="head-shot of Suhas Sunder"
+          alt="head-shot of Suhas Sunder wearing a suit"
           src={ProfilePic}
           className={`${Styles["profile-img"]} block rounded-full bg-cover border-[6px] border-highlight-yellow mb-[2em] w-[200px] h-[200px] sm:w-[300px] sm:h-[300px]`}
           height={300}
           width={300}
         />
-        <div className="flex flex-col gap-8 max-w-[690px] leading-[2rem] text-base lg:text-lg text-center sm:text-left">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl text-center">
+        <div className="flex flex-col gap-8 max-w-[690px] text-base lg:text-lg text-center sm:text-left tracking-wider leading-loose lg:leading-loose">
+          <h1 className="text-2xl sm:text-3xl lg:text-[2.15rem] text-center">
             Suhas Sunder{" "}
             <FontAwesomeIcon className="text-highlight-yellow" icon={code} />{" "}
             Software Developer
@@ -36,7 +36,7 @@ function Home({ handleModal, showModal }) {
             Full-Stack Software Developer with a degree in Electrical
             Engineering and Management.{" "}
             <span className="sm:inline hidden">
-              I have over five years of programming experience, half of which is professional,
+              I have over two years of professional programming experience,
             </span>{" "}
             <span className="sm:inline hidden">
               <HashLink
@@ -65,12 +65,7 @@ function Home({ handleModal, showModal }) {
             are a testament to my passion for creating, collaborating, and
             problem-solving.
           </p>
-          {/* <p className={Styles.description}>
-            I'm dedicated to continuous learning and have obtained
-            certifications from FreeCodeCamp (Front End Developer Certification)
-            and Harvard University (CS50 Introduction to Computer Science).
-          </p> */}
-          <p className={Styles.description}>
+          <p>
             Apart from coding, I like exercising and working on creative
             projects in my free time. I also enjoy spending quality time with
             friends and family, be it through archery, badminton, video games,
@@ -79,9 +74,11 @@ function Home({ handleModal, showModal }) {
           <LogoButtonGroup />
         </div>
       </header>
-      <Skills />
-      <Projects />
-      <Contact />
+      <main>
+        <Skills />
+        <Projects />
+        <Contact />
+      </main>
       <Footer />
     </>
   );

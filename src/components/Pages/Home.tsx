@@ -36,7 +36,7 @@ function Home({ handleModal, showModal }) {
             Full-Stack Software Developer with a degree in Electrical
             Engineering and Management.{" "}
             <span className="sm:inline hidden">
-              I have over three years of professional programming experience,
+              I have over five years of programming experience, half of which is professional,
             </span>{" "}
             <span className="sm:inline hidden">
               <HashLink

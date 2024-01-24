@@ -52,9 +52,9 @@ export default function NavLinks({
       aria-label={text}
       className={`${
         type !== "nav-link"
-          ? "font-semibold border-2 border-highlight-yellow  py-[0.7em] text-sm rounded-md  text-dark-blueish-gray bg-highlight-yellow justify-center items-center gap-2 hover:text-highlight-yellow hover:bg-dark-blueish-gray"
+          ? "font-semibold border-2 border-highlight-yellow  py-[0.7em] text-xs sm:text-sm rounded-md  text-dark-blueish-gray bg-highlight-yellow justify-center items-center gap-2 hover:text-highlight-yellow hover:bg-dark-blueish-gray"
           : "hover:text-highlight-yellow justify-center items-center text-white py-5"
-      } uppercase flex tracking-widest text-base px-5`}
+      } uppercase flex tracking-widest text-base px-[0.67em] sm:px-5`}
       target={target}
     >
       {dispText}

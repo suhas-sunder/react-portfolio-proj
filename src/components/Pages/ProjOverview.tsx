@@ -1,7 +1,7 @@
 import Footer from "../Layout/Footer";
 import projData from "../../data/ProjData";
 import Styles from "./styles/ProjOverview.module.css";
-import Button from "../Navigation/NavLinks";
+import NavLinks from "../Navigation/NavLinks";
 import ProjNavBar from "../Navigation/ProjNavBar";
 
 function ProjOverview({ projName }) {
@@ -9,16 +9,12 @@ function ProjOverview({ projName }) {
   let projDetails = projData.filter((data) => data.title === projName);
   const { title, imageURL, features, projURL, projGitHubURL } = projDetails[0];
 
-
   return (
     <>
       <header className={Styles.header}>
-        <ProjNavBar
-          Styles={Styles}
-          projName={projName}
-        />
+        <ProjNavBar Styles={Styles} projName={projName} />
         <div className={Styles["header-container"]}>
-          <h1 className={Styles.title}>{title}</h1>
+          <h1 className="text-2xl sm:text-5xl py-2 sm:py-4">{title}</h1>
           <div className={Styles["img-link"]}>
             <img
               src={imageURL}
@@ -26,8 +22,8 @@ function ProjOverview({ projName }) {
               className={Styles.img}
             />
           </div>
-          <div className="flex w-full justify-center items-center gap-16">
-            <Button
+          <div className="flex w-full justify-center items-center gap-5 sm:gap-16">
+            <NavLinks
               text={
                 projName === "Capstone SPArcDS"
                   ? "View Demo Video"
@@ -40,7 +36,7 @@ function ProjOverview({ projName }) {
               target="_blank"
             />
             {projGitHubURL && (
-              <Button
+              <NavLinks
                 text="View GitHub"
                 logo="github"
                 type="project-link"
@@ -72,10 +68,7 @@ function ProjOverview({ projName }) {
           ))}
         </ul>
       </div>
-      <ProjNavBar
-        Styles={Styles}
-        projName={projName}
-      />
+      <ProjNavBar Styles={Styles} projName={projName} />
       <Footer />
     </>
   );

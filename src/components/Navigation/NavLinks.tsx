@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin as linkedinIcon } from "@fortawesome/free-brands-svg-icons";
 import { faGithub as githubIcon } from "@fortawesome/free-brands-svg-icons";
 import { faArrowRight as arrowIcon } from "@fortawesome/free-solid-svg-icons";
-import { faS as logoIcon } from "@fortawesome/free-solid-svg-icons";
 import { faUpRightFromSquare as arrowUpIcon } from "@fortawesome/free-solid-svg-icons";
 import Styles from "./styles/ButtonLink.module.css";
+import handleScrollOffset from "../utility/handleScrollOffset";
 
 interface PropType {
   id?: string;
@@ -19,7 +19,7 @@ interface PropType {
   onClick?: any;
 }
 
-function Button({
+export default function NavLinks({
   id,
   text,
   logo,
@@ -27,7 +27,6 @@ function Button({
   url,
   target,
   isHashLink,
-  onClick,
 }: PropType) {
   // Object list of all font-awesome logos
   const logos = {
@@ -35,7 +34,6 @@ function Button({
     linkedin: linkedinIcon,
     github: githubIcon,
     arrow: arrowIcon,
-    homeLogo: logoIcon,
     arrowUp: arrowUpIcon,
   };
 
@@ -47,25 +45,17 @@ function Button({
     <FontAwesomeIcon icon={logos[logo]} className={Styles.icon} />
   );
 
-  const handleClick = () => {
-    console.log(target);
-    // Scroll to top on new page load
-    target !== "blank" &&
-      window.scroll({
-        top: 0,
-      });
-
-    onClick && onClick();
-  };
-
   const link = (
     <Link
       data-testid={`btn-link-${id}`}
       to={url}
       aria-label={text}
-      className={`${Styles[type]} tracking-widest font-semibold text-base`}
+      className={`${
+        type !== "nav-link"
+          ? "font-semibold border-2 border-highlight-yellow  py-[0.7em] text-xs sm:text-sm rounded-md  text-dark-blueish-gray bg-highlight-yellow justify-center items-center gap-2 hover:text-highlight-yellow hover:bg-dark-blueish-gray"
+          : "hover:text-highlight-yellow justify-center items-center text-white py-5"
+      } uppercase flex tracking-widest text-base px-[0.67em] sm:px-5`}
       target={target}
-      onClick={handleClick}
     >
       {dispText}
       {dispLogo}
@@ -77,15 +67,9 @@ function Button({
       data-testid={`btn-link-${id}`}
       to={url}
       aria-label={text}
-      className={`${Styles[type]} tracking-widest font-semibold text-base`}
+      className={`flex hover:text-highlight-yellow justify-center items-center text-white tracking-widest text-base px-5 py-5 uppercase`}
       target={target}
-      onClick={onClick}
-      scroll={(el) => {
-        // Offset y-coordinate by 200px up for all anchor links
-        const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-        const yOffset = -140;
-        window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
-      }}
+      scroll={(el) => handleScrollOffset(el)}
     >
       {dispText}
       {dispLogo}
@@ -94,5 +78,3 @@ function Button({
 
   return isHashLink ? anchorLink : link;
 }
-
-export default Button;

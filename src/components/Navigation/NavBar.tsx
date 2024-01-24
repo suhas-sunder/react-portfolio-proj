@@ -1,21 +1,17 @@
-import Button from "./ButtonLink";
+import NavLinks from "./NavLinks";
 import Styles from "./styles/NavBar.module.css";
 import MobileNav from "./MobileNav";
 import NavBtnData from "../../data/NavBtnData";
+import SideNav from "./SideNav";
 
 export default function NavBar() {
   return (
     <nav role="navigation" className={Styles.nav}>
       <div className={Styles["nav-items"]}>
-        <ul className={Styles["nav-list"]}>
+        <ul className="flex w-full justify-evenly max-w-[900px] items-center">
           {NavBtnData.map((data, index) => (
-            <li
-              key={index}
-              className={
-                data.type === "downloadBtn" ? Styles["download-link"] : ""
-              }
-            >
-              <Button
+            <li key={index}>
+              <NavLinks
                 id={data.id}
                 url={data.url}
                 type={data.type}
@@ -28,6 +24,7 @@ export default function NavBar() {
           ))}
         </ul>
       </div>
+      <SideNav />
       <MobileNav />
     </nav>
   );

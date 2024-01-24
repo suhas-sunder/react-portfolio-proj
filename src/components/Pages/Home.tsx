@@ -7,7 +7,9 @@ import ProfilePic from "../../assets/profile-pic.png";
 import Modal from "../UI/Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode as code } from "@fortawesome/free-solid-svg-icons";
+import { HashLink } from "react-router-hash-link";
 import LogoButtonGroup from "../UI/LogoButtonGroup";
+import handleScrollOffset from "../utility/handleScrollOffset";
 
 function Home({ handleModal, showModal }) {
   return (
@@ -15,7 +17,7 @@ function Home({ handleModal, showModal }) {
       {showModal && <Modal closeModal={handleModal} />}
       <header
         id="about"
-        className="box-content flex flex-col justify-center items-center text-white bg-dark-blueish-gray lg:min-h-[100vh] pt-[10em] px-[2em] pb-[12em] lg:pb-[10vh] gap-5 lg:gap-[10em] lg:flex-row lg:pt-0"
+        className="box-content flex flex-col justify-center items-center text-white bg-dark-blueish-gray lg:min-h-[100dvh] pt-[10em] px-[2em] pb-[12em] lg:pb-[10dvh] gap-5 lg:gap-[10em] lg:flex-row lg:pt-0"
       >
         <img
           alt="head-shot of Suhas Sunder"
@@ -30,36 +32,49 @@ function Home({ handleModal, showModal }) {
             <FontAwesomeIcon className="text-highlight-yellow" icon={code} />{" "}
             Software Developer
           </h1>
-          <p>
-            Professional Software Developer with a degree in{" "}
-            <span
-              onClick={handleModal}
-              className="text-highlight-yellow cursor-pointer"
-            >
-              Electrical Engineering & Management.
+          <p className="block">
+            Full-Stack Software Developer with a degree in Electrical
+            Engineering and Management.{" "}
+            <span className="sm:inline hidden">
+              I have over five years of programming experience, half of which is professional,
             </span>{" "}
-            My personal and work{" "}
-            <span>
-              <a
-                href="#projects"
-                className="text-highlight-yellow cursor-pointer"
+            <span className="sm:inline hidden">
+              <HashLink
+                to="/#skills"
+                className="text-highlight-yellow"
+                scroll={(el) => handleScrollOffset(el)}
               >
-                {" "}
-                projects
-              </a>
+                leveraging various technologies
+              </HashLink>
             </span>{" "}
-            are an embodiment of my love for creating, collaborating, and
-            problem-solving. I am happiest when I'm programming!
+            to build websites and web applications.
           </p>
-          <p className={Styles.description}>
+          <p>
+            <span>
+              <HashLink
+                to="/#projects"
+                className="text-highlight-yellow cursor-pointer"
+                scroll={(el) => handleScrollOffset(el)}
+              >
+                My projects
+              </HashLink>
+            </span>
+            <span className="hidden sm:inline">
+              , both personal and professional,
+            </span>{" "}
+            are a testament to my passion for creating, collaborating, and
+            problem-solving.
+          </p>
+          {/* <p className={Styles.description}>
             I'm dedicated to continuous learning and have obtained
             certifications from FreeCodeCamp (Front End Developer Certification)
             and Harvard University (CS50 Introduction to Computer Science).
-          </p>
+          </p> */}
           <p className={Styles.description}>
-            Aside from programming, I play video games, exercise, and spend time
-            with friends and family on fun activities such as archery,
-            badminton, chess, and board games.
+            Apart from coding, I like exercising and working on creative
+            projects in my free time. I also enjoy spending quality time with
+            friends and family, be it through archery, badminton, video games,
+            board games, and more.
           </p>
           <LogoButtonGroup />
         </div>

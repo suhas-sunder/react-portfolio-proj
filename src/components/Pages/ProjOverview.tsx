@@ -1,51 +1,20 @@
-import Contact from "../Form/Contact";
 import Footer from "../Layout/Footer";
 import projData from "../../data/ProjData";
 import Styles from "./styles/ProjOverview.module.css";
-import Modal from "../UI/Modal";
-import Button from "../Navigation/ButtonLink";
-import { faArrowAltCircleRight as arrowRight } from "@fortawesome/free-regular-svg-icons";
-import { faArrowAltCircleLeft as arrowLeft } from "@fortawesome/free-regular-svg-icons";
-import ProjNavBar from "../UI/ProjNavBar";
+import NavLinks from "../Navigation/NavLinks";
+import ProjNavBar from "../Navigation/ProjNavBar";
 
-function ProjOverview({ projName, handleModal, showModal }) {
+function ProjOverview({ projName }) {
   // Filter data relevant to the active project url link clicked
   let projDetails = projData.filter((data) => data.title === projName);
-
-  // Gather data to determine project navigation
-  const projNames = [...projData.map((data) => data.title)];
-  const projLinks = [...projData.map((data) => data.projLink)];
-  const projIndex = projNames.indexOf(projName);
-
-  // Store the next project name and url for navigation
-  const [nextProj, nextProjLink] =
-    projIndex === projNames.length - 1
-      ? ["", ""]
-      : [projNames[projIndex + 1], projLinks[projIndex + 1]];
-
-  // Store the previous project name and url for navigation
-  const [prevProj, prevProjLink] =
-    projIndex === 0
-      ? ["", ""]
-      : [projNames[projIndex - 1], projLinks[projIndex - 1]];
-
   const { title, imageURL, features, projURL, projGitHubURL } = projDetails[0];
 
   return (
     <>
-      {showModal && <Modal closeModal={handleModal} />}
       <header className={Styles.header}>
-        <ProjNavBar
-          Styles={Styles}
-          prevProj={prevProj}
-          prevProjLink={prevProjLink}
-          arrowLeft={arrowLeft}
-          nextProjLink={nextProjLink}
-          nextProj={nextProj}
-          arrowRight={arrowRight}
-        />
+        <ProjNavBar Styles={Styles} projName={projName} />
         <div className={Styles["header-container"]}>
-          <h1 className={Styles.title}>{title}</h1>
+          <h1 className="text-2xl sm:text-5xl py-2 sm:py-4">{title}</h1>
           <div className={Styles["img-link"]}>
             <img
               src={imageURL}
@@ -53,8 +22,8 @@ function ProjOverview({ projName, handleModal, showModal }) {
               className={Styles.img}
             />
           </div>
-          <div className={Styles.buttons}>
-            <Button
+          <div className="flex w-full justify-center items-center gap-5 sm:gap-16">
+            <NavLinks
               text={
                 projName === "Capstone SPArcDS"
                   ? "View Demo Video"
@@ -67,7 +36,7 @@ function ProjOverview({ projName, handleModal, showModal }) {
               target="_blank"
             />
             {projGitHubURL && (
-              <Button
+              <NavLinks
                 text="View GitHub"
                 logo="github"
                 type="project-link"
@@ -76,21 +45,6 @@ function ProjOverview({ projName, handleModal, showModal }) {
                 target="_blank"
               />
             )}
-            <Button
-              text="Overview"
-              logo=""
-              type="project-link"
-              url={"#proj-overview"}
-              isHashLink={true}
-            />
-
-            <Button
-              text="Challenges"
-              logo=""
-              type="project-link"
-              url={"#proj-challenges"}
-              isHashLink={true}
-            />
           </div>
         </div>
       </header>
@@ -114,16 +68,7 @@ function ProjOverview({ projName, handleModal, showModal }) {
           ))}
         </ul>
       </div>
-      <ProjNavBar
-        Styles={Styles}
-        prevProj={prevProj}
-        prevProjLink={prevProjLink}
-        arrowLeft={arrowLeft}
-        nextProjLink={nextProjLink}
-        nextProj={nextProj}
-        arrowRight={arrowRight}
-      />
-      <Contact />
+      <ProjNavBar Styles={Styles} projName={projName} />
       <Footer />
     </>
   );

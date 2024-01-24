@@ -1,6 +1,6 @@
 import Styles from "./styles/Modal.module.css";
 import uniLogoImg from "../../assets/ontariotechu-img.jpg";
-import Button from "../Navigation/ButtonLink";
+import Button from "../Navigation/NavLinks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark as closeIcon } from "@fortawesome/free-solid-svg-icons";
 

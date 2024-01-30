@@ -26,7 +26,7 @@ function Projects() {
           } ${index === 0 && "-mt-20"} flex gap-16 mx-8 lg:mx-0`}
         >
           <div className={Styles.details}>
-            <p className="flex text-base text-center sm:text-left sm:text-lg lg:text-xl pb-12">
+            <p className="flex text-base text-center sm:text-left sm:text-lg lg:text-lg pb-12 tracking-wider leading-relaxed lg:leading-loose">
               {data.description}
             </p>
             <TechStack skillsList={data.techStack} />

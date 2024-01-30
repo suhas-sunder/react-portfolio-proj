@@ -48,26 +48,32 @@ function ProjOverview({ projName }) {
           </div>
         </div>
       </header>
-      <div className={Styles["proj-details"]}>
-        <h2 id="proj-overview">Project Overview</h2>
-        <ul className={Styles["highlights-list"]}>
-          {features.map((feature, index) => (
-            <li key={index} className={Styles.highlights}>
-              {feature}
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className={Styles["proj-details"]}>
-        <h2 id="proj-challenges">Project Challenges</h2>
-        <ul className={Styles["highlights-list"]}>
-          {features.map((feature, index) => (
-            <li key={index} className={Styles.highlights}>
-              {feature}
-            </li>
-          ))}
-        </ul>
-      </div>
+      <main className="flex flex-col gap-5 mb-16">
+        <div className="flex flex-col max-w-[1000px] mx-auto gap-8">
+          <h2 id="proj-overview" className="flex text-4xl">
+            Project Overview
+          </h2>
+          <ul className={Styles["highlights-list"]}>
+            {features.map((feature, index) => (
+              <li key={index} className={Styles.highlights}>
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="flex flex-col max-w-[1000px] mx-auto gap-8">
+          <h2 id="proj-challenges" className="flex text-4xl">
+            Project Challenges
+          </h2>
+          <ul className={Styles["highlights-list"]}>
+            {features.map((feature, index) => (
+              <li key={index} className={Styles.highlights}>
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </main>
       <ProjNavBar Styles={Styles} projName={projName} />
       <Footer />
     </>

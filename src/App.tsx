@@ -2,9 +2,9 @@ import { useLayoutEffect, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./components/Pages/Home";
 import ProjectOverview from "./components/Pages/ProjOverview";
-import About from "./components/Pages/About";
 import NavBar from "./components/Navigation/NavBar";
 import { Helmet } from "react-helmet";
+import Footer from "./components/Layout/Footer";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -56,7 +56,6 @@ function App() {
           path="/"
           element={<Home handleModal={handleModal} showModal={showModal} />}
         />
-        <Route path="/About" element={<About />} />
         <Route path="/Projects">
           <Route
             path="alltracksystem"
@@ -92,6 +91,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer />
     </>
   );
 }

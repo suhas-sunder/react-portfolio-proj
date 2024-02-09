@@ -7,7 +7,7 @@ function Projects() {
   return (
     <div
       id="projects"
-      className="flex relative flex-col max-w-[1200px] mx-auto sm:px-6 gap-40 sm:gap-56 lg:gap-56 xl:gap-64 mb-52 overflow-hidden"
+      className="flex relative flex-col max-w-[1200px] mx-auto sm:px-6 gap-40 sm:gap-56 lg:gap-56 xl:gap-64 mb-40 overflow-hidden"
     >
       <h2
         className={`text-center sm:text-left text-5xl sm:text-6xl mt-16 uppercase`}

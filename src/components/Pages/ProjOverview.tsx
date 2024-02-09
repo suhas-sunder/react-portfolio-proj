@@ -1,4 +1,3 @@
-import Footer from "../Layout/Footer";
 import projData from "../../data/ProjData";
 import Styles from "./styles/ProjOverview.module.css";
 import NavLinks from "../Navigation/NavLinks";
@@ -11,10 +10,10 @@ function ProjOverview({ projName }) {
 
   return (
     <>
-      <header className={Styles.header}>
+      <header className="flex flex-col bg-dark-blueish-gray pt-24 pb-16">
         <ProjNavBar Styles={Styles} projName={projName} />
         <div className={Styles["header-container"]}>
-          <h1 className="text-2xl sm:text-5xl py-2 sm:py-4">{title}</h1>
+          <h1 className="text-2xl sm:text-[2.5rem] py-3 sm:py-6">{title}</h1>
           <div className={Styles["img-link"]}>
             <img
               src={imageURL}
@@ -22,7 +21,7 @@ function ProjOverview({ projName }) {
               className={Styles.img}
             />
           </div>
-          <div className="flex w-full justify-center items-center gap-5 sm:gap-16">
+          <div className="flex w-full justify-center items-center gap-5 sm:gap-16 mt-4">
             <NavLinks
               text={
                 projName === "Capstone SPArcDS"
@@ -48,7 +47,7 @@ function ProjOverview({ projName }) {
           </div>
         </div>
       </header>
-      <main className="flex flex-col gap-5 mb-16">
+      <main className="flex flex-col gap-5 my-16">
         <div className="flex flex-col max-w-[1000px] mx-auto gap-8">
           <h2 id="proj-overview" className="flex text-4xl">
             Project Overview
@@ -75,7 +74,6 @@ function ProjOverview({ projName }) {
         </div>
       </main>
       <ProjNavBar Styles={Styles} projName={projName} />
-      <Footer />
     </>
   );
 }

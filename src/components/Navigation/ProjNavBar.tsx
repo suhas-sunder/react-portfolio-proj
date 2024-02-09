@@ -53,7 +53,7 @@ function ProjNavBar({ Styles, projName }) {
         {prevProjName && (
           <Link
             to={`/projects/${prevProjName.split(" ").join("").toLowerCase()}`}
-            className="flex w-full justify-center items-center gap-3 text-sm text-white hover:text-highlight-yellow pl-5 py-4 sm:text-2xl sm:gap-5 sm:pl-0"
+            className="flex w-full justify-center items-center gap-3 text-sm text-white hover:text-highlight-yellow pl-5 py-4 sm:text-[1.4rem] sm:gap-5 sm:pl-0"
           >
             <span>
               <FontAwesomeIcon
@@ -68,7 +68,7 @@ function ProjNavBar({ Styles, projName }) {
         {nextProjName && (
           <Link
             to={`/projects/${nextProjName.split(" ").join("").toLowerCase()}`}
-            className="flex w-full justify-center items-center gap-3 text-sm text-white hover:text-highlight-yellow pr-5 py-4 sm:text-2xl sm:gap-5 sm:pr-0"
+            className="flex w-full justify-center items-center gap-3 text-sm text-white hover:text-highlight-yellow pr-5 py-4 sm:text-[1.4rem] sm:gap-5 sm:pr-0"
           >
             <span>{nextProjName}</span>
             <span>

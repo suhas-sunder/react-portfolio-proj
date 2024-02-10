@@ -10,7 +10,7 @@ const ProjData = [
     projId: "true10proj",
     title: "Dobson Partners",
     description:
-      "The All Track System (ATS) official website offers detailed information about the ATS facilities management software built for Landlords and Contractors. Discover the powerful functionalities offered by the ATS software and mobile app, including a visual showcase of all features, as well as important information regarding the onboarding process for clients. ",
+      "This full-stack web application by Dobson Partners offers valuable Real Estate services for Landlords, Tenants, and Realtors.",
     techStack: [
       "Remix",
       "TypeScript",
@@ -25,13 +25,15 @@ const ProjData = [
     year: "2023",
     endYear: "2024",
     imageURL: ATSUrl,
-    projURL: "https://freetypingcamp.com/",
+    projURL: "https://true10.ca",
     projCSS: "project",
     projLink: "/projects/dobsonpartners",
     features: [
-      "Developed a responsive website using mobile – first design, implementing best practices for SEO and accessibility, and optimizing load speeds for an excellent user experience. ",
-      "Implemented BEM methodology and utilized SASS to write maintainable, efficient, and well-structured HTML, CSS, and JavaScript code.",
-      "Managed the codebase with GitHub for version control and collaborated with the client throughout the coding process to create custom designs and fluid CSS animations that exceeded their expectations.",
+      "Built a full-stack web application from the ground up using Remix, TypeScript, and Tailwind CSS, aligning closely with Figma wireframes to offer valuable Real Estate services for Landlords, Tenants, and Realtors.",
+      "Maintained open communication, provided progress updates via Slack and Zoom, ensured consistent commits to GitLab, and proactively addressed challenges to meet project deadlines.",
+      "Implemented back-end functionality by writing server-side code and integrating Prisma ORM for safe and efficient read and write operations to a PostgreSQL database.",
+      "Seamlessly integrated RESTful API endpoints from Cloudinary for media management and Stripe for user payments, performing API testing using Postman to improve functionality and reliability.",
+      "Handled user authentication using Session Storage, social media authentication using the OAuth2 Framework, and wrote unit and integration tests for all components using Vitest to ensure robust security and reliable functionality.",
     ],
     challenges:
       "These are the challenges that I faced with this project and how I handled them.",
@@ -41,7 +43,7 @@ const ProjData = [
     projId: "ftcproj",
     title: "Free Typing Camp",
     description:
-      "The All Track System (ATS) official website offers detailed information about the ATS facilities management software built for Landlords and Contractors. Discover the powerful functionalities offered by the ATS software and mobile app, including a visual showcase of all features, as well as important information regarding the onboarding process for clients. ",
+      "Free Typing Camp is a full-stack web application that offers an accessible typing program for all users. Craft your ideal space & bring it to life by unlocking vibrant illustrations to customize the site according to your preferences. Accumulate points, monitor your progress, & gamify your learning experience with a wide array of unlockables by creating a free account.",
     techStack: [
       "React",
       "TypeScript",
@@ -67,9 +69,10 @@ const ProjData = [
     projLink: "/projects/freetypingcamp",
     projGitHubURL: "https://github.com/suhas-sunder/typing-test-app",
     features: [
-      "Developed a responsive website using mobile – first design, implementing best practices for SEO and accessibility, and optimizing load speeds for an excellent user experience. ",
-      "Implemented BEM methodology and utilized SASS to write maintainable, efficient, and well-structured HTML, CSS, and JavaScript code.",
-      "Managed the codebase with GitHub for version control and collaborated with the client throughout the coding process to create custom designs and fluid CSS animations that exceeded their expectations.",
+      "Built an interactive, user-friendly full-stack web application using React, TypeScript, Tailwind CSS, PostgreSQL, Node, and Express, enabling users to improve typing skills through an interactive, gamified learning experience.",
+      "Hosted the web application on Digital Ocean, tracked user engagement through Google Analytics, and optimized security, performance, and reliability using Cloudflare, including SSL implementation and R2 API for file storage.",
+      "Implemented secure login/authentication with JSON Web Token, configured CORS and other essential back-end middleware, and conducted comprehensive unit and integration testing using Vitest for back-end security.",
+      "Utilized Adobe Firefly AI and Chat GPT to programmatically generate image and JSON text content for the website.",
     ],
     challenges:
       "These are the challenges that I faced with this project and how I handled them.",
@@ -99,12 +102,10 @@ const ProjData = [
     projCSS: "project-reverse",
     projLink: "/projects/reactportfolio",
     features: [
-      "Built a mobile-responsive website using React to showcase professional portfolio.",
-      "Developed comprehensive project overviews, seamless navigation, and a contact form.",
-      "Provided easy access to current resume and relevant details for potential employers.",
-      "Highlighted professional skills, accomplishments, and expertise.",
+      "Tested, built, and maintained a mobile-responsive website using React, TypeScript, Tailwind CSS, Jest, and React Testing Library, to effectively highlight my personal and professional accomplishments as a software developer.",
     ],
-    problems: "",
+    challenges:
+      "These are the challenges that I faced with this project and how I handled them.",
   },
   {
     id: uuidv4(),
@@ -130,9 +131,12 @@ const ProjData = [
     projCSS: "project",
     projLink: "/projects/alltracksystem",
     features: [
-      "Developed a responsive website using mobile – first design, implementing best practices for SEO and accessibility, and optimizing load speeds for an excellent user experience. ",
-      "Implemented BEM methodology and utilized SASS to write maintainable, efficient, and well-structured HTML, CSS, and JavaScript code.",
-      "Managed the codebase with GitHub for version control and collaborated with the client throughout the coding process to create custom designs and fluid CSS animations that exceeded their expectations.",
+      "Collaborated with designers and back-end team to refactor web application codebase, utilizing RESTful API endpoints, React, TypeScript, CSS modules and Tailwind CSS to create an improved UX, design, and functionality.",
+      "Developed a responsive client-facing website using mobile-first design, ensuring code integrity and cooperative development through GitHub, delivering an excellent user experience.",
+      "Applied BEM methodology to write maintainable HTML, CSS, JavaScript, and SASS code, crafting custom interactive designs that consistently exceeded client expectations.",
+      "Conducted automated testing using Jest and React Testing Library, while implementing best practices for SEO, accessibility, and web safety to optimize performance, reliability, and search engine visibility.",
+      "Crafted research-driven strategies to plan, present, and orchestrate large-scale software and app development, bolstering critical thinking skills and contributing to the successful launch of the startup.",
+      "Engineered streamlined design solutions for intricate challenges, fostering engagement with partners, investors, and developers, which, in turn, contributed to the enhancement of my communication and teamwork proficiencies.",
     ],
     challenges:
       "These are the challenges that I faced with this project and how I handled them.",
@@ -160,11 +164,12 @@ const ProjData = [
     projLink: "/projects/emegroupinc.",
     projCSS: "project",
     features: [
-      "Created user-friendly websites with mobile-responsive design using HTML, CSS, JavaScript, SASS, GitHub, and Google Maps API, optimizing the user experience for various devices and screens.",
-      "Spearheaded a website redesign in 2022, with custom design changes, enhanced functionality, and implementation of a contact form and interactive map, resulting in improved client satisfaction.",
-      "Launched a successful website for client’s initial online presence, resulting in a 35% increase in customer inquiries and engagement.",
+      "Created user-friendly websites with mobile-responsive design using HTML, CSS, JavaScript, SASS, GitHub, and Google Maps API, meeting all client requirements for an outstanding user experience.",
+      "Launched a successful website for client’s initial online presence, expanding reach through effective SEO, accessibility, and content optimization, which resulted in over 35% increase in customer inquiries and engagement.",
+      "Managed domain, hosting, and site maintenance, ensuring uninterrupted user access and UX for nearly three years.",
     ],
-    problems: "",
+    challenges:
+      "These are the challenges that I faced with this project and how I handled them.",
   },
 
   {
@@ -190,10 +195,11 @@ const ProjData = [
     projLink: "/projects/capstonesparcds",
     projProposal: "",
     features: [
-      "Programmed an Arduino-based Arc Fault detection system that updates a database and sends real-time safety notifications to a mobile app, which successfully demonstrated the concept of our project idea.",
-      "Managed a team of three students utilizing GitHub for efficient collaboration and version control.",
+      "Led a team of three students for capstone, utilizing GitHub for a collaborative and successful project outcome.",
+      "Programmed an Arduino Arc Fault detection system and mobile app utilizing MySQL for real-time notifications.",
     ],
-    problems: "",
+    challenges:
+      "These are the challenges that I faced with this project and how I handled them.",
   },
 ];
 

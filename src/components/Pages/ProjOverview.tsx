@@ -5,8 +5,9 @@ import ProjNavBar from "../Navigation/ProjNavBar";
 
 function ProjOverview({ projName }) {
   // Filter data relevant to the active project url link clicked
-  let projDetails = projData.filter((data) => data.title === projName);
-  const { title, imageURL, features, projURL, projGitHubURL } = projDetails[0];
+  let projDetails = projData.filter((data) => data.title === projName)[0];
+  const { title, imageURL, features, projURL, projGitHubURL, challenges } =
+    projDetails;
 
   return (
     <>
@@ -47,30 +48,27 @@ function ProjOverview({ projName }) {
           </div>
         </div>
       </header>
-      <main className="flex flex-col gap-5 my-16">
-        <div className="flex flex-col max-w-[1000px] mx-auto gap-8">
+      <main className="flex flex-col gap-5 my-16 mx-10">
+        <div className="flex flex-col w-full max-w-[1000px] mx-auto gap-8">
           <h2 id="proj-overview" className="flex text-4xl">
             Project Overview
           </h2>
           <ul className={Styles["highlights-list"]}>
             {features.map((feature, index) => (
-              <li key={index} className={Styles.highlights}>
+              <li
+                key={index}
+                className={`${Styles.highlights} ml-8 pl-2 list-disc`}
+              >
                 {feature}
               </li>
             ))}
           </ul>
         </div>
-        <div className="flex flex-col max-w-[1000px] mx-auto gap-8">
+        <div className="flex flex-col w-full max-w-[1000px] mx-auto gap-8">
           <h2 id="proj-challenges" className="flex text-4xl">
             Project Challenges
           </h2>
-          <ul className={Styles["highlights-list"]}>
-            {features.map((feature, index) => (
-              <li key={index} className={Styles.highlights}>
-                {feature}
-              </li>
-            ))}
-          </ul>
+          <p className={`${Styles["highlights-list"]} ml-6`}>{challenges}</p>
         </div>
       </main>
       <ProjNavBar Styles={Styles} projName={projName} />

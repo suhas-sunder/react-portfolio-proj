@@ -32,7 +32,7 @@ const NavBtnData = [
   },
   {
     id: "nav-resume",
-    url: "https://drive.google.com/file/d/1FMej8K-ZoM7OjsTorZ8w6sEI2d9UByxB/view?usp=drive_link",
+    url: "https://drive.google.com/file/d/1z6dohrhC-abm8A4o263mVjtBYkoRyOlJ/view?usp=sharing",
     text: "resume",
     logo: "download",
     type: "downloadBtn",

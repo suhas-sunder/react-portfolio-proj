@@ -190,7 +190,7 @@ const ProjData = [
     year: "2019",
     imageURL: CapstoneUrl,
     projURL:
-      "https://drive.google.com/drive/folders/1AED_R-qRjy0SQBUPIFM95U8ib7Yal2pR?usp=sharing",
+      "https://drive.google.com/file/d/1z6dohrhC-abm8A4o263mVjtBYkoRyOlJ/view?usp=sharing",
     projCSS: "project-reverse",
     projLink: "/projects/capstonesparcds",
     projProposal: "",

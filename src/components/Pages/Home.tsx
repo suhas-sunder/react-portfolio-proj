@@ -32,7 +32,7 @@ function Home({ handleModal, showModal }) {
             Software Developer
           </h1>
           <p className="block">
-            Full-Stack Software Developer with a degree in Electrical
+            Full-Stack Software Developer with a related degree in Electrical
             Engineering and Management.{" "}
             <span className="sm:inline hidden">
               I have over two years of professional programming experience,

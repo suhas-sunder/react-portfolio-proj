@@ -3,7 +3,12 @@ import Styles from "./styles/ProjOverview.module.css";
 import NavLinks from "../Navigation/NavLinks";
 import ProjNavBar from "../Navigation/ProjNavBar";
 
-function ProjOverview({ projName }) {
+
+interface PropType {
+  projName: string;
+}
+
+function ProjOverview({ projName }: PropType) {
   // Filter data relevant to the active project url link clicked
   let projDetails = projData.filter((data) => data.title === projName)[0];
   const { title, imageURL, features, projURL, projGitHubURL, challenges } =
@@ -23,18 +28,20 @@ function ProjOverview({ projName }) {
             />
           </div>
           <div className="flex w-full justify-center items-center gap-5 sm:gap-16 mt-4">
-            <NavLinks
-              text={
-                projName === "Capstone SPArcDS"
-                  ? "View Demo Video"
-                  : "View Live"
-              }
-              logo="arrowUp"
-              type="project-link"
-              url={projURL}
-              isHashLink={false}
-              target="_blank"
-            />
+            {projURL && (
+              <NavLinks
+                text={
+                  projName === "Capstone SPArcDS"
+                    ? "View Demo Video"
+                    : "View Live"
+                }
+                logo="arrowUp"
+                type="project-link"
+                url={projURL}
+                isHashLink={false}
+                target="_blank"
+              />
+            )}
             {projGitHubURL && (
               <NavLinks
                 text="View GitHub"
@@ -68,7 +75,8 @@ function ProjOverview({ projName }) {
           <h2 id="proj-challenges" className="flex text-4xl">
             Project Challenges
           </h2>
-          <p className={`${Styles["highlights-list"]} ml-6`}>{challenges}</p>
+          {challenges.map(challenge => <p className={`${Styles["highlights-list"]} ml-6`}>{challenge}</p>)}
+          
         </div>
       </main>
       <ProjNavBar Styles={Styles} projName={projName} />

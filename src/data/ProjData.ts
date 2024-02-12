@@ -2,6 +2,8 @@ import CapstoneUrl from "../assets/capstone-proj-screenshot.jpg";
 import EMEUrl from "../assets/eme-website-screenshot.jpg";
 import PortfolioUrl from "../assets/portfolio-screenshot.jpg";
 import ATSUrl from "../assets/ats-website-screenshot.jpg";
+import DobsonPartnersUrl from "../assets/dobson-partners.png"
+import FreeTypingCampUrl from "../assets/free-tying-camp.png"
 import { v4 as uuidv4 } from "uuid"
 
 const ProjData = [
@@ -24,7 +26,7 @@ const ProjData = [
     ],
     year: "2023",
     endYear: "2024",
-    imageURL: ATSUrl,
+    imageURL: DobsonPartnersUrl,
     projURL: "https://true10.ca",
     projCSS: "project",
     projLink: "/projects/dobsonpartners",
@@ -63,7 +65,7 @@ const ProjData = [
     ],
     year: "2023",
     endYear: "2024",
-    imageURL: ATSUrl,
+    imageURL: FreeTypingCampUrl,
     projURL: "https://freetypingcamp.com/",
     projCSS: "project-reverse",
     projLink: "/projects/freetypingcamp",

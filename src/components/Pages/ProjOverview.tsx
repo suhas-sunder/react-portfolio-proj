@@ -3,7 +3,11 @@ import Styles from "./styles/ProjOverview.module.css";
 import NavLinks from "../Navigation/NavLinks";
 import ProjNavBar from "../Navigation/ProjNavBar";
 
-function ProjOverview({ projName }) {
+interface PropType {
+  projName: string;
+}
+
+function ProjOverview({ projName }: PropType) {
   // Filter data relevant to the active project url link clicked
   let projDetails = projData.filter((data) => data.title === projName)[0];
   const { title, imageURL, features, projURL, projGitHubURL, challenges } =
@@ -23,18 +27,20 @@ function ProjOverview({ projName }) {
             />
           </div>
           <div className="flex w-full justify-center items-center gap-5 sm:gap-16 mt-4">
-            <NavLinks
-              text={
-                projName === "Capstone SPArcDS"
-                  ? "View Demo Video"
-                  : "View Live"
-              }
-              logo="arrowUp"
-              type="project-link"
-              url={projURL}
-              isHashLink={false}
-              target="_blank"
-            />
+            {projURL && (
+              <NavLinks
+                text={
+                  projName === "Capstone SPArcDS"
+                    ? "View Demo Video"
+                    : "View Live"
+                }
+                logo="arrowUp"
+                type="project-link"
+                url={projURL}
+                isHashLink={false}
+                target="_blank"
+              />
+            )}
             {projGitHubURL && (
               <NavLinks
                 text="View GitHub"
@@ -48,16 +54,16 @@ function ProjOverview({ projName }) {
           </div>
         </div>
       </header>
-      <main className="flex flex-col gap-5 my-16 mx-10">
+      <main className="flex flex-col gap-10 my-20 mx-10">
         <div className="flex flex-col w-full max-w-[1000px] mx-auto gap-8">
           <h2 id="proj-overview" className="flex text-4xl">
             Project Overview
           </h2>
-          <ul className={Styles["highlights-list"]}>
+          <ul className="flex flex-col gap-5">
             {features.map((feature, index) => (
               <li
                 key={index}
-                className={`${Styles.highlights} ml-8 pl-2 list-disc`}
+                className="text-xl leading-loose ml-8 pl-2 list-disc"
               >
                 {feature}
               </li>
@@ -68,7 +74,9 @@ function ProjOverview({ projName }) {
           <h2 id="proj-challenges" className="flex text-4xl">
             Project Challenges
           </h2>
-          <p className={`${Styles["highlights-list"]} ml-6`}>{challenges}</p>
+          {challenges.map((challenge) => (
+            <p className="ml-6 text-xl leading-loose">{challenge}</p>
+          ))}
         </div>
       </main>
       <ProjNavBar Styles={Styles} projName={projName} />

@@ -2,6 +2,8 @@ import CapstoneUrl from "../assets/capstone-proj-screenshot.jpg";
 import EMEUrl from "../assets/eme-website-screenshot.jpg";
 import PortfolioUrl from "../assets/portfolio-screenshot.jpg";
 import ATSUrl from "../assets/ats-website-screenshot.jpg";
+import DobsonPartnersUrl from "../assets/dobson-partners.png"
+import FreeTypingCampUrl from "../assets/free-tying-camp.png"
 import { v4 as uuidv4 } from "uuid"
 
 const ProjData = [
@@ -24,11 +26,12 @@ const ProjData = [
     ],
     year: "2023",
     endYear: "2024",
-    imageURL: ATSUrl,
-    projURL: "https://true10.ca",
+    imageURL: DobsonPartnersUrl,
+    projURL: "",
     projCSS: "project",
     projLink: "/projects/dobsonpartners",
     features: [
+
       "Built a full-stack web application from the ground up using Remix, TypeScript, and Tailwind CSS, aligning closely with Figma wireframes to offer valuable Real Estate services for Landlords, Tenants, and Realtors.",
       "Maintained open communication, provided progress updates via Slack and Zoom, ensured consistent commits to GitLab, and proactively addressed challenges to meet project deadlines.",
       "Implemented back-end functionality by writing server-side code and integrating Prisma ORM for safe and efficient read and write operations to a PostgreSQL database.",
@@ -36,7 +39,7 @@ const ProjData = [
       "Handled user authentication using Session Storage, social media authentication using the OAuth2 Framework, and wrote unit and integration tests for all components using Vitest to ensure robust security and reliable functionality.",
     ],
     challenges:
-      "These are the challenges that I faced with this project and how I handled them.",
+      ["At the outset of this project, I encountered a significant challenge: while I was well-versed in JavaScript, React, Express, and PostgreSQL, I had no experience with some of the project requirements or technologies such as Prisma ORM or Remix, a server-side rendering JavaScript framework built on React. During the interview for this position, I was frank about my limitations, but was given a chance to hit the ground running. This presented a unique obstacle that required me to step out of my comfort zone and quickly familiarize myself with new technologies. Embracing this challenge head on proved to be an exciting opportunity for personal and professional growth as I have greatly expanded my skills in full-stack web application development.", "While I cannot disclose specific details about the hurdles I faced, this project was extensive and multifaceted. It involved designing interfaces for various user account types with complex integrations to facilitate effective communication and information sharing. Some technical challenges included debugging errors on the client, server, and external API, as well as designing database relationships and schema for proper information storage and flow. One crucial aspect was ensuring access to secure pages was restricted to authorized individuals. Navigating these challenges allowed me to further hone my programming skills, particularly in problem-solving and debugging. I am eager to apply these lessons to future projects and continue pushing the boundaries of what I can achieve as a software developer."],
   },
   {
     id: uuidv4(),
@@ -63,7 +66,7 @@ const ProjData = [
     ],
     year: "2023",
     endYear: "2024",
-    imageURL: ATSUrl,
+    imageURL: FreeTypingCampUrl,
     projURL: "https://freetypingcamp.com/",
     projCSS: "project-reverse",
     projLink: "/projects/freetypingcamp",
@@ -75,7 +78,7 @@ const ProjData = [
       "Utilized Adobe Firefly AI and Chat GPT to programmatically generate image and JSON text content for the website.",
     ],
     challenges:
-      "These are the challenges that I faced with this project and how I handled them.",
+      [""],
   },
   {
     id: uuidv4(),
@@ -105,7 +108,7 @@ const ProjData = [
       "Tested, built, and maintained a mobile-responsive website using React, TypeScript, Tailwind CSS, Jest, and React Testing Library, to effectively highlight my personal and professional accomplishments as a software developer.",
     ],
     challenges:
-      "These are the challenges that I faced with this project and how I handled them.",
+      [""],
   },
   {
     id: uuidv4(),
@@ -139,7 +142,7 @@ const ProjData = [
       "Engineered streamlined design solutions for intricate challenges, fostering engagement with partners, investors, and developers, which, in turn, contributed to the enhancement of my communication and teamwork proficiencies.",
     ],
     challenges:
-      "These are the challenges that I faced with this project and how I handled them.",
+      [""],
   },
   {
     id: uuidv4(),
@@ -169,7 +172,7 @@ const ProjData = [
       "Managed domain, hosting, and site maintenance, ensuring uninterrupted user access and UX for nearly three years.",
     ],
     challenges:
-      "These are the challenges that I faced with this project and how I handled them.",
+      [""],
   },
 
   {
@@ -199,7 +202,7 @@ const ProjData = [
       "Programmed an Arduino Arc Fault detection system and mobile app utilizing MySQL for real-time notifications.",
     ],
     challenges:
-      "These are the challenges that I faced with this project and how I handled them.",
+      [""],
   },
 ];
 

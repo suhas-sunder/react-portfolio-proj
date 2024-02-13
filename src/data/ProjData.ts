@@ -78,7 +78,7 @@ const ProjData = [
       "Utilized Adobe Firefly AI and Chat GPT to programmatically generate image and JSON text content for the website.",
     ],
     challenges:
-      [""],
+      ["Biggest challenge of the project was getting the typing interface to work. -Loading too many characters at a time. -Deciding between allowing letters to overflow or break at the end of the line. -Finding a solution to have text disappear when user types more than two lines, and re-appear when user deletes all of the text available on screen. -Allowing for a responsive design without breaking the logic for displaying max two lines of text."],
   },
   {
     id: uuidv4(),
@@ -108,7 +108,7 @@ const ProjData = [
       "Tested, built, and maintained a mobile-responsive website using React, TypeScript, Tailwind CSS, Jest, and React Testing Library, to effectively highlight my personal and professional accomplishments as a software developer.",
     ],
     challenges:
-      [""],
+      ["Overhauled initial design that was very basic. -Move from using css modules to Tailwind CSS. Adding more skills required creating a hide/show menu while keeping the skills list responsive. "],
   },
   {
     id: uuidv4(),
@@ -142,7 +142,7 @@ const ProjData = [
       "Engineered streamlined design solutions for intricate challenges, fostering engagement with partners, investors, and developers, which, in turn, contributed to the enhancement of my communication and teamwork proficiencies.",
     ],
     challenges:
-      [""],
+      ["Collaborating with client, designers, and back-end team to provide desired results within a tight schedule. Simplifying the presentation of all information client wanted to showcase on the main landing page (show timeline, etc.). Researching and creating mockups, videos, and presentations on how to develop client's mobile/web app."],
   },
   {
     id: uuidv4(),
@@ -172,7 +172,7 @@ const ProjData = [
       "Managed domain, hosting, and site maintenance, ensuring uninterrupted user access and UX for nearly three years.",
     ],
     challenges:
-      [""],
+      ["Work closely with client to design and develop website based on their feedback. Placing a video on the landing page meant spending a lot of time optimizing it to improve page load speeds. Also creating the header was trick because the video had to be masked to provided the slanted design, then I created a drop-down list that overlays the video and also cycles through the list of services the company offers. Additionally, When the list is hovered, it opens up a drop down menu while simultaneously moving the call to action button out of the way to provide a better user experience. If I would do it over again, I would build it using React since it would be a lot easier to implement and manage compared to pure javascript, but it was a great learning experience that I thoroughly enjoyed."],
   },
 
   {
@@ -202,7 +202,7 @@ const ProjData = [
       "Programmed an Arduino Arc Fault detection system and mobile app utilizing MySQL for real-time notifications.",
     ],
     challenges:
-      [""],
+      ["Team member was not pulling their weight. As team lead I took the time to sit down and find out why. In the end I ended up taking on the coding work, as well as, managing the project to lessen the burden for the student. In the end our project was successful and the project group remains good friends to this day."],
   },
 ];
 

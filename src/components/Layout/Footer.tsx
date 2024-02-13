@@ -16,11 +16,13 @@ function Footer() {
       id="footer"
       className="flex flex-col bg-dark-blueish-gray text-white items-center px-4 pt-2"
     >
-      <LogoButtonGroup />
+      <LogoButtonGroup showToolTip={false} />
       <div className="flex justify-center items-center gap-2 pt-10 pb-6 ">
         <span className="whitespace-nowrap">&copy; 2023 </span>
         <span className=" whitespace-nowrap text-highlight-yellow">|</span>
-        <span className="hidden sm:inline whitespace-nowrap">Designed & coded by</span>
+        <span className="hidden sm:inline whitespace-nowrap">
+          Designed & coded by
+        </span>
         <span className="whitespace-nowrap">
           <Link
             data-testid="link"

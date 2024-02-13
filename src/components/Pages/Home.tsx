@@ -73,7 +73,7 @@ function Home({ handleModal, showModal }) {
             friends and family, be it through archery, badminton, video games,
             board games, and more.
           </p>
-          <LogoButtonGroup />
+          <LogoButtonGroup showToolTip={true} />
         </div>
       </header>
       <main>

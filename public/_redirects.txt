@@ -1,10 +1,2 @@
 # Redirects from what the browser requests to what we serve
 /*    /index.html    200
-/home                /
-/projects                 /#projects
-/projects/dobsonpartners    /projects/dobsonpartners
-/projects/freetypingcamp    /projects/freetypingcamp
-/projects/reactportfolio    /projects/reactportfolio
-/projects/alltracksystem    /projects/alltracksystem
-/projects/emegroupinc.    /projects/emegroupinc.
-/projects/capstonesparcds   /projects/capstonesparcds

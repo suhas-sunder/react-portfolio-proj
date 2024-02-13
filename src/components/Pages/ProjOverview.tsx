@@ -3,7 +3,6 @@ import Styles from "./styles/ProjOverview.module.css";
 import NavLinks from "../Navigation/NavLinks";
 import ProjNavBar from "../Navigation/ProjNavBar";
 
-
 interface PropType {
   projName: string;
 }
@@ -55,16 +54,16 @@ function ProjOverview({ projName }: PropType) {
           </div>
         </div>
       </header>
-      <main className="flex flex-col gap-5 my-16 mx-10">
+      <main className="flex flex-col gap-10 my-20 mx-10">
         <div className="flex flex-col w-full max-w-[1000px] mx-auto gap-8">
           <h2 id="proj-overview" className="flex text-4xl">
             Project Overview
           </h2>
-          <ul className={Styles["highlights-list"]}>
+          <ul className="flex flex-col gap-5">
             {features.map((feature, index) => (
               <li
                 key={index}
-                className={`${Styles.highlights} ml-8 pl-2 list-disc`}
+                className="text-xl leading-loose ml-8 pl-2 list-disc"
               >
                 {feature}
               </li>
@@ -75,8 +74,9 @@ function ProjOverview({ projName }: PropType) {
           <h2 id="proj-challenges" className="flex text-4xl">
             Project Challenges
           </h2>
-          {challenges.map(challenge => <p className={`${Styles["highlights-list"]} ml-6`}>{challenge}</p>)}
-          
+          {challenges.map((challenge) => (
+            <p className="ml-6 text-xl leading-loose">{challenge}</p>
+          ))}
         </div>
       </main>
       <ProjNavBar Styles={Styles} projName={projName} />

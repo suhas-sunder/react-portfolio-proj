@@ -48,7 +48,7 @@ function ProjNavBar({ Styles, projName }) {
   }, [nextProjName, prevProjName, projName]);
 
   return (
-    <div className={`pt-3 bg-dark-blueish-gray`}>
+    <div className={`pt-5 bg-dark-blueish-gray`}>
       <div className=" flex justify-between max-w-[1600px] mx-auto">
         {prevProjName && (
           <Link

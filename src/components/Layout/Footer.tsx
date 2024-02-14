@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import LogoButtonGroup from "../UI/LogoButtonGroup";
+import LogoButtonGroup from "../Navigation/LogoButtonGroup";
 
 function Footer() {
   // Scroll to top of page on redirect

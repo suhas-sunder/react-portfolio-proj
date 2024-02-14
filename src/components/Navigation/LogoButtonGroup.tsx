@@ -4,7 +4,7 @@ import { faLinkedin as linkedInIcon } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope as emailIcon } from "@fortawesome/free-solid-svg-icons";
 import { faAward as certificateIcon } from "@fortawesome/free-solid-svg-icons";
 import { faGraduationCap as gradIcon } from "@fortawesome/free-solid-svg-icons";
-import ToolTip from "./ToolTip";
+import ToolTip from "../UI/ToolTip";
 import LogoButtons from "./LogoButtons";
 
 interface PropType {

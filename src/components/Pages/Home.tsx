@@ -1,13 +1,12 @@
 import Skills from "../Layout/Skills";
 import Projects from "../Layout/Projects";
 import Contact from "../Form/Contact";
-import Styles from "./styles/Home.module.css";
 import ProfilePic from "../../assets/profile-pic.png";
 import Modal from "../UI/Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode as code } from "@fortawesome/free-solid-svg-icons";
 import { HashLink } from "react-router-hash-link";
-import LogoButtonGroup from "../UI/LogoButtonGroup";
+import LogoButtonGroup from "../Navigation/LogoButtonGroup";
 import handleScrollOffset from "../utility/handleScrollOffset";
 import SparkleAnim from "../UI/SparkleAnim";
 
@@ -17,13 +16,13 @@ function Home({ handleModal, showModal }) {
       {showModal && <Modal closeModal={handleModal} />}
       <header
         id="about"
-        className="box-content flex flex-col justify-center items-center text-white bg-dark-blueish-gray lg:min-h-[100dvh] pt-[10em] px-[2em] pb-[12em] lg:pb-[10dvh] gap-5 lg:gap-[10em] lg:flex-row lg:pt-0"
+        className="box-content flex flex-col justify-center items-center text-white bg-dark-blueish-gray xl:min-h-[100dvh] pt-[10em] px-[2em] pb-[12em] xl:pb-[10dvh] gap-5 xl:gap-[10em] xl:flex-row xl:pt-0 "
       >
         <SparkleAnim>
           <img
             alt="head-shot of Suhas Sunder wearing a suit"
             src={ProfilePic}
-            className={`${Styles["profile-img"]} block rounded-full bg-cover border-[6px] border-highlight-yellow mb-[2em] w-[200px] h-[200px] sm:w-[300px] sm:h-[300px]`}
+            className="block rounded-full bg-cover border-[6px] border-highlight-yellow mb-[2em] w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] min-w-[15em]"
             height={300}
             width={300}
           />

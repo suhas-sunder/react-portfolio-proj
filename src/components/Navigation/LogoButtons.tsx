@@ -20,6 +20,7 @@ function LogoButtons({ data }: PropType) {
     <>
       {data.isHashLink ? (
         <HashLink
+          aria-label={data.toolTipMsg}
           to={data.url}
           className="flex justify-center items-center text-dark-blueish-gray w-16 h-12 text-3xl bg-highlight-yellow rounded-lg  hover:text-highlight-yellow hover:bg-dark-blueish-gray border-2 border-highlight-yellow"
         >

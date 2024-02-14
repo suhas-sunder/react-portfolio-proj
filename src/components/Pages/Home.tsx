@@ -22,7 +22,7 @@ function Home({ handleModal, showModal }) {
           <img
             alt="head-shot of Suhas Sunder wearing a suit"
             src={ProfilePic}
-            className="block rounded-full bg-cover border-[6px] border-highlight-yellow mb-[2em] w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] min-w-[15em]"
+            className="block rounded-full bg-cover border-[6px] border-highlight-yellow mb-[2em] w-[200px] h-[200px] sm:w-[300px] sm:h-[300px]"
             height={300}
             width={300}
           />

@@ -58,6 +58,10 @@ function App() {
         />
         <Route path="/Projects">
           <Route
+            path=""
+            element={<Home handleModal={handleModal} showModal={showModal} />}
+          />
+          <Route
             path="alltracksystem"
             element={<ProjectOverview projName="All Track System" />}
           />

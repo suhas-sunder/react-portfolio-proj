@@ -15,7 +15,7 @@ function ProjOverview({ projName }: PropType) {
 
   return (
     <>
-      <header className="flex flex-col bg-dark-blueish-gray pt-24 pb-16">
+      <header className="flex flex-col bg-dark-blueish-gray pt-20 pb-16">
         <ProjNavBar Styles={Styles} projName={projName} />
         <div className={Styles["header-container"]}>
           <h1 className="text-2xl sm:text-[2.5rem] py-3 sm:py-6">{title}</h1>

@@ -49,7 +49,7 @@ export default function NavLinks({
     <Link
       data-testid={`btn-link-${id}`}
       to={url}
-      aria-label={text}
+      aria-label={text || "Logo"}
       className={`${
         type !== "nav-link"
           ? "font-semibold border-2 border-highlight-yellow  py-[0.7em] text-xs sm:text-sm rounded-md  text-dark-blueish-gray bg-highlight-yellow justify-center items-center gap-2 hover:text-highlight-yellow hover:bg-dark-blueish-gray"

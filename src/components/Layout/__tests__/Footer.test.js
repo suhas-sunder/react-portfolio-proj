@@ -15,7 +15,7 @@ const MockFooter = () => {
 const checkURL = [
   "https://www.linkedin.com/in/s-sunder/",
   "https://github.com/suhas-sunder",
-  "/",
+  "https://ontariotechu.ca/",
   "https://www.linkedin.com/in/s-sunder/details/certifications/",
   "/#contact",
   "/",
@@ -24,9 +24,7 @@ const checkURL = [
 describe("renders footer elements", () => {
   it("should render footer with paragraph text", () => {
     render(<MockFooter />);
-    const textElement = screen.getByText(
-      /© 2023 | Designed & coded by Suhas Sunder./i
-    );
+    const textElement = screen.getByText(/Designed & coded by/i);
     expect(textElement).toBeInTheDocument();
   });
 

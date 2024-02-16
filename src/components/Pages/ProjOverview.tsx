@@ -70,14 +70,14 @@ function ProjOverview({ projName }: PropType) {
             ))}
           </ul>
         </div>
-        <div className="flex flex-col w-full max-w-[1000px] mx-auto gap-8">
+        {challenges.length > 0 && <div className="flex flex-col w-full max-w-[1000px] mx-auto gap-8">
           <h2 id="proj-challenges" className="flex text-4xl">
             Project Challenges
           </h2>
           {challenges.map((challenge) => (
             <p className="ml-6 text-xl leading-loose">{challenge}</p>
           ))}
-        </div>
+        </div>}
       </main>
       <ProjNavBar Styles={Styles} projName={projName} />
     </>

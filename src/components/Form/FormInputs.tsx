@@ -11,7 +11,7 @@ export default function FormInputs(props) {
     <input
       className={`${Styles.input} ${
         touched && Styles["invalid-input"]
-      } text-sm sm:text-base`}
+      } text-sm sm:text-base pl-2 py-1`}
       {...formProps}
     />
   );

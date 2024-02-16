@@ -22,7 +22,7 @@ function LogoButtonGroup({ showToolTip }: PropType) {
       target: "_blank",
     },
     {
-      id: "github",
+      id: "githublogoicon",
       logo: githubIcon,
       toolTipMsg: "View my GitHub profile (new tab)",
       type: "logoLink",

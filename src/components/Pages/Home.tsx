@@ -10,7 +10,12 @@ import LogoButtonGroup from "../Navigation/LogoButtonGroup";
 import handleScrollOffset from "../utility/handleScrollOffset";
 import SparkleAnim from "../UI/SparkleAnim";
 
-function Home({ handleModal, showModal }) {
+interface PropType {
+  showModal: boolean;
+  handleModal: () => void;
+}
+
+function Home({ handleModal, showModal }: PropType) {
   return (
     <>
       {showModal && <Modal closeModal={handleModal} />}

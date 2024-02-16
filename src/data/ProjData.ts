@@ -155,7 +155,7 @@ const ProjData = [
       "Engineered streamlined design solutions for intricate challenges, fostering engagement with partners, investors, and developers, which, in turn, contributed to the enhancement of my communication and teamwork proficiencies.",
     ],
     challenges:
-      [""],
+      [],
   },
   {
     id: uuidv4(),
@@ -185,7 +185,7 @@ const ProjData = [
       "Managed domain, hosting, and site maintenance, ensuring uninterrupted user access and UX for nearly three years.",
     ],
     challenges:
-      [""],
+      [],
   },
 
   {

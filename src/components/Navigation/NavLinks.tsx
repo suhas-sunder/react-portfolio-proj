@@ -49,7 +49,7 @@ export default function NavLinks({
     <Link
       data-testid={`btn-link-${id}`}
       to={url}
-      aria-label={text || "Logo"}
+      aria-label={text || "Logo icon"}
       className={`${
         type !== "nav-link"
           ? "font-semibold border-2 border-highlight-yellow  py-[0.7em] text-xs sm:text-sm rounded-md  text-dark-blueish-gray bg-highlight-yellow justify-center items-center gap-2 hover:text-highlight-yellow hover:bg-dark-blueish-gray"
@@ -66,7 +66,7 @@ export default function NavLinks({
     <HashLink
       data-testid={`btn-link-${id}`}
       to={url}
-      aria-label={text}
+      aria-label={text || "Logo icon"}
       className={`flex hover:text-highlight-yellow justify-center items-center text-white tracking-widest text-base px-5 py-5 uppercase`}
       target={target}
       scroll={(el) => handleScrollOffset(el)}

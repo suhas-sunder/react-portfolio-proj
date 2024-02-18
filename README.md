@@ -4,6 +4,18 @@ This project features a responsive design, and is [hosted live](https://suhassun
 
 Built using React, TypeScript, and Tailwind CSS.
 
+Project Overview:
+
+  - Led a team of three students for capstone, utilizing GitHub for a collaborative and successful project outcome.
+  - Programmed an Arduino Arc Fault detection system and mobile app utilizing MySQL for real-time notifications.
+
+Project Challenges:
+
+In my role as team leader, I assumed various responsibilities, including documenting meeting minutes during our weekly meetings and overseeing the project and team using the waterfall method to meet project deadlines effectively. Additionally, I undertook the software development aspects of the project, which involved coding the Arduino to update a database and send SMS and mobile notifications upon detecting an Arc fault. Furthermore, I developed a mobile application to track notifications and facilitate synchronization of multiple arc fault detectors installed on various breakers in old homes.
+
+These responsibilities allowed me to develop comprehensive leadership and technical skills while ensuring the successful execution of the project. Through effective coordination and hands-on development, I contributed to the project's overall success and gained valuable experience in project management and software development. Moreover, drawing from my minor in management, I was able to apply strategic planning and organizational skills, further enhancing my contributions to the project.
+
+
 Home page - header:
 ![image](https://github.com/suhas-sunder/react-portfolio-proj/assets/77464593/919bbae2-2074-41a7-ba6f-885349caab54)
 
@@ -23,14 +35,3 @@ Project page - header & project overview:
 
 Project page - challenges:
 ![image](https://github.com/suhas-sunder/react-portfolio-proj/assets/77464593/b7b6d9b7-049e-4df2-89a4-83f7fac74561)
-
-Project Overview:
-
-  - Led a team of three students for capstone, utilizing GitHub for a collaborative and successful project outcome.
-  - Programmed an Arduino Arc Fault detection system and mobile app utilizing MySQL for real-time notifications.
-
-Project Challenges:
-
-In my role as team leader, I assumed various responsibilities, including documenting meeting minutes during our weekly meetings and overseeing the project and team using the waterfall method to meet project deadlines effectively. Additionally, I undertook the software development aspects of the project, which involved coding the Arduino to update a database and send SMS and mobile notifications upon detecting an Arc fault. Furthermore, I developed a mobile application to track notifications and facilitate synchronization of multiple arc fault detectors installed on various breakers in old homes.
-
-These responsibilities allowed me to develop comprehensive leadership and technical skills while ensuring the successful execution of the project. Through effective coordination and hands-on development, I contributed to the project's overall success and gained valuable experience in project management and software development. Moreover, drawing from my minor in management, I was able to apply strategic planning and organizational skills, further enhancing my contributions to the project.

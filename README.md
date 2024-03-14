@@ -35,3 +35,6 @@ Project page - header & project overview:
 
 Project page - challenges:
 ![image](https://github.com/suhas-sunder/react-portfolio-proj/assets/77464593/b7b6d9b7-049e-4df2-89a4-83f7fac74561)
+
+Mobile Responsive Design
+![image](https://github.com/suhas-sunder/react-portfolio-proj/assets/77464593/a71b6798-fb42-44a2-bfc9-7c295fabc3f4)

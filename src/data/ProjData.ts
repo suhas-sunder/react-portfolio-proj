@@ -3,6 +3,11 @@ import CapstoneUrl from "../assets/capstone-proj-screenshot.jpg";
 import EMEUrl from "../assets/eme-website-screenshot.jpg";
 import ATSUrl from "../assets/ats-website-screenshot.jpg";
 import FreeTypingCampUrl from "../assets/free-tying-camp.png";
+import iLoveSvgUrl from "../assets/i_love_svg.jpg";
+import MorseWordsUrl from "../assets/morse_words.jpg";
+import RentConverterUrl from "../assets/rent_converter.jpg";
+import SensorPlannerUrl from "../assets/sensor_planner.jpg";
+import MiniFeatureVizUrl from "../assets/feat_visualizer.jpg";
 
 const ProjData = [
   {
@@ -20,7 +25,7 @@ const ProjData = [
       "PSO-GA Optimization",
       "HouseExpo Dataset",
     ],
-    imageURL: "",
+    imageURL: SensorPlannerUrl,
     projURL: "https://www.sensorplanner.com",
     projCSS: "project",
     projLink: "/projects/smarthomesensorplanner",
@@ -41,7 +46,7 @@ const ProjData = [
       "Accessibility",
       "Responsive UI",
     ],
-    imageURL: "",
+    imageURL: MiniFeatureVizUrl,
     projURL: "https://mini-feat.netlify.app",
     projCSS: "project",
     projLink: "/projects/featurevariabilityvisualizer",
@@ -155,7 +160,7 @@ const ProjData = [
     description:
       "Morse code translation and practice tool for learning, training, and decoding messages.",
     techStack: [], // intentionally omitted
-    imageURL: "",
+    imageURL: MorseWordsUrl,
     projURL: "https://morsewords.com",
     projCSS: "project",
     projLink: "/projects/morsewords",
@@ -169,7 +174,7 @@ const ProjData = [
     description:
       "Calculator tool to help renters compare and convert rent across different payment frequencies.",
     techStack: [], // intentionally omitted
-    imageURL: "",
+    imageURL: RentConverterUrl,
     projURL: "https://rentconverter.com",
     projCSS: "project",
     projLink: "/projects/rentconverter",
@@ -183,7 +188,7 @@ const ProjData = [
     description:
       "Collection of simple SVG utilities for optimizing, converting, and working with vector assets.",
     techStack: [], // intentionally omitted
-    imageURL: "",
+    imageURL: iLoveSvgUrl,
     projURL: "https://ilovesvg.com",
     projCSS: "project",
     projLink: "/projects/ilovesvg",

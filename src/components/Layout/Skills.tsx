@@ -39,13 +39,13 @@ export default function Skills() {
       id="skills"
       className="flex relative w-full justify-center bg-light-blueish-gray tracking-wider"
     >
-      <div className="flex flex-col max-w-[1200px] w-full relative">
+      <div className="flex flex-col  w-full relative">
         <h2 className="flex absolute uppercase text-white bg-light-blueish-gray px-12 pt-6 py-4 text-xl sm:text-4xl rounded-t-lg sm:left-0 -top-[3.35em] sm:-top-[2.2em]">
           Technical skills
         </h2>
 
         <ExpandingListContainer
-          customBtnStyle="flex cursor-pointer text-white hover:text-highlight-yellow py-6"
+          customBtnStyle="flex bg-slate-700  w-full cursor-pointer text-highlight-yellow hover:text-yellow-100  py-4"
           maxHeight="max-h-60 md:max-h-64 lg:max-h-[14.5em]"
         >
           <ul className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-x-16 sm:gap-x-10 md:gap-x-16 gap-y-14 pt-10 pb-5 px-6">

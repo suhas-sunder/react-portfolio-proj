@@ -40,7 +40,7 @@ function App() {
   }, [location]);
 
   return (
-    <>
+    <div className="bg-slate-800">
       <Helmet>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width" />
@@ -96,7 +96,7 @@ function App() {
         />
       </Routes>
       <Footer />
-    </>
+    </div>
   );
 }
 

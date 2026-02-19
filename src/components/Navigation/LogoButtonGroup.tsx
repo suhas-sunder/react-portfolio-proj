@@ -31,10 +31,10 @@ function LogoButtonGroup({ showToolTip }: PropType) {
     },
     {
       id: "education",
-      toolTipMsg: "View my University (new tab)",
+      toolTipMsg: "View my Education History (new tab)",
       logo: gradIcon,
       type: "logoLink",
-      url: "https://ontariotechu.ca/",
+      url: "https://www.linkedin.com/in/s-sunder/details/education/",
       target: "_blank",
     },
     {

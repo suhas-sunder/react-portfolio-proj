@@ -34,12 +34,12 @@ function Home({ handleModal, showModal }: PropType) {
           <h1 className="text-2xl sm:text-3xl lg:text-[2.15rem] text-center">
             Suhas Sunder{" "}
             <FontAwesomeIcon className="text-highlight-yellow" icon={code} />{" "}
-            Software Developer
+            Software Engineer
           </h1>
 
           <p className="block">
-            Full-stack developer focused on building production web apps in
-            startup environments.{" "}
+            Full-stack software engineer focused on building production web apps
+            in startup environments.{" "}
             <span className="sm:inline hidden">
               I work across user-facing features and API integrations,
             </span>{" "}
@@ -83,7 +83,7 @@ function Home({ handleModal, showModal }: PropType) {
       <main>
         <Skills />
         <Projects />
-        <Contact />
+        {/* <Contact /> */}
       </main>
     </>
   );

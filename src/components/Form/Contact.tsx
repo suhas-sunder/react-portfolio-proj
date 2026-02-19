@@ -115,9 +115,9 @@ function Contact() {
   return (
     <div
       id="contact"
-      className="max-w-[400px] items-center leading-relaxed lg:leading-loose text-base sm:text-xl p-8 pt-12 mt-12 mb-40 mx-4 bg-light-blueish-gray rounded-2xl sm:px-10 sm:py-12 sm:pb-5 text-white sm:mx-auto "
+      className="flex flex-col  sm:max-w-[600px]  leading-relaxed lg:leading-loose text-base sm:text-xl p-8 pt-12 my-8 rounded-2xl sm:px-10 text-white sm:mx-auto "
     >
-      <h2 className="text-2xl sm:text-3xl -translate-x-1 -translate-y-3">
+      <h2 className="text-2xl sm:text-3xl flex text-center w-full justify-center items-center mb-3">
         Let's have a chat!
       </h2>
       <form

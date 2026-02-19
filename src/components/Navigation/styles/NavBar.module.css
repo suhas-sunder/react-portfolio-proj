@@ -1,38 +1,36 @@
 .nav {
-    margin: 0;
-    display: block;
-    position: fixed;
-    width: 100%;
-    z-index: 2;
+  margin: 0;
+  display: block;
+  width: 100%;
+  z-index: 2;
 }
 
-.nav-items {    
-    background-color: rgba(29,36,48,255);
-    display: flex;
-    position: fixed;
-    justify-content: center;
-    align-items: center;
-    padding-top: 0.25em;
-    padding-bottom: 0.25em;
-    width: 100%;
+.nav-items {
+  background-color: rgba(29, 36, 48, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  width: 100%;
 }
 
 .nav-list {
-    margin: 0;
-    list-style: none;
-    display: flex;
-    font-size: 1rem;
-    text-transform: uppercase;
-    margin-right: 2.5rem;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-right: 2.5rem;
 }
 
 .download-link {
-    display: block;
-    margin: auto 0 auto 2rem;
+  display: block;
+  margin: auto 0 auto 2rem;
 }
 
 @media (max-width: 1200px) {
-    .nav-items {
-        display: none;
-    }
+  .nav-items {
+    display: none;
+  }
 }

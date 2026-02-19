@@ -52,8 +52,8 @@ export default function NavLinks({
       aria-label={text || "Logo icon"}
       className={`${
         type !== "nav-link"
-          ? "font-semibold border-2 border-highlight-yellow  py-[0.7em] text-xs sm:text-sm rounded-md  text-dark-blueish-gray bg-highlight-yellow justify-center items-center gap-2 hover:text-highlight-yellow hover:bg-dark-blueish-gray"
-          : "hover:text-highlight-yellow justify-center items-center text-white py-5"
+          ? "font-semibold border-2 border-highlight-yellow  py-[0.7em] text-xs sm:text-sm rounded-md  text-dark-blueish-gray bg-highlight-yellow justify-center items-center gap-2 hover:text-yellow-100 hover:bg-dark-blueish-gray"
+          : "hover:text-yellow-100 justify-center items-center text-highlight-yellow py-5"
       } uppercase flex tracking-widest text-base px-[0.67em] sm:px-5`}
       target={target}
     >
@@ -67,7 +67,7 @@ export default function NavLinks({
       data-testid={`btn-link-${id}`}
       to={url}
       aria-label={text || "Logo icon"}
-      className={`flex hover:text-highlight-yellow justify-center items-center text-white tracking-widest text-base px-5 py-5 uppercase`}
+      className={`flex hover:text-yellow-100 justify-center items-center text-highlight-yellow tracking-widest text-base px-5 py-5 uppercase`}
       target={target}
       scroll={(el) => handleScrollOffset(el)}
     >

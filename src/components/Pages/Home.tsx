@@ -83,7 +83,7 @@ function Home({ handleModal, showModal }: PropType) {
       <main>
         <Skills />
         <Projects />
-        {/* <Contact /> */}
+        <Contact />
       </main>
     </>
   );

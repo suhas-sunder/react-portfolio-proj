@@ -23,15 +23,14 @@ function Home({ handleModal, showModal }: PropType) {
         id="about"
         className="box-content flex flex-col justify-center items-center text-white bg-dark-blueish-gray xl:min-h-[100dvh] pt-[10em] px-[2em] pb-[12em] xl:pb-[10dvh] gap-5 xl:gap-[10em] xl:flex-row xl:pt-0 "
       >
-        <SparkleAnim>
-          <img
-            alt="head-shot of Suhas Sunder wearing a suit"
-            src={ProfilePic}
-            className="block rounded-full bg-cover border-[6px] border-highlight-yellow mb-[2em] w-[200px] h-[200px] sm:w-[300px] sm:h-[300px]"
-            height={300}
-            width={300}
-          />
-        </SparkleAnim>
+        <img
+          alt="Headshot of Suhas Sunder"
+          src={ProfilePic}
+          className="block rounded-full bg-cover p-4 border-[6px] border-highlight-yellow mb-[2em] w-[200px] h-[200px] sm:w-[300px] sm:h-[300px]"
+          height={300}
+          width={300}
+        />
+
         <div className="flex flex-col gap-8 max-w-[690px] text-base lg:text-lg text-center sm:text-left tracking-wider leading-loose lg:leading-loose">
           <h1 className="text-2xl sm:text-3xl lg:text-[2.15rem] text-center">
             Suhas Sunder{" "}

@@ -8,7 +8,6 @@ import { faCode as code } from "@fortawesome/free-solid-svg-icons";
 import { HashLink } from "react-router-hash-link";
 import LogoButtonGroup from "../Navigation/LogoButtonGroup";
 import handleScrollOffset from "../utility/handleScrollOffset";
-import SparkleAnim from "../UI/SparkleAnim";
 
 interface PropType {
   showModal: boolean;

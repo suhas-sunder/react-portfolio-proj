@@ -36,23 +36,25 @@ function Home({ handleModal, showModal }: PropType) {
             <FontAwesomeIcon className="text-highlight-yellow" icon={code} />{" "}
             Software Developer
           </h1>
+
           <p className="block">
-            Full-Stack Software Developer with a related degree in Electrical
-            Engineering and Management.{" "}
+            Full-stack developer focused on building production web apps in
+            startup environments.{" "}
             <span className="sm:inline hidden">
-              I have over two years of professional programming experience,
+              I work across user-facing features and API integrations,
             </span>{" "}
             <span className="sm:inline hidden">
               <HashLink
                 to="/#skills"
-                className="text-highlight-yellow"
+                className="text-highlight-yellow cursor-pointer"
                 scroll={(el) => handleScrollOffset(el)}
               >
-                leveraging various technologies
+                using modern web technologies
               </HashLink>
             </span>{" "}
-            to build websites and web applications.
+            to ship reliable, maintainable software.
           </p>
+
           <p>
             <span>
               <HashLink
@@ -60,24 +62,24 @@ function Home({ handleModal, showModal }: PropType) {
                 className="text-highlight-yellow cursor-pointer"
                 scroll={(el) => handleScrollOffset(el)}
               >
-                My projects
+                Selected projects
               </HashLink>
             </span>
             <span className="hidden sm:inline">
               , both personal and professional,
             </span>{" "}
-            are a testament to my passion for creating, collaborating, and
-            problem-solving.
+            that highlight what I’ve built and shipped.
           </p>
+
           <p>
-            Apart from coding, I like exercising and working on creative
-            projects in my free time. I also enjoy spending quality time with
-            friends and family, be it through archery, badminton, video games,
-            board games, and more.
+            Outside of coding, I stay active with archery and the gym, and spend
+            time on creative side projects.
           </p>
+
           <LogoButtonGroup showToolTip={true} />
         </div>
       </header>
+
       <main>
         <Skills />
         <Projects />

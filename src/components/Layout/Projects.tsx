@@ -5,7 +5,7 @@ const EXPERIENCE_ITEMS = [
   {
     companyName: "Dobson Partners",
     location: "Toronto, ON",
-    roleTitle: "Full-Stack Software Developer",
+    roleTitle: "Full-Stack Software Engineer",
     dateRange: "Oct 2023 – Jun 2025",
     highlights: [
       "Built and shipped a full-stack web app (React, TypeScript, Tailwind, Node, Express) supporting real estate workflows.",

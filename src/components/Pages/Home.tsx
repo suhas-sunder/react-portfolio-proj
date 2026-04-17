@@ -34,21 +34,15 @@ function Home({ handleModal, showModal }: PropType) {
           <h1 className="text-center text-2xl sm:text-3xl lg:text-[2.15rem]">
             Suhas Sunder{" "}
             <FontAwesomeIcon className="text-highlight-yellow" icon={code} />{" "}
-            Software Engineer
+            Software Developer
           </h1>
 
           <p className="block">
-            Full-stack software engineer with 3+ years of experience building
-            and maintaining production web applications. I work across
-            user-facing features and API integrations,{" "}
-            <HashLink
-              to="/#skills"
-              className="text-highlight-yellow cursor-pointer"
-              scroll={(element) => handleScrollOffset(element)}
-            >
-              using modern web technologies
-            </HashLink>{" "}
-            to ship reliable, maintainable software.
+            Full-stack software developer with 3+ years of experience building
+            and maintaining web applications in startup and project
+            environments. I work across frontend development, backend services,
+            API integrations, and relational data workflows to deliver reliable,
+            maintainable software.
           </p>
 
           <p>
@@ -59,13 +53,13 @@ function Home({ handleModal, showModal }: PropType) {
             >
               Selected projects
             </HashLink>{" "}
-            from my professional and personal work highlight what I’ve built and
-            shipped.
+            from my professional and personal work highlight the systems,
+            features, and technical solutions I have built.
           </p>
 
           <p>
-            Outside of engineering, I stay active with archery and the gym, and
-            spend time on creative side projects.
+            Outside of software development, I stay active with archery and the
+            gym, and spend time on creative side projects.
           </p>
 
           <LogoButtonGroup showToolTip={true} />

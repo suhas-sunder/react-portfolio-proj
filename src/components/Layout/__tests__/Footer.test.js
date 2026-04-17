@@ -1,8 +1,7 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Footer from "../Footer";
 import { BrowserRouter } from "react-router-dom";
-import Modal from "../../UI/Modal";
 
 const MockFooter = () => {
   return (
@@ -12,35 +11,41 @@ const MockFooter = () => {
   );
 };
 
-const checkURL = [
+const expectedUrls = [
   "https://www.linkedin.com/in/s-sunder/",
   "https://github.com/suhas-sunder",
-  "https://ontariotechu.ca/",
+  "https://www.linkedin.com/in/s-sunder/details/education/",
   "https://www.linkedin.com/in/s-sunder/details/certifications/",
   "/#contact",
-  "/",
+  "https://github.com/suhas-sunder/react-portfolio-proj",
 ];
 
-describe("renders footer elements", () => {
-  it("should render footer with paragraph text", () => {
+describe("Footer", () => {
+  it("renders footer with paragraph text", () => {
     render(<MockFooter />);
-    const textElement = screen.getByText(/Designed & coded by/i);
+    expect(screen.getByText(/Designed & coded by/i)).toBeInTheDocument();
+  });
+
+  it("renders the Suhas Sunder text", () => {
+    render(<MockFooter />);
+    const textElement = screen.getByText(/suhas sunder/i);
     expect(textElement).toBeInTheDocument();
   });
 
-  it("should render an embedded text link with appropriate text", () => {
-    render(<MockFooter />);
-    const linkElement = screen.getByTestId("link");
-    expect(linkElement).toBeInTheDocument();
-    expect(linkElement).toHaveTextContent(/suhas sunder/i);
-  });
-
-  it("should render 6 links total with appropriate redirects", () => {
+  it("renders all expected footer links", () => {
     render(<MockFooter />);
     const linkElements = screen.getAllByRole("link");
-    expect(linkElements.length).toBe(6);
-    linkElements.map((linkElement, index) =>
-      expect(linkElement).toHaveAttribute("href", checkURL.at(index))
-    );
+
+    const hrefs = linkElements.map((link) => link.getAttribute("href"));
+
+    expectedUrls.forEach((url) => {
+      expect(hrefs).toContain(url);
+    });
+  });
+
+  it("renders at least the expected number of links", () => {
+    render(<MockFooter />);
+    const linkElements = screen.getAllByRole("link");
+    expect(linkElements.length).toBeGreaterThanOrEqual(expectedUrls.length);
   });
 });

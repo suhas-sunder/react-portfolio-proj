@@ -1,102 +1,122 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import FormInput from "../FormInput";
+import FormInputs from "../../Form/FormInputs";
 
-describe("Renders form elements", () => {
-  it("should display an input field by default regardless of name prop", () => {
-    render(<FormInput />);
-    const inputElement = screen.getByRole("textbox");
+describe("renders form elements", () => {
+  it("should render an input field when name is not message", () => {
+    render(<FormInputs name="name" label="name" id="name" />);
+    const inputElement = screen.getByLabelText(/name/i);
     expect(inputElement).toBeInTheDocument();
+    expect(inputElement.tagName).toBe("INPUT");
   });
 
-  it("should display textarea if included in props", () => {
-    render(<FormInput name="message" label="message" id="message" />);
+  it("should render a textarea when name is message", () => {
+    render(<FormInputs name="message" label="message" id="message" />);
     const inputTextElement = screen.getByLabelText(/message/i);
     expect(inputTextElement).toBeInTheDocument();
+    expect(inputTextElement.tagName).toBe("TEXTAREA");
   });
 
-  it("should display name input field if text area is displayed", () => {
-    render(<FormInput name="name" label="name" id="name" />);
+  it("should render a name input field", () => {
+    render(<FormInputs name="name" label="name" id="name" />);
     const inputElement = screen.getByLabelText(/name/i);
     expect(inputElement).toBeInTheDocument();
   });
 
-  it("should display email input field if text area is displayed", () => {
-    render(<FormInput name="email" label="email" id="email" />);
+  it("should render an email input field", () => {
+    render(<FormInputs name="email" label="email" id="email" />);
     const inputElement = screen.getByLabelText(/email/i);
     expect(inputElement).toBeInTheDocument();
   });
 
-  it("should display phone input field if text area is displayed", () => {
-    render(<FormInput name="phone" label="phone" id="phone" />);
+  it("should render a phone input field", () => {
+    render(<FormInputs name="phone" label="phone" id="phone" />);
     const inputElement = screen.getByLabelText(/phone/i);
     expect(inputElement).toBeInTheDocument();
   });
 });
 
-describe("Form fields that should not render if props don't exist", () => {
-  it("should not display textarea if not included in props", () => {
-    render(<FormInput />);
+describe("form fields that should not render for other props", () => {
+  it("should not render a message textarea when rendering a name input", () => {
+    render(<FormInputs name="name" label="name" id="name" />);
     const inputTextElement = screen.queryByLabelText(/message/i);
     expect(inputTextElement).not.toBeInTheDocument();
   });
 
-  it("should not display name input field if text area is displayed", () => {
-    render(<FormInput name="message" label="message" id="message" />);
+  it("should not render a name input when rendering a message textarea", () => {
+    render(<FormInputs name="message" label="message" id="message" />);
     const inputElement = screen.queryByLabelText(/name/i);
     expect(inputElement).not.toBeInTheDocument();
   });
 
-  it("should not display email input field if text area is displayed", () => {
-    render(<FormInput name="message" label="message" id="message" />);
+  it("should not render an email input when rendering a message textarea", () => {
+    render(<FormInputs name="message" label="message" id="message" />);
     const inputElement = screen.queryByLabelText(/email/i);
     expect(inputElement).not.toBeInTheDocument();
   });
 
-  it("should not display phone input field if text area is displayed", () => {
-    render(<FormInput name="message" label="message" id="message" />);
+  it("should not render a phone input when rendering a message textarea", () => {
+    render(<FormInputs name="message" label="message" id="message" />);
     const inputElement = screen.queryByLabelText(/phone/i);
     expect(inputElement).not.toBeInTheDocument();
   });
 });
 
-describe("Form input fields touched state", () => {
-  it("should have invalid class for textarea when touched", async () => {
+describe("form input touched state", () => {
+  it("should show an error for textarea when touched", () => {
     render(
-      <FormInput touched={true} name="message" label="message" id="message" />
+      <FormInputs
+        touched={true}
+        name="message"
+        label="message"
+        id="message"
+        errorMessage="Message is required"
+      />,
     );
-    const inputTextElement = screen.getByLabelText(/message/i);
-    expect(inputTextElement.classList.contains("message")).toBe(true);
-  });
-
-  it("should have valid class for textarea when touched", async () => {
-    render(<FormInput name="message" label="message" id="message" />);
-    const inputTextElement = screen.getByLabelText(/message/i);
-    expect(inputTextElement.classList.contains("message")).toBe(true);
-  });
-
-  it("should have invalid class for input when touched", async () => {
-    render(<FormInput touched={true} name="email" label="email" id="email" />);
-    const inputElement = screen.getByLabelText(/email/i);
-    expect(inputElement.classList.contains("invalid-input")).toBe(true);
-  });
-
-  it("should have valid class for input when touched", async () => {
-    render(<FormInput name="email" label="email" id="email" />);
-    const inputElement = screen.getByLabelText(/email/i);
-    expect(inputElement.classList.contains("input")).toBe(true);
-  });
-});
-
-describe("Form error message", () => {
-  it("should display error if input state is touched", () => {
-    render(<FormInput touched={true} />);
     const errorElement = screen.getByTestId("error");
     expect(errorElement).toBeInTheDocument();
+    expect(errorElement).toHaveTextContent(/message is required/i);
   });
 
-  it("should not display error if input state is not touched", () => {
-    render(<FormInput touched={false} />);
+  it("should not show an error for textarea when not touched", () => {
+    render(
+      <FormInputs
+        touched={false}
+        name="message"
+        label="message"
+        id="message"
+        errorMessage="Message is required"
+      />,
+    );
+    const errorElement = screen.queryByTestId("error");
+    expect(errorElement).not.toBeInTheDocument();
+  });
+
+  it("should show an error for input when touched", () => {
+    render(
+      <FormInputs
+        touched={true}
+        name="email"
+        label="email"
+        id="email"
+        errorMessage="Email is required"
+      />,
+    );
+    const errorElement = screen.getByTestId("error");
+    expect(errorElement).toBeInTheDocument();
+    expect(errorElement).toHaveTextContent(/email is required/i);
+  });
+
+  it("should not show an error for input when not touched", () => {
+    render(
+      <FormInputs
+        touched={false}
+        name="email"
+        label="email"
+        id="email"
+        errorMessage="Email is required"
+      />,
+    );
     const errorElement = screen.queryByTestId("error");
     expect(errorElement).not.toBeInTheDocument();
   });

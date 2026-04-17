@@ -14,35 +14,36 @@ const MockNavBar = () => {
 const btnURL = [
   "/",
   "/#skills",
-  "/projects/AllTrackSystem",
+  "/#experience",
+  "/#projects",
   "/#contact",
-  "https://drive.google.com/file/d/1FMej8K-ZoM7OjsTorZ8w6sEI2d9UByxB/view?usp=drive_link",
+  "https://drive.google.com/file/d/1z6dohrhC-abm8A4o263mVjtBYkoRyOlJ/view?usp=sharing",
 ];
 
 describe("nav elements render", () => {
   it("Should render a nav element", () => {
     render(<MockNavBar />);
-    const navElement = screen.getByRole(/navigation/i);
+    const navElement = screen.getByRole("navigation");
     expect(navElement).toBeInTheDocument();
   });
 
-  it("Should render atleast one link", () => {
+  it("Should render at least one link", () => {
     render(<MockNavBar />);
-    const navElement = screen.getAllByTestId(/btn-link-/i);
+    const navElement = screen.getAllByRole("link");
     expect(navElement.length).toBeGreaterThan(0);
   });
 
-  it("Should render 5 visible links", () => {
+  it("Should render 6 visible links", () => {
     render(<MockNavBar />);
     const navElement = screen.getAllByTestId(/btn-link-nav/i);
-    expect(navElement).toHaveLength(5);
+    expect(navElement).toHaveLength(6);
   });
 
   it("Should render links with appropriate url", () => {
     render(<MockNavBar />);
     const navElement = screen.getAllByTestId(/btn-link-nav/i);
-    navElement.map((element, index) =>
-      expect(element).toHaveAttribute("href", btnURL[index])
+    navElement.forEach((element, index) =>
+      expect(element).toHaveAttribute("href", btnURL[index]),
     );
   });
 });

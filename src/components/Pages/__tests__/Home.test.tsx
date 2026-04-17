@@ -26,7 +26,7 @@ describe("renders all page elements", () => {
   it("should render a header title text", () => {
     const headerElement = screen.getByText(/Suhas Sunder/i);
     expect(headerElement).toBeInTheDocument();
-    expect(headerElement).toHaveTextContent(/Software Engineer/i);
+    expect(headerElement).toHaveTextContent(/Software Developer/i);
   });
 
   it("should render a profile image", () => {

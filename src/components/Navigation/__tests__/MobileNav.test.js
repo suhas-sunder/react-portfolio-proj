@@ -14,15 +14,16 @@ const MockNavBar = () => {
 const btnURL = [
   "/",
   "/#skills",
-  "/projects/AllTrackSystem",
+  "/#experience",
+  "/#projects",
   "/#contact",
-  "https://drive.google.com/file/d/1FMej8K-ZoM7OjsTorZ8w6sEI2d9UByxB/view?usp=drive_link",
+  "https://drive.google.com/file/d/1z6dohrhC-abm8A4o263mVjtBYkoRyOlJ/view?usp=sharing",
 ];
 
 describe("Mobile Nav bar defaults", () => {
   it("Should render at least one link", () => {
     render(<MockNavBar />);
-    const navElement = screen.getAllByTestId(/btn-link-/i);
+    const navElement = screen.getAllByRole("link");
     expect(navElement.length).toBeGreaterThan(0);
   });
 
@@ -38,10 +39,11 @@ describe("Mobile Nav bar defaults", () => {
     expect(navElement).not.toBeInTheDocument();
   });
 
-  it("Should only render 1 link (logo button) when burger menu is closed", () => {
+  it("Should only render 1 link when burger menu is closed", () => {
     render(<MockNavBar />);
-    const navLinks = screen.getAllByTestId(/btn-link/i);
+    const navLinks = screen.getAllByRole("link");
     expect(navLinks).toHaveLength(1);
+    expect(navLinks[0]).toHaveAttribute("href", "/");
   });
 });
 
@@ -55,31 +57,32 @@ describe("Mobile Nav Bar click events", () => {
     expect(navElementTwo).toBeInTheDocument();
   });
 
-  it("Should render 5 links when burger menu is open", () => {
+  it("Should render 6 links when burger menu is open", () => {
     render(<MockNavBar />);
     const navElement = screen.getByTestId(/burgerBtn-open/i);
     fireEvent.click(navElement);
-    const navLinks = screen.getAllByTestId(/btn-link/i);
-    expect(navLinks).toHaveLength(5);
+    const navLinks = screen.getAllByRole("link");
+    expect(navLinks).toHaveLength(6);
   });
 
   it("Should render links with appropriate url once burger menu is open", () => {
     render(<MockNavBar />);
     const navElement = screen.getByTestId(/burgerBtn-open/i);
     fireEvent.click(navElement);
-    const navLinks = screen.getAllByTestId(/btn-link/i);
-    navLinks.map((element, index) =>
-      expect(element).toHaveAttribute("href", btnURL[index])
+    const navLinks = screen.getAllByRole("link");
+
+    navLinks.forEach((element, index) =>
+      expect(element).toHaveAttribute("href", btnURL[index]),
     );
   });
 
-  it("Should only render only logo link when burger menu is toggled open then close, meaning menu is closed", () => {
+  it("Should render only one link when menu is toggled open then closed", () => {
     render(<MockNavBar />);
     const navElement = screen.getByTestId(/burgerBtn-open/i);
     fireEvent.click(navElement);
     const navElementTwo = screen.getByTestId(/burgerBtn-close/i);
     fireEvent.click(navElementTwo);
-    const navLinks = screen.getAllByTestId(/btn-link/i);
+    const navLinks = screen.getAllByRole("link");
     expect(navLinks).toHaveLength(1);
   });
 
@@ -100,13 +103,13 @@ describe("Mobile Nav Bar click events", () => {
     expect(navElementTwo).not.toBeInTheDocument();
   });
 
-  it("Should close mobile nav menu when background when it is clicked, displaying only one link meaning menu is closed", () => {
+  it("Should close mobile nav menu when background is clicked", () => {
     render(<MockNavBar />);
     const navElement = screen.getByTestId(/burgerBtn-open/i);
     fireEvent.click(navElement);
     const navElementTwo = screen.getByTestId(/mobile-nav-bkgd/i);
     fireEvent.click(navElementTwo);
-    const navLinks = screen.getAllByTestId(/btn-link/i);
+    const navLinks = screen.getAllByRole("link");
     expect(navLinks).toHaveLength(1);
   });
 });

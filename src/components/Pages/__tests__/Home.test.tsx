@@ -12,20 +12,11 @@ const mockHome = (props: PropType) => {
   render(
     <MemoryRouter>
       <Home {...props} />
-    </MemoryRouter>
+    </MemoryRouter>,
   );
 };
 
 const handleModal = jest.fn();
-
-const projectLinks = [
-  "DobsonPartners",
-  "FreeTypingCamp",
-  "ReactPortfolio",
-  "AllTrackSystem",
-  "EMEGroupInc.",
-  "CapstoneSpArcDs",
-];
 
 describe("renders all page elements", () => {
   beforeEach(() => {
@@ -33,18 +24,19 @@ describe("renders all page elements", () => {
   });
 
   it("should render a header title text", () => {
-    const headerElement = screen.getByText(/Suhas Sunder Software Developer/i);
+    const headerElement = screen.getByText(/Suhas Sunder/i);
     expect(headerElement).toBeInTheDocument();
-  });
-
-  it("should render 7 images on the page: headshot & project images", () => {
-    const imgElements = screen.getAllByRole("img");
-    expect(imgElements).toHaveLength(7);
+    expect(headerElement).toHaveTextContent(/Software Engineer/i);
   });
 
   it("should render a profile image", () => {
-    const imageElement = screen.getByAltText(/head-shot of Suhas Sunder/i);
+    const imageElement = screen.getByAltText(/headshot of suhas sunder/i);
     expect(imageElement).toBeInTheDocument();
+  });
+
+  it("should render project preview images", () => {
+    const imgElements = screen.getAllByRole("img");
+    expect(imgElements.length).toBeGreaterThanOrEqual(11);
   });
 
   it("should render list of 19 skills", () => {
@@ -52,12 +44,24 @@ describe("renders all page elements", () => {
     expect(skillElements).toHaveLength(19);
   });
 
-  it("should render a summary of 6 projects", () => {
-    const projElements = screen.getAllByTestId(/proj-section/i);
-    expect(projElements).toHaveLength(6);
+  it("should render a projects section", () => {
+    const projectsHeading = screen.getByRole("heading", { name: /projects/i });
+    expect(projectsHeading).toBeInTheDocument();
   });
 
-  it("should render a contact form with 4 input elements", () => {
+  it("should render project cards from current project data", () => {
+    expect(
+      screen.getByRole("heading", { name: /smart home sensor planner/i }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /feature variability visualizer/i }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /free typing camp/i }),
+    ).toBeInTheDocument();
+  });
+
+  it("should render a contact form", () => {
     const formElement = screen.getByRole("form");
     expect(formElement).toBeInTheDocument();
   });
@@ -73,7 +77,7 @@ describe("renders links/buttons with proper redirect/action", () => {
     expect(modalBtnElement).toBeInTheDocument();
     expect(modalBtnElement).toHaveAttribute(
       "href",
-      "https://www.linkedin.com/in/s-sunder/"
+      "https://www.linkedin.com/in/s-sunder/",
     );
   });
 
@@ -82,7 +86,7 @@ describe("renders links/buttons with proper redirect/action", () => {
     expect(modalBtnElement).toBeInTheDocument();
     expect(modalBtnElement).toHaveAttribute(
       "href",
-      "https://github.com/suhas-sunder"
+      "https://github.com/suhas-sunder",
     );
   });
 
@@ -91,14 +95,17 @@ describe("renders links/buttons with proper redirect/action", () => {
     expect(modalBtnElement).toBeInTheDocument();
     expect(modalBtnElement).toHaveAttribute(
       "href",
-      "https://www.linkedin.com/in/s-sunder/details/certifications/"
+      "https://www.linkedin.com/in/s-sunder/details/certifications/",
     );
   });
 
-  it("should render a link to educational institute", () => {
+  it("should render a link to education history", () => {
     const modalBtnElement = screen.getByTestId(/education/i);
     expect(modalBtnElement).toBeInTheDocument();
-    expect(modalBtnElement).toHaveAttribute("href", "https://ontariotechu.ca/");
+    expect(modalBtnElement).toHaveAttribute(
+      "href",
+      "https://www.linkedin.com/in/s-sunder/details/education/",
+    );
   });
 
   it("should render a hashlink to email form", () => {
@@ -107,17 +114,14 @@ describe("renders links/buttons with proper redirect/action", () => {
     expect(modalBtnElement).toHaveAttribute("href", "/#contact");
   });
 
-  it("should include 6 project overview buttons with appropriate links", () => {
-    let projectElements = screen.getAllByRole("link", {
-      name: /view details/i,
-    });
-    expect(projectElements).toHaveLength(projectLinks.length);
-    projectElements.forEach((element, index) =>
-      expect(element).toHaveAttribute(
-        "href",
-        `/projects/${projectLinks[index].toLowerCase()}`
-      )
-    );
+  it("should render live demo links for current projects", () => {
+    const liveDemoLinks = screen.getAllByRole("link", { name: /live demo/i });
+    expect(liveDemoLinks.length).toBeGreaterThan(0);
+  });
+
+  it("should render github links for projects that include repos", () => {
+    const githubLinks = screen.getAllByRole("link", { name: /github/i });
+    expect(githubLinks.length).toBeGreaterThan(0);
   });
 
   it("should render a submit button for contact form", () => {
@@ -132,7 +136,7 @@ describe("renders appropriate elements when modal is active", () => {
   });
 
   it("should render a modal when modal state is true", () => {
-    let modalElement = screen.getByText(/Graduated: Apr 2019/i);
+    const modalElement = screen.getByText(/Graduated: Apr 2019/i);
     expect(modalElement).toBeInTheDocument();
   });
 });

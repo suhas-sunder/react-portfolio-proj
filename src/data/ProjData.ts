@@ -8,6 +8,7 @@ import MorseWordsUrl from "../assets/morse_words.jpg";
 import RentConverterUrl from "../assets/rent_converter.jpg";
 import SensorPlannerUrl from "../assets/sensor_planner.jpg";
 import MiniFeatureVizUrl from "../assets/feat_visualizer.jpg";
+import WordSkullUrl from "../assets/wordskull.jpg";
 
 const ProjData = [
   {
@@ -60,7 +61,7 @@ const ProjData = [
     projId: "atsproj",
     title: "All Track System",
     description:
-      "Marketing site for facilities management software, with feature overview and onboarding information.",
+      "Marketing site for facilities management software with feature overview and onboarding information.",
     techStack: [
       "HTML5",
       "CSS3",
@@ -84,7 +85,7 @@ const ProjData = [
     projId: "emeproj",
     title: "EME Group Inc.",
     description:
-      "Consulting firm website with services, careers, and contact flow including an interactive map.",
+      "Consulting firm website with services, careers, contact flows, and an interactive map.",
     techStack: [
       "HTML5",
       "CSS3",
@@ -101,6 +102,72 @@ const ProjData = [
     features: [],
     challenges: [],
   },
+  {
+    id: "wordskull",
+    projId: "wordskull",
+    title: "WordSkull",
+    description:
+      "Browser-based word puzzle game with multiple difficulty levels and a themed challenge format.",
+    techStack: ["Remix", "React", "TypeScript", "Tailwind CSS"],
+    imageURL: WordSkullUrl,
+    projURL: "https://wordskull.com",
+    projCSS: "project",
+    projLink: "/projects/wordskull",
+    features: [],
+    challenges: [],
+  },
+
+  {
+    id: "ilovesvg",
+    projId: "ilovesvg",
+    title: "iLoveSVG",
+    description:
+      "SVG converter for turning PNG, JPEG, JPG, and WEBP images into clean, editable vector graphics with live preview and Potrace-powered processing.",
+    techStack: [
+      "Remix",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Express",
+      "Potrace",
+      "Digital Ocean",
+    ],
+    imageURL: iLoveSvgUrl,
+    projURL: "https://ilovesvg.com",
+    projCSS: "project",
+    projLink: "/projects/ilovesvg",
+    features: [],
+    challenges: [],
+  },
+  {
+    id: "morsewords",
+    projId: "morsewords",
+    title: "Morse Words",
+    description:
+      "Morse code translation and practice tool for learning, training, and decoding messages.",
+    techStack: ["Remix", "React", "TypeScript", "Tailwind CSS"],
+    imageURL: MorseWordsUrl,
+    projURL: "https://morsewords.com",
+    projCSS: "project",
+    projLink: "/projects/morsewords",
+    features: [],
+    challenges: [],
+  },
+  {
+    id: "rentconverter",
+    projId: "rentconverter",
+    title: "Rent Converter",
+    description:
+      "Calculator tool to help renters compare and convert rent across different payment frequencies.",
+    techStack: ["Remix", "React", "TypeScript", "Tailwind CSS"],
+    imageURL: RentConverterUrl,
+    projURL: "https://rentconverter.com",
+    projCSS: "project",
+    projLink: "/projects/rentconverter",
+    features: [],
+    challenges: [],
+  },
+
   {
     id: "freetypingcamp",
     projId: "ftcproj",
@@ -144,54 +211,10 @@ const ProjData = [
     ],
     imageURL: CapstoneUrl,
     projURL:
-      "https://drive.google.com/file/d/1z6dohrhC-abm8A4o263mVjtBYkoRyOlJ/view?usp=sharing",
+      "https://drive.google.com/file/d/1kzKO8vva8IF2pJV-VUExGpKP8mYJUerR/view?usp=sharing",
     projCSS: "project-reverse",
     projLink: "/projects/capstonesparcds",
     projProposal: "",
-    features: [],
-    challenges: [],
-  },
-
-  // --- Additional projects (no tech stack shown) ---
-  {
-    id: "morsewords",
-    projId: "morsewords",
-    title: "Morse Words",
-    description:
-      "Morse code translation and practice tool for learning, training, and decoding messages.",
-    techStack: [], // intentionally omitted
-    imageURL: MorseWordsUrl,
-    projURL: "https://morsewords.com",
-    projCSS: "project",
-    projLink: "/projects/morsewords",
-    features: [],
-    challenges: [],
-  },
-  {
-    id: "rentconverter",
-    projId: "rentconverter",
-    title: "Rent Converter",
-    description:
-      "Calculator tool to help renters compare and convert rent across different payment frequencies.",
-    techStack: [], // intentionally omitted
-    imageURL: RentConverterUrl,
-    projURL: "https://rentconverter.com",
-    projCSS: "project",
-    projLink: "/projects/rentconverter",
-    features: [],
-    challenges: [],
-  },
-  {
-    id: "ilovesvg",
-    projId: "ilovesvg",
-    title: "iLoveSVG",
-    description:
-      "Collection of simple SVG utilities for optimizing, converting, and working with vector assets.",
-    techStack: [], // intentionally omitted
-    imageURL: iLoveSvgUrl,
-    projURL: "https://ilovesvg.com",
-    projCSS: "project",
-    projLink: "/projects/ilovesvg",
     features: [],
     challenges: [],
   },

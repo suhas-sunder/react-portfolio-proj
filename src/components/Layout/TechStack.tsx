@@ -7,16 +7,17 @@ interface TechStackProps {
 function TechStack({ skillsList }: TechStackProps) {
   return (
     <ExpandingListContainer
-      customBtnStyle="flex cursor-pointer py-3 text-sm font-semibold text-sky-700 transition hover:text-sky-900 sm:hidden"
+      customBtnStyle="flex w-full cursor-pointer justify-center py-3 text-sm font-semibold text-sky-300 transition hover:text-white sm:hidden"
       maxHeight="max-h-44 sm:max-h-full"
     >
-      <ul className="grid grid-cols-2 gap-3 text-sm sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      <ul className="grid w-full min-w-0 grid-cols-2 gap-2.5 text-sm sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {skillsList.map((skill) => (
           <li
             key={skill}
-            className="rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-center text-xs font-semibold text-slate-700 shadow-sm"
+            className="min-w-0 rounded-full border border-sky-400/20 bg-sky-400/10 px-2.5 py-1.5 text-center text-[0.72rem] font-semibold text-sky-200 shadow-sm"
+            title={skill}
           >
-            {skill}
+            <span className="block min-w-0 truncate">{skill}</span>
           </li>
         ))}
       </ul>

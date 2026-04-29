@@ -37,10 +37,10 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative w-full bg-white px-4 py-16 text-slate-900 sm:px-6 lg:px-10"
+      className="relative w-full overflow-x-hidden bg-slate-50 px-4 py-12 text-slate-900 sm:px-6 sm:py-14 lg:px-10"
       aria-labelledby="skills-heading"
     >
-      <div className="mx-auto flex max-w-7xl flex-col gap-6">
+      <div className="mx-auto flex w-full max-w-6xl min-w-0 flex-col gap-6">
         <div className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-wide text-sky-700">
             Technical profile
@@ -60,26 +60,27 @@ export default function Skills() {
           </p>
         </div>
 
-        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
+        <div className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
           <ExpandingListContainer
             customBtnStyle="flex w-full cursor-pointer justify-center border-t border-slate-200 bg-slate-100 py-4 text-sm font-semibold text-sky-700 transition hover:bg-slate-200 hover:text-sky-900"
-            maxHeight="max-h-72 md:max-h-80 lg:max-h-[22rem]"
+            maxHeight="max-h-[27rem] sm:max-h-[31rem] md:max-h-[25rem] lg:max-h-[21rem]"
           >
-            <ul className="grid grid-cols-2 gap-4 p-4 sm:grid-cols-3 sm:p-6 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+            <ul className="grid w-full min-w-0 grid-cols-2 gap-3 p-3 sm:grid-cols-3 sm:gap-4 sm:p-5 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
               {skillsData.map((data) => (
                 <li
                   key={data.skill}
-                  className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-xl border border-slate-200 bg-white p-4 text-center shadow-sm"
+                  className="flex min-h-24 min-w-0 flex-col items-center justify-center gap-2.5 rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:min-h-28 sm:p-4"
                 >
                   <FontAwesomeIcon
                     data-testid={`skill-icon-${data.skill}`}
                     icon={data.icon}
-                    className="text-[2rem] text-sky-700"
+                    className="text-[1.75rem] text-sky-700 sm:text-[2rem]"
                   />
 
                   <span
                     data-testid={`skill-name-${data.skill}`}
-                    className="text-sm font-semibold text-slate-800"
+                    className="block max-w-full truncate text-xs font-semibold text-slate-800 sm:text-sm"
+                    title={data.skill}
                   >
                     {data.skill}
                   </span>

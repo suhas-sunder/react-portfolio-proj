@@ -30,9 +30,11 @@ export default function MobileNav() {
       }
     };
 
+    document.body.style.overflow = "hidden";
     window.addEventListener("keydown", handleEscapeKey);
 
     return () => {
+      document.body.style.overflow = "";
       window.removeEventListener("keydown", handleEscapeKey);
     };
   }, [isMenuClosed]);
@@ -72,9 +74,17 @@ export default function MobileNav() {
 
       {!isMenuClosed && (
         <>
+          <button
+            type="button"
+            data-testid="mobile-nav-bkgd"
+            aria-label="Close navigation menu"
+            className={`${Styles["background-overlay"]} !fixed !inset-0 !z-[60] !h-dvh !w-screen !cursor-pointer !border-0 !bg-slate-950/60 lg:!hidden`}
+            onClick={closeBurgerMenu}
+          />
+
           <ul
             id="burger-menu"
-            className={`${Styles["nav-list"]} !z-[70] !bg-slate-950 !px-5 !py-5 !text-slate-100 !shadow-xl lg:!hidden`}
+            className={`${Styles["nav-list"]} !fixed !inset-x-0 !top-[4.75rem] !z-[70] !box-border !flex !w-screen !max-w-none !flex-col !gap-3 !overflow-x-hidden !bg-slate-950 !px-4 !py-6 !text-slate-100 !shadow-xl lg:!hidden`}
           >
             {NavBtnData.filter((data) => data.text !== "Home").map((data) => {
               const isDownloadButton = data.type === "downloadBtn";
@@ -83,9 +93,7 @@ export default function MobileNav() {
                 <li
                   key={data.id}
                   onClick={closeBurgerMenu}
-                  className={
-                    isDownloadButton ? Styles["download-link"] : ""
-                  }
+                  className="mx-auto w-full max-w-[22rem]"
                 >
                   <NavLinks
                     id={data.id}
@@ -104,12 +112,6 @@ export default function MobileNav() {
               );
             })}
           </ul>
-
-          <div
-            data-testid="mobile-nav-bkgd"
-            className={`${Styles["background-overlay"]} !bg-slate-950/50 lg:!hidden`}
-            onClick={closeBurgerMenu}
-          />
         </>
       )}
     </>

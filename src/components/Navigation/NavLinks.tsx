@@ -56,10 +56,10 @@ export default function NavLinks({
     : "flex cursor-pointer items-center justify-center px-5 py-5 text-base font-semibold uppercase tracking-widest text-sky-300 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-400/40";
 
   const mobileMenuLinkClassName =
-    "flex w-full cursor-pointer items-center justify-center rounded-md px-4 py-3.5 text-[1rem] font-semibold uppercase tracking-[0.12em] text-slate-100 transition hover:bg-slate-900 hover:text-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-400/40";
+    "flex w-full cursor-pointer items-center justify-center rounded-lg border border-slate-800 bg-slate-900/80 px-4 py-4 text-base font-semibold uppercase tracking-[0.13em] text-slate-100 transition hover:border-sky-400/40 hover:bg-slate-800 hover:text-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-400/40";
 
   const mobileDownloadLinkClassName =
-    "mx-auto mt-4 flex w-full max-w-[15rem] cursor-pointer items-center justify-center gap-2 rounded-md bg-sky-300 px-5 py-3 text-[1rem] font-bold uppercase tracking-[0.12em] text-slate-950 transition hover:bg-sky-200 hover:text-slate-950 focus:outline-none focus:ring-2 focus:ring-sky-300/50";
+    "flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-sky-300 px-5 py-4 text-base font-bold uppercase tracking-[0.13em] text-slate-950 transition hover:bg-sky-200 hover:text-slate-950 focus:outline-none focus:ring-2 focus:ring-sky-300/50";
 
   const finalClassName = isMobileDownloadLink
     ? mobileDownloadLinkClassName

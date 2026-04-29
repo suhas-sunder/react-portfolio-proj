@@ -16,6 +16,9 @@ interface PropType {
 }
 
 function LogoButtons({ data }: PropType) {
+  const logoButtonClassName =
+    "flex justify-center items-center text-slate-700 w-16 h-12 text-3xl bg-white rounded-lg hover:text-sky-700 hover:bg-sky-50 border-2 border-slate-200 hover:border-sky-200 shadow-sm transition cursor-pointer focus:outline-none focus:ring-2 focus:ring-sky-500/30";
+
   return (
     <>
       {data.isHashLink ? (
@@ -23,7 +26,7 @@ function LogoButtons({ data }: PropType) {
           data-testid={data.id}
           aria-label={data.toolTipMsg}
           to={data.url}
-          className="flex justify-center items-center text-dark-blueish-gray w-16 h-12 text-3xl bg-highlight-yellow rounded-lg  hover:text-highlight-yellow hover:bg-dark-blueish-gray border-2 border-highlight-yellow"
+          className={logoButtonClassName}
         >
           <FontAwesomeIcon icon={data.logo} />
         </HashLink>
@@ -34,7 +37,7 @@ function LogoButtons({ data }: PropType) {
           aria-label={data.toolTipMsg}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex justify-center items-center text-dark-blueish-gray w-16 h-12 text-3xl bg-highlight-yellow rounded-lg  hover:text-highlight-yellow hover:bg-dark-blueish-gray border-2 border-highlight-yellow"
+          className={logoButtonClassName}
         >
           <FontAwesomeIcon icon={data.logo} />
         </Link>

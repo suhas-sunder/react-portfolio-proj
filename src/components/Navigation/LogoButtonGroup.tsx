@@ -54,6 +54,7 @@ function LogoButtonGroup({ showToolTip }: PropType) {
       isHashLink: true,
     },
   ];
+
   return (
     <ul className="grid lg:grid-cols-5 lg:gap-[2em] mt-10 sm:gap-x-24 gap-x-10 gap-y-14 grid-cols-2 sm:grid-cols-3 items-center w-full max-w-[700px]">
       {btnData.map((data) => (

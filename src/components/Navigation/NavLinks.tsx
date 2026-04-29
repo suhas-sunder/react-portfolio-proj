@@ -52,9 +52,8 @@ export default function NavLinks({
     url.startsWith("https://");
 
   const linkClassName = isPrimaryAction
-    ? "flex cursor-pointer items-center justify-center gap-2 rounded-md border border-sky-500 bg-sky-500 px-[0.67em] py-[0.7em] text-xs font-semibold uppercase tracking-widest text-white shadow-sm transition hover:border-sky-400 hover:bg-sky-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-400/40 sm:px-5 sm:text-sm"
+    ? "flex cursor-pointer items-center justify-center gap-2 rounded-md border border-sky-300 bg-sky-300 px-[0.67em] py-[0.7em] text-xs font-bold uppercase tracking-widest text-slate-950 shadow-sm transition hover:border-sky-200 hover:bg-sky-200 hover:text-slate-950 focus:outline-none focus:ring-2 focus:ring-sky-300/50 sm:px-5 sm:text-sm"
     : "flex cursor-pointer items-center justify-center px-5 py-5 text-base font-semibold uppercase tracking-widest text-sky-300 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-400/40";
-
   const mobileMenuLinkClassName =
     "flex w-full cursor-pointer items-center justify-center rounded-lg border border-slate-800 bg-slate-900/80 px-4 py-4 text-base font-semibold uppercase tracking-[0.13em] text-slate-100 transition hover:border-sky-400/40 hover:bg-slate-800 hover:text-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-400/40";
 

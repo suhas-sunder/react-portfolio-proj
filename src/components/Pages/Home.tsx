@@ -20,8 +20,7 @@ function Home({ handleModal, showModal }: PropType) {
       {showModal && <Modal closeModal={handleModal} />}
 
       <header
-        id="about"
-        className="box-content bg-slate-950 px-6 pt-14 pb-12 text-white sm:px-8 sm:pt-16 sm:pb-14 xl:px-12"
+        id="about"className="box-content bg-slate-950 px-6 pt-24 pb-24 text-white sm:px-8 sm:pt-28 sm:pb-28 xl:px-16 xl:pt-32 xl:pb-32"
       >
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 rounded-3xl border border-slate-800 bg-slate-900 px-6 py-8 shadow-xl shadow-slate-950/30 sm:px-10 sm:py-10 xl:grid-cols-[300px_minmax(0,1fr)] xl:gap-12 xl:px-12 xl:py-10">
           <div className="flex w-full justify-center">

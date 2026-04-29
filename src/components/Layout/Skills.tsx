@@ -37,43 +37,37 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative w-full overflow-x-hidden bg-slate-900 text-white"
+      className="relative flex w-full justify-center overflow-visible bg-slate-900 tracking-wider text-white"
       aria-labelledby="skills-heading"
     >
-      <div className="relative w-full">
-        <div className="absolute left-0 top-0 z-10 -translate-y-full rounded-tr-lg border-t border-r border-slate-700 bg-slate-900 px-6 py-4 shadow-sm sm:px-10 sm:py-5">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-300">
-            Technical profile
-          </p>
-
-          <h2
-            id="skills-heading"
-            className="mt-1 text-xl font-semibold uppercase tracking-wide text-white sm:text-3xl"
-          >
-            Technical skills
-          </h2>
-        </div>
+      <div className="relative flex w-full flex-col">
+        <h2
+          id="skills-heading"
+          className="relative z-10 flex w-fit rounded-tr-lg bg-slate-900 px-6 pt-5 pb-4 text-lg font-semibold uppercase tracking-wide text-white sm:absolute sm:-top-[4.25rem] sm:left-0 sm:px-10 sm:pt-6 sm:pb-4 sm:text-3xl lg:px-12 lg:text-4xl"
+        >
+          Technical skills
+        </h2>
 
         <ExpandingListContainer
           customBtnStyle="border-t border-slate-700 bg-slate-800 py-4 text-sm font-semibold text-sky-300 transition hover:bg-slate-700 hover:text-white"
-          maxHeight="max-h-64 md:max-h-72 lg:max-h-[16rem]"
+          maxHeight="max-h-[12.7rem] sm:max-h-[14.4rem] md:max-h-[14.8rem] lg:max-h-[15.2rem]"
           buttonLabel="skills"
         >
-          <ul className="grid w-full min-w-0 grid-cols-2 gap-x-6 gap-y-10 px-4 pt-10 pb-8 sm:grid-cols-4 sm:gap-x-8 sm:px-8 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7">
+          <ul className="grid grid-cols-2 gap-x-10 gap-y-10 px-6 pt-8 pb-6 sm:grid-cols-4 sm:gap-x-10 sm:gap-y-12 md:grid-cols-5 md:gap-x-14 lg:gap-x-16">
             {skillsData.map((data) => (
               <li
                 key={data.skill}
-                className="flex min-w-0 flex-col items-center justify-start gap-4 text-center"
+                className="flex min-w-0 flex-col items-center gap-4 text-center text-lg text-white"
               >
                 <FontAwesomeIcon
                   data-testid={`skill-icon-${data.skill}`}
                   icon={data.icon}
-                  className="text-[2.35rem] text-sky-300 sm:text-[2.6rem]"
+                  className="flex text-[2.35rem] text-sky-300 sm:text-[2.65rem] lg:text-[2.8rem]"
                 />
 
                 <span
                   data-testid={`skill-name-${data.skill}`}
-                  className="flex min-h-10 w-full max-w-[11rem] items-center justify-center rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-center text-xs font-semibold text-slate-100 shadow-sm sm:text-sm"
+                  className="flex min-h-9 w-full max-w-[13rem] items-center justify-center rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-center text-xs font-semibold text-slate-100 sm:text-sm md:text-base"
                   title={data.skill}
                 >
                   {data.skill}

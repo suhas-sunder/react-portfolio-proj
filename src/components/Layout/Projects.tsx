@@ -213,22 +213,22 @@ function ExperienceItem({ experience }: { experience: ExperienceItemType }) {
   );
 
   return (
-    <li className="min-w-0 border-b border-slate-200 py-5 last:border-b-0 sm:py-6">
-      <div className="flex min-w-0 flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+    <li className="min-w-0 border-b border-slate-200 py-4 last:border-b-0 sm:py-5">
+      <div className="flex min-w-0 flex-col gap-1.5 sm:flex-row sm:items-start sm:justify-between">
         <div className="min-w-0">
           <div className="flex min-w-0 flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-2 sm:gap-y-1">
-            <h3 className="break-words text-base font-semibold text-slate-900 sm:text-lg">
+            <h3 className="break-words text-base font-semibold text-slate-900">
               {experience.companyName}
             </h3>
 
             <span className="hidden text-slate-400 sm:inline">•</span>
 
-            <span className="break-words text-sm font-medium text-slate-700 sm:text-base">
+            <span className="break-words text-sm font-medium text-slate-700">
               {experience.roleTitle}
             </span>
           </div>
 
-          <div className="mt-1 text-sm text-slate-600">
+          <div className="mt-0.5 text-sm text-slate-600">
             {experience.location}
           </div>
         </div>
@@ -239,7 +239,7 @@ function ExperienceItem({ experience }: { experience: ExperienceItemType }) {
       </div>
 
       {highlights.length > 0 ? (
-        <ul className="mt-3 grid min-w-0 gap-2 text-sm leading-relaxed text-slate-700 sm:text-[0.95rem]">
+        <ul className="mt-2.5 grid min-w-0 gap-1.5 text-sm leading-relaxed text-slate-700">
           {highlights.map((line) => (
             <li
               key={`${experience.companyName}-${line}`}
@@ -267,10 +267,10 @@ export default function Work() {
       className="w-full overflow-x-hidden bg-white text-slate-900"
       aria-label="Experience and Projects"
     >
-      <div className="bg-slate-50 px-4 py-12 sm:px-6 sm:py-16 lg:px-10">
+      <div className="bg-slate-50 px-4 py-10 sm:px-6 sm:py-12 lg:px-10">
         <div className="mx-auto w-full max-w-7xl min-w-0">
           <div id="experience">
-            <div className="mb-5 max-w-3xl">
+            <div className="mb-4 max-w-3xl">
               <p className="text-sm font-semibold uppercase tracking-wide text-sky-700">
                 Professional background
               </p>
@@ -279,7 +279,7 @@ export default function Work() {
                 Experience
               </h2>
 
-              <p className="mt-3 text-base leading-7 text-slate-700">
+              <p className="mt-2 text-base leading-7 text-slate-700">
                 Relevant software engineering, freelance development, and
                 technical project work across full-stack applications, client
                 portals, responsive websites, and planning-stage software
@@ -288,7 +288,7 @@ export default function Work() {
             </div>
 
             <div className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-              <ol className="min-w-0 px-4 sm:px-6">
+              <ol className="min-w-0 px-4 sm:px-5">
                 {EXPERIENCE_ITEMS.map((experience) => (
                   <ExperienceItem
                     key={`${experience.companyName}-${experience.dateRange}`}

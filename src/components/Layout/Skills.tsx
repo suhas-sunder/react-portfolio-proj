@@ -37,10 +37,10 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative w-full overflow-x-hidden bg-slate-50 px-4 py-12 text-slate-900 sm:px-6 sm:py-14 lg:px-10"
+      className="relative w-full overflow-x-hidden bg-slate-50 px-4 py-10 text-slate-900 sm:px-6 sm:py-12 lg:px-10"
       aria-labelledby="skills-heading"
     >
-      <div className="mx-auto flex w-full max-w-6xl min-w-0 flex-col gap-6">
+      <div className="mx-auto flex w-full max-w-6xl min-w-0 flex-col gap-5">
         <div className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-wide text-sky-700">
             Technical profile
@@ -53,7 +53,7 @@ export default function Skills() {
             Technical skills
           </h2>
 
-          <p className="mt-3 text-base leading-7 text-slate-700">
+          <p className="mt-2 text-base leading-7 text-slate-700">
             Tools and technologies I have used across frontend development,
             backend services, database workflows, API integrations, testing, and
             version control.
@@ -62,19 +62,19 @@ export default function Skills() {
 
         <div className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
           <ExpandingListContainer
-            customBtnStyle="flex w-full cursor-pointer justify-center border-t border-slate-200 bg-slate-100 py-4 text-sm font-semibold text-sky-700 transition hover:bg-slate-200 hover:text-sky-900"
-            maxHeight="max-h-[27rem] sm:max-h-[31rem] md:max-h-[25rem] lg:max-h-[21rem]"
+            customBtnStyle="flex w-full cursor-pointer justify-center border-t border-slate-200 bg-slate-100 py-3 text-sm font-semibold text-sky-700 transition hover:bg-slate-200 hover:text-sky-900"
+            maxHeight="max-h-[22rem] sm:max-h-[25rem] md:max-h-[22rem] lg:max-h-[18rem]"
           >
             <ul className="grid w-full min-w-0 grid-cols-2 gap-3 p-3 sm:grid-cols-3 sm:gap-4 sm:p-5 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
               {skillsData.map((data) => (
                 <li
                   key={data.skill}
-                  className="flex min-h-24 min-w-0 flex-col items-center justify-center gap-2.5 rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:min-h-28 sm:p-4"
+                  className="flex min-h-24 min-w-0 flex-col items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm sm:min-h-24"
                 >
                   <FontAwesomeIcon
                     data-testid={`skill-icon-${data.skill}`}
                     icon={data.icon}
-                    className="text-[1.75rem] text-sky-700 sm:text-[2rem]"
+                    className="text-[1.7rem] text-sky-700 sm:text-[1.9rem]"
                   />
 
                   <span

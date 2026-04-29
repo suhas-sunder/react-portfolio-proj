@@ -1,9 +1,32 @@
-import { useState } from "react";
+import { FormEvent, FocusEvent, ChangeEvent, useState } from "react";
 import FormInput from "./FormInputs";
 import FormSubmitMsg from "../Layout/FormSubmitMsg";
 
+type SubmissionState = "false" | "sending" | "sent" | "error";
+
+type FormValues = {
+  name: string;
+  nameTouched: boolean;
+  email: string;
+  emailTouched: boolean;
+  phone: string;
+  message: string;
+  messageTouched: boolean;
+  disableAutoComplete: boolean;
+};
+
+type FormInputData = {
+  id: string;
+  name: "name" | "email" | "phone" | "message";
+  type: string;
+  placeholder: string;
+  label: string;
+  errorMessage?: string;
+  required: boolean;
+};
+
 function Contact() {
-  const [values, setValues] = useState({
+  const [values, setValues] = useState<FormValues>({
     name: "",
     nameTouched: false,
     email: "",
@@ -14,9 +37,9 @@ function Contact() {
     disableAutoComplete: false,
   });
 
-  const [isSubmitted, setIsSubmitted] = useState("false");
+  const [isSubmitted, setIsSubmitted] = useState<SubmissionState>("false");
 
-  const formInputData = [
+  const formInputData: FormInputData[] = [
     {
       id: "name-input",
       name: "name",
@@ -54,37 +77,39 @@ function Contact() {
     },
   ];
 
-  // Store user input values & reset input focus
-  const handleChange = (event) => {
+  const handleChange = (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const fieldName = event.target.name as keyof FormValues;
+
     setValues({
       ...values,
-      [event.target.name]: event.target.value,
-      [event.target.name + "Touched"]: false,
+      [fieldName]: event.target.value,
+      [`${fieldName}Touched`]: false,
     });
   };
 
-  // Check if input is focused, clear empty inputs, & enable autocomplete on form
-  const handleFocus = (event) => {
+  const handleFocus = (
+    event: FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const fieldName = event.target.name as keyof FormValues;
+
     setValues({
       ...values,
-      [event.target.name]: event.target.value.trim(),
-      [event.target.name + "Touched"]: true,
+      [fieldName]: event.target.value.trim(),
+      [`${fieldName}Touched`]: true,
       disableAutoComplete: false,
     });
   };
 
-  // Handle form submission through Formspree.io
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    // Set submission state to sending [loading]
     setIsSubmitted("sending");
 
-    // Obtain form data to be sent as new obj
-    var data = new FormData(event.target);
+    const data = new FormData(event.currentTarget);
 
-    // Form submission
-    fetch(event.target.action, {
+    fetch(event.currentTarget.action, {
       method: "POST",
       body: data,
       headers: {
@@ -92,19 +117,13 @@ function Contact() {
       },
     })
       .then((response) => {
-        if (response.ok) {
-          // Set submission to success state
-          setIsSubmitted("sent");
-        } else {
-          // Set submission to error state
-          setIsSubmitted("error");
-        }
+        setIsSubmitted(response.ok ? "sent" : "error");
       })
-      .catch((error) => {
-        setIsSubmitted(error);
+      .catch(() => {
+        setIsSubmitted("error");
       });
   };
-  // Disable autocomplete on form  which hides default error msg when submit is clicked
+
   const handleAutoComplete = () => {
     setValues({
       ...values,
@@ -113,49 +132,57 @@ function Contact() {
   };
 
   return (
-    <div
+    <section
       id="contact"
-      className="flex flex-col  sm:max-w-[600px]  leading-relaxed lg:leading-loose text-base sm:text-xl p-8 pt-12 my-8 rounded-2xl sm:px-10 text-white sm:mx-auto "
+      className="bg-slate-900 px-4 py-16 text-white sm:px-6 lg:px-10"
+      aria-labelledby="contact-heading"
     >
-      <h2 className="text-2xl sm:text-3xl flex text-center w-full justify-center items-center mb-3">
-        Let's have a chat!
-      </h2>
-      <form
-        aria-label="form"
-        id="contact-form"
-        action="https://formspree.io/f/xknaendo"
-        method="POST"
-        onSubmit={handleSubmit}
-        className="text-black gap-2 flex flex-col"
-        autoComplete={values.disableAutoComplete ? "off" : "on"}
-      >
-        {isSubmitted === "false" ? (
-          <>
-            {formInputData.map((data) => (
-              <FormInput
-                key={data.id}
-                {...data}
-                value={values[data.name]}
-                onChange={handleChange}
-                onBlur={handleFocus}
-                touched={data.required ? values[`${data.name}Touched`] : false}
-              />
-            ))}
-          </>
-        ) : (
-          <FormSubmitMsg submissionState={isSubmitted} />
-        )}
-        {isSubmitted === "false" && (
-          <button
-            className="uppercase sm:mx-8 py-2 mb-4 mt-6 text-base sm:text-lg bg-highlight-yellow text-dark-blueish-gray hover:text-highlight-yellow border-2 border-highlight-yellow rounded-lg hover:bg-transparent font-semibold tracking-widest"
-            type="submit"
-            onClick={handleAutoComplete}
-          >
-            Submit
-          </button>
-        )}
-      </form>
-    </div>
+      <div className="mx-auto flex w-full max-w-[640px] flex-col rounded-2xl border border-slate-800 bg-slate-950/40 p-6 shadow-xl shadow-slate-950/20 sm:p-8 lg:p-10">
+        <h2
+          id="contact-heading"
+          className="flex w-full items-center justify-center text-center text-2xl font-semibold tracking-tight text-white sm:text-3xl"
+        >
+          Let's have a chat!
+        </h2>
+
+        <form
+          aria-label="form"
+          id="contact-form"
+          action="https://formspree.io/f/xknaendo"
+          method="POST"
+          onSubmit={handleSubmit}
+          className="mt-6 flex flex-col gap-3 text-slate-950"
+          autoComplete={values.disableAutoComplete ? "off" : "on"}
+        >
+          {isSubmitted === "false" ? (
+            <>
+              {formInputData.map((data) => (
+                <FormInput
+                  key={data.id}
+                  {...data}
+                  value={values[data.name]}
+                  onChange={handleChange}
+                  onBlur={handleFocus}
+                  touched={data.required ? values[`${data.name}Touched`] : false}
+                />
+              ))}
+            </>
+          ) : (
+            <FormSubmitMsg submissionState={isSubmitted} />
+          )}
+
+          {isSubmitted === "false" && (
+            <button
+              className="mt-6 mb-1 cursor-pointer rounded-lg border border-sky-300 bg-sky-300 px-5 py-3 text-base font-bold uppercase tracking-widest text-slate-950 transition hover:border-sky-200 hover:bg-sky-200 hover:text-slate-950 focus:outline-none focus:ring-2 focus:ring-sky-300/50 sm:mx-8 sm:text-lg"
+              type="submit"
+              onClick={handleAutoComplete}
+            >
+              Submit
+            </button>
+          )}
+        </form>
+      </div>
+    </section>
   );
 }
 

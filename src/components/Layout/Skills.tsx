@@ -37,58 +37,51 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative w-full overflow-x-hidden bg-slate-50 px-4 py-10 text-slate-900 sm:px-6 sm:py-12 lg:px-10"
+      className="relative w-full overflow-x-hidden bg-slate-900 text-white"
       aria-labelledby="skills-heading"
     >
-      <div className="mx-auto flex w-full max-w-5xl min-w-0 flex-col gap-5">
-        <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-wide text-sky-700">
+      <div className="relative w-full">
+        <div className="absolute left-0 top-0 z-10 -translate-y-full rounded-tr-lg border-t border-r border-slate-700 bg-slate-900 px-6 py-4 shadow-sm sm:px-10 sm:py-5">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-300">
             Technical profile
           </p>
 
           <h2
             id="skills-heading"
-            className="text-sky-700 mt-2 text-2xl font-semibold tracking-tight sm:text-3xl"
+            className="mt-1 text-xl font-semibold uppercase tracking-wide text-white sm:text-3xl"
           >
             Technical skills
           </h2>
-
-          <p className="mt-2 text-base leading-7 text-slate-700">
-            Tools and technologies I have used across frontend development,
-            backend services, database workflows, API integrations, testing, and
-            version control.
-          </p>
         </div>
 
-        <div className="w-full min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-          <ExpandingListContainer
-            customBtnStyle="border-t border-slate-200 bg-slate-100 py-3 text-sm font-semibold text-sky-700 transition hover:bg-slate-200 hover:text-sky-900"
-            maxHeight="max-h-[21.5rem] sm:max-h-[23.5rem] md:max-h-[21.5rem] lg:max-h-[18rem]"
-          >
-            <ul className="grid w-full min-w-0 grid-cols-2 gap-3 p-3 sm:grid-cols-3 sm:gap-4 sm:p-5 lg:grid-cols-4 xl:grid-cols-5">
-              {skillsData.map((data) => (
-                <li
-                  key={data.skill}
-                  className="flex min-h-24 min-w-0 flex-col items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm"
+        <ExpandingListContainer
+          customBtnStyle="border-t border-slate-700 bg-slate-800 py-4 text-sm font-semibold text-sky-300 transition hover:bg-slate-700 hover:text-white"
+          maxHeight="max-h-64 md:max-h-72 lg:max-h-[16rem]"
+          buttonLabel="skills"
+        >
+          <ul className="grid w-full min-w-0 grid-cols-2 gap-x-6 gap-y-10 px-4 pt-10 pb-8 sm:grid-cols-4 sm:gap-x-8 sm:px-8 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7">
+            {skillsData.map((data) => (
+              <li
+                key={data.skill}
+                className="flex min-w-0 flex-col items-center justify-start gap-4 text-center"
+              >
+                <FontAwesomeIcon
+                  data-testid={`skill-icon-${data.skill}`}
+                  icon={data.icon}
+                  className="text-[2.35rem] text-sky-300 sm:text-[2.6rem]"
+                />
+
+                <span
+                  data-testid={`skill-name-${data.skill}`}
+                  className="flex min-h-10 w-full max-w-[11rem] items-center justify-center rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-center text-xs font-semibold text-slate-100 shadow-sm sm:text-sm"
+                  title={data.skill}
                 >
-                  <FontAwesomeIcon
-                    data-testid={`skill-icon-${data.skill}`}
-                    icon={data.icon}
-                    className="text-[1.7rem] text-sky-700 sm:text-[1.9rem]"
-                  />
-
-                  <span
-                    data-testid={`skill-name-${data.skill}`}
-                    className="block max-w-full truncate text-xs font-semibold text-slate-800 sm:text-sm"
-                    title={data.skill}
-                  >
-                    {data.skill}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </ExpandingListContainer>
-        </div>
+                  {data.skill}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </ExpandingListContainer>
       </div>
     </section>
   );

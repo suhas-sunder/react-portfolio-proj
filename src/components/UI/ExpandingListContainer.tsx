@@ -25,7 +25,7 @@ function ExpandingListContainer({
           isExpanded ? "max-h-[9999px]" : maxHeight
         } mx-auto w-full min-w-0 overflow-hidden transition-[max-height] duration-300 ease-in-out`}
       >
-        <div className="w-full min-w-0">{children}</div>
+        {children}
       </div>
 
       <button

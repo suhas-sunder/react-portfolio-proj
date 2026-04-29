@@ -35,41 +35,60 @@ export default function Skills() {
   ];
 
   return (
-    <div
+    <section
       id="skills"
-      className="flex relative w-full justify-center bg-light-blueish-gray tracking-wider"
+      className="relative w-full bg-white px-4 py-16 text-slate-900 sm:px-6 lg:px-10"
+      aria-labelledby="skills-heading"
     >
-      <div className="flex flex-col  w-full relative">
-        <h2 className="flex absolute uppercase text-white bg-light-blueish-gray px-12 pt-6 py-4 text-xl sm:text-4xl rounded-t-lg sm:left-0 -top-[3.35em] sm:-top-[2.2em]">
-          Technical skills
-        </h2>
+      <div className="mx-auto flex max-w-7xl flex-col gap-6">
+        <div className="max-w-3xl">
+          <p className="text-sm font-semibold uppercase tracking-wide text-sky-700">
+            Technical profile
+          </p>
 
-        <ExpandingListContainer
-          customBtnStyle="flex bg-slate-700  w-full cursor-pointer text-highlight-yellow hover:text-yellow-100  py-4"
-          maxHeight="max-h-60 md:max-h-64 lg:max-h-[14.5em]"
-        >
-          <ul className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-x-16 sm:gap-x-10 md:gap-x-16 gap-y-14 pt-10 pb-5 px-6">
-            {skillsData.map((data) => (
-              <li
-                key={data.skill}
-                className="flex flex-col gap-5 text-white text-lg"
-              >
-                <FontAwesomeIcon
-                  data-testid={`skill-icon-${data.skill}`}
-                  icon={data.icon}
-                  className="flex text-white text-[2.8rem]"
-                />
-                <span
-                  data-testid={`skill-name-${data.skill}`}
-                  className="flex justify-center text-sm md:text-base items-center rounded-md p-3 text-center bg-dark-blueish-gray"
+          <h2
+            id="skills-heading"
+            className="text-sky-700 mt-2 text-2xl font-semibold tracking-tight sm:text-3xl"
+          >
+            Technical skills
+          </h2>
+
+          <p className="mt-3 text-base leading-7 text-slate-700">
+            Tools and technologies I have used across frontend development,
+            backend services, database workflows, API integrations, testing, and
+            version control.
+          </p>
+        </div>
+
+        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
+          <ExpandingListContainer
+            customBtnStyle="flex w-full cursor-pointer justify-center border-t border-slate-200 bg-slate-100 py-4 text-sm font-semibold text-sky-700 transition hover:bg-slate-200 hover:text-sky-900"
+            maxHeight="max-h-72 md:max-h-80 lg:max-h-[22rem]"
+          >
+            <ul className="grid grid-cols-2 gap-4 p-4 sm:grid-cols-3 sm:p-6 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+              {skillsData.map((data) => (
+                <li
+                  key={data.skill}
+                  className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-xl border border-slate-200 bg-white p-4 text-center shadow-sm transition hover:-translate-y-0.5 hover:border-sky-200 hover:bg-sky-50 hover:shadow-md"
                 >
-                  {data.skill}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </ExpandingListContainer>
+                  <FontAwesomeIcon
+                    data-testid={`skill-icon-${data.skill}`}
+                    icon={data.icon}
+                    className="text-[2rem] text-sky-700"
+                  />
+
+                  <span
+                    data-testid={`skill-name-${data.skill}`}
+                    className="text-sm font-semibold text-slate-800"
+                  >
+                    {data.skill}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </ExpandingListContainer>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

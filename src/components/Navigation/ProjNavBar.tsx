@@ -5,55 +5,50 @@ import { faArrowAltCircleRight as arrowRight } from "@fortawesome/free-regular-s
 import { faArrowAltCircleLeft as arrowLeft } from "@fortawesome/free-regular-svg-icons";
 import { useEffect, useState } from "react";
 
-function ProjNavBar({ Styles, projName }) {
+interface ProjectDataItem {
+  title: string;
+}
+
+interface ProjNavBarProps {
+  Styles: {
+    [key: string]: string;
+  };
+  projName: string;
+}
+
+function ProjNavBar({ Styles, projName }: ProjNavBarProps) {
   const [prevProjName, setPrevProjName] = useState<string>("");
   const [nextProjName, setNextProjName] = useState<string>("");
 
   useEffect(() => {
-    const handleArrowLeft = () => {
-      let index = 0;
-      for (const value of Object.values(projData)) {
-        if (
-          value.title.toLowerCase() === projName.toLowerCase() &&
-          index - 1 >= 0
-        ) {
-          setPrevProjName(projData[index - 1].title);
-          break;
-        } else if (index === 0) {
-          setPrevProjName("");
-        }
+    const activeProjectIndex = (projData as ProjectDataItem[]).findIndex(
+      (project) => project.title.toLowerCase() === projName.toLowerCase()
+    );
 
-        index++;
-      }
-    };
+    if (activeProjectIndex === -1) {
+      setPrevProjName("");
+      setNextProjName("");
+      return;
+    }
 
-    const handleArrowRight = () => {
-      let index = 0;
-      for (const value of Object.values(projData)) {
-        if (
-          value.title.toLowerCase() === projName.toLowerCase() &&
-          index + 1 < projData.length
-        ) {
-          setNextProjName(projData[index + 1].title);
-          break;
-        } else if (index === projData.length - 1) {
-          setNextProjName("");
-        }
-        index++;
-      }
-    };
+    setPrevProjName(
+      activeProjectIndex > 0 ? projData[activeProjectIndex - 1].title : ""
+    );
 
-    handleArrowLeft();
-    handleArrowRight();
-  }, [nextProjName, prevProjName, projName]);
+    setNextProjName(
+      activeProjectIndex + 1 < projData.length
+        ? projData[activeProjectIndex + 1].title
+        : ""
+    );
+  }, [projName]);
 
   return (
-    <div className={`pt-5 bg-dark-blueish-gray`}>
-      <div className=" flex justify-between max-w-[1600px] mx-auto">
-        {prevProjName && (
+    <div className="border-y border-slate-800 bg-slate-950">
+      <div className="mx-auto flex max-w-[1600px] justify-between">
+        {prevProjName ? (
           <Link
             to={`/projects/${prevProjName.split(" ").join("").toLowerCase()}`}
-            className="flex w-full justify-center items-center gap-3 text-sm text-white hover:text-highlight-yellow pl-5 py-4 sm:text-[1.4rem] sm:gap-5 sm:pl-0"
+            className="flex w-full cursor-pointer items-center justify-center gap-3 px-5 py-4 text-sm font-semibold text-slate-100 transition hover:bg-sky-400/10 hover:text-sky-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-400/40 sm:gap-5 sm:px-8 sm:text-[1.15rem]"
           >
             <span>
               <FontAwesomeIcon
@@ -63,12 +58,14 @@ function ProjNavBar({ Styles, projName }) {
             </span>
             <span>{prevProjName}</span>
           </Link>
+        ) : (
+          <div className={Styles["nav-left"]}></div>
         )}
-        {!prevProjName && <div className={Styles["nav-left"]}></div>}
-        {nextProjName && (
+
+        {nextProjName ? (
           <Link
             to={`/projects/${nextProjName.split(" ").join("").toLowerCase()}`}
-            className="flex w-full justify-center items-center gap-3 text-sm text-white hover:text-highlight-yellow pr-5 py-4 sm:text-[1.4rem] sm:gap-5 sm:pr-0"
+            className="flex w-full cursor-pointer items-center justify-center gap-3 px-5 py-4 text-sm font-semibold text-slate-100 transition hover:bg-sky-400/10 hover:text-sky-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-400/40 sm:gap-5 sm:px-8 sm:text-[1.15rem]"
           >
             <span>{nextProjName}</span>
             <span>
@@ -78,8 +75,9 @@ function ProjNavBar({ Styles, projName }) {
               />
             </span>
           </Link>
+        ) : (
+          <div className={Styles["nav-right"]}></div>
         )}
-        {!nextProjName && <div className={Styles["nav-right"]}></div>}
       </div>
     </div>
   );

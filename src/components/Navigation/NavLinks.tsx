@@ -40,17 +40,23 @@ export default function NavLinks({
     type !== "nav-link" && type !== "nav-link-mobile" && type !== "mobile-link";
 
   const isExternalLink =
-    target === "_blank" || url.startsWith("http://") || url.startsWith("https://");
+    target === "_blank" ||
+    url.startsWith("http://") ||
+    url.startsWith("https://");
 
   const linkClassName = isPrimaryAction
-    ? "flex cursor-pointer items-center justify-center gap-2 rounded-md border-2 border-sky-600 bg-sky-600 px-[0.67em] py-[0.7em] text-xs font-semibold uppercase tracking-widest text-white transition hover:border-sky-700 hover:bg-sky-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-500/30 sm:px-5 sm:text-sm"
-    : "flex cursor-pointer items-center justify-center px-5 py-5 text-base font-semibold uppercase tracking-widest text-sky-700 transition hover:text-sky-900 focus:outline-none focus:ring-2 focus:ring-sky-500/30";
+    ? "flex cursor-pointer items-center justify-center gap-2 rounded-md border border-sky-500 bg-sky-500 px-[0.67em] py-[0.7em] text-xs font-semibold uppercase tracking-widest text-white shadow-sm transition hover:border-sky-400 hover:bg-sky-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-400/40 sm:px-5 sm:text-sm"
+    : "flex cursor-pointer items-center justify-center px-5 py-5 text-base font-semibold uppercase tracking-widest text-sky-300 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-400/40";
 
   const mobileLinkClassName =
-    "flex w-full cursor-pointer items-center justify-center gap-2 rounded-md px-5 py-4 text-base font-semibold uppercase tracking-widest text-slate-700 transition hover:bg-sky-50 hover:text-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500/30";
+    type === "downloadBtnMobile" || type === "downloadBtn"
+      ? "mx-auto my-2 flex w-[calc(100%-2rem)] cursor-pointer items-center justify-center gap-2 rounded-md border border-sky-500 bg-sky-500 px-5 py-3 text-base font-semibold uppercase tracking-widest text-white shadow-sm transition hover:border-sky-400 hover:bg-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/40"
+      : "flex w-full cursor-pointer items-center justify-center gap-2 rounded-md px-5 py-4 text-base font-semibold uppercase tracking-widest text-slate-100 transition hover:bg-sky-400/10 hover:text-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-400/40";
 
   const finalClassName =
-    type === "nav-link-mobile" || type === "mobile-link"
+    type === "nav-link-mobile" ||
+    type === "mobile-link" ||
+    type === "downloadBtnMobile"
       ? mobileLinkClassName
       : linkClassName;
 

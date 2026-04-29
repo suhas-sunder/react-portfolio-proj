@@ -8,6 +8,8 @@ import NavBtnData from "../../data/NavBtnData";
 import { faS as logoIcon } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
+type NavLogo = "download" | "github" | "linkedin" | "arrow" | "arrowUp";
+
 export default function MobileNav() {
   const [isMenuClosed, setIsMenuClosed] = useState(true);
 
@@ -22,14 +24,14 @@ export default function MobileNav() {
   return (
     <>
       <div
-        className={`${Styles["mobile-nav"]} !border-b !border-slate-200 !bg-white/95 !text-slate-900 !shadow-sm !backdrop-blur`}
+        className={`${Styles["mobile-nav"]} !border-b !border-slate-800 !bg-slate-950/95 !text-slate-100 !shadow-sm !backdrop-blur`}
         id="mobile-nav"
       >
         <Link
           to="/"
           onClick={closeBurgerMenu}
           aria-label="Go to home page"
-          className="ml-6 flex h-12 w-12 cursor-pointer items-center justify-center rounded-md border border-sky-200 bg-sky-50 text-2xl text-sky-700 shadow-sm transition hover:border-sky-300 hover:bg-sky-100 hover:text-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-500/30"
+          className="ml-6 flex h-12 w-12 cursor-pointer items-center justify-center rounded-md border border-sky-400/30 bg-sky-400/10 text-2xl text-sky-300 shadow-sm transition hover:border-sky-300 hover:bg-sky-400/20 hover:text-sky-200 focus:outline-none focus:ring-2 focus:ring-sky-400/40"
         >
           <FontAwesomeIcon icon={logoIcon} />
         </Link>
@@ -41,7 +43,7 @@ export default function MobileNav() {
             aria-label="Open navigation menu"
             aria-expanded={!isMenuClosed}
             aria-controls="burger-menu"
-            className="mr-6 flex cursor-pointer items-center justify-center rounded-md border border-slate-200 bg-white p-3 text-slate-700 shadow-sm transition hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500/30"
+            className="mr-6 flex cursor-pointer items-center justify-center rounded-md border border-slate-700 bg-slate-900 p-3 text-slate-100 shadow-sm transition hover:border-sky-400 hover:bg-slate-800 hover:text-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-400/40"
             onClick={toggleBurgerMenu}
           >
             <FontAwesomeIcon icon={burgerIcon} className="text-xl" />
@@ -55,7 +57,7 @@ export default function MobileNav() {
             aria-label="Close navigation menu"
             aria-expanded={!isMenuClosed}
             aria-controls="burger-menu"
-            className="mr-6 flex cursor-pointer items-center justify-center rounded-md border border-slate-200 bg-white p-3 text-slate-700 shadow-sm transition hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500/30"
+            className="mr-6 flex cursor-pointer items-center justify-center rounded-md border border-slate-700 bg-slate-900 p-3 text-slate-100 shadow-sm transition hover:border-sky-400 hover:bg-slate-800 hover:text-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-400/40"
             onClick={toggleBurgerMenu}
           >
             <FontAwesomeIcon icon={xIcon} className="text-xl" />
@@ -67,7 +69,7 @@ export default function MobileNav() {
         <>
           <ul
             id="burger-menu"
-            className={`${Styles["nav-list"]} !border-slate-200 !bg-white !text-slate-900 !shadow-xl`}
+            className={`${Styles["nav-list"]} !border !border-slate-800 !bg-slate-950 !text-slate-100 !shadow-xl`}
           >
             {NavBtnData.filter((data) => data.text !== "Home").map((data) => (
               <li
@@ -82,15 +84,7 @@ export default function MobileNav() {
                   url={data.url}
                   type={data.typeMobile}
                   text={data.text}
-                  logo={
-                    data.logo as
-                      | "download"
-                      | "github"
-                      | "linkedin"
-                      | "arrow"
-                      | "arrowUp"
-                      | undefined
-                  }
+                  logo={data.logo as NavLogo | undefined}
                   target={data.target}
                   isHashLink={data.hashLink}
                 />
@@ -100,7 +94,7 @@ export default function MobileNav() {
 
           <div
             data-testid="mobile-nav-bkgd"
-            className={`${Styles["background-overlay"]} !bg-slate-950/40`}
+            className={`${Styles["background-overlay"]} !bg-slate-950/70`}
             onClick={closeBurgerMenu}
           />
         </>

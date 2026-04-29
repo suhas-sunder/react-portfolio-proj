@@ -4,13 +4,15 @@ import MobileNav from "./MobileNav";
 import NavBtnData from "../../data/NavBtnData";
 import SideNav from "./SideNav";
 
+type NavLogo = "download" | "github" | "linkedin" | "arrow" | "arrowUp";
+
 export default function NavBar() {
   return (
     <>
       <nav
         role="navigation"
         aria-label="Primary navigation"
-        className={`${Styles.nav} !sticky !top-0 !z-50 !w-full !border-b !border-slate-200 !bg-white/95 !text-slate-900 !shadow-sm !backdrop-blur`}
+        className={`${Styles.nav} !sticky !top-0 !z-50 !w-full !border-b !border-slate-800 !bg-slate-950/95 !text-slate-100 !shadow-sm !backdrop-blur`}
       >
         <div className={`${Styles["nav-items"]} !bg-transparent`}>
           <ul className="flex w-full max-w-[900px] items-center justify-evenly">
@@ -21,13 +23,7 @@ export default function NavBar() {
                   url={data.url}
                   type={data.type}
                   text={data.text}
-                  logo={data.logo as
-                    | "download"
-                    | "github"
-                    | "linkedin"
-                    | "arrow"
-                    | "arrowUp"
-                    | undefined}
+                  logo={data.logo as NavLogo | undefined}
                   target={data.target}
                   isHashLink={data.hashLink}
                 />

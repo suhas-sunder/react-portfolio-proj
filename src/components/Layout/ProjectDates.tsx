@@ -11,20 +11,23 @@ export default function ProjectDates({
   projId,
   index,
 }: PropType) {
+  const separator =
+    projId === "atsproj" || projId === "emeproj" ? "&" : "to";
+
   return (
     <div
-      className={`${
-        index % 2 !== 0
-          ? "-right-6 sm:right-3 rotate-[35deg]"
-          : "-left-6 sm:left-3 -rotate-[35deg]"
-      } flex flex-col border-4 border-white absolute bg-dark-blueish-gray rounded-full -top-12 sm:-top-20 text-white h-20 w-20 justify-center items-center tracking-widest sm:p-4 text-[0.6rem] sm:text-sm gap-1`}
+      className={`absolute top-4 ${
+        index % 2 !== 0 ? "right-4" : "left-4"
+      } inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white/95 px-3 py-1 text-xs font-semibold tracking-wide text-slate-700 shadow-sm backdrop-blur`}
+      aria-label={
+        endYear ? `Project date: ${year} ${separator} ${endYear}` : `Project date: ${year}`
+      }
     >
-      <span className="">{year}</span>
+      <span>{year}</span>
+
       {endYear && (
         <>
-          <span>
-            {projId === "atsproj" || projId === "emeproj" ? "&" : "to"}
-          </span>
+          <span className="text-slate-400">{separator}</span>
           <span>{endYear}</span>
         </>
       )}

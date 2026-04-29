@@ -69,7 +69,7 @@ export default function Skills() {
               {skillsData.map((data) => (
                 <li
                   key={data.skill}
-                  className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-xl border border-slate-200 bg-white p-4 text-center shadow-sm transition hover:-translate-y-0.5 hover:border-sky-200 hover:bg-sky-50 hover:shadow-md"
+                  className="flex min-h-28 flex-col items-center justify-center gap-3 rounded-xl border border-slate-200 bg-white p-4 text-center shadow-sm"
                 >
                   <FontAwesomeIcon
                     data-testid={`skill-icon-${data.skill}`}

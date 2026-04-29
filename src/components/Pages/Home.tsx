@@ -21,65 +21,63 @@ function Home({ handleModal, showModal }: PropType) {
 
       <header
         id="about"
-        className="box-content flex flex-col items-center justify-center gap-10 bg-slate-50 px-6 py-24 text-slate-900 sm:px-8 lg:py-28 xl:flex-row xl:gap-16 xl:px-12 xl:py-32"
+        className="box-content bg-slate-50 px-6 pt-14 pb-12 text-slate-900 sm:px-8 sm:pt-16 sm:pb-14 xl:px-12"
       >
-        <div className="relative flex shrink-0 items-center justify-center">
-          <div className="absolute inset-0 rounded-full bg-sky-100 blur-2xl" />
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 rounded-3xl border border-slate-200 bg-white px-6 py-8 shadow-sm sm:px-10 sm:py-10 xl:grid-cols-[300px_minmax(0,1fr)] xl:gap-12 xl:px-12 xl:py-10">
+          <div className="flex w-full justify-center">
+            <div className="rounded-full border border-slate-200 bg-slate-100 p-3 shadow-sm">
+              <img
+                alt="Headshot of Suhas Sunder"
+                src={ProfilePic}
+                className="block h-[200px] w-[200px] rounded-full border border-white bg-white object-cover shadow-sm sm:h-[260px] sm:w-[260px]"
+                height={260}
+                width={260}
+              />
+            </div>
+          </div>
 
-          <img
-            alt="Headshot of Suhas Sunder"
-            src={ProfilePic}
-            className="relative block h-[220px] w-[220px] rounded-full border border-slate-200 bg-white object-cover p-2 shadow-sm sm:h-[300px] sm:w-[300px]"
-            height={300}
-            width={300}
-          />
-        </div>
-
-        <div className="flex max-w-[720px] flex-col gap-7 text-center text-base leading-8 sm:text-left lg:text-lg lg:leading-8">
-          <div className="flex flex-col gap-4">
-            <p className="mx-auto inline-flex w-fit items-center rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-sm font-semibold text-sky-700 sm:mx-0">
+          <div className="flex max-w-[760px] flex-col text-center sm:text-left">
+            <p className="mx-auto inline-flex w-fit items-center rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-sm font-semibold text-sky-800 sm:mx-0">
               Full-stack software developer
             </p>
 
-            <h1 className="text-sky-700 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="text-sky-800 mt-4 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-[2.45rem] lg:leading-[1.08]">
               Suhas Sunder{" "}
-              <FontAwesomeIcon className="text-sky-500" icon={code} />
+              <FontAwesomeIcon className="text-sky-600" icon={code} />{" "}
+              Software Developer
             </h1>
 
-            <p className="max-w-2xl text-lg leading-8 text-slate-700">
-              I build practical web applications across frontend interfaces,
-              backend services, API integrations, and relational data workflows.
-            </p>
+            <div className="mt-5 grid gap-3 text-base leading-7 text-slate-800 lg:text-[1.03rem] lg:leading-8">
+              <p>
+                Full-stack software developer with 3+ years of experience
+                building and maintaining web applications in startup and project
+                environments. I work across frontend development, backend
+                services, API integrations, and relational data workflows to
+                deliver reliable, maintainable software.
+              </p>
+
+              <p>
+                <HashLink
+                  to="/#projects"
+                  className="cursor-pointer font-semibold text-sky-800 underline decoration-sky-300 underline-offset-4 transition hover:text-sky-950 hover:decoration-sky-700"
+                  scroll={(element) => handleScrollOffset(element)}
+                >
+                  Selected projects
+                </HashLink>{" "}
+                from my professional and personal work highlight the systems,
+                features, and technical solutions I have built.
+              </p>
+
+              <p>
+                Outside of software development, I stay active with archery and
+                the gym, and spend time on creative side projects.
+              </p>
+            </div>
+
+            <div className="mt-7">
+              <LogoButtonGroup showToolTip={true} />
+            </div>
           </div>
-
-          <div className="grid gap-4 text-slate-700">
-            <p>
-              Full-stack software developer with 3+ years of experience building
-              and maintaining web applications in startup and project
-              environments. My work focuses on reliable, maintainable software
-              that supports real workflows.
-            </p>
-
-            <p>
-              My{" "}
-              <HashLink
-                to="/#projects"
-                className="cursor-pointer font-semibold text-sky-700 underline decoration-sky-300 underline-offset-4 transition hover:text-sky-900 hover:decoration-sky-600"
-                scroll={(element) => handleScrollOffset(element)}
-              >
-                selected projects
-              </HashLink>{" "}
-              highlight professional and personal work across full-stack
-              development, workflow tools, and technical problem solving.
-            </p>
-
-            <p>
-              Outside of software development, I stay active with archery and
-              the gym, and spend time on creative side projects.
-            </p>
-          </div>
-
-          <LogoButtonGroup showToolTip={true} />
         </div>
       </header>
 

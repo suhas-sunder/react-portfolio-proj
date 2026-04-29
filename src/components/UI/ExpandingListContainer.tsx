@@ -25,7 +25,7 @@ function ExpandingListContainer({
           isExpanded ? "max-h-[9999px]" : maxHeight
         } mx-auto w-full min-w-0 overflow-hidden transition-[max-height] duration-300 ease-in-out`}
       >
-        {children}
+        <div className="w-full min-w-0">{children}</div>
       </div>
 
       <button
@@ -34,12 +34,12 @@ function ExpandingListContainer({
         aria-expanded={isExpanded}
         className={`${customBtnStyle} flex w-full cursor-pointer items-center justify-center gap-3 rounded-b-2xl`}
       >
-        <span>{isExpanded ? "Hide" : "Show all"} {buttonLabel}</span>
+        <span>
+          {isExpanded ? "Hide" : "Show all"} {buttonLabel}
+        </span>
 
         <FontAwesomeIcon
-          data-testid={
-            isExpanded ? "expand-skills-up" : "expand-skills-down"
-          }
+          data-testid={isExpanded ? "expand-skills-up" : "expand-skills-down"}
           icon={isExpanded ? arrowsUp : arrowsDown}
           className="text-xs"
         />

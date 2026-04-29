@@ -36,8 +36,15 @@ export default function NavLinks({
     arrowUp: arrowUpIcon,
   };
 
+  const isMobileMenuLink = type === "mobile-menu-link";
+  const isMobileDownloadLink = type === "mobile-download-link";
+
   const isPrimaryAction =
-    type !== "nav-link" && type !== "nav-link-mobile" && type !== "mobile-link";
+    type !== "nav-link" &&
+    type !== "nav-link-mobile" &&
+    type !== "mobile-link" &&
+    type !== "mobile-menu-link" &&
+    type !== "mobile-download-link";
 
   const isExternalLink =
     target === "_blank" ||
@@ -48,16 +55,16 @@ export default function NavLinks({
     ? "flex cursor-pointer items-center justify-center gap-2 rounded-md border border-sky-500 bg-sky-500 px-[0.67em] py-[0.7em] text-xs font-semibold uppercase tracking-widest text-white shadow-sm transition hover:border-sky-400 hover:bg-sky-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-400/40 sm:px-5 sm:text-sm"
     : "flex cursor-pointer items-center justify-center px-5 py-5 text-base font-semibold uppercase tracking-widest text-sky-300 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-400/40";
 
-  const mobileLinkClassName =
-    type === "downloadBtnMobile" || type === "downloadBtn"
-      ? "mx-auto my-2 flex w-[calc(100%-2rem)] cursor-pointer items-center justify-center gap-2 rounded-md border border-sky-500 bg-sky-500 px-5 py-3 text-base font-semibold uppercase tracking-widest text-white shadow-sm transition hover:border-sky-400 hover:bg-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/40"
-      : "flex w-full cursor-pointer items-center justify-center gap-2 rounded-md px-5 py-4 text-base font-semibold uppercase tracking-widest text-slate-100 transition hover:bg-sky-400/10 hover:text-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-400/40";
+  const mobileMenuLinkClassName =
+    "flex w-full cursor-pointer items-center justify-center rounded-md px-4 py-3.5 text-[1rem] font-semibold uppercase tracking-[0.12em] text-slate-100 transition hover:bg-slate-900 hover:text-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-400/40";
 
-  const finalClassName =
-    type === "nav-link-mobile" ||
-    type === "mobile-link" ||
-    type === "downloadBtnMobile"
-      ? mobileLinkClassName
+  const mobileDownloadLinkClassName =
+    "mx-auto mt-4 flex w-full max-w-[15rem] cursor-pointer items-center justify-center gap-2 rounded-md bg-sky-300 px-5 py-3 text-[1rem] font-bold uppercase tracking-[0.12em] text-slate-950 transition hover:bg-sky-200 hover:text-slate-950 focus:outline-none focus:ring-2 focus:ring-sky-300/50";
+
+  const finalClassName = isMobileDownloadLink
+    ? mobileDownloadLinkClassName
+    : isMobileMenuLink
+      ? mobileMenuLinkClassName
       : linkClassName;
 
   const dispText = text && <span className={Styles.text}>{text}</span>;

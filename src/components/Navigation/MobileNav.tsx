@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavLinks from "./NavLinks";
 import Styles from "./styles/MobileNav.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,80 +21,93 @@ export default function MobileNav() {
     setIsMenuClosed(true);
   };
 
+  useEffect(() => {
+    if (isMenuClosed) return;
+
+    const handleEscapeKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeBurgerMenu();
+      }
+    };
+
+    window.addEventListener("keydown", handleEscapeKey);
+
+    return () => {
+      window.removeEventListener("keydown", handleEscapeKey);
+    };
+  }, [isMenuClosed]);
+
   return (
     <>
       <div
-        className={`${Styles["mobile-nav"]} !border-b !border-slate-800 !bg-slate-950/95 !text-slate-100 !shadow-sm !backdrop-blur`}
+        className={`${Styles["mobile-nav"]} !border-b !border-slate-800 !bg-slate-950/95 !text-slate-100 !shadow-sm !backdrop-blur lg:!hidden`}
         id="mobile-nav"
       >
         <Link
           to="/"
           onClick={closeBurgerMenu}
           aria-label="Go to home page"
-          className="ml-6 flex h-12 w-12 cursor-pointer items-center justify-center rounded-md border border-sky-400/30 bg-sky-400/10 text-2xl text-sky-300 shadow-sm transition hover:border-sky-300 hover:bg-sky-400/20 hover:text-sky-200 focus:outline-none focus:ring-2 focus:ring-sky-400/40"
+          className="ml-5 flex h-11 w-11 cursor-pointer items-center justify-center rounded-md bg-sky-400/10 text-xl text-sky-300 transition hover:bg-sky-400/20 hover:text-sky-200 focus:outline-none focus:ring-2 focus:ring-sky-400/40"
         >
           <FontAwesomeIcon icon={logoIcon} />
         </Link>
 
-        {isMenuClosed && (
-          <button
-            type="button"
-            data-testid="burgerBtn-open"
-            aria-label="Open navigation menu"
-            aria-expanded={!isMenuClosed}
-            aria-controls="burger-menu"
-            className="mr-6 flex cursor-pointer items-center justify-center rounded-md border border-slate-700 bg-slate-900 p-3 text-slate-100 shadow-sm transition hover:border-sky-400 hover:bg-slate-800 hover:text-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-400/40"
-            onClick={toggleBurgerMenu}
-          >
-            <FontAwesomeIcon icon={burgerIcon} className="text-xl" />
-          </button>
-        )}
-
-        {!isMenuClosed && (
-          <button
-            type="button"
-            data-testid="burgerBtn-close"
-            aria-label="Close navigation menu"
-            aria-expanded={!isMenuClosed}
-            aria-controls="burger-menu"
-            className="mr-6 flex cursor-pointer items-center justify-center rounded-md border border-slate-700 bg-slate-900 p-3 text-slate-100 shadow-sm transition hover:border-sky-400 hover:bg-slate-800 hover:text-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-400/40"
-            onClick={toggleBurgerMenu}
-          >
-            <FontAwesomeIcon icon={xIcon} className="text-xl" />
-          </button>
-        )}
+        <button
+          type="button"
+          data-testid={isMenuClosed ? "burgerBtn-open" : "burgerBtn-close"}
+          aria-label={
+            isMenuClosed ? "Open navigation menu" : "Close navigation menu"
+          }
+          aria-expanded={!isMenuClosed}
+          aria-controls="burger-menu"
+          className="mr-5 flex h-11 w-11 cursor-pointer items-center justify-center rounded-md bg-slate-900 text-slate-100 transition hover:bg-slate-800 hover:text-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-400/40"
+          onClick={toggleBurgerMenu}
+        >
+          <FontAwesomeIcon
+            icon={isMenuClosed ? burgerIcon : xIcon}
+            className="text-lg"
+          />
+        </button>
       </div>
 
       {!isMenuClosed && (
         <>
           <ul
             id="burger-menu"
-            className={`${Styles["nav-list"]} !border !border-slate-800 !bg-slate-950 !text-slate-100 !shadow-xl`}
+            className={`${Styles["nav-list"]} !z-[70] !bg-slate-950 !px-5 !py-5 !text-slate-100 !shadow-xl lg:!hidden`}
           >
-            {NavBtnData.filter((data) => data.text !== "Home").map((data) => (
-              <li
-                onClick={closeBurgerMenu}
-                key={data.id}
-                className={
-                  data.type === "downloadBtn" ? Styles["download-link"] : ""
-                }
-              >
-                <NavLinks
-                  id={data.id}
-                  url={data.url}
-                  type={data.typeMobile}
-                  text={data.text}
-                  logo={data.logo as NavLogo | undefined}
-                  target={data.target}
-                  isHashLink={data.hashLink}
-                />
-              </li>
-            ))}
+            {NavBtnData.filter((data) => data.text !== "Home").map((data) => {
+              const isDownloadButton = data.type === "downloadBtn";
+
+              return (
+                <li
+                  key={data.id}
+                  onClick={closeBurgerMenu}
+                  className={
+                    isDownloadButton ? Styles["download-link"] : ""
+                  }
+                >
+                  <NavLinks
+                    id={data.id}
+                    url={data.url}
+                    type={
+                      isDownloadButton
+                        ? "mobile-download-link"
+                        : "mobile-menu-link"
+                    }
+                    text={data.text}
+                    logo={data.logo as NavLogo | undefined}
+                    target={data.target}
+                    isHashLink={data.hashLink}
+                  />
+                </li>
+              );
+            })}
           </ul>
 
           <div
             data-testid="mobile-nav-bkgd"
-            className={`${Styles["background-overlay"]} !bg-slate-950/70`}
+            className={`${Styles["background-overlay"]} !bg-slate-950/50 lg:!hidden`}
             onClick={closeBurgerMenu}
           />
         </>

@@ -28,7 +28,7 @@ function Home({ handleModal, showModal }: PropType) {
               <img
                 alt="Headshot of Suhas Sunder"
                 src={ProfilePic}
-                className="block h-[200px] w-[200px] rounded-full border border-slate-700 bg-slate-900 object-cover shadow-sm sm:h-[260px] sm:w-[260px]"
+                className="block h-[200px] w-[200px] rounded-full border-4 border-slate-600 bg-slate-900 object-cover shadow-sm sm:h-[260px] sm:w-[260px]"
                 height={260}
                 width={260}
               />

@@ -56,7 +56,7 @@ export default function FormInputs(props: FormInputsProps) {
   );
 
   return (
-    <div className="mt-2 flex flex-col gap-3 text-sm sm:text-base">
+    <div className="mt-2 flex flex-col gap-3 text-sm sm:text-base px-6">
       <label htmlFor={props.id} className="font-semibold text-slate-100">
         {label}
         {props.required && <span className="text-sky-300"> *</span>}

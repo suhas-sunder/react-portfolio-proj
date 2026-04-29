@@ -137,7 +137,7 @@ function Contact() {
       className="bg-slate-900 px-4 py-16 text-white sm:px-6 lg:px-10"
       aria-labelledby="contact-heading"
     >
-      <div className="mx-auto flex w-full max-w-[640px] flex-col rounded-2xl border border-slate-800 bg-slate-950/40 p-6 shadow-xl shadow-slate-950/20 sm:p-8 lg:p-10">
+      <div className="mx-auto flex w-full max-w-[640px] flex-col rounded-2xl border border-slate-800 bg-slate-950/40 py-6 shadow-xl shadow-slate-950/20 sm:p-8 lg:p-10">
         <h2
           id="contact-heading"
           className="flex w-full items-center justify-center text-center text-2xl font-semibold tracking-tight text-white sm:text-3xl"
@@ -173,7 +173,7 @@ function Contact() {
 
           {isSubmitted === "false" && (
             <button
-              className="mt-6 mb-1 cursor-pointer rounded-lg border border-sky-300 bg-sky-300 px-5 py-3 text-base font-bold uppercase tracking-widest text-slate-950 transition hover:border-sky-200 hover:bg-sky-200 hover:text-slate-950 focus:outline-none focus:ring-2 focus:ring-sky-300/50 sm:mx-8 sm:text-lg"
+              className="mx-6 mt-6 mb-1 cursor-pointer rounded-lg border border-sky-300 bg-sky-300 px-5 py-3 text-base font-bold uppercase tracking-widest text-slate-950 transition hover:border-sky-200 hover:bg-sky-200 hover:text-slate-950 focus:outline-none focus:ring-2 focus:ring-sky-300/50 sm:mx-8 sm:text-lg"
               type="submit"
               onClick={handleAutoComplete}
             >

@@ -6,15 +6,17 @@ function SideNav() {
   const location = useLocation();
 
   return (
-    <div className="group flex fixed text-white right-8 bottom-8  hover:bg-highlight-yellow rounded-full">
+    <div className="group fixed right-8 bottom-8 z-50 hidden text-slate-700 sm:flex">
       <ul>
         <li>
           <Link
             to={`${location.pathname || "/"}`}
-            className="flex saturate-100 border-white invert relative flex-col text-2xl brightness-50 border-2 p-2 rounded-full group-hover:brightness-75 font-bold tracking-widest cursor-pointer"
+            aria-label="Scroll to top"
+            className="relative flex cursor-pointer flex-col rounded-full border border-slate-300 bg-white p-3 text-xl font-bold tracking-widest text-slate-700 shadow-sm transition hover:border-sky-300 hover:bg-sky-50 hover:text-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500/30"
           >
             <FontAwesomeIcon icon={upArrow} />
-            <span className="flex whitespace-nowrap text-[0.4rem] absolute -bottom-8 -left-6">
+
+            <span className="absolute -bottom-8 -left-6 flex whitespace-nowrap text-[0.6rem] font-semibold text-slate-600 opacity-0 transition group-hover:opacity-100">
               Scroll To Top
             </span>
           </Link>

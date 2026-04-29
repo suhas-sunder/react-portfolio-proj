@@ -10,13 +10,13 @@ import handleScrollOffset from "../utility/handleScrollOffset";
 
 interface PropType {
   id?: string;
-  text?: any;
-  logo?: any;
-  type?: any;
+  text?: string;
+  logo?: "download" | "linkedin" | "github" | "arrow" | "arrowUp";
+  type?: string;
   url: string;
-  target?: any;
+  target?: string;
   isHashLink?: boolean;
-  onClick?: any;
+  onClick?: () => void;
 }
 
 export default function NavLinks({
@@ -28,7 +28,6 @@ export default function NavLinks({
   target,
   isHashLink,
 }: PropType) {
-  // Object list of all font-awesome logos
   const logos = {
     download: arrowUpIcon,
     linkedin: linkedinIcon,
@@ -37,44 +36,72 @@ export default function NavLinks({
     arrowUp: arrowUpIcon,
   };
 
-  // Text to be displayed on button
+  const isPrimaryAction =
+    type !== "nav-link" && type !== "nav-link-mobile" && type !== "mobile-link";
+
+  const isExternalLink =
+    target === "_blank" || url.startsWith("http://") || url.startsWith("https://");
+
+  const linkClassName = isPrimaryAction
+    ? "flex cursor-pointer items-center justify-center gap-2 rounded-md border-2 border-sky-600 bg-sky-600 px-[0.67em] py-[0.7em] text-xs font-semibold uppercase tracking-widest text-white transition hover:border-sky-700 hover:bg-sky-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-500/30 sm:px-5 sm:text-sm"
+    : "flex cursor-pointer items-center justify-center px-5 py-5 text-base font-semibold uppercase tracking-widest text-sky-700 transition hover:text-sky-900 focus:outline-none focus:ring-2 focus:ring-sky-500/30";
+
+  const mobileLinkClassName =
+    "flex w-full cursor-pointer items-center justify-center gap-2 rounded-md px-5 py-4 text-base font-semibold uppercase tracking-widest text-slate-700 transition hover:bg-sky-50 hover:text-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500/30";
+
+  const finalClassName =
+    type === "nav-link-mobile" || type === "mobile-link"
+      ? mobileLinkClassName
+      : linkClassName;
+
   const dispText = text && <span className={Styles.text}>{text}</span>;
 
-  // Logo to be displayed on button
-  const dispLogo = logo && (
+  const dispLogo = logo && logos[logo] && (
     <FontAwesomeIcon icon={logos[logo]} className={Styles.icon} />
   );
 
-  const link = (
+  if (isHashLink) {
+    return (
+      <HashLink
+        data-testid={`btn-link-${id}`}
+        to={url}
+        aria-label={text || "Navigation link"}
+        className={finalClassName}
+        target={target}
+        scroll={(el) => handleScrollOffset(el)}
+      >
+        {dispText}
+        {dispLogo}
+      </HashLink>
+    );
+  }
+
+  if (isExternalLink) {
+    return (
+      <a
+        data-testid={`btn-link-${id}`}
+        href={url}
+        aria-label={text || "Navigation link"}
+        className={finalClassName}
+        target={target}
+        rel={target === "_blank" ? "noopener noreferrer" : undefined}
+      >
+        {dispText}
+        {dispLogo}
+      </a>
+    );
+  }
+
+  return (
     <Link
       data-testid={`btn-link-${id}`}
       to={url}
-      aria-label={text || "Logo icon"}
-      className={`${
-        type !== "nav-link"
-          ? "font-semibold border-2 border-highlight-yellow  py-[0.7em] text-xs sm:text-sm rounded-md  text-dark-blueish-gray bg-highlight-yellow justify-center items-center gap-2 hover:text-yellow-100 hover:bg-dark-blueish-gray"
-          : "hover:text-yellow-100 justify-center items-center text-highlight-yellow py-5"
-      } uppercase flex tracking-widest text-base px-[0.67em] sm:px-5`}
+      aria-label={text || "Navigation link"}
+      className={finalClassName}
       target={target}
     >
       {dispText}
       {dispLogo}
     </Link>
   );
-
-  const anchorLink = (
-    <HashLink
-      data-testid={`btn-link-${id}`}
-      to={url}
-      aria-label={text || "Logo icon"}
-      className={`flex hover:text-yellow-100 justify-center items-center text-highlight-yellow tracking-widest text-base px-5 py-5 uppercase`}
-      target={target}
-      scroll={(el) => handleScrollOffset(el)}
-    >
-      {dispText}
-      {dispLogo}
-    </HashLink>
-  );
-
-  return isHashLink ? anchorLink : link;
 }

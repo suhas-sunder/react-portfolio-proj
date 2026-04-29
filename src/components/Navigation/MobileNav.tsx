@@ -9,71 +9,99 @@ import { faS as logoIcon } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 export default function MobileNav() {
-  const [toggle, setToggle] = useState(true);
+  const [isMenuClosed, setIsMenuClosed] = useState(true);
 
-  const handleBurgerMenu = (shouldToggle) => {
-    // Check if menu needs to be opened or closed
-    shouldToggle ? setToggle(!toggle) : setToggle(true);
+  const toggleBurgerMenu = () => {
+    setIsMenuClosed((currentState) => !currentState);
+  };
+
+  const closeBurgerMenu = () => {
+    setIsMenuClosed(true);
   };
 
   return (
     <>
-      <div className={Styles["mobile-nav"]} id="mobile-nav">
-        {/* Logo button */}
+      <div
+        className={`${Styles["mobile-nav"]} !border-b !border-slate-200 !bg-white/95 !text-slate-900 !shadow-sm !backdrop-blur`}
+        id="mobile-nav"
+      >
         <Link
           to="/"
-          onClick={handleBurgerMenu}
-          className="text-black bg-highlight-yellow w-12 flex justify-center items-center rounded-md h-12 text-2xl ml-6"
+          onClick={closeBurgerMenu}
+          aria-label="Go to home page"
+          className="ml-6 flex h-12 w-12 cursor-pointer items-center justify-center rounded-md border border-sky-200 bg-sky-50 text-2xl text-sky-700 shadow-sm transition hover:border-sky-300 hover:bg-sky-100 hover:text-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-500/30"
         >
           <FontAwesomeIcon icon={logoIcon} />
         </Link>
-        {/* Burger menu toggle buttons */}
-        {toggle && (
-          <FontAwesomeIcon
+
+        {isMenuClosed && (
+          <button
+            type="button"
             data-testid="burgerBtn-open"
-            icon={burgerIcon}
-            className={Styles.burger}
-            onClick={handleBurgerMenu}
-          />
+            aria-label="Open navigation menu"
+            aria-expanded={!isMenuClosed}
+            aria-controls="burger-menu"
+            className="mr-6 flex cursor-pointer items-center justify-center rounded-md border border-slate-200 bg-white p-3 text-slate-700 shadow-sm transition hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500/30"
+            onClick={toggleBurgerMenu}
+          >
+            <FontAwesomeIcon icon={burgerIcon} className="text-xl" />
+          </button>
         )}
-        {!toggle && (
-          <FontAwesomeIcon
+
+        {!isMenuClosed && (
+          <button
+            type="button"
             data-testid="burgerBtn-close"
-            icon={xIcon}
-            className={Styles.burger}
-            onClick={handleBurgerMenu}
-          />
+            aria-label="Close navigation menu"
+            aria-expanded={!isMenuClosed}
+            aria-controls="burger-menu"
+            className="mr-6 flex cursor-pointer items-center justify-center rounded-md border border-slate-200 bg-white p-3 text-slate-700 shadow-sm transition hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500/30"
+            onClick={toggleBurgerMenu}
+          >
+            <FontAwesomeIcon icon={xIcon} className="text-xl" />
+          </button>
         )}
       </div>
-      {/* Burger menu */}
-      {!toggle && (
+
+      {!isMenuClosed && (
         <>
-          <ul id="burger-menu" className={Styles["nav-list"]}>
-            {NavBtnData.filter((data) => data.text !== "Home").map(
-              (data, index) => (
-                <li
-                  onClick={handleBurgerMenu}
-                  key={index}
-                  className={
-                    data.type === "downloadBtn" ? Styles["download-link"] : ""
+          <ul
+            id="burger-menu"
+            className={`${Styles["nav-list"]} !border-slate-200 !bg-white !text-slate-900 !shadow-xl`}
+          >
+            {NavBtnData.filter((data) => data.text !== "Home").map((data) => (
+              <li
+                onClick={closeBurgerMenu}
+                key={data.id}
+                className={
+                  data.type === "downloadBtn" ? Styles["download-link"] : ""
+                }
+              >
+                <NavLinks
+                  id={data.id}
+                  url={data.url}
+                  type={data.typeMobile}
+                  text={data.text}
+                  logo={
+                    data.logo as
+                      | "download"
+                      | "github"
+                      | "linkedin"
+                      | "arrow"
+                      | "arrowUp"
+                      | undefined
                   }
-                >
-                  <NavLinks
-                    url={data.url}
-                    type={data.typeMobile}
-                    text={data.text}
-                    logo={data.logo}
-                    target={data.target}
-                    isHashLink={data.hashLink}
-                  />
-                </li>
-              )
-            )}
+                  target={data.target}
+                  isHashLink={data.hashLink}
+                />
+              </li>
+            ))}
           </ul>
+
           <div
             data-testid="mobile-nav-bkgd"
-            className={Styles["background-overlay"]}
-            onClick={handleBurgerMenu}
+            className={`${Styles["background-overlay"]} !bg-slate-950/40`}
+            onClick={closeBurgerMenu}
           />
         </>
       )}

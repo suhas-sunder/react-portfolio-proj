@@ -119,37 +119,8 @@ function ProjectCard({ project }: { project: ProjectType }) {
   const { liveDemoUrl, githubUrl, hasLiveDemo, hasGithub } =
     getProjectLinks(project);
 
-  const primaryLink = hasLiveDemo ? liveDemoUrl : hasGithub ? githubUrl : "";
-  const isClickable = Boolean(primaryLink);
-
-  const handleCardClick = () => {
-    if (!isClickable) return;
-    window.open(primaryLink, "_blank", "noreferrer");
-  };
-
-  const handleCardKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
-    if (!isClickable) return;
-
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      window.open(primaryLink, "_blank", "noreferrer");
-    }
-  };
-
   return (
-    <article
-      onClick={handleCardClick}
-      onKeyDown={handleCardKeyDown}
-      tabIndex={isClickable ? 0 : undefined}
-      role={isClickable ? "link" : undefined}
-      aria-label={isClickable ? `Open ${title}` : undefined}
-      className={[
-        "flex min-w-0 max-w-full flex-col overflow-hidden rounded-2xl border border-slate-700 bg-slate-900 shadow-sm transition",
-        "hover:-translate-y-0.5 hover:border-sky-400/70 hover:shadow-xl hover:shadow-slate-950/20",
-        "focus:outline-none focus:ring-2 focus:ring-sky-400/40",
-        isClickable ? "cursor-pointer" : "cursor-default",
-      ].join(" ")}
-    >
+    <article className="flex min-w-0 max-w-full flex-col overflow-hidden rounded-2xl border border-slate-700 bg-slate-900 shadow-sm transition hover:-translate-y-0.5 hover:border-sky-400/70 hover:shadow-xl hover:shadow-slate-950/20">
       <div className="relative min-w-0 border-b border-slate-700 bg-slate-800">
         {imageUrl ? (
           <img
@@ -211,8 +182,6 @@ function ProjectCard({ project }: { project: ProjectType }) {
                 href={liveDemoUrl}
                 target="_blank"
                 rel="noreferrer"
-                onClick={(event) => event.stopPropagation()}
-                onKeyDown={(event) => event.stopPropagation()}
                 className="inline-flex max-w-full cursor-pointer items-center justify-center rounded-lg border border-sky-500 bg-sky-500 px-4 py-2 text-sm font-semibold text-white transition hover:border-sky-400 hover:bg-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/40"
                 aria-label={`Open live demo for ${title}`}
               >
@@ -225,8 +194,6 @@ function ProjectCard({ project }: { project: ProjectType }) {
                 href={githubUrl}
                 target="_blank"
                 rel="noreferrer"
-                onClick={(event) => event.stopPropagation()}
-                onKeyDown={(event) => event.stopPropagation()}
                 className="inline-flex max-w-full cursor-pointer items-center justify-center rounded-lg border border-slate-600 bg-slate-800 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:border-sky-400 hover:bg-slate-950 hover:text-sky-200 focus:outline-none focus:ring-2 focus:ring-sky-400/40"
                 aria-label={`Open GitHub repo for ${title}`}
               >

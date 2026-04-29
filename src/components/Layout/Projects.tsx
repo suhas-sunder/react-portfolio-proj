@@ -119,69 +119,38 @@ function ProjectCard({ project }: { project: ProjectType }) {
   const { liveDemoUrl, githubUrl, hasLiveDemo, hasGithub } =
     getProjectLinks(project);
 
-  const primaryLink = hasLiveDemo ? liveDemoUrl : hasGithub ? githubUrl : "";
-  const isClickable = Boolean(primaryLink);
-
-  const handleCardClick = () => {
-    if (!isClickable) return;
-    window.open(primaryLink, "_blank", "noreferrer");
-  };
-
-  const handleCardKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
-    if (!isClickable) return;
-
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      window.open(primaryLink, "_blank", "noreferrer");
-    }
-  };
-
   return (
-    <article
-      onClick={handleCardClick}
-      onKeyDown={handleCardKeyDown}
-      tabIndex={isClickable ? 0 : undefined}
-      role={isClickable ? "link" : undefined}
-      className={[
-        "group grid min-w-0 grid-rows-[auto,1fr,auto] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition",
-        isClickable
-          ? "cursor-pointer hover:-translate-y-0.5 hover:border-sky-200 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500/30"
-          : "cursor-default",
-      ].join(" ")}
-      aria-label={isClickable ? `Open ${title}` : undefined}
-    >
-      <div className="relative min-w-0 border-b border-slate-200 bg-slate-100">
+    <article className="flex min-w-0 max-w-full flex-col overflow-hidden rounded-2xl border border-slate-700 bg-slate-900 shadow-sm transition hover:-translate-y-0.5 hover:border-sky-400/70 hover:shadow-xl hover:shadow-slate-950/20">
+      <div className="relative min-w-0 border-b border-slate-700 bg-slate-800">
         {imageUrl ? (
           <img
             src={imageUrl}
             alt={`${title} preview`}
-            className="h-40 w-full object-cover sm:h-44"
+            className="aspect-[16/9] w-full object-cover"
             loading="lazy"
           />
         ) : (
-          <div className="flex h-40 w-full items-center justify-center bg-slate-100 text-sm font-semibold text-slate-500 sm:h-44">
+          <div className="flex aspect-[16/9] w-full items-center justify-center bg-slate-800 px-4 text-center text-sm font-semibold text-slate-300">
             Project preview
           </div>
         )}
 
         {yearLabel ? (
-          <div className="absolute top-3 right-3 rounded-full border border-slate-200 bg-white/95 px-3 py-1 text-xs font-semibold text-slate-700 shadow-sm backdrop-blur">
+          <div className="absolute top-3 right-3 max-w-[calc(100%-1.5rem)] rounded-full border border-slate-600 bg-slate-950/90 px-3 py-1 text-xs font-semibold text-slate-100 shadow-sm backdrop-blur">
             {yearLabel}
           </div>
         ) : null}
 
-        {isClickable ? (
-          <div className="pointer-events-none absolute inset-0 bg-sky-950/10 opacity-0 transition group-hover:opacity-100" />
-        ) : null}
+        <div className="pointer-events-none absolute inset-0 bg-slate-950/10" />
       </div>
 
-      <div className="min-w-0 p-4">
-        <h3 className="text-base font-semibold leading-snug text-slate-900 sm:text-lg">
+      <div className="flex min-w-0 flex-1 flex-col p-4">
+        <h3 className="break-words text-base font-semibold leading-snug text-white sm:text-lg">
           {title}
         </h3>
 
         {description ? (
-          <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-slate-700">
+          <p className="mt-2 line-clamp-3 break-words text-sm leading-relaxed text-slate-300">
             {description}
           </p>
         ) : null}
@@ -191,7 +160,7 @@ function ProjectCard({ project }: { project: ProjectType }) {
             {visibleTags.map((tag) => (
               <li
                 key={`${title}-${tag}`}
-                className="max-w-full truncate rounded-full border border-sky-100 bg-sky-50 px-2.5 py-1 text-[0.72rem] font-semibold text-sky-800"
+                className="max-w-full truncate rounded-full border border-sky-400/20 bg-sky-400/10 px-2.5 py-1 text-[0.72rem] font-semibold text-sky-200"
                 title={tag}
               >
                 {tag}
@@ -199,47 +168,41 @@ function ProjectCard({ project }: { project: ProjectType }) {
             ))}
 
             {hiddenTagCount > 0 ? (
-              <li className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[0.72rem] font-semibold text-slate-600">
+              <li className="rounded-full border border-slate-600 bg-slate-800 px-2.5 py-1 text-[0.72rem] font-semibold text-slate-300">
                 +{hiddenTagCount}
               </li>
             ) : null}
           </ul>
         ) : null}
+
+        {(hasLiveDemo || hasGithub) && (
+          <div className="mt-auto flex min-w-0 flex-wrap gap-3 pt-4">
+            {hasLiveDemo ? (
+              <a
+                href={liveDemoUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex min-h-10 max-w-full cursor-pointer items-center justify-center rounded-lg border border-sky-500 bg-sky-500 px-4 py-2 text-sm font-semibold text-white transition hover:border-sky-400 hover:bg-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/40"
+                aria-label={`Open live demo for ${title}`}
+              >
+                Live Demo
+              </a>
+            ) : null}
+
+            {hasGithub ? (
+              <a
+                href={githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex min-h-10 max-w-full cursor-pointer items-center justify-center rounded-lg border border-slate-600 bg-slate-800 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:border-sky-400 hover:bg-slate-950 hover:text-sky-200 focus:outline-none focus:ring-2 focus:ring-sky-400/40"
+                aria-label={`Open GitHub repo for ${title}`}
+              >
+                GitHub
+              </a>
+            ) : null}
+          </div>
+        )}
       </div>
-
-      {hasLiveDemo || hasGithub ? (
-        <div className="flex min-w-0 flex-wrap gap-3 px-4 pt-0 pb-4">
-          {hasLiveDemo ? (
-            <a
-              href={liveDemoUrl}
-              target="_blank"
-              rel="noreferrer"
-              onClick={(event) => event.stopPropagation()}
-              onKeyDown={(event) => event.stopPropagation()}
-              className="inline-flex max-w-full cursor-pointer items-center justify-center rounded-lg border border-sky-600 bg-sky-600 px-4 py-2 text-sm font-semibold text-white transition hover:border-sky-700 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500/30"
-              aria-label={`Open live demo for ${title}`}
-            >
-              Live Demo
-            </a>
-          ) : null}
-
-          {hasGithub ? (
-            <a
-              href={githubUrl}
-              target="_blank"
-              rel="noreferrer"
-              onClick={(event) => event.stopPropagation()}
-              onKeyDown={(event) => event.stopPropagation()}
-              className="inline-flex max-w-full cursor-pointer items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500/30"
-              aria-label={`Open GitHub repo for ${title}`}
-            >
-              GitHub
-            </a>
-          ) : null}
-        </div>
-      ) : (
-        <div className="px-4 pb-4" />
-      )}
     </article>
   );
 }
@@ -251,14 +214,14 @@ function ExperienceItem({ experience }: { experience: ExperienceItemType }) {
     <li className="min-w-0 border-b border-slate-200 py-5 last:border-b-0 sm:py-6">
       <div className="flex min-w-0 flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
         <div className="min-w-0">
-          <div className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1">
-            <h3 className="text-base font-semibold text-slate-900 sm:text-lg">
+          <div className="flex min-w-0 flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-2 sm:gap-y-1">
+            <h3 className="break-words text-base font-semibold text-slate-900 sm:text-lg">
               {experience.companyName}
             </h3>
 
             <span className="hidden text-slate-400 sm:inline">•</span>
 
-            <span className="text-sm font-medium text-slate-700 sm:text-base">
+            <span className="break-words text-sm font-medium text-slate-700 sm:text-base">
               {experience.roleTitle}
             </span>
           </div>
@@ -268,7 +231,7 @@ function ExperienceItem({ experience }: { experience: ExperienceItemType }) {
           </div>
         </div>
 
-        <div className="whitespace-nowrap text-sm font-semibold text-sky-700 sm:text-right">
+        <div className="text-sm font-semibold text-sky-700 sm:whitespace-nowrap sm:text-right">
           {experience.dateRange}
         </div>
       </div>
@@ -299,58 +262,65 @@ export default function Work() {
   return (
     <section
       id="work"
-      className="w-full bg-slate-50 px-4 py-16 text-slate-900 sm:px-6 lg:px-10"
+      className="w-full overflow-x-hidden bg-white text-slate-900"
       aria-label="Experience and Projects"
     >
-      <div className="mx-auto max-w-7xl min-w-0 overflow-x-hidden">
-        <div id="experience" className="mb-12 sm:mb-16">
-          <div className="mb-5 max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-sky-700">
-              Professional background
-            </p>
+      <div className="bg-slate-50 px-4 py-12 sm:px-6 sm:py-16 lg:px-10">
+        <div className="mx-auto w-full max-w-7xl min-w-0">
+          <div id="experience">
+            <div className="mb-5 max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-wide text-sky-700">
+                Professional background
+              </p>
 
-            <h2 className="text-sky-700 mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
-              Experience
-            </h2>
+              <h2 className="text-sky-700 mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+                Experience
+              </h2>
 
-            <p className="mt-3 text-base leading-7 text-slate-700">
-              Relevant software engineering, freelance development, and
-              technical project work across full-stack applications, client
-              portals, responsive websites, and planning-stage software
-              initiatives.
-            </p>
-          </div>
+              <p className="mt-3 text-base leading-7 text-slate-700">
+                Relevant software engineering, freelance development, and
+                technical project work across full-stack applications, client
+                portals, responsive websites, and planning-stage software
+                initiatives.
+              </p>
+            </div>
 
-          <div className="min-w-0 rounded-2xl border border-slate-200 bg-white shadow-sm">
-            <ol className="min-w-0 px-4 sm:px-6">
-              {EXPERIENCE_ITEMS.map((experience) => (
-                <ExperienceItem
-                  key={`${experience.companyName}-${experience.dateRange}`}
-                  experience={experience}
-                />
-              ))}
-            </ol>
+            <div className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <ol className="min-w-0 px-4 sm:px-6">
+                {EXPERIENCE_ITEMS.map((experience) => (
+                  <ExperienceItem
+                    key={`${experience.companyName}-${experience.dateRange}`}
+                    experience={experience}
+                  />
+                ))}
+              </ol>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div id="projects">
-          <div className="mb-5 max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-sky-700">
+      <div
+        id="projects"
+        className="bg-slate-950 px-4 py-14 text-white sm:px-6 sm:py-16 lg:px-10"
+      >
+        <div className="mx-auto w-full max-w-7xl min-w-0">
+          <div className="mb-6 max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-wide text-sky-300">
               Selected work
             </p>
 
-            <h2 className="text-sky-700 mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+            <h2 className="text-sky-300 mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
               Projects
             </h2>
 
-            <p className="mt-3 text-base leading-7 text-slate-700">
+            <p className="mt-3 text-base leading-7 text-slate-300">
               Project examples showing practical implementation work, technical
               decision-making, and the tools used to build production-minded web
               applications.
             </p>
           </div>
 
-          <div className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
+          <div className="grid w-full min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
             {projects.map((project) => (
               <ProjectCard
                 key={project?.id || project?.title}

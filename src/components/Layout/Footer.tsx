@@ -6,23 +6,23 @@ function Footer() {
   return (
     <footer
       id="footer"
-      className="flex flex-col bg-dark-blueish-gray text-white items-center px-4 pt-2"
+      className="flex flex-col items-center bg-slate-950 px-4 pt-2 text-white"
     >
       <LogoButtonGroup showToolTip={false} />
 
-      <div className="flex justify-center items-center gap-2 pt-10 pb-6">
+      <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 pt-10 pb-6 text-sm text-slate-200 sm:text-base">
         <span className="whitespace-nowrap">&copy; 2023 – {currentYear}</span>
-        <span className="whitespace-nowrap text-highlight-yellow">|</span>
-        <span className="hidden sm:inline whitespace-nowrap">
+        <span className="whitespace-nowrap text-sky-300">|</span>
+        <span className="hidden whitespace-nowrap sm:inline">
           Designed & coded by
         </span>
         <span className="whitespace-nowrap">Suhas Sunder</span>
-        <span className="whitespace-nowrap text-highlight-yellow">•</span>
+        <span className="whitespace-nowrap text-sky-300">•</span>
         <a
           href="https://github.com/suhas-sunder/react-portfolio-proj"
           target="_blank"
           rel="noreferrer"
-          className="whitespace-nowrap text-highlight-yellow hover:text-yellow-100 cursor-pointer"
+          className="cursor-pointer whitespace-nowrap font-semibold text-sky-300 transition hover:text-sky-100 focus:outline-none focus:ring-2 focus:ring-sky-300/40"
         >
           View source
         </a>

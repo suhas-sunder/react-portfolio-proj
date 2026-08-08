@@ -1,5 +1,6 @@
 import Skills from "../Layout/Skills";
 import Projects from "../Layout/Projects";
+import Education from "../Layout/Education";
 import Contact from "../Form/Contact";
 import ProfilePic from "../../assets/profile-pic.png";
 import Modal from "../UI/Modal";
@@ -24,14 +25,16 @@ function Home({ handleModal, showModal }: PropType) {
         className="bg-slate-950 px-5 pt-12 pb-14 text-white sm:px-8 sm:pt-14 sm:pb-24 lg:px-12 lg:pt-16 lg:pb-28 xl:px-16 xl:pt-20"
       >
         <div className="mx-auto grid w-full max-w-[82rem] grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(240px,0.34fr)_minmax(0,0.66fr)] lg:gap-14 xl:gap-20">
-          <div className="flex w-full justify-center pt-2 lg:justify-center lg:pt-1">
-            <img
-              alt="Headshot of Suhas Sunder"
-              src={ProfilePic}
-              className="block h-[200px] w-[200px] max-w-none rounded-full border border-slate-600 bg-slate-900 object-cover ring-1 ring-sky-400/30 ring-offset-8 ring-offset-slate-950 sm:h-[230px] sm:w-[230px] lg:h-[260px] lg:w-[260px] xl:h-[280px] xl:w-[280px]"
-              height={400}
-              width={400}
-            />
+          <div className="flex w-full justify-center lg:pt-1">
+            <div className="w-full max-w-[14rem] overflow-hidden rounded-xl border border-slate-800 bg-slate-900 shadow-sm sm:max-w-[16rem] lg:max-w-[19rem] xl:max-w-[20rem]">
+              <img
+                alt="Headshot of Suhas Sunder"
+                src={ProfilePic}
+                className="block aspect-[4/5] w-full object-cover object-center"
+                height={400}
+                width={400}
+              />
+            </div>
           </div>
 
           <div className="flex min-w-0 max-w-[48rem] flex-col text-left">
@@ -85,6 +88,7 @@ function Home({ handleModal, showModal }: PropType) {
       <main>
         <Skills />
         <Projects />
+        <Education />
         <Contact />
       </main>
     </>

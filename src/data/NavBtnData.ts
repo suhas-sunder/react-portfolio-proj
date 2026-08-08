@@ -14,7 +14,7 @@ const NavBtnData = [
     typeMobile: "mobile-nav-link",
     hashLink: true,
   },
-   {
+  {
     id: "nav-experience",
     url: "/#experience",
     text: "Experience",
@@ -26,6 +26,14 @@ const NavBtnData = [
     id: "nav-projects",
     url: "/#projects",
     text: "Projects",
+    type: "nav-link",
+    typeMobile: "mobile-nav-link",
+    hashLink: true,
+  },
+  {
+    id: "nav-education",
+    url: "/#education",
+    text: "Education",
     type: "nav-link",
     typeMobile: "mobile-nav-link",
     hashLink: true,

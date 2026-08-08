@@ -49,16 +49,22 @@ describe("Modal", () => {
     expect(divElement).toBeInTheDocument();
   });
 
-  it("should a title, subtitle, and three paragraph text", () => {
+  it("should render both current education records", () => {
     render(<MockModal functionCall={() => {}} />);
-    const titleElements = screen.getAllByRole("heading");
-    const firstParaElement = screen.getByText(/B. Eng,/i);
-    const secondParaElement = screen.getByText(/Location:/i);
-    const thirdParaElement = screen.getByText(/Graduated:/i);
-    expect(titleElements).toHaveLength(2);
-    expect(firstParaElement).toBeInTheDocument();
-    expect(secondParaElement).toBeInTheDocument();
-    expect(thirdParaElement).toBeInTheDocument();
+
+    expect(
+      screen.getByRole("heading", {
+        name: /Master’s Degree in Electrical and Computer Engineering/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        name: /Bachelor’s Degree in Electrical Engineering and Management/i,
+      }),
+    ).toBeInTheDocument();
+    expect(screen.getByText(/Graduated: December 2025/i)).toBeInTheDocument();
+    expect(screen.getByText(/Graduated: May 2019/i)).toBeInTheDocument();
+    expect(screen.getByText(/Orientation Leader:/i)).toBeInTheDocument();
   });
 });
 

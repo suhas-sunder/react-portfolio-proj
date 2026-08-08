@@ -1,11 +1,15 @@
 import { useMemo } from "react";
 import ProjData from "../../data/ProjData";
 
+interface ExperienceRoleType {
+  title: string;
+  dateRange: string;
+}
+
 interface ExperienceItemType {
   companyName: string;
   location: string;
-  roleTitle: string;
-  dateRange: string;
+  roles: ExperienceRoleType[];
   highlights: string[];
 }
 
@@ -25,48 +29,57 @@ const EXPERIENCE_ITEMS: ExperienceItemType[] = [
   {
     companyName: "Dobson Partners (8906386 Canada Limited)",
     location: "Toronto, ON",
-    roleTitle: "Software Engineer (Full-Stack)",
-    dateRange: "Nov 2023 – Jun 2025",
+    roles: [
+      {
+        title: "Full-Stack Software Developer",
+        dateRange: "Nov 2023 – Mar 2024 | Oct 2024 – Jun 2025",
+      },
+    ],
     highlights: [
-      "Developed a full-stack web application using React, TypeScript, Tailwind CSS, Node.js, and Express to support real estate workflows for landlords, tenants, and realtors.",
-      "Built and contributed to a separate business management portal using Node.js, Express, Handlebars, and Tailwind CSS for client management, appointment scheduling, and messaging.",
-      "Implemented back-end services using Prisma ORM and PostgreSQL to support relational data access across core application features, reduce duplicated query logic, and improve consistency across the codebase.",
-      "Integrated RESTful APIs for media management and payment processing, enabling file uploads, media storage, and transactional workflows within the application.",
-      "Worked in an agile development environment with engineering, design, and business stakeholders to clarify requirements, troubleshoot issues, and keep implementation aligned with product needs.",
+      "Built and delivered full-stack platform features for landlords, tenants, and realtors using React, TypeScript, Remix, Node.js, and Express, covering document management, messaging, identity verification, media uploads, and transaction workflows.",
+      "Tested, troubleshot, and refined features in a production environment based on issues and feedback from early-access users, management, marketing, and real estate industry investors.",
+      "Designed Prisma ORM data models and PostgreSQL schemas for users, documents, messages, and verification records, supporting consistent data storage and reliable CRUD operations.",
+      "Developed workflows connecting React interfaces to backend services through RESTful APIs, enabling multi-step verification, document management, messaging, authentication, Cloudinary media uploads, and Stripe payment processing.",
+      "Translated UI/UX wireframes and evolving requirements from management, marketing, investors, and early-access users into reusable React and Tailwind CSS components for client-facing interfaces.",
+      "Managed assigned development work through OpenProject by completing tickets, documenting work delivered for each milestone, and participating in weekly meetings with developers, management, and marketing to review progress, resolve issues, and prioritize product improvements.",
     ],
   },
   {
     companyName: "ATS Group Inc.",
     location: "Toronto, ON",
-    roleTitle: "Freelance Web Application Developer",
-    dateRange: "Jan 2023 – Aug 2023",
+    roles: [
+      {
+        title: "Full-Stack Web Application Developer (Freelance)",
+        dateRange: "Jan 2023 – Aug 2023",
+      },
+      {
+        title: "Software Consulting Intern",
+        dateRange: "Apr 2021 – Apr 2022",
+      },
+    ],
     highlights: [
-      "Collaborated with design and back-end teams to refactor a full-stack web application, integrate RESTful APIs, and improve front-end structure using React, TypeScript, and Tailwind CSS.",
-      "Designed and developed a responsive, mobile-first client-facing website while working with management and the client to define requirements and reflect the company’s professional standards across devices.",
-      "Established front-end structure using BEM methodology, improving consistency and maintainability across HTML, CSS, JavaScript, and SASS codebases.",
-      "Implemented automated testing using Jest and React Testing Library to catch regressions in user-facing components, and identified and fixed accessibility issues using Google Search Console.",
+      "Raised post-release client feedback scores from 3/5 to 5/5 by identifying major usability pain points with management and clients, then delivering targeted UI/UX improvements across facilities maintenance workflows.",
+      "Refactored features in a full-stack facilities maintenance platform using React, TypeScript, Tailwind CSS, and RESTful APIs, improving usability across employee records, maintenance history, charting, and data visualization workflows.",
+      "Designed, developed, and deployed a mobile-first client-facing website for All Track System using HTML, CSS, JavaScript, and Sass, owning implementation end-to-end and deploying through AWS CloudFront and Amazon S3.",
+      "Improved front-end quality by implementing automated tests with Jest and React Testing Library and resolving user-facing usability issues identified through Google Search Console.",
+      "Built HTML, CSS, and JavaScript prototypes to test facilities management workflows and communicate product concepts to technical and non-technical stakeholders.",
+      "Helped define core platform features including GPS tracking, Google Maps API integration, proof-of-work submissions, repair status updates, and role-based access controls.",
+      "Led demos, technical presentations, and team meetings to align executives, developers, planners, and clients on product direction.",
     ],
   },
   {
     companyName: "EME Group Inc.",
     location: "Toronto, ON",
-    roleTitle: "Freelance Web Developer",
-    dateRange: "Nov 2022 – Dec 2022",
-    highlights: [
-      "Built and launched a mobile-responsive website establishing the client’s initial online presence, integrating HTML, CSS, JavaScript, SASS, and the Google Maps API, contributing to a 200%+ increase in inbound inquiries and engagement.",
-      "Managed domain configuration, hosting, and ongoing site maintenance, ensuring continuous availability and reliable operation for over three years.",
+    roles: [
+      {
+        title: "Web Developer (Freelance)",
+        dateRange: "Nov 2022 – Dec 2022",
+      },
     ],
-  },
-  {
-    companyName: "ATS Group Inc.",
-    location: "Toronto, ON",
-    roleTitle: "Software Consulting Intern",
-    dateRange: "Apr 2021 – Apr 2022",
     highlights: [
-      "Conducted research and technical analysis to guide planning and execution of a large-scale software application, identifying technical risks early and informing key decisions that contributed to a successful product launch.",
-      "Created mockups and animated interface concepts in Adobe Animate, along with interactive HTML, CSS, and JavaScript web demos, to communicate product ideas and support early-stage planning.",
-      "Collaborated with entrepreneurs, software developers, and project planners to define requirements and shape execution strategies for software initiatives.",
-      "Engineered and presented software design solutions to executive and technical stakeholders, helping align technical direction with business goals during project planning.",
+      "Drove a 200%+ increase in inbound inquiries by building and launching EME Group’s first client-facing website in over 20 years.",
+      "Developed a mobile-responsive website using HTML, CSS, JavaScript, Sass, and the Google Maps API, improving the company’s online visibility and making location/contact information easier for clients to access.",
+      "Continue to manage domain configuration, hosting, and site maintenance, supporting reliable website availability since its launch.",
     ],
   },
 ];
@@ -208,35 +221,42 @@ function ProjectCard({ project }: { project: ProjectType }) {
 }
 
 function ExperienceItem({ experience }: { experience: ExperienceItemType }) {
+  const roles = ensureArray<ExperienceRoleType>(experience?.roles).filter(
+    Boolean,
+  );
   const highlights = ensureArray<string>(experience?.highlights).filter(
     Boolean,
   );
 
   return (
     <li className="min-w-0 border-b border-slate-200 py-4 last:border-b-0 sm:py-5">
-      <div className="flex min-w-0 flex-col gap-1.5 sm:flex-row sm:items-start sm:justify-between">
-        <div className="min-w-0">
-          <div className="flex min-w-0 flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-2 sm:gap-y-1">
-            <h3 className="break-words text-base font-semibold text-slate-900">
-              {experience.companyName}
-            </h3>
+      <div className="flex min-w-0 flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+        <h3 className="break-words text-base font-semibold text-slate-900">
+          {experience.companyName}
+        </h3>
 
-            <span className="hidden text-slate-400 sm:inline">•</span>
-
-            <span className="break-words text-sm font-medium text-slate-700">
-              {experience.roleTitle}
-            </span>
-          </div>
-
-          <div className="mt-0.5 text-sm text-slate-600">
-            {experience.location}
-          </div>
-        </div>
-
-        <div className="text-sm font-semibold text-sky-700 sm:whitespace-nowrap sm:text-right">
-          {experience.dateRange}
+        <div className="shrink-0 text-sm text-slate-600 sm:text-right">
+          {experience.location}
         </div>
       </div>
+
+      {roles.length > 0 ? (
+        <ul className="mt-2 grid min-w-0 gap-1.5">
+          {roles.map((role) => (
+            <li
+              key={`${experience.companyName}-${role.title}-${role.dateRange}`}
+              className="grid min-w-0 gap-0.5 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-baseline sm:gap-6"
+            >
+              <span className="min-w-0 break-words text-sm font-medium text-slate-700">
+                {role.title}
+              </span>
+              <span className="text-sm font-semibold text-sky-700 sm:whitespace-nowrap sm:text-right">
+                {role.dateRange}
+              </span>
+            </li>
+          ))}
+        </ul>
+      ) : null}
 
       {highlights.length > 0 ? (
         <ul className="mt-2.5 grid min-w-0 gap-1.5 text-sm leading-relaxed text-slate-700">
@@ -267,7 +287,7 @@ export default function Work() {
       className="w-full overflow-x-hidden bg-white text-slate-900"
       aria-label="Experience and Projects"
     >
-      <div className="bg-slate-50 px-4 py-10 sm:px-6 sm:py-12 lg:px-10">
+      <div className="bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-10">
         <div className="mx-auto w-full max-w-7xl min-w-0">
           <div id="experience">
             <div className="mb-4 max-w-3xl">
@@ -287,16 +307,14 @@ export default function Work() {
               </p>
             </div>
 
-            <div className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-              <ol className="min-w-0 px-4 sm:px-5">
-                {EXPERIENCE_ITEMS.map((experience) => (
-                  <ExperienceItem
-                    key={`${experience.companyName}-${experience.dateRange}`}
-                    experience={experience}
-                  />
-                ))}
-              </ol>
-            </div>
+            <ol className="mt-4 min-w-0">
+              {EXPERIENCE_ITEMS.map((experience) => (
+                <ExperienceItem
+                  key={experience.companyName}
+                  experience={experience}
+                />
+              ))}
+            </ol>
           </div>
         </div>
       </div>

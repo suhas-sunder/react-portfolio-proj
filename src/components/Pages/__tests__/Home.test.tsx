@@ -65,6 +65,44 @@ describe("renders all page elements", () => {
     const formElement = screen.getByRole("form");
     expect(formElement).toBeInTheDocument();
   });
+
+  it("should render Education between Projects and Contact", () => {
+    const projectsHeading = screen.getByRole("heading", { name: "Projects" });
+    const educationHeading = screen.getByRole("heading", {
+      name: "Education",
+    });
+    const contactHeading = screen.getByRole("heading", {
+      name: "Let's have a chat!",
+    });
+
+    expect(educationHeading).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        name: /Master’s Degree in Electrical and Computer Engineering/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      projectsHeading.compareDocumentPosition(educationHeading) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      educationHeading.compareDocumentPosition(contactHeading) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+  });
+
+  it("should render the consolidated employment history", () => {
+    expect(
+      screen.getByText("Nov 2023 – Mar 2024 | Oct 2024 – Jun 2025"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getAllByRole("heading", { name: "ATS Group Inc." }),
+    ).toHaveLength(1);
+    expect(
+      screen.getByText(/Full-Stack Web Application Developer \(Freelance\)/i),
+    ).toBeInTheDocument();
+    expect(screen.getByText(/Software Consulting Intern/i)).toBeInTheDocument();
+  });
 });
 
 describe("renders links/buttons with proper redirect/action", () => {
@@ -136,7 +174,7 @@ describe("renders appropriate elements when modal is active", () => {
   });
 
   it("should render a modal when modal state is true", () => {
-    const modalElement = screen.getByText(/Graduated: Apr 2019/i);
+    const modalElement = screen.getByRole("dialog", { name: /Education/i });
     expect(modalElement).toBeInTheDocument();
   });
 });

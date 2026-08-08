@@ -14,7 +14,7 @@ export default function NavBar() {
         aria-label="Primary navigation"
         className="sticky top-0 z-50 w-full border-b border-slate-800 bg-slate-950/95 text-slate-100 shadow-sm backdrop-blur"
       >
-        <div className="hidden h-16 w-full px-12 lg:block xl:px-16">
+        <div className="hidden h-16 w-full px-16 xl:block">
           <div className="mx-auto flex h-full w-full max-w-[82rem] items-center gap-5 xl:gap-8">
             <Link
               to="/"
@@ -32,7 +32,7 @@ export default function NavBar() {
                 <span className="text-sm font-semibold tracking-wide text-white">
                   Suhas Sunder
                 </span>
-                <span className="mt-1 hidden text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-sky-300 xl:block">
+                <span className="mt-1 hidden text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-sky-300 2xl:block">
                   Software Developer
                 </span>
               </span>

@@ -16,6 +16,7 @@ const btnURL = [
   "/#skills",
   "/#experience",
   "/#projects",
+  "/#education",
   "/#contact",
   "https://drive.google.com/file/d/1z6dohrhC-abm8A4o263mVjtBYkoRyOlJ/view?usp=sharing",
 ];
@@ -33,10 +34,10 @@ describe("nav elements render", () => {
     expect(navElement.length).toBeGreaterThan(0);
   });
 
-  it("Should render 6 visible links", () => {
+  it("Should render 7 visible links", () => {
     render(<MockNavBar />);
     const navElement = screen.getAllByTestId(/btn-link-nav/i);
-    expect(navElement).toHaveLength(6);
+    expect(navElement).toHaveLength(7);
   });
 
   it("Should render links with appropriate url", () => {

@@ -16,6 +16,7 @@ const btnURL = [
   "/#skills",
   "/#experience",
   "/#projects",
+  "/#education",
   "/#contact",
   "https://drive.google.com/file/d/1z6dohrhC-abm8A4o263mVjtBYkoRyOlJ/view?usp=sharing",
 ];
@@ -57,12 +58,12 @@ describe("Mobile Nav Bar click events", () => {
     expect(navElementTwo).toBeInTheDocument();
   });
 
-  it("Should render 6 links when burger menu is open", () => {
+  it("Should render 7 links when burger menu is open", () => {
     render(<MockNavBar />);
     const navElement = screen.getByTestId(/burgerBtn-open/i);
     fireEvent.click(navElement);
     const navLinks = screen.getAllByRole("link");
-    expect(navLinks).toHaveLength(6);
+    expect(navLinks).toHaveLength(7);
   });
 
   it("Should render links with appropriate url once burger menu is open", () => {

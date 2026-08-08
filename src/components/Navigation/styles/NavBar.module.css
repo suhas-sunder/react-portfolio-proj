@@ -29,7 +29,7 @@
   margin: auto 0 auto 2rem;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 79.999rem) {
   .nav-items {
     display: none;
   }

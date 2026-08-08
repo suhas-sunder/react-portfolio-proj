@@ -41,7 +41,7 @@ export default function MobileNav() {
   return (
     <>
       <div
-        className={`${Styles["mobile-nav"]} !relative !z-[80] !border-b !border-slate-800 !bg-slate-950/95 !text-slate-100 !shadow-sm !backdrop-blur lg:!hidden`}
+        className={`${Styles["mobile-nav"]} !relative !z-[80] !border-b !border-slate-800 !bg-slate-950/95 !text-slate-100 !shadow-sm !backdrop-blur xl:!hidden`}
         id="mobile-nav"
       >
         <Link
@@ -78,13 +78,13 @@ export default function MobileNav() {
             type="button"
             data-testid="mobile-nav-bkgd"
             aria-label="Close navigation menu"
-            className={`${Styles["background-overlay"]} !fixed !inset-x-0 !top-[3.5625rem] !bottom-0 !z-[60] !h-auto !w-full !cursor-pointer !border-0 !bg-slate-950/60 lg:!hidden`}
+            className={`${Styles["background-overlay"]} !fixed !inset-x-0 !top-[3.5625rem] !bottom-0 !z-[60] !h-auto !w-full !cursor-pointer !border-0 !bg-slate-950/60 xl:!hidden`}
             onClick={closeBurgerMenu}
           />
 
           <ul
             id="burger-menu"
-            className={`${Styles["nav-list"]} !fixed !inset-x-0 !top-[3.5625rem] !z-[70] !flex !max-h-[calc(100dvh-3.5625rem)] !w-full !max-w-none !flex-col !gap-3 !overflow-y-auto !overflow-x-hidden !bg-slate-950 !px-4 !py-6 !text-slate-100 !shadow-xl lg:!hidden`}
+            className={`${Styles["nav-list"]} !fixed !inset-x-0 !top-[3.5625rem] !z-[70] !flex !max-h-[calc(100dvh-3.5625rem)] !w-full !max-w-none !flex-col !gap-3 !overflow-y-auto !overflow-x-hidden !bg-slate-950 !px-4 !py-6 !text-slate-100 !shadow-xl xl:!hidden`}
           >
             {NavBtnData.filter((data) => data.text !== "Home").map((data) => {
               const isDownloadButton = data.type === "downloadBtn";

@@ -3,11 +3,18 @@ import uniLogoImg from "../../assets/ontariotechu-img.jpg";
 import Button from "../Navigation/NavLinks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark as closeIcon } from "@fortawesome/free-solid-svg-icons";
+import EducationData from "../../data/EducationData";
 
 function Modal({ closeModal }) {
   return (
     <>
-      <div data-testid="modal" className={Styles.modal}>
+      <div
+        data-testid="modal"
+        className={Styles.modal}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="education-modal-title"
+      >
         <button
           aria-label="close btn or x-icon btn"
           className={Styles["close-btn"]}
@@ -15,7 +22,9 @@ function Modal({ closeModal }) {
         >
           <FontAwesomeIcon icon={closeIcon} />
         </button>
-        <h2 className={Styles.title}>Education</h2>
+        <h2 id="education-modal-title" className={Styles.title}>
+          Education
+        </h2>
         <a
           data-testid="img-link"
           aria-label="Ontario Tech University website"
@@ -29,12 +38,38 @@ function Modal({ closeModal }) {
             className={Styles.img}
           />
         </a>
-        <h3 className={Styles["sub-title"]}>Ontario Tech University </h3>
-        <p className={Styles.details}>
-          B. Eng, Electrical Engineering & Management (Honours)
-        </p>
-        <p className={Styles.details}>Location: Oshawa, ON</p>
-        <p className={Styles.details}>Graduated: Apr 2019</p>
+        <div className={Styles["education-list"]}>
+          {EducationData.map((education) => (
+            <section
+              key={education.id}
+              className={Styles["education-item"]}
+              aria-labelledby={education.id}
+            >
+              <h3 id={education.id} className={Styles["degree-title"]}>
+                {education.degree}
+              </h3>
+
+              <p className={Styles.institution}>{education.institution}</p>
+
+              <div className={Styles["education-meta"]}>
+                <span>{education.location}</span>
+                <span>Graduated: {education.graduation}</span>
+              </div>
+
+              <ul className={Styles.highlights}>
+                {education.highlights.map((highlight) => (
+                  <li
+                    key={`${education.id}-${highlight}`}
+                    className={Styles.highlight}
+                  >
+                    {highlight}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </div>
+
         <div className={Styles["button-bkgd"]}>
           <Button
             id="capstone"

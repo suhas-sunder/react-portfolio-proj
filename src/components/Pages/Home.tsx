@@ -20,33 +20,35 @@ function Home({ handleModal, showModal }: PropType) {
       {showModal && <Modal closeModal={handleModal} />}
 
       <header
-        id="about"className="box-content bg-slate-950 px-6 pt-24 pb-24 text-white sm:px-8 sm:pt-28 sm:pb-28 xl:px-16 xl:pt-32 xl:pb-32"
+        id="about"
+        className="bg-slate-950 px-5 pt-12 pb-14 text-white sm:px-8 sm:pt-14 sm:pb-24 lg:px-12 lg:pt-16 lg:pb-28 xl:px-16 xl:pt-20"
       >
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 rounded-3xl border border-slate-800 bg-slate-900 px-6 py-8 shadow-xl shadow-slate-950/30 sm:px-10 sm:py-10 xl:grid-cols-[300px_minmax(0,1fr)] xl:gap-12 xl:px-12 xl:py-10">
-          <div className="flex w-full justify-center">
-            <div className="rounded-full border border-sky-400/20 bg-slate-950 p-3 shadow-lg shadow-sky-950/30">
-              <img
-                alt="Headshot of Suhas Sunder"
-                src={ProfilePic}
-                className="block h-[200px] w-[200px] rounded-full border-4 border-slate-600 bg-slate-900 object-cover shadow-sm sm:h-[260px] sm:w-[260px]"
-                height={260}
-                width={260}
-              />
-            </div>
+        <div className="mx-auto grid w-full max-w-[82rem] grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(240px,0.34fr)_minmax(0,0.66fr)] lg:gap-14 xl:gap-20">
+          <div className="flex w-full justify-center pt-2 lg:justify-center lg:pt-1">
+            <img
+              alt="Headshot of Suhas Sunder"
+              src={ProfilePic}
+              className="block h-[200px] w-[200px] max-w-none rounded-full border border-slate-600 bg-slate-900 object-cover ring-1 ring-sky-400/30 ring-offset-8 ring-offset-slate-950 sm:h-[230px] sm:w-[230px] lg:h-[260px] lg:w-[260px] xl:h-[280px] xl:w-[280px]"
+              height={400}
+              width={400}
+            />
           </div>
 
-          <div className="flex max-w-[760px] flex-col text-center sm:text-left">
-            <p className="mx-auto inline-flex w-fit items-center rounded-full border border-sky-400/30 bg-sky-400/10 px-4 py-2 text-sm font-semibold text-sky-300 sm:mx-0">
+          <div className="flex min-w-0 max-w-[48rem] flex-col text-left">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-300 sm:text-sm">
               Full-stack software developer
             </p>
 
-            <h1 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-[2.45rem] lg:leading-[1.08]">
+            <h1 className="mt-3 text-[2rem] font-semibold leading-[1.15] tracking-tight text-white sm:text-[2.4rem] lg:text-[2.35rem] xl:text-[2.55rem]">
               Suhas Sunder{" "}
-              <FontAwesomeIcon className="text-sky-300" icon={code} />{" "}
+              <FontAwesomeIcon
+                className="mx-1 inline-block text-[0.85em] text-sky-300"
+                icon={code}
+              />{" "}
               Software Developer
             </h1>
 
-            <div className="mt-5 grid gap-3 text-base leading-7 text-slate-200 lg:text-[1.03rem] lg:leading-8">
+            <div className="mt-6 grid max-w-[45rem] gap-3 text-base leading-7 text-slate-200 lg:text-[1.03rem] lg:leading-8">
               <p>
                 Full-stack software developer with 3+ years of experience
                 building and maintaining web applications in startup and project
@@ -58,7 +60,7 @@ function Home({ handleModal, showModal }: PropType) {
               <p>
                 <HashLink
                   to="/#projects"
-                  className="cursor-pointer font-semibold text-sky-300 underline decoration-sky-500/60 underline-offset-4 transition hover:text-sky-200 hover:decoration-sky-300"
+                  className="cursor-pointer rounded-sm font-semibold text-sky-300 underline decoration-sky-500/60 underline-offset-4 transition hover:text-sky-200 hover:decoration-sky-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
                   scroll={(element) => handleScrollOffset(element)}
                 >
                   Selected projects
@@ -67,14 +69,14 @@ function Home({ handleModal, showModal }: PropType) {
                 features, and technical solutions I have built.
               </p>
 
-              <p>
+              <p className="text-slate-400">
                 Outside of software development, I stay active with archery and
                 the gym, and spend time on creative side projects.
               </p>
             </div>
 
-            <div className="mt-7">
-              <LogoButtonGroup showToolTip={true} />
+            <div className="mt-7 border-t border-slate-800 pt-5">
+              <LogoButtonGroup showToolTip={true} variant="hero" />
             </div>
           </div>
         </div>

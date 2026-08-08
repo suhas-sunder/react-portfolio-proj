@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 import { faGithub as githubIcon } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin as linkedInIcon } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope as emailIcon } from "@fortawesome/free-solid-svg-icons";
@@ -9,9 +8,10 @@ import LogoButtons from "./LogoButtons";
 
 interface PropType {
   showToolTip: boolean;
+  variant?: "default" | "hero";
 }
 
-function LogoButtonGroup({ showToolTip }: PropType) {
+function LogoButtonGroup({ showToolTip, variant = "default" }: PropType) {
   const btnData = [
     {
       id: "linkedin",
@@ -55,16 +55,28 @@ function LogoButtonGroup({ showToolTip }: PropType) {
     },
   ];
 
+  const groupClassName =
+    variant === "hero"
+      ? "flex w-full flex-wrap items-center gap-2.5"
+      : "grid lg:grid-cols-5 lg:gap-[2em] mt-10 sm:gap-x-24 gap-x-10 gap-y-14 grid-cols-2 sm:grid-cols-3 items-center w-full max-w-[700px]";
+
   return (
-    <ul className="grid lg:grid-cols-5 lg:gap-[2em] mt-10 sm:gap-x-24 gap-x-10 gap-y-14 grid-cols-2 sm:grid-cols-3 items-center w-full max-w-[700px]">
+    <ul
+      className={groupClassName}
+      aria-label={
+        variant === "hero"
+          ? "Professional profiles and contact links"
+          : undefined
+      }
+    >
       {btnData.map((data) => (
-        <li key={uuidv4()} className="m-auto">
+        <li key={data.id} className={variant === "hero" ? "flex" : "m-auto"}>
           {showToolTip ? (
             <ToolTip toolTipMsg={data.toolTipMsg}>
-              <LogoButtons data={data} />
+              <LogoButtons data={data} variant={variant} />
             </ToolTip>
           ) : (
-            <LogoButtons data={data} />
+            <LogoButtons data={data} variant={variant} />
           )}
         </li>
       ))}

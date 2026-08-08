@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars as burgerIcon } from "@fortawesome/free-solid-svg-icons";
 import { faX as xIcon } from "@fortawesome/free-solid-svg-icons";
 import NavBtnData from "../../data/NavBtnData";
-import { faS as logoIcon } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 type NavLogo = "download" | "github" | "linkedin" | "arrow" | "arrowUp";
@@ -42,19 +41,20 @@ export default function MobileNav() {
   return (
     <>
       <div
-        className={`${Styles["mobile-nav"]} !border-b !border-slate-800 !bg-slate-950/95 !text-slate-100 !shadow-sm !backdrop-blur lg:!hidden`}
+        className={`${Styles["mobile-nav"]} !relative !z-[80] !border-b !border-slate-800 !bg-slate-950/95 !text-slate-100 !shadow-sm !backdrop-blur lg:!hidden`}
         id="mobile-nav"
       >
         <Link
           to="/"
           onClick={closeBurgerMenu}
           aria-label="Go to home page"
-          className="ml-5 flex h-11 w-11 cursor-pointer items-center justify-center rounded-md bg-sky-400/10 text-xl text-sky-300 transition hover:bg-sky-400/20 hover:text-sky-200 focus:outline-none focus:ring-2 focus:ring-sky-400/40"
+          className="ml-5 flex h-10 w-10 cursor-pointer items-center justify-center rounded-md border border-sky-400/20 bg-sky-400/10 text-sm font-bold tracking-tight text-sky-300 transition hover:border-sky-400/40 hover:bg-sky-400/20 hover:text-sky-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
         >
-          <FontAwesomeIcon icon={logoIcon} />
+          SS
         </Link>
 
         <button
+          key={isMenuClosed ? "menu-open" : "menu-close"}
           type="button"
           data-testid={isMenuClosed ? "burgerBtn-open" : "burgerBtn-close"}
           aria-label={
@@ -62,7 +62,7 @@ export default function MobileNav() {
           }
           aria-expanded={!isMenuClosed}
           aria-controls="burger-menu"
-          className="mr-5 flex h-11 w-11 cursor-pointer items-center justify-center rounded-md bg-slate-900 text-slate-100 transition hover:bg-slate-800 hover:text-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-400/40"
+          className="mr-5 flex h-11 w-11 cursor-pointer items-center justify-center rounded-md bg-slate-900 text-slate-100 transition hover:bg-slate-800 hover:text-sky-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
           onClick={toggleBurgerMenu}
         >
           <FontAwesomeIcon
@@ -78,13 +78,13 @@ export default function MobileNav() {
             type="button"
             data-testid="mobile-nav-bkgd"
             aria-label="Close navigation menu"
-            className={`${Styles["background-overlay"]} !fixed !inset-0 !z-[60] !h-dvh !w-screen !cursor-pointer !border-0 !bg-slate-950/60 lg:!hidden`}
+            className={`${Styles["background-overlay"]} !fixed !inset-x-0 !top-[3.5625rem] !bottom-0 !z-[60] !h-auto !w-full !cursor-pointer !border-0 !bg-slate-950/60 lg:!hidden`}
             onClick={closeBurgerMenu}
           />
 
           <ul
             id="burger-menu"
-            className={`${Styles["nav-list"]} !fixed !inset-x-0 !top-[4.75rem] !z-[70] !box-border !flex !w-screen !max-w-none !flex-col !gap-3 !overflow-x-hidden !bg-slate-950 !px-4 !py-6 !text-slate-100 !shadow-xl lg:!hidden`}
+            className={`${Styles["nav-list"]} !fixed !inset-x-0 !top-[3.5625rem] !z-[70] !flex !max-h-[calc(100dvh-3.5625rem)] !w-full !max-w-none !flex-col !gap-3 !overflow-y-auto !overflow-x-hidden !bg-slate-950 !px-4 !py-6 !text-slate-100 !shadow-xl lg:!hidden`}
           >
             {NavBtnData.filter((data) => data.text !== "Home").map((data) => {
               const isDownloadButton = data.type === "downloadBtn";

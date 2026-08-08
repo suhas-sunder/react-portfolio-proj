@@ -5,13 +5,14 @@
 @tailwind utilities;
 
 * {
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 
 html {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
 }
 
 body {
@@ -19,5 +20,13 @@ body {
   padding: 0;
   font-family: "Montserrat", "Source Sans Pro", Georgia, "Times New Roman",
     Times, serif;
-  min-width: 320px;
+  min-width: 0;
+}
+
+#root {
+  min-width: 0;
+}
+
+img {
+  max-width: 100%;
 }

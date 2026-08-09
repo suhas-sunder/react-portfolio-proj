@@ -54,12 +54,12 @@ describe("Modal", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /Master’s Degree in Electrical and Computer Engineering/i,
+        name: /Master of Engineering in Electrical and Computer Engineering/i,
       }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole("heading", {
-        name: /Bachelor’s Degree in Electrical Engineering and Management/i,
+        name: /Bachelor of Engineering in Electrical Engineering and Management/i,
       }),
     ).toBeInTheDocument();
     expect(screen.getByText(/Graduated: December 2025/i)).toBeInTheDocument();

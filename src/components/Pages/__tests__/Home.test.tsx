@@ -39,9 +39,9 @@ describe("renders all page elements", () => {
     expect(imgElements.length).toBeGreaterThanOrEqual(11);
   });
 
-  it("should render list of 19 skills", () => {
+  it("should render list of 25 skills", () => {
     const skillElements = screen.getAllByTestId(/skill-icon-/i);
-    expect(skillElements).toHaveLength(19);
+    expect(skillElements).toHaveLength(25);
   });
 
   it("should render a projects section", () => {
@@ -78,7 +78,7 @@ describe("renders all page elements", () => {
     expect(educationHeading).toBeInTheDocument();
     expect(
       screen.getByRole("heading", {
-        name: /Master’s Degree in Electrical and Computer Engineering/i,
+        name: /Master of Engineering in Electrical and Computer Engineering/i,
       }),
     ).toBeInTheDocument();
     expect(
@@ -102,6 +102,15 @@ describe("renders all page elements", () => {
       screen.getByText(/Full-Stack Web Application Developer \(Freelance\)/i),
     ).toBeInTheDocument();
     expect(screen.getByText(/Software Consulting Intern/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/documenting milestone deliverables/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/accessibility and Google Search Console issues/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/reported 200%\+ increase in inbound inquiries/i),
+    ).toBeInTheDocument();
   });
 });
 

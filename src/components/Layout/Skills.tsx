@@ -3,35 +3,46 @@ import { faHtml5 as htmlIcon } from "@fortawesome/free-brands-svg-icons";
 import { faCss3Alt as cssIcon } from "@fortawesome/free-brands-svg-icons";
 import { faSquareJs as jsIcon } from "@fortawesome/free-brands-svg-icons";
 import { faSquareGit as gitIcon } from "@fortawesome/free-brands-svg-icons";
-import { faGithub as githubIcon } from "@fortawesome/free-brands-svg-icons";
 import { faSass as sassIcon } from "@fortawesome/free-brands-svg-icons";
 import { faReact as reactIcon } from "@fortawesome/free-brands-svg-icons";
-import { faGitlab as gitlabIcon } from "@fortawesome/free-brands-svg-icons";
 import { faNodeJs as nodeIcon } from "@fortawesome/free-brands-svg-icons";
-import { faDatabase as databaseIcon } from "@fortawesome/free-solid-svg-icons";
+import { faPython as pythonIcon } from "@fortawesome/free-brands-svg-icons";
+import { faCloudflare as cloudflareIcon } from "@fortawesome/free-brands-svg-icons";
+import {
+  faCode as codeIcon,
+  faDatabase as databaseIcon,
+  faFlask as flaskIcon,
+  faServer as serverIcon,
+} from "@fortawesome/free-solid-svg-icons";
 import ExpandingListContainer from "../UI/ExpandingListContainer";
 
 export default function Skills() {
   const skillsData = [
-    { icon: htmlIcon, skill: "HTML5" },
-    { icon: cssIcon, skill: "CSS3" },
-    { icon: cssIcon, skill: "Tailwind CSS" },
-    { icon: sassIcon, skill: "SASS" },
     { icon: jsIcon, skill: "JavaScript" },
     { icon: jsIcon, skill: "TypeScript" },
+    { icon: pythonIcon, skill: "Python" },
+    { icon: htmlIcon, skill: "HTML" },
+    { icon: cssIcon, skill: "CSS" },
+    { icon: cssIcon, skill: "Tailwind CSS" },
+    { icon: sassIcon, skill: "Sass" },
     { icon: reactIcon, skill: "React" },
     { icon: reactIcon, skill: "Remix" },
-    { icon: nodeIcon, skill: "Node" },
+    { icon: codeIcon, skill: "Responsive Web Development" },
+    { icon: nodeIcon, skill: "Node.js" },
     { icon: nodeIcon, skill: "Express" },
+    { icon: flaskIcon, skill: "Flask" },
+    { icon: serverIcon, skill: "RESTful APIs" },
     { icon: databaseIcon, skill: "PostgreSQL" },
-    { icon: databaseIcon, skill: "Prisma" },
+    { icon: databaseIcon, skill: "MySQL" },
+    { icon: databaseIcon, skill: "Prisma ORM" },
     { icon: reactIcon, skill: "Jest" },
     { icon: reactIcon, skill: "React Testing Library" },
     { icon: reactIcon, skill: "Vitest" },
     { icon: gitIcon, skill: "Git" },
-    { icon: githubIcon, skill: "GitHub" },
-    { icon: gitlabIcon, skill: "GitLab" },
-    { icon: reactIcon, skill: "Postman API" },
+    { icon: serverIcon, skill: "Postman" },
+    { icon: databaseIcon, skill: "pgAdmin" },
+    { icon: cloudflareIcon, skill: "Cloudflare CDN" },
+    { icon: cloudflareIcon, skill: "Cloudflare R2" },
   ];
 
   return (

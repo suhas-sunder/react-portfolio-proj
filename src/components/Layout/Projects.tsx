@@ -41,7 +41,7 @@ const EXPERIENCE_ITEMS: ExperienceItemType[] = [
       "Designed Prisma ORM data models and PostgreSQL schemas for users, documents, messages, and verification records, supporting consistent data storage and reliable CRUD operations.",
       "Developed workflows connecting React interfaces to backend services through RESTful APIs, enabling multi-step verification, document management, messaging, authentication, Cloudinary media uploads, and Stripe payment processing.",
       "Translated UI/UX wireframes and evolving requirements from management, marketing, investors, and early-access users into reusable React and Tailwind CSS components for client-facing interfaces.",
-      "Managed assigned development work through OpenProject by completing tickets, documenting work delivered for each milestone, and participating in weekly meetings with developers, management, and marketing to review progress, resolve issues, and prioritize product improvements.",
+      "Managed assigned development work through OpenProject, documenting milestone deliverables and participating in weekly cross-functional meetings to review progress, resolve issues, and prioritize product improvements.",
     ],
   },
   {
@@ -61,10 +61,10 @@ const EXPERIENCE_ITEMS: ExperienceItemType[] = [
       "Raised post-release client feedback scores from 3/5 to 5/5 by identifying major usability pain points with management and clients, then delivering targeted UI/UX improvements across facilities maintenance workflows.",
       "Refactored features in a full-stack facilities maintenance platform using React, TypeScript, Tailwind CSS, and RESTful APIs, improving usability across employee records, maintenance history, charting, and data visualization workflows.",
       "Designed, developed, and deployed a mobile-first client-facing website for All Track System using HTML, CSS, JavaScript, and Sass, owning implementation end-to-end and deploying through AWS CloudFront and Amazon S3.",
-      "Improved front-end quality by implementing automated tests with Jest and React Testing Library and resolving user-facing usability issues identified through Google Search Console.",
+      "Improved front-end quality by implementing automated tests with Jest and React Testing Library and resolving accessibility and Google Search Console issues.",
       "Built HTML, CSS, and JavaScript prototypes to test facilities management workflows and communicate product concepts to technical and non-technical stakeholders.",
       "Helped define core platform features including GPS tracking, Google Maps API integration, proof-of-work submissions, repair status updates, and role-based access controls.",
-      "Led demos, technical presentations, and team meetings to align executives, developers, planners, and clients on product direction.",
+      "Led demos, technical presentations, and project discussions to align executives, developers, planners, and clients on product direction.",
     ],
   },
   {
@@ -77,9 +77,9 @@ const EXPERIENCE_ITEMS: ExperienceItemType[] = [
       },
     ],
     highlights: [
-      "Drove a 200%+ increase in inbound inquiries by building and launching EME Group’s first client-facing website in over 20 years.",
+      "Built and launched EME Group’s first client-facing website in over 20 years, contributing to a reported 200%+ increase in inbound inquiries.",
       "Developed a mobile-responsive website using HTML, CSS, JavaScript, Sass, and the Google Maps API, improving the company’s online visibility and making location/contact information easier for clients to access.",
-      "Continue to manage domain configuration, hosting, and site maintenance, supporting reliable website availability since its launch.",
+      "Continue to provide occasional domain configuration, hosting, and site maintenance support following the original website launch.",
     ],
   },
 ];

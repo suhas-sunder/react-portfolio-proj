@@ -11,7 +11,7 @@ const EducationData: EducationItemType[] = [
   {
     id: "masters-degree",
     degree:
-      "Master’s Degree in Electrical and Computer Engineering (4.21/4.30 GPA)",
+      "Master of Engineering in Electrical and Computer Engineering (4.21/4.30 GPA)",
     institution: "Ontario Tech University",
     location: "Oshawa, ON, Canada",
     graduation: "December 2025",
@@ -24,7 +24,7 @@ const EducationData: EducationItemType[] = [
   {
     id: "bachelors-degree",
     degree:
-      "Bachelor’s Degree in Electrical Engineering and Management (Honours)",
+      "Bachelor of Engineering in Electrical Engineering and Management (Honours)",
     institution: "Ontario Tech University",
     location: "Oshawa, ON, Canada",
     graduation: "May 2019",
